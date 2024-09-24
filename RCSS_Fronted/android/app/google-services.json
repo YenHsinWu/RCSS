@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1015989200317",
+    "project_id": "bao-register",
+    "storage_bucket": "bao-register.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015989200317:android:7095f01e2b9956a729ded4",
+        "android_client_info": {
+          "package_name": "com.example.bao_register"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPz_8kc9XCjiVtnBJ6rerCJ4kF1ek1JrY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
