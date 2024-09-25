@@ -6,9 +6,8 @@ class SlidingLineChart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: WebView(
-        initialUrl: 'http://10.10.10.204:8501',
+        initialUrl: 'https://bs6fhflzzy5tkuphlvppby.streamlit.app/',
         javascriptMode: JavascriptMode.unrestricted,
-      ),
     );
   }
 }
