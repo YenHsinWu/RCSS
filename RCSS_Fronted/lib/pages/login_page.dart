@@ -4,6 +4,7 @@ import "package:bao_register/widgets/text_field_widget.dart";
 import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
 
+import "../auth_implemetation/auth_service.dart";
 import "home_page.dart";
 
 class LoginPage extends StatefulWidget {
@@ -15,6 +16,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final FirebaseAuthServices _firebaseAuthServices = FirebaseAuthServices();
+  final AuthService _authService = AuthService();
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -104,6 +106,8 @@ class _LoginPageState extends State<LoginPage> {
   void _signIn() async {
     String email = emailController.text;
     String password = passwordController.text;
+
+    _authService.fetchData();
 
     User? user =
         await _firebaseAuthServices.signInWithEmailAndPassword(email, password);

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class SlidingLineChart extends StatelessWidget {
+class CompositionPieChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: WebView(
-        initialUrl: 'https://bs6fhflzzy5tkuphlvppby.streamlit.app/',
+      child: WebView(
+        initialUrl: 'https://jpzysmr9sapp6pkzkords.streamlit.app//',
         javascriptMode: JavascriptMode.unrestricted,
+      ),
     );
   }
 }
