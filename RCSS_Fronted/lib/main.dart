@@ -1,4 +1,4 @@
-import 'package:bao_register/pages/login_page.dart';
+import 'package:bao_register/widgets/chat_room_card.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +17,9 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: LoginPage());
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: ChatRoomCard(
+            avatarPath: 'assets/images/avatar.png', roomName: 'test'));
   }
 }

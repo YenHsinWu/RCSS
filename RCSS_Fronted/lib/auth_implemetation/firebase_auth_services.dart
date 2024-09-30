@@ -1,4 +1,3 @@
-import 'package:bao_register/auth_implemetation/auth_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -36,7 +35,6 @@ class FirebaseAuthServices {
   Future<User?> signInWithEmailAndPassword(
       String email, String password) async {
     try {
-      AuthService().fetchData();
       UserCredential userCredential = await _firebaseAuth
           .signInWithEmailAndPassword(email: email, password: password);
       return userCredential.user;

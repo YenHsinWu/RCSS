@@ -1,5 +1,3 @@
-import "dart:developer";
-
 import "package:bao_register/pages/index_page.dart";
 import "package:bao_register/pages/service_page.dart";
 import "package:flutter/material.dart";
@@ -46,7 +44,7 @@ class _HomePageState extends State<HomePage> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: "索引",
+            label: "首頁",
             backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
