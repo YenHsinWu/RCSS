@@ -10,6 +10,8 @@ class ChatRoomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 4,
+      margin: EdgeInsets.all(10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -21,7 +23,8 @@ class ChatRoomCard extends StatelessWidget {
           SizedBox(width: 20),
           Text(
             roomName,
-            style: TextStyle(fontSize: 36, color: Colors.red),
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 36, color: Colors.red),
           ),
         ],
       ),

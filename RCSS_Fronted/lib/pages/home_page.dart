@@ -1,3 +1,4 @@
+import "package:bao_register/pages/chat_room_page.dart";
 import "package:bao_register/pages/index_page.dart";
 import "package:bao_register/pages/service_page.dart";
 import "package:flutter/material.dart";
@@ -76,7 +77,7 @@ class _HomePageState extends State<HomePage> {
           ServicePage(
             serviceIndex: 0,
           ),
-          Center(child: Text("聊天")),
+          ChatRoomPage(),
           Center(child: Text("關於我")),
         ],
       ),
