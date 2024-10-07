@@ -1,10 +1,8 @@
+import "package:bao_register/auth_implemetation/auth_service.dart";
 import "package:bao_register/auth_implemetation/firebase_auth_services.dart";
 import "package:bao_register/pages/sign_up_page.dart";
 import "package:bao_register/widgets/text_field_widget.dart";
-import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
-
-import "home_page.dart";
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -15,6 +13,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _firebaseAuthServices = FirebaseAuthServices();
+  final _authService = AuthService();
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -105,18 +104,21 @@ class _LoginPageState extends State<LoginPage> {
     String email = emailController.text;
     String password = passwordController.text;
 
-    User? user =
-        await _firebaseAuthServices.signInWithEmailAndPassword(email, password);
+    // User? user =
+    //     await _firebaseAuthServices.signInWithEmailAndPassword(email, password);
 
-    if (user != null) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => HomePage(),
-        ),
-      );
-    } else {
-      print("Something went wrong.");
-    }
+    // if (user != null) {
+    //   Navigator.push(
+    //     context,
+    //     MaterialPageRoute(
+    //       builder: (context) => HomePage(),
+    //     ),
+    //   );
+    // } else {
+    //   print("Something went wrong.");
+    // }
+
+    Map<String, dynamic> responseBody = await _authService
+        .loginWithEmailAndPassword(email: email, password: password);
   }
 }
