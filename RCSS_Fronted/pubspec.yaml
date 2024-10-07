@@ -48,6 +48,7 @@ dependencies:
   postgres: ^3.4.0
   flutter_im_list: ^1.0.0
   web_socket_channel: ^3.0.1
+  fluttertoast: ^8.0.0
 
 dev_dependencies:
   flutter_test:
