@@ -104,20 +104,6 @@ class _LoginPageState extends State<LoginPage> {
     String email = emailController.text;
     String password = passwordController.text;
 
-    // User? user =
-    //     await _firebaseAuthServices.signInWithEmailAndPassword(email, password);
-
-    // if (user != null) {
-    //   Navigator.push(
-    //     context,
-    //     MaterialPageRoute(
-    //       builder: (context) => HomePage(),
-    //     ),
-    //   );
-    // } else {
-    //   print("Something went wrong.");
-    // }
-
     Map<String, dynamic> responseBody = await _authService
         .loginWithEmailAndPassword(email: email, password: password);
   }
