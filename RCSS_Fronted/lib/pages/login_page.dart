@@ -1,5 +1,4 @@
 import "package:bao_register/auth_implemetation/auth_service.dart";
-import "package:bao_register/auth_implemetation/firebase_auth_services.dart";
 import "package:bao_register/pages/sign_up_page.dart";
 import "package:bao_register/widgets/text_field_widget.dart";
 import "package:flutter/material.dart";
@@ -12,7 +11,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _firebaseAuthServices = FirebaseAuthServices();
   final _authService = AuthService();
 
   final TextEditingController emailController = TextEditingController();

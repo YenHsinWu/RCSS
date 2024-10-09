@@ -1,0 +1,90 @@
+import 'package:bao_register/auth_implemetation/auth_service.dart';
+import 'package:bao_register/pages/home_page.dart';
+import 'package:flutter/material.dart';
+
+import '../widgets/text_field_widget.dart';
+
+class VerificationPage extends StatelessWidget {
+  final String email;
+  final String password;
+  final String phone;
+
+  VerificationPage(
+      {super.key,
+      required String this.email,
+      required String this.password,
+      required String this.phone});
+
+  final AuthService authService = AuthService();
+
+  final TextEditingController verificationController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('信箱驗證'),
+        centerTitle: true,
+        backgroundColor: Colors.red,
+        foregroundColor: Colors.white,
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "信箱驗證碼",
+              style: TextStyle(
+                  color: Colors.red, fontSize: 28, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 32),
+            TextFieldWidget(
+                controller: verificationController,
+                hintText: "驗證碼",
+                obscureText: false),
+            SizedBox(height: 32),
+            GestureDetector(
+              onTap: () => _verify(context),
+              child: Container(
+                width: double.infinity,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Center(
+                  child: Text(
+                    "驗證",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _verify(BuildContext context) async {
+    String code = verificationController.text;
+    Map<String, dynamic> response = await authService.verifyRegistration(
+        email: email,
+        code: code,
+        password: password,
+        userName: 'User01',
+        phone: phone,
+        phoneCountry: 'US');
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => HomePage(),
+      ),
+    );
+  }
+}

@@ -1,7 +1,6 @@
-import "package:bao_register/auth_implemetation/firebase_auth_services.dart";
-import "package:bao_register/pages/home_page.dart";
+import "package:bao_register/auth_implemetation/auth_service.dart";
+import "package:bao_register/pages/verification_page.dart";
 import "package:bao_register/widgets/text_field_widget.dart";
-import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
 import "package:intl_phone_field/intl_phone_field.dart";
 
@@ -15,7 +14,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  final FirebaseAuthServices _firebaseAuthServices = FirebaseAuthServices();
+  final AuthService authService = AuthService();
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -125,20 +124,16 @@ class _SignUpPageState extends State<SignUpPage> {
   void _signUp() async {
     String email = emailController.text;
     String password = passwordController.text;
-    String phoneNumber = phoneController.text;
+    String phone = phoneController.text;
 
-    User? user = await _firebaseAuthServices.signUpWithEmailAndPassword(
-        email, password, phoneNumber);
+    String message = await authService.getVerificationCode(email: email);
 
-    if (user != null) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => HomePage(),
-        ),
-      );
-    } else {
-      print("Something went wrong.");
-    }
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) =>
+            VerificationPage(email: email, password: password, phone: phone),
+      ),
+    );
   }
 }

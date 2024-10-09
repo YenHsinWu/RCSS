@@ -1,7 +1,8 @@
-import 'package:bao_register/components/chat_message_provider.dart';
-import 'package:bao_register/pages/chat_page.dart';
+import 'package:bao_register/pages/sign_up_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'components/chat_message_provider.dart';
 
 void main() async {
   runApp(const MainApp());
@@ -16,7 +17,7 @@ class MainApp extends StatelessWidget {
       create: (_) => ChatMessageProvider(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: ChatPage(),
+        home: SignUpPage(),
       ),
     );
   }
