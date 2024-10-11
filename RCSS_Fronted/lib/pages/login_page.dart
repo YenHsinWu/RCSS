@@ -1,7 +1,10 @@
 import "package:bao_register/auth_implemetation/auth_service.dart";
+import "package:bao_register/pages/check_emaili_page.dart";
 import "package:bao_register/pages/sign_up_page.dart";
 import "package:bao_register/widgets/text_field_widget.dart";
 import "package:flutter/material.dart";
+
+import "home_page.dart";
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -84,14 +87,67 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     );
                   },
-                  child: Text("立即註冊!",
-                      style: TextStyle(
-                          color: Colors.red,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold)),
-                )
+                  child: Text(
+                    "立即註冊!",
+                    style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
               ],
-            )
+            ),
+            SizedBox(height: 12),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  '忘記密碼?',
+                  style: TextStyle(color: Colors.red, fontSize: 16),
+                ),
+                SizedBox(width: 12),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CheckEmailPage(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    "點我重設密碼!",
+                    style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            GestureDetector(
+              onTap: () => _thirdPartySignIn(context),
+              child: Container(
+                width: double.infinity,
+                height: 50,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.red,
+                  ),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Center(
+                  child: Text(
+                    '使用Google登入',
+                    style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -104,5 +160,23 @@ class _LoginPageState extends State<LoginPage> {
 
     Map<String, dynamic> responseBody = await _authService
         .loginWithEmailAndPassword(email: email, password: password);
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => HomePage(),
+      ),
+    );
+  }
+
+  void _thirdPartySignIn(BuildContext context) async {
+    await _authService.thirdPartyRegistration();
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => HomePage(),
+      ),
+    );
   }
 }

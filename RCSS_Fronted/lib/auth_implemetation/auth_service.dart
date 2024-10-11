@@ -1,15 +1,18 @@
 import "dart:convert";
 
 import "package:http/http.dart" as http;
+import "package:url_launcher/url_launcher.dart";
 
 class AuthService {
+  Map<String, String> get headers {
+    return {
+      'Content-Type': 'application/json; charset=UTF-8',
+    };
+  }
+
   Future getVerificationCode({required String email}) async {
     final uri = Uri.parse(
         'http://10.10.10.207:3000/api/verification/send-verification-code');
-
-    final Map<String, String> headers = {
-      'Content-Type': 'application/json; charset=UTF-8',
-    };
 
     final Map<String, String> requestBody = {'email': email};
 
@@ -37,10 +40,6 @@ class AuthService {
     final uri = Uri.parse(
         'http://10.10.10.207:3000/api/registration/verify-registration');
 
-    final Map<String, String> headers = {
-      'Content-Type': 'application/json; charset=UTF-8',
-    };
-
     final Map<String, String> requestBody = {
       'email': email,
       'code': code,
@@ -65,13 +64,17 @@ class AuthService {
     }
   }
 
+  Future thirdPartyRegistration() async {
+    final uri = Uri.parse('http://10.10.10.207:3000/api/auth/google');
+
+    if (!await launchUrl(uri)) {
+      throw Exception('Could not launch $uri');
+    }
+  }
+
   Future loginWithEmailAndPassword(
       {required String email, required String password}) async {
     final uri = Uri.parse('http://10.10.10.207:3000/api/login');
-
-    final Map<String, String> headers = {
-      'Content-Type': 'application/json; charset=UTF-8',
-    };
 
     final Map<String, String> requestBody = {
       'identifier': email,
@@ -86,6 +89,34 @@ class AuthService {
 
     Map<String, dynamic> responseBody = json.decode(response.body);
     if (response.statusCode == 200) {
+      return responseBody;
+    } else {
+      throw Exception('${response.statusCode}');
+    }
+  }
+
+  Future resetPassword(
+      {required String email,
+      required String code,
+      required String password}) async {
+    final uri =
+        Uri.parse('http://10.10.10.207:3000/api/password-reset/password-reset');
+
+    final Map<String, String> requestBody = {
+      'email': email,
+      'code': code,
+      'password': password,
+    };
+
+    final response = await http.post(
+      uri,
+      headers: headers,
+      body: json.encode(requestBody),
+    );
+
+    Map<String, dynamic> responseBody = json.decode(response.body);
+    if (response.statusCode == 200) {
+      print(responseBody['message']);
       return responseBody;
     } else {
       throw Exception('${response.statusCode}');

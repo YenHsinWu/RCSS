@@ -1,4 +1,5 @@
 import "package:bao_register/auth_implemetation/auth_service.dart";
+import "package:bao_register/pages/home_page.dart";
 import "package:bao_register/pages/verification_page.dart";
 import "package:bao_register/widgets/text_field_widget.dart";
 import "package:flutter/material.dart";
@@ -115,6 +116,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 )
               ],
             ),
+
           ],
         ),
       ),

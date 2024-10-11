@@ -2,6 +2,7 @@ import "package:bao_register/pages/chat_room_page.dart";
 import "package:bao_register/pages/index_page.dart";
 import "package:bao_register/pages/service_page.dart";
 import "package:flutter/material.dart";
+import "package:uni_links/uni_links.dart";
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,6 +22,26 @@ class _HomePageState extends State<HomePage> {
   ];
 
   final PageController _pageController = PageController();
+
+  String _linkMessage = 'Waiting for link...';
+
+  @override
+  void initState() {
+    super.initState();
+    _initDeepLink();
+  }
+
+  Future _initDeepLink() async {
+    uriLinkStream.listen((Uri? uri) {
+      setState(() {
+        _linkMessage = uri.toString();
+      });
+    }, onError: (err) {
+      setState(() {
+        _linkMessage = 'Failed to get link: ${err.message}';
+      });
+    });
+  }
 
   void _onItemTapped(int index) {
     setState(() {
