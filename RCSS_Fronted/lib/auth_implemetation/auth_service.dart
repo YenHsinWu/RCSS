@@ -30,6 +30,26 @@ class AuthService {
     }
   }
 
+  Future getVerificationCodeByPhone({required String phone}) async {
+    final uri = Uri.parse('http://10.10.10.207:3000/api/sms/send-sms');
+
+    final Map<String, String> requestBody = {'phone': phone};
+
+    final response = await http.post(
+      uri,
+      headers: headers,
+      body: json.encode(requestBody),
+    );
+
+    Map<String, dynamic> responseBody = json.decode(response.body);
+    if (response.statusCode == 200) {
+      print(responseBody['message']);
+      return responseBody['message'];
+    } else {
+      throw Exception('${response.statusCode}');
+    }
+  }
+
   Future verifyRegistration(
       {required String email,
       required String code,
@@ -56,10 +76,44 @@ class AuthService {
     );
 
     Map<String, dynamic> responseBody = json.decode(response.body);
-    print(responseBody);
     if (response.statusCode == 200) {
       return responseBody;
     } else {
+      throw Exception('${response.statusCode}');
+    }
+  }
+
+  Future verifyRegistrationByPhone(
+      {required String email,
+      required String code,
+      required String password,
+      required String userName,
+      required String phone,
+      required String phoneCountry}) async {
+    final uri =
+        Uri.parse('http://10.10.10.207:3000/api/verify-phone-registration');
+
+    final Map<String, String> requestBody = {
+      'phone': phone,
+      'code': code,
+      'user_name': userName,
+      'email': email,
+      'phone_country': phoneCountry,
+      'password': password,
+    };
+
+    final response = await http.post(
+      uri,
+      headers: headers,
+      body: json.encode(requestBody),
+    );
+
+    Map<String, dynamic> responseBody = json.decode(response.body);
+    if (response.statusCode == 200) {
+      print(responseBody['message']);
+      return responseBody;
+    } else {
+      print(responseBody['message']);
       throw Exception('${response.statusCode}');
     }
   }
@@ -116,7 +170,6 @@ class AuthService {
 
     Map<String, dynamic> responseBody = json.decode(response.body);
     if (response.statusCode == 200) {
-      print(responseBody['message']);
       return responseBody;
     } else {
       throw Exception('${response.statusCode}');

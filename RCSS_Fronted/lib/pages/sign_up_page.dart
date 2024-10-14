@@ -1,5 +1,5 @@
 import "package:bao_register/auth_implemetation/auth_service.dart";
-import "package:bao_register/pages/home_page.dart";
+import "package:bao_register/pages/phone_sign_up_page.dart";
 import "package:bao_register/pages/verification_page.dart";
 import "package:bao_register/widgets/text_field_widget.dart";
 import "package:flutter/material.dart";
@@ -36,7 +36,7 @@ class _SignUpPageState extends State<SignUpPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "註冊",
+              "信箱註冊",
               style: TextStyle(
                   color: Colors.red, fontSize: 28, fontWeight: FontWeight.bold),
             ),
@@ -113,10 +113,30 @@ class _SignUpPageState extends State<SignUpPage> {
                           color: Colors.red,
                           fontSize: 16,
                           fontWeight: FontWeight.bold)),
-                )
+                ),
               ],
             ),
-
+            SizedBox(height: 12),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PhoneSignUpPage(),
+                      ),
+                    );
+                  },
+                  child: Text("改用手機註冊",
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold)),
+                ),
+              ],
+            ),
           ],
         ),
       ),

@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 
 import '../widgets/text_field_widget.dart';
 
-class VerificationPage extends StatelessWidget {
+class PhoneVerificationPage extends StatelessWidget {
   final String email;
   final String password;
   final String phone;
 
-  VerificationPage(
+  PhoneVerificationPage(
       {super.key,
       required String this.email,
       required String this.password,
@@ -23,7 +23,7 @@ class VerificationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('信箱驗證'),
+        title: Text('手機驗證'),
         centerTitle: true,
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
@@ -72,7 +72,7 @@ class VerificationPage extends StatelessWidget {
 
   void _verify(BuildContext context) async {
     String code = verificationController.text;
-    Map<String, dynamic> response = await authService.verifyRegistration(
+    Map<String, dynamic> response = await authService.verifyRegistrationByPhone(
         email: email,
         code: code,
         password: password,
