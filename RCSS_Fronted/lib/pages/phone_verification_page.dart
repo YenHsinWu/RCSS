@@ -76,7 +76,7 @@ class PhoneVerificationPage extends StatelessWidget {
         email: email,
         code: code,
         password: password,
-        userName: 'User01',
+        userName: email.split('@')[0],
         phone: phone,
         phoneCountry: 'TW');
 
