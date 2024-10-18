@@ -1,8 +1,8 @@
 import "package:bao_register/pages/chat_room_page.dart";
-import "package:bao_register/pages/index_page.dart";
 import "package:bao_register/pages/service_page.dart";
+import "package:bao_register/pages/store_page.dart";
+import "package:bao_register/pages/web_page.dart";
 import "package:flutter/material.dart";
-import "package:uni_links/uni_links.dart";
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,33 +15,14 @@ class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
 
   final List<Widget> _pagesName = [
-    Text("首頁"),
-    Text("服務"),
     Text("聊天"),
-    Text("關於我"),
+    Text("客服"),
+    Text("網頁"),
+    Text("商家"),
+    Text("設定"),
   ];
 
   final PageController _pageController = PageController();
-
-  String _linkMessage = 'Waiting for link...';
-
-  @override
-  void initState() {
-    super.initState();
-    _initDeepLink();
-  }
-
-  Future _initDeepLink() async {
-    uriLinkStream.listen((Uri? uri) {
-      setState(() {
-        _linkMessage = uri.toString();
-      });
-    }, onError: (err) {
-      setState(() {
-        _linkMessage = 'Failed to get link: ${err.message}';
-      });
-    });
-  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -65,23 +46,28 @@ class _HomePageState extends State<HomePage> {
         unselectedItemColor: Colors.white,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "首頁",
-            backgroundColor: Colors.red,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.miscellaneous_services),
-            label: "服務",
-            backgroundColor: Colors.red,
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.chat),
             label: "聊天",
             backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.electrical_services),
+            label: "客服",
+            backgroundColor: Colors.red,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.web),
+            label: "網頁",
+            backgroundColor: Colors.red,
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: "關於我",
+            label: "商家",
+            backgroundColor: Colors.red,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: "設定",
             backgroundColor: Colors.red,
           ),
         ],
@@ -94,12 +80,15 @@ class _HomePageState extends State<HomePage> {
           });
         },
         children: [
-          IndexPage(),
+          ChatRoomPage(),
           ServicePage(
             serviceIndex: 0,
           ),
-          ChatRoomPage(),
-          Center(child: Text("關於我")),
+          WebPage(),
+          StorePage(),
+          Center(
+            child: Text("設定"),
+          ),
         ],
       ),
     );

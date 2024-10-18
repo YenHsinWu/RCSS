@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ChatRoomCard extends StatelessWidget {
+class ChatRoomCard extends Card {
   final String avatarPath;
   final String roomName;
 

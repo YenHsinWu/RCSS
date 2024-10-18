@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../pages/chat_page.dart';
-import '../widgets/chat_room_card.dart';
 
 class CardListView extends StatelessWidget {
-  final List<ChatRoomCard> cards;
+  final List<Card> cards;
   const CardListView({super.key, required this.cards});
 
   @override

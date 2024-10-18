@@ -11,9 +11,9 @@ class ChatRoomPage extends StatefulWidget {
 }
 
 class _ChatRoomPageState extends State<ChatRoomPage> {
-  List<ChatRoomCard> cards = [];
+  List<Card> cards = [];
 
-  List<ChatRoomCard>? generateDummyCards() {
+  List<Card>? generateDummyCards() {
     for (int i = 0; i < 20; i++) {
       cards.add(ChatRoomCard(
           avatarPath: 'assets/images/avatar.png', roomName: 'test'));

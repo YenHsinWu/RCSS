@@ -1,5 +1,5 @@
 import "package:bao_register/auth_implemetation/auth_service.dart";
-import "package:bao_register/pages/check_emaili_page.dart";
+import "package:bao_register/pages/check_email_page.dart";
 import "package:bao_register/pages/sign_up_page.dart";
 import "package:bao_register/widgets/text_field_widget.dart";
 import "package:flutter/material.dart";
