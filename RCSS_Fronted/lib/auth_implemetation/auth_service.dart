@@ -119,7 +119,7 @@ class AuthService {
   }
 
   Future thirdPartyRegistration() async {
-    final uri = Uri.parse('http://10.10.10.207:3000/api/auth/google');
+    final uri = Uri.parse('http://localhost:3000/api/auth/google');
 
     if (!await launchUrl(uri)) {
       throw Exception('Could not launch $uri');

@@ -1,5 +1,6 @@
 import 'package:bao_register/auth_implemetation/auth_service.dart';
 import 'package:bao_register/pages/home_page.dart';
+import 'package:bao_register/pages/return_verify_page.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/text_field_widget.dart';
@@ -64,6 +65,37 @@ class VerificationPage extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: 32),
+            GestureDetector(
+              onTap: () => _returnVerify(context),
+              child: Container(
+                width: double.infinity,
+                height: 50,
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '無法成功認證？',
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 16,
+                        ),
+                      ),
+                      SizedBox(width: 12),
+                      Text(
+                        '改用回傳驗證碼認證！',
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -84,6 +116,15 @@ class VerificationPage extends StatelessWidget {
       context,
       MaterialPageRoute(
         builder: (context) => HomePage(),
+      ),
+    );
+  }
+
+  void _returnVerify(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ReturnVerifyPage(),
       ),
     );
   }

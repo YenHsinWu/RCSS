@@ -172,7 +172,7 @@ class _LoginPageState extends State<LoginPage> {
   void _thirdPartySignIn(BuildContext context) async {
     await _authService.thirdPartyRegistration();
 
-    Navigator.push(
+    Navigator.pushReplacement(
       context,
       MaterialPageRoute(
         builder: (context) => HomePage(),
