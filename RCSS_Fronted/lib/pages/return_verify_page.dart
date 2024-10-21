@@ -1,12 +1,9 @@
-import 'package:bao_register/auth_implemetation/auth_service.dart';
+import 'package:bao_register/components/count_down_timer.dart';
 import 'package:bao_register/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 class ReturnVerifyPage extends StatelessWidget {
-  final String email;
-  final AuthService _authService = AuthService();
-
-  ReturnVerifyPage({super.key, required this.email});
+  const ReturnVerifyPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +27,7 @@ class ReturnVerifyPage extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            Text(
+            SelectableText(
               '收件者：dksms3003@gmail.com',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -122,6 +119,8 @@ class ReturnVerifyPage extends StatelessWidget {
   }
 
   void _login(BuildContext context) {
+    CountDownTimer();
+
     Navigator.push(
       context,
       MaterialPageRoute(

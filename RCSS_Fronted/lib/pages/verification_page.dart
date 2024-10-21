@@ -124,9 +124,7 @@ class VerificationPage extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ReturnVerifyPage(
-          email: email,
-        ),
+        builder: (context) => ReturnVerifyPage(),
       ),
     );
   }
