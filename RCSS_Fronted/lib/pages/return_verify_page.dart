@@ -23,7 +23,7 @@ class ReturnVerifyPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              '請以以下寄件範例回傳您的手機或信箱，以及驗證碼。',
+              '寄信範例：',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.red,
@@ -47,7 +47,7 @@ class ReturnVerifyPage extends StatelessWidget {
               ),
             ),
             Text(
-              '內容：',
+              '信件內容：',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.red,
@@ -55,7 +55,7 @@ class ReturnVerifyPage extends StatelessWidget {
               ),
             ),
             Text(
-              '手機：(例：886123456789) 或 信箱：(t1234@gmail.com)\n(手機須加上國碼)',
+              '手機號碼：(例：987654321)',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.red,
@@ -63,7 +63,7 @@ class ReturnVerifyPage extends StatelessWidget {
               ),
             ),
             Text(
-              '密碼：(例：test123)',
+              'email：(例：t1234@gmail.com)',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.red,
@@ -72,6 +72,22 @@ class ReturnVerifyPage extends StatelessWidget {
             ),
             Text(
               '驗證碼：(例：123456)',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.red,
+                fontSize: 20,
+              ),
+            ),
+            Text(
+              '國碼：(例：886)',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.red,
+                fontSize: 20,
+              ),
+            ),
+            Text(
+              '密碼：(例：pass1234)',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.red,
