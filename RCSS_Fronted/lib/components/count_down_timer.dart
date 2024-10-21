@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bao_register/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 class CountDownTimer extends StatefulWidget {
@@ -37,6 +38,15 @@ class _CountdownTimerState extends State<CountDownTimer> {
 
   @override
   Widget build(BuildContext context) {
+    if (_start == 0) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => LoginPage(),
+        ),
+      );
+    }
+
     return Text(
       '請在 $_start 秒後嘗試登入',
       style: TextStyle(fontSize: 20, color: Colors.red),

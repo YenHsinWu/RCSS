@@ -1,6 +1,6 @@
-import 'package:bao_register/components/count_down_timer.dart';
-import 'package:bao_register/pages/login_page.dart';
 import 'package:flutter/material.dart';
+
+import 'count_down_page.dart';
 
 class ReturnVerifyPage extends StatelessWidget {
   const ReturnVerifyPage({super.key});
@@ -35,7 +35,7 @@ class ReturnVerifyPage extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            Text(
+            SelectableText(
               '主旨：回傳驗證碼註冊',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -43,7 +43,7 @@ class ReturnVerifyPage extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            Text(
+            SelectableText(
               '信件內容：',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -51,7 +51,7 @@ class ReturnVerifyPage extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            Text(
+            SelectableText(
               '手機號碼：(例：987654321)',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -59,7 +59,7 @@ class ReturnVerifyPage extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            Text(
+            SelectableText(
               'email：(例：t1234@gmail.com)',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -67,7 +67,7 @@ class ReturnVerifyPage extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            Text(
+            SelectableText(
               '驗證碼：(例：123456)',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -75,7 +75,7 @@ class ReturnVerifyPage extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            Text(
+            SelectableText(
               '國碼：(例：886)',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -83,8 +83,8 @@ class ReturnVerifyPage extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            Text(
-              '密碼：(例：pass1234)',
+            SelectableText(
+              '密碼：(例：pass1234) (規格：英文大小寫+數字8碼以上)',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.red,
@@ -119,12 +119,10 @@ class ReturnVerifyPage extends StatelessWidget {
   }
 
   void _login(BuildContext context) {
-    CountDownTimer();
-
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => LoginPage(),
+        builder: (context) => CountDownPage(),
       ),
     );
   }
