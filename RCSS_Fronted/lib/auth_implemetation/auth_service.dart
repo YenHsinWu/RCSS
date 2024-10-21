@@ -43,8 +43,7 @@ class AuthService {
 
     Map<String, dynamic> responseBody = json.decode(response.body);
     if (response.statusCode == 200) {
-      print(responseBody['message']);
-      return responseBody['message'];
+      return responseBody;
     } else {
       throw Exception('${response.statusCode}');
     }

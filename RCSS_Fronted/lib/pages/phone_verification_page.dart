@@ -1,6 +1,5 @@
 import 'package:bao_register/auth_implemetation/auth_service.dart';
 import 'package:bao_register/pages/home_page.dart';
-import 'package:bao_register/pages/return_verify_page.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/text_field_widget.dart';
@@ -64,24 +63,7 @@ class PhoneVerificationPage extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
-            SizedBox(height: 32),
-            GestureDetector(
-              onTap: () => _returnVerify(context),
-              child: Container(
-                width: double.infinity,
-                height: 50,
-                child: Center(
-                  child: Text(
-                    "點我使用回傳信箱驗證",
-                    style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-            ),
+            )
           ],
         ),
       ),
@@ -102,15 +84,6 @@ class PhoneVerificationPage extends StatelessWidget {
       context,
       MaterialPageRoute(
         builder: (context) => HomePage(),
-      ),
-    );
-  }
-
-  void _returnVerify(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => ReturnVerifyPage(),
       ),
     );
   }

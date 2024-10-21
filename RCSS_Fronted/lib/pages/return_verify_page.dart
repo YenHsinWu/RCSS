@@ -1,8 +1,12 @@
-import 'package:bao_register/components/count_down_timer.dart';
+import 'package:bao_register/auth_implemetation/auth_service.dart';
+import 'package:bao_register/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 class ReturnVerifyPage extends StatelessWidget {
-  const ReturnVerifyPage({super.key});
+  final String email;
+  final AuthService _authService = AuthService();
+
+  ReturnVerifyPage({super.key, required this.email});
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +55,7 @@ class ReturnVerifyPage extends StatelessWidget {
               ),
             ),
             Text(
-              '手機：(例：886123456789) 或 信箱：(t1234@gmail.com)',
+              '手機：(例：886123456789) 或 信箱：(t1234@gmail.com)\n(手機須加上國碼)',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.red,
@@ -59,16 +63,53 @@ class ReturnVerifyPage extends StatelessWidget {
               ),
             ),
             Text(
-              '驗證碼：123456',
+              '密碼：(例：test123)',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.red,
                 fontSize: 20,
               ),
             ),
-            CountDownTimer(),
+            Text(
+              '驗證碼：(例：123456)',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.red,
+                fontSize: 20,
+              ),
+            ),
+            SizedBox(height: 32),
+            GestureDetector(
+              onTap: () => _login(context),
+              child: Container(
+                width: double.infinity,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Center(
+                  child: Text(
+                    "已傳送郵件",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
+      ),
+    );
+  }
+
+  void _login(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => LoginPage(),
       ),
     );
   }

@@ -67,7 +67,7 @@ class VerificationPage extends StatelessWidget {
             ),
             SizedBox(height: 32),
             GestureDetector(
-              onTap: () => _returnVerify(context),
+              onTap: () => _returnVerify(context, email),
               child: Container(
                 width: double.infinity,
                 height: 50,
@@ -120,11 +120,13 @@ class VerificationPage extends StatelessWidget {
     );
   }
 
-  void _returnVerify(BuildContext context) {
+  void _returnVerify(BuildContext context, String email) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ReturnVerifyPage(),
+        builder: (context) => ReturnVerifyPage(
+          email: email,
+        ),
       ),
     );
   }
