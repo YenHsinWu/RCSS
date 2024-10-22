@@ -1,5 +1,5 @@
 import 'package:bao_register/auth_implemetation/auth_service.dart';
-import 'package:bao_register/pages/home_page.dart';
+import 'package:bao_register/pages/login_page.dart';
 import 'package:bao_register/pages/return_verify_page.dart';
 import 'package:flutter/material.dart';
 
@@ -115,7 +115,7 @@ class VerificationPage extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => HomePage(),
+        builder: (context) => LoginPage(),
       ),
     );
   }

@@ -127,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             SizedBox(height: 20),
             GestureDetector(
-              onTap: () => _thirdPartySignIn(context),
+              // onTap: () => _thirdPartySignIn(context),
               child: Container(
                 width: double.infinity,
                 height: 50,
@@ -164,19 +164,19 @@ class _LoginPageState extends State<LoginPage> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => HomePage(),
+        builder: (context) => HomePage(uuid: responseBody['uuid']),
       ),
     );
   }
 
-  void _thirdPartySignIn(BuildContext context) async {
-    await _authService.thirdPartyRegistration();
-
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => HomePage(),
-      ),
-    );
-  }
+  // void _thirdPartySignIn(BuildContext context) async {
+  //   await _authService.thirdPartyRegistration();
+  //
+  //   Navigator.pushReplacement(
+  //     context,
+  //     MaterialPageRoute(
+  //       builder: (context) => HomePage(),
+  //     ),
+  //   );
+  // }
 }

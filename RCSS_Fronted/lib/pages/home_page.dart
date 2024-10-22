@@ -5,7 +5,8 @@ import "package:bao_register/pages/web_page.dart";
 import "package:flutter/material.dart";
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final String uuid;
+  const HomePage({super.key, required this.uuid});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -85,7 +86,7 @@ class _HomePageState extends State<HomePage> {
             serviceIndex: 0,
           ),
           WebPage(),
-          StorePage(),
+          StorePage(uuid: widget.uuid),
           Center(
             child: Text("設定"),
           ),
