@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:bao_register/pages/chat_page.dart';
+import 'package:bao_register/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +20,7 @@ class MainApp extends StatelessWidget {
       create: (_) => ChatMessageProvider(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: ChatPage(),
+        home: LoginPage(),
       ),
     );
   }
