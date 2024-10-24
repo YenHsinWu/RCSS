@@ -2,18 +2,18 @@ import 'package:bao_register/service_implementation/store_service.dart';
 import 'package:bao_register/widgets/business_card.dart';
 import 'package:flutter/material.dart';
 
-import '../views/card_list_view.dart';
+import '../views/store_page_list_view.dart';
 
 class StorePage extends StatefulWidget {
   final String uuid;
-  StorePage({super.key, required this.uuid});
+  const StorePage({super.key, required this.uuid});
 
   @override
   State<StorePage> createState() => _StorePageState();
 }
 
 class _StorePageState extends State<StorePage> {
-  final List<Card> _businessCards = [];
+  final List<BusinessCard> _businessCards = [];
   final StoreService _storeService = StoreService();
 
   @override
@@ -26,7 +26,11 @@ class _StorePageState extends State<StorePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: CardListView(cards: _businessCards),
+        child: StorePageListView(
+          cards: _businessCards,
+          uuid: widget.uuid,
+          businessId: '1',
+        ),
       ),
     );
   }
@@ -43,6 +47,7 @@ class _StorePageState extends State<StorePage> {
             BusinessCard(
               unreadCount: business['business_service_talks_is_not_read_count'],
               businessName: business['business_name'],
+              businessId: business['business_id'].toString(),
             ),
           );
         }
@@ -55,6 +60,7 @@ class _StorePageState extends State<StorePage> {
             BusinessCard(
               unreadCount: '0',
               businessName: business['business_name'],
+              businessId: business['business_id'].toString(),
             ),
           );
         }

@@ -81,7 +81,10 @@ class _HomePageState extends State<HomePage> {
           });
         },
         children: [
-          ChatRoomPage(),
+          ChatRoomPage(
+            uuid: widget.uuid,
+            businessId: '0',
+          ),
           ServicePage(
             serviceIndex: 0,
           ),

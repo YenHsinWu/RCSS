@@ -1,29 +1,79 @@
-import 'package:bao_register/views/card_list_view.dart';
+import 'package:bao_register/widgets/chat_room_card.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/chat_room_card.dart';
+import '../service_implementation/store_service.dart';
+import '../views/chat_room_page_list_view.dart';
 
 class ChatRoomPage extends StatefulWidget {
-  const ChatRoomPage({super.key});
+  final String uuid;
+  final String businessId;
+  const ChatRoomPage({
+    super.key,
+    required this.uuid,
+    required this.businessId,
+  });
 
   @override
   State<ChatRoomPage> createState() => _ChatRoomPageState();
 }
 
 class _ChatRoomPageState extends State<ChatRoomPage> {
-  List<Card> cards = [];
+  final List<Card> _chatRoomCards = [];
+  final StoreService _storeService = StoreService();
 
-  List<Card>? generateDummyCards() {
-    for (int i = 0; i < 20; i++) {
-      cards.add(ChatRoomCard(
-          avatarPath: 'assets/images/avatar.png', roomName: 'test'));
-    }
-
-    return cards;
+  @override
+  void initState() {
+    super.initState();
+    getBusinessServiceNamesAndUnreadCountsByUuidAndBusinessId(
+        widget.uuid, widget.businessId);
   }
 
   @override
   Widget build(BuildContext context) {
-    return CardListView(cards: generateDummyCards()!);
+    return Scaffold(
+      body: Container(
+        child: ChatRoomPageListView(
+          cards: _chatRoomCards,
+        ),
+      ),
+    );
+  }
+
+  void getBusinessServiceNamesAndUnreadCountsByUuidAndBusinessId(
+      String uuid, String businessId) async {
+    Map<String, dynamic> businessServiceNamesAndUnreadCounts =
+        await _storeService.getBusinessServicesListByUuidAndBusinessId(
+            uuid, businessId);
+
+    setState(() {
+      for (Map<String, dynamic> businessService
+          in businessServiceNamesAndUnreadCounts['data']) {
+        if (businessService['is_user_read'] != null) {
+          _chatRoomCards.add(
+            ChatRoomCard(
+              avatarPath: '',
+              unreadCount:
+                  businessService['business_service_talks_is_not_read_count'],
+              roomName:
+                  '${businessService['business_name']} ${businessService['business_service_name']}',
+            ),
+          );
+        }
+      }
+
+      for (Map<String, dynamic> businessService
+          in businessServiceNamesAndUnreadCounts['data']) {
+        if (businessService['is_user_read'] == null) {
+          _chatRoomCards.add(
+            ChatRoomCard(
+              avatarPath: '',
+              unreadCount: '0',
+              roomName:
+                  '${businessService['business_name']} ${businessService['business_service_name']}',
+            ),
+          );
+        }
+      }
+    });
   }
 }

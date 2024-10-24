@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 class BusinessCard extends Card {
   final String unreadCount;
   final String businessName;
+  final String businessId;
 
   const BusinessCard(
-      {super.key, required this.unreadCount, required this.businessName});
+      {super.key, required this.unreadCount, required this.businessName, required this.businessId});
 
   @override
   Widget build(BuildContext context) {
