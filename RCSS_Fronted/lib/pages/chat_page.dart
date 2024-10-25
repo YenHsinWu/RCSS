@@ -67,7 +67,7 @@ class _ChatPageState extends State<ChatPage> {
 
   Future<void> _setupSignalR() async {
     _hubConnection =
-        HubConnectionBuilder().withUrl('https://10.0.2.2:7107/chat').build();
+        HubConnectionBuilder().withUrl('https://10.0.2.2:7134/chathub').build();
 
     _hubConnection.on('ReceiveMessage', (arguments) {
       setState(() {
