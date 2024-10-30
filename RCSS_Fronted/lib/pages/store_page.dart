@@ -24,12 +24,12 @@ class _StorePageState extends State<StorePage> {
 
   @override
   Widget build(BuildContext context) {
+    print(_businessCards.length);
     return Scaffold(
       body: Container(
         child: StorePageListView(
           cards: _businessCards,
           uuid: widget.uuid,
-          businessId: '1',
         ),
       ),
     );
@@ -46,6 +46,7 @@ class _StorePageState extends State<StorePage> {
           _businessCards.add(
             BusinessCard(
               unreadCount: business['business_service_talks_is_not_read_count'],
+              uuid: uuid,
               businessName: business['business_name'],
               businessId: business['business_id'].toString(),
             ),
@@ -59,6 +60,7 @@ class _StorePageState extends State<StorePage> {
           _businessCards.add(
             BusinessCard(
               unreadCount: '0',
+              uuid: uuid,
               businessName: business['business_name'],
               businessId: business['business_id'].toString(),
             ),

@@ -56,6 +56,7 @@ dependencies:
   signalr_netcore: ^1.4.0
   logger: ^2.4.0
   signalr_flutter: ^0.2.0
+  get: ^4.6.6
 
 dev_dependencies:
   flutter_test:

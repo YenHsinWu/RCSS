@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:bao_register/pages/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 import 'components/chat_message_provider.dart';
@@ -18,7 +19,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => ChatMessageProvider(),
-      child: MaterialApp(
+      child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         home: LoginPage(),
       ),

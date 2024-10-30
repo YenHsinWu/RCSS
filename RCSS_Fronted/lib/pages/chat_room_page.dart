@@ -7,6 +7,7 @@ import '../views/chat_room_page_list_view.dart';
 class ChatRoomPage extends StatefulWidget {
   final String uuid;
   final String businessId;
+
   const ChatRoomPage({
     super.key,
     required this.uuid,
@@ -18,7 +19,7 @@ class ChatRoomPage extends StatefulWidget {
 }
 
 class _ChatRoomPageState extends State<ChatRoomPage> {
-  final List<Card> _chatRoomCards = [];
+  final List<ChatRoomCard> _chatRoomCards = [];
   final StoreService _storeService = StoreService();
 
   @override
@@ -44,6 +45,7 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
     Map<String, dynamic> businessServiceNamesAndUnreadCounts =
         await _storeService.getBusinessServicesListByUuidAndBusinessId(
             uuid, businessId);
+    print(businessServiceNamesAndUnreadCounts);
 
     setState(() {
       for (Map<String, dynamic> businessService
@@ -51,12 +53,12 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
         if (businessService['is_user_read'] != null) {
           _chatRoomCards.add(
             ChatRoomCard(
-              avatarPath: '',
-              unreadCount:
-                  businessService['business_service_talks_is_not_read_count'],
-              roomName:
-                  '${businessService['business_name']} ${businessService['business_service_name']}',
-            ),
+                avatarPath: '',
+                unreadCount:
+                    businessService['business_service_talks_is_not_read_count'],
+                groupName: '${businessService['business_service_name']}',
+                uuid: uuid,
+                serviceName: businessService['business_service_name']),
           );
         }
       }
@@ -68,8 +70,10 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
             ChatRoomCard(
               avatarPath: '',
               unreadCount: '0',
-              roomName:
+              groupName:
                   '${businessService['business_name']} ${businessService['business_service_name']}',
+              uuid: uuid,
+              serviceName: businessService['business_service_name'],
             ),
           );
         }

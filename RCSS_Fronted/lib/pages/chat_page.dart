@@ -3,12 +3,23 @@ import 'package:signalr_netcore/hub_connection.dart';
 import 'package:signalr_netcore/hub_connection_builder.dart';
 
 class ChatPage extends StatefulWidget {
+  final String groupName;
+  final String uuid;
+  final String serviceName;
+
+  const ChatPage({
+    super.key,
+    required this.groupName,
+    required this.uuid,
+    required this.serviceName,
+  });
+
   @override
   _ChatPageState createState() => _ChatPageState();
 }
 
 class _ChatPageState extends State<ChatPage> {
-  late HubConnection _hubConnection;
+  late HubConnection hubConnection;
   final TextEditingController messageController = TextEditingController();
   List<String> messages = [];
 
@@ -20,7 +31,7 @@ class _ChatPageState extends State<ChatPage> {
 
   @override
   void dispose() {
-    _hubConnection.stop();
+    hubConnection.stop();
     super.dispose();
   }
 
@@ -66,30 +77,34 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   Future<void> _setupSignalR() async {
-    _hubConnection =
-        HubConnectionBuilder().withUrl('https://10.0.2.2:7134/chathub').build();
+    hubConnection =
+        HubConnectionBuilder().withUrl('https://10.0.2.2:7144/chathub').build();
 
-    _hubConnection.on('ReceiveMessage', (arguments) {
-      setState(() {
-        messages.add('${arguments![0]}: ${arguments![1]}');
+    hubConnection.start()?.then((_) {
+      print("SignalR Connected");
+
+      hubConnection.invoke('JoinGroup', args: [widget.groupName, widget.uuid]);
+
+      hubConnection!.on('SendGroupMsg', (arguments) {
+        setState(() {
+          messages
+              .add('[${arguments![0]}] --- ${arguments[1]}: ${arguments[2]}');
+        });
       });
     });
-
-    try {
-      await _hubConnection.start()!.timeout(Duration(seconds: 30));
-      print("Connect to SignalR");
-    } catch (e) {
-      print("Connection failed ${e}");
-    }
   }
 
   Future<void> _sendMessage() async {
-    if (_hubConnection.state == HubConnectionState.Connected) {
-      await _hubConnection.invoke(
-        'SendMessage',
-        args: ['User', messageController.text],
+    if (hubConnection.state == HubConnectionState.Connected) {
+      await hubConnection.invoke(
+        'SendMessageToGroup',
+        args: [widget.groupName, widget.uuid, messageController.text],
       );
-      messageController.clear();
+      // setState(() {
+      //   messages.add(
+      //       "[${widget.groupName}] --- ${widget.uuid}: ${messageController.text}");
+      //   messageController.clear();
+      // });
     } else {
       print('Connection is not established yet');
     }
