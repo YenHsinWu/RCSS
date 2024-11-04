@@ -1,8 +1,8 @@
+import 'package:bao_register/widgets/chat_room_card.dart';
 import 'package:flutter/material.dart';
 
 import '../service_implementation/store_service.dart';
-import '../views/store_page_list_view.dart';
-import '../widgets/business_card.dart';
+import '../views/chat_room_page_list_view.dart';
 
 class ServicePage extends StatefulWidget {
   final String uuid;
@@ -14,7 +14,7 @@ class ServicePage extends StatefulWidget {
 }
 
 class _ServicePageState extends State<ServicePage> {
-  final List<BusinessCard> _businessCards = [];
+  final List<ChatRoomCard> _chatRoomCards = [];
   final StoreService _storeService = StoreService();
 
   @override
@@ -27,9 +27,8 @@ class _ServicePageState extends State<ServicePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: StorePageListView(
-          cards: _businessCards,
-          uuid: widget.uuid,
+        child: ChatRoomPageListView(
+          cards: _chatRoomCards,
         ),
       ),
     );
@@ -40,29 +39,20 @@ class _ServicePageState extends State<ServicePage> {
         await _storeService.getBusinessServicesListByUuid(uuid);
 
     setState(() {
-      for (Map<String, dynamic> businessService
-          in businessServicesList['data']) {
-        if (businessService['is_user_read'] != null) {
-          _businessCards.add(
-            BusinessCard(
-              unreadCount:
-                  businessService['business_service_talks_is_not_read_count'],
-              uuid: businessService['user_uuid'],
-              businessName: businessService['business_service_name'],
-              businessId: businessService['business_id'].toString(),
-            ),
-          );
-        } else {
-          _businessCards.add(
-            BusinessCard(
-              unreadCount: '0',
-              uuid: businessService['user_uuid'].toString(),
-              businessName: businessService['business_service_name'],
-              businessId: businessService['business_id'].toString(),
-            ),
-          );
-        }
-      }
+      for (Map<String, dynamic> businessService in businessServicesList['data'])
+        _chatRoomCards.add(
+          ChatRoomCard(
+            avatarPath: '',
+            unreadCount: (businessService[
+                        'business_service_talks_is_not_read_count'] ==
+                    null
+                ? '0'
+                : businessService['business_service_talks_is_not_read_count']),
+            groupName: businessService['business_service_name'],
+            uuid: uuid,
+            businessId: businessService['business_id'].toString(),
+          ),
+        );
     });
   }
 }
