@@ -24,7 +24,6 @@ class _StorePageState extends State<StorePage> {
 
   @override
   Widget build(BuildContext context) {
-    print(_businessCards.length);
     return Scaffold(
       body: Container(
         child: StorePageListView(

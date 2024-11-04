@@ -8,7 +8,7 @@ class ChatRoomCard extends Card {
   final String unreadCount;
   final String groupName;
   final String uuid;
-  final String serviceName;
+  final String businessId;
 
   const ChatRoomCard({
     super.key,
@@ -16,7 +16,7 @@ class ChatRoomCard extends Card {
     required this.unreadCount,
     required this.groupName,
     required this.uuid,
-    required this.serviceName,
+    required this.businessId,
   });
 
   @override
@@ -27,7 +27,7 @@ class ChatRoomCard extends Card {
           ChatPage(
             groupName: this.groupName,
             uuid: this.uuid,
-            serviceName: this.serviceName,
+            businessId: this.businessId,
           ),
         );
       },

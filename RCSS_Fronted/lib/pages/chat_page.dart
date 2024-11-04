@@ -1,3 +1,4 @@
+import 'package:bao_register/service_implementation/chat_service.dart';
 import 'package:flutter/material.dart';
 import 'package:signalr_netcore/hub_connection.dart';
 import 'package:signalr_netcore/hub_connection_builder.dart';
@@ -5,13 +6,13 @@ import 'package:signalr_netcore/hub_connection_builder.dart';
 class ChatPage extends StatefulWidget {
   final String groupName;
   final String uuid;
-  final String serviceName;
+  final String businessId;
 
   const ChatPage({
     super.key,
     required this.groupName,
     required this.uuid,
-    required this.serviceName,
+    required this.businessId,
   });
 
   @override
@@ -22,10 +23,12 @@ class _ChatPageState extends State<ChatPage> {
   late HubConnection hubConnection;
   final TextEditingController messageController = TextEditingController();
   List<String> messages = [];
+  ChatService _chatService = ChatService();
 
   @override
   void initState() {
     super.initState();
+    _showHistoryMessages();
     _setupSignalR();
   }
 
@@ -76,6 +79,23 @@ class _ChatPageState extends State<ChatPage> {
     );
   }
 
+  void _showHistoryMessages() async {
+    Map<String, dynamic> recentMessagesHistoryData = await _chatService
+        .getRecentTalkHistory(widget.uuid, widget.businessId, widget.groupName);
+    setState(() {
+      for (Map<String, dynamic> recentMessagesHistory
+          in recentMessagesHistoryData['data'].reversed) {
+        if (recentMessagesHistory['is_user_talk']) {
+          messages.add(
+              '[${recentMessagesHistory['business_service_name']}] --- ${recentMessagesHistory['user_uuid']}: ${recentMessagesHistory['talk_content']}');
+        } else {
+          messages.add(
+              '[${recentMessagesHistory['business_service_name']}] --- ${recentMessagesHistory['backend_user_name']}: ${recentMessagesHistory['talk_content']}');
+        }
+      }
+    });
+  }
+
   Future<void> _setupSignalR() async {
     hubConnection =
         HubConnectionBuilder().withUrl('https://10.0.2.2:7144/chathub').build();
@@ -100,11 +120,6 @@ class _ChatPageState extends State<ChatPage> {
         'SendMessageToGroup',
         args: [widget.groupName, widget.uuid, messageController.text],
       );
-      // setState(() {
-      //   messages.add(
-      //       "[${widget.groupName}] --- ${widget.uuid}: ${messageController.text}");
-      //   messageController.clear();
-      // });
     } else {
       print('Connection is not established yet');
     }
