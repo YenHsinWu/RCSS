@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.ResponseCompression;
-using SignalRChat.Hubs;
 using SignalRChat.Client.Pages;
 using SignalRChat.Components;
 
@@ -8,16 +6,20 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
+
 builder.Services.AddSignalR();
 
-builder.Services.AddResponseCompression(opts =>
+builder.Services.AddCors(options =>
 {
-    opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
-        ["application/octet-stream"]);
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
 });
 
 var app = builder.Build();
-app.UseResponseCompression();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -35,10 +37,12 @@ app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
+app.UseCors("AllowAll");
 
 app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(SignalRChat.Client._Imports).Assembly);
-app.MapHub<ChatHub>("/chathub");
+
+app.MapHub<SignalRChat.Hubs.ChatHub>("/chathub");
 
 app.Run();
