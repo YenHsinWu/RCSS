@@ -23,7 +23,10 @@ class _ChatPageState extends State<ChatPage> {
   late HubConnection hubConnection;
   final TextEditingController messageController = TextEditingController();
   List<String> messages = [];
+
   ChatService _chatService = ChatService();
+
+  final ScrollController scrollController = ScrollController();
 
   @override
   void initState() {
@@ -51,6 +54,7 @@ class _ChatPageState extends State<ChatPage> {
         children: [
           Expanded(
             child: ListView.builder(
+              physics: AlwaysScrollableScrollPhysics(),
               itemCount: messages.length,
               itemBuilder: (context, index) => ListTile(
                 title: Text(messages[index]),
@@ -109,6 +113,7 @@ class _ChatPageState extends State<ChatPage> {
         setState(() {
           messages
               .add('[${arguments![0]}] --- ${arguments[1]}: ${arguments[2]}');
+          scrollToBottom();
         });
       });
     });
@@ -123,5 +128,10 @@ class _ChatPageState extends State<ChatPage> {
     } else {
       print('Connection is not established yet');
     }
+  }
+
+  void scrollToBottom() {
+    scrollController.animateTo(scrollController.position.maxScrollExtent,
+        duration: Duration(seconds: 3), curve: Curves.easeOut);
   }
 }
