@@ -27,10 +27,16 @@ class ChatService {
   Future setUnreadMessagesCountToZero(
       String uuid, String businessId, String businessServiceName) async {
     final uri = Uri.parse(
-        'http://localhost:3000/api/businessServiceTalksRecetCount/${uuid}/${businessId}/${businessServiceName}');
+        'http://10.10.10.207:3000/api/businessServiceTalksRecetCount/${uuid}/${businessId}/${businessServiceName}');
     final response = await http.post(
       uri,
       headers: headers,
     );
+
+    if (response.statusCode == 200) {
+      print('[setUnreadMessagesCountToZero] -- Sucess');
+    } else {
+      throw Exception('${response.statusCode}');
+    }
   }
 }

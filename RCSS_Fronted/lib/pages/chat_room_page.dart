@@ -49,20 +49,20 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
 
     setState(() {
       for (Map<String, dynamic> businessService
-          in businessServiceNamesAndUnreadCounts['data']) {
-        if (businessService['is_user_read'] != null) {
-          _chatRoomCards.add(
-            ChatRoomCard(
-              avatarPath: '',
-              unreadCount:
-                  businessService['business_service_talks_is_not_read_count'],
-              groupName: businessService['business_service_name'],
-              uuid: uuid,
-              businessId: businessId,
-            ),
-          );
-        }
-      }
+          in businessServiceNamesAndUnreadCounts['data'])
+        _chatRoomCards.add(
+          ChatRoomCard(
+            avatarPath: '',
+            unreadCount: (businessService[
+                        'business_service_talks_is_not_read_count'] ==
+                    null
+                ? '0'
+                : businessService['business_service_talks_is_not_read_count']),
+            groupName: businessService['business_service_name'],
+            uuid: uuid,
+            businessId: businessId,
+          ),
+        );
     });
   }
 }
