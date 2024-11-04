@@ -122,7 +122,6 @@ class _ChatPageState extends State<ChatPage> {
         setState(() {
           messages
               .add('[${arguments![0]}] --- ${arguments[1]}: ${arguments[2]}');
-          scrollToBottom();
         });
       });
     });
