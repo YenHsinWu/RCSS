@@ -36,6 +36,20 @@ class StoreService {
     }
   }
 
+  Future getBusinessServicesListByUuid(String uuid) async {
+    final uri = Uri.parse(
+        'http://10.10.10.207:3000/api/businessServiceListAndIsNotReadCount/${uuid}');
+    final response = await http.get(uri);
+
+    Map<String, dynamic> responseBody = json.decode(response.body);
+
+    if (response.statusCode == 200) {
+      return responseBody;
+    } else {
+      throw Exception('${response.statusCode}');
+    }
+  }
+
   Future getBusinessServicesListByUuidAndBusinessId(
       String uuid, String businessId) async {
     final uri = Uri.parse(

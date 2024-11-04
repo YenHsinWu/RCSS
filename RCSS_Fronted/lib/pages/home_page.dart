@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
             businessId: '0',
           ),
           ServicePage(
-            serviceIndex: 0,
+            uuid: widget.uuid,
           ),
           WebPage(),
           StorePage(uuid: widget.uuid),
