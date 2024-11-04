@@ -10,9 +10,9 @@ class ChatService {
   }
 
   Future getRecentTalkHistory(
-      String uuid, String business_id, String business_service_name) async {
+      String uuid, String businessId, String businessServiceName) async {
     final uri = Uri.parse(
-        "http://10.10.10.207:3000/api/businessServiceTalks/${uuid}/${business_id}/${business_service_name}");
+        "http://10.10.10.207:3000/api/businessServiceTalks/${uuid}/${businessId}/${businessServiceName}");
     final response = await http.get(uri);
 
     Map<String, dynamic> responseBody = json.decode(response.body);
@@ -22,5 +22,15 @@ class ChatService {
     } else {
       throw Exception('${response.statusCode}');
     }
+  }
+
+  Future setUnreadMessagesCountToZero(
+      String uuid, String businessId, String businessServiceName) async {
+    final uri = Uri.parse(
+        'http://localhost:3000/api/businessServiceTalksRecetCount/${uuid}/${businessId}/${businessServiceName}');
+    final response = await http.post(
+      uri,
+      headers: headers,
+    );
   }
 }
