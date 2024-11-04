@@ -3,13 +3,21 @@ import 'package:bao_register/pages/phone_verification_page.dart';
 import 'package:bao_register/pages/sign_up_page.dart';
 import 'package:bao_register/widgets/text_field_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 
 import 'login_page.dart';
 
-class PhoneSignUpPage extends StatelessWidget {
+class PhoneSignUpPage extends StatefulWidget {
   PhoneSignUpPage({super.key});
 
+  @override
+  State<PhoneSignUpPage> createState() => _PhoneSignUpPageState();
+}
+
+class _PhoneSignUpPageState extends State<PhoneSignUpPage> {
   final AuthService _authService = AuthService();
+
+  String phoneNumber = '';
 
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
@@ -33,10 +41,28 @@ class PhoneSignUpPage extends StatelessWidget {
                 color: Colors.red, fontSize: 28, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 32),
-          TextFieldWidget(
+          IntlPhoneField(
             controller: phoneController,
-            hintText: "手機",
-            obscureText: false,
+            decoration: InputDecoration(
+              labelText: "Phone Number",
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
+                borderSide: BorderSide(color: Colors.red, width: 3),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
+                borderSide: BorderSide(color: Colors.red, width: 3),
+              ),
+              border: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.red, width: 3),
+                borderRadius: BorderRadius.circular(16),
+              ),
+            ),
+            onChanged: (phone) {
+              setState(() {
+                phoneNumber = phone.completeNumber;
+              });
+            },
           ),
           SizedBox(height: 12),
           TextFieldWidget(
@@ -124,7 +150,7 @@ class PhoneSignUpPage extends StatelessWidget {
   }
 
   void _signUp(BuildContext context) {
-    String phone = phoneController.text;
+    String phone = phoneNumber;
     String email = emailController.text;
     String password = passwordController.text;
 

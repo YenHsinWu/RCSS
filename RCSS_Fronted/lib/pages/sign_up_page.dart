@@ -8,7 +8,7 @@ import "package:intl_phone_field/intl_phone_field.dart";
 import "login_page.dart";
 
 class SignUpPage extends StatefulWidget {
-  SignUpPage({super.key});
+  const SignUpPage({super.key});
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
@@ -16,6 +16,8 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   final AuthService authService = AuthService();
+
+  String phoneNumber = '';
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -68,6 +70,11 @@ class _SignUpPageState extends State<SignUpPage> {
                   borderRadius: BorderRadius.circular(16),
                 ),
               ),
+              onChanged: (phone) {
+                setState(() {
+                  phoneNumber = phone.completeNumber;
+                });
+              },
             ),
             SizedBox(height: 32),
             GestureDetector(
@@ -146,7 +153,7 @@ class _SignUpPageState extends State<SignUpPage> {
   void _signUp() async {
     String email = emailController.text;
     String password = passwordController.text;
-    String phone = phoneController.text;
+    String phone = phoneNumber;
 
     String message = await authService.getVerificationCode(email: email);
 
