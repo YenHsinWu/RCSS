@@ -55,7 +55,8 @@ class AuthService {
       required String password,
       required String userName,
       required String phone,
-      required String phoneCountry}) async {
+      required String phoneCountry,
+      required String countryId}) async {
     final uri = Uri.parse(
         'http://10.10.10.207:3000/api/registration/verify-registration');
 
@@ -66,6 +67,7 @@ class AuthService {
       'user_name': userName,
       'phone': phone,
       'phone_country': phoneCountry,
+      'country_id': countryId,
     };
 
     final response = await http.post(
@@ -88,7 +90,8 @@ class AuthService {
       required String password,
       required String userName,
       required String phone,
-      required String phoneCountry}) async {
+      required String phoneCountry,
+      required String countryId}) async {
     final uri =
         Uri.parse('http://10.10.10.207:3000/api/verify-phone-registration');
 
@@ -98,6 +101,7 @@ class AuthService {
       'user_name': userName,
       'email': email,
       'phone_country': phoneCountry,
+      'country_id': countryId,
       'password': password,
     };
 

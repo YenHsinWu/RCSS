@@ -9,12 +9,17 @@ class VerificationPage extends StatelessWidget {
   final String email;
   final String password;
   final String phone;
+  final String phoneCountry;
+  final String countryId;
 
-  VerificationPage(
-      {super.key,
-      required String this.email,
-      required String this.password,
-      required String this.phone});
+  VerificationPage({
+    super.key,
+    required String this.email,
+    required String this.password,
+    required String this.phone,
+    required String this.phoneCountry,
+    required String this.countryId,
+  });
 
   final AuthService authService = AuthService();
 
@@ -110,7 +115,8 @@ class VerificationPage extends StatelessWidget {
         password: password,
         userName: email.split('@')[0],
         phone: phone,
-        phoneCountry: 'TW');
+        phoneCountry: phoneCountry,
+        countryId: countryId);
 
     Navigator.push(
       context,

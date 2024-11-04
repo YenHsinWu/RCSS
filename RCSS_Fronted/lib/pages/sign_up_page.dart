@@ -17,7 +17,8 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   final AuthService authService = AuthService();
 
-  String phoneNumber = '';
+  String countryId = '';
+  String phoneCountry = '';
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -72,7 +73,12 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               onChanged: (phone) {
                 setState(() {
-                  phoneNumber = phone.completeNumber;
+                  phoneCountry = phone.countryCode;
+                });
+              },
+              onCountryChanged: (country) {
+                setState(() {
+                  countryId = country.name.toUpperCase();
                 });
               },
             ),
@@ -153,15 +159,20 @@ class _SignUpPageState extends State<SignUpPage> {
   void _signUp() async {
     String email = emailController.text;
     String password = passwordController.text;
-    String phone = phoneNumber;
+    String phone = phoneController.text;
 
     String message = await authService.getVerificationCode(email: email);
 
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) =>
-            VerificationPage(email: email, password: password, phone: phone),
+        builder: (context) => VerificationPage(
+          email: email,
+          password: password,
+          phone: phone,
+          phoneCountry: phoneCountry,
+          countryId: countryId,
+        ),
       ),
     );
   }
