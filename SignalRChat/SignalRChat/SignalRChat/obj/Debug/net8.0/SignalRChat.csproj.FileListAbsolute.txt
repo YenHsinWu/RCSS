@@ -69,3 +69,5 @@ C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat\obj\Debu
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat\obj\Debug\net8.0\SignalRChat.pdb
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat\obj\Debug\net8.0\SignalRChat.genruntimeconfig.cache
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat\obj\Debug\net8.0\ref\SignalRChat.dll
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\Microsoft.AspNetCore.WebUtilities.dll
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\Microsoft.Net.Http.Headers.dll

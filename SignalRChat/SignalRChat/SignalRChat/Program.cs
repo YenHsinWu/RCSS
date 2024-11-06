@@ -8,6 +8,8 @@ builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
 
 builder.Services.AddSignalR();
+builder.Services.AddHttpClient();
+builder.Services.AddSingleton<SignalRChat.Service.BusinessService>();
 
 builder.Services.AddCors(options =>
 {
@@ -18,6 +20,7 @@ builder.Services.AddCors(options =>
                .AllowAnyHeader();
     });
 });
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
@@ -38,11 +41,15 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAntiforgery();
 app.UseCors("AllowAll");
+app.UseRouting();
+
+app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(SignalRChat.Client._Imports).Assembly);
 
 app.MapHub<SignalRChat.Hubs.ChatHub>("/chathub");
+app.MapControllers();
 
 app.Run();

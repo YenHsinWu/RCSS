@@ -9,6 +9,8 @@
   <ItemGroup>
     <ProjectReference Include="..\SignalRChat.Client\SignalRChat.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="8.0.10" />
   </ItemGroup>
 
 </Project>

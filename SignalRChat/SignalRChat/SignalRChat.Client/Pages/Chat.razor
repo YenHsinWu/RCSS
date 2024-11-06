@@ -1,13 +1,11 @@
 ﻿@page "/chat"
 @using Microsoft.AspNetCore.SignalR.Client;
+@using Microsoft.AspNetCore.WebUtilities;
 @rendermode InteractiveWebAssembly
-@inject NavigationManager Navigation
+@inject NavigationManager Navigator
 
 <PageTitle>Chat Room</PageTitle>
 
-<input type="text" @bind="@userName" placeholder="Username" />
-<button @onclick="JoinGroup">Join</button>
-<br />
 <input type="text" @bind="@message" placeholder="Message" />
 <br />
 <button @onclick="SendMessage">Send</button>
@@ -23,13 +21,27 @@
 @code {
     private HubConnection? hubConnection;
     private List<string> messages = [];
-    private string? groupName = "Service101";
+    private string? groupName;
     private string? userName;
     public string? message;
 
+    protected override void OnInitialized()
+    {
+        var uri = Navigator.Uri;
+        var queryParams = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(new Uri(uri).Query);
+        if (queryParams.ContainsKey("groupName"))
+        {
+            groupName = queryParams["groupName"];
+        }
+        if (queryParams.ContainsKey("userName"))
+        {
+            userName = queryParams["userName"];    
+        }
+    }
+
     protected async override Task OnInitializedAsync()
     {
-        hubConnection = new HubConnectionBuilder().WithUrl(Navigation.ToAbsoluteUri("/chathub")).Build();
+        hubConnection = new HubConnectionBuilder().WithUrl(Navigator.ToAbsoluteUri("/chathub")).Build();
 
         hubConnection.On<string, string, string>("SendGroupMsg", (groupName, userName, message) =>
         {
@@ -40,9 +52,11 @@
 
         hubConnection.StartAsync();
         Console.WriteLine(hubConnection.State);
+
+        await hubConnection.SendAsync("JoinGroup", groupName, userName);
     }
 
-    private async Task JoinGroup()
+    private async Task JoinGroup(string groupName, string userName)
     {
         await hubConnection.SendAsync("JoinGroup", groupName, userName);
     }
