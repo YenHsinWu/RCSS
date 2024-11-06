@@ -9,7 +9,8 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddSignalR();
 builder.Services.AddHttpClient();
-builder.Services.AddSingleton<SignalRChat.Service.BusinessService>();
+builder.Services.AddSingleton<SignalRChat.Client.Service.BusinessService>();
+builder.Services.AddSingleton<SignalRChat.Client.Service.ChatService>();
 
 builder.Services.AddCors(options =>
 {

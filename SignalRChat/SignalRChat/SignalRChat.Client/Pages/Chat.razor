@@ -1,7 +1,9 @@
 ﻿@page "/chat"
 @using Microsoft.AspNetCore.SignalR.Client;
 @using Microsoft.AspNetCore.WebUtilities;
+@using SignalRChat.Client.Service
 @rendermode InteractiveWebAssembly
+@inject ChatService chatService
 @inject NavigationManager Navigator
 
 <PageTitle>Chat Room</PageTitle>
@@ -23,7 +25,14 @@
     private List<string> messages = [];
     private string? groupName;
     private string? userName;
+    private string uuid;
+    private string businessId;
     public string? message;
+
+    private ChatService.RecentHistoryMessages[] recentHistoryMessagesData;
+    private ChatService.RecentHistoryMessagesList recentHistoryMessagesList;
+    private bool success;
+    private string errorMessage;
 
     protected override void OnInitialized()
     {
@@ -37,15 +46,25 @@
         {
             userName = queryParams["userName"];    
         }
+        if (queryParams.ContainsKey("uuid"))
+        {
+            uuid = queryParams["uuid"];
+        }
+        if (queryParams.ContainsKey("businessId"))
+        {
+            businessId = queryParams["businessId"];
+        }
     }
 
     protected async override Task OnInitializedAsync()
     {
         hubConnection = new HubConnectionBuilder().WithUrl(Navigator.ToAbsoluteUri("/chathub")).Build();
 
-        hubConnection.On<string, string, string>("SendGroupMsg", (groupName, userName, message) =>
+        await ShowHistoryMessages();
+
+        hubConnection.On<string, string, string, string>("SendGroupMsg", (groupName, userName, message, timestamp) =>
         {
-            var concatMessage = $"[{groupName}] --- {userName}: {message}";
+            var concatMessage = $"[{groupName}] --- {userName}: {message} --- [{timestamp}]";
             messages.Add(concatMessage);
             InvokeAsync(StateHasChanged);
         });
@@ -66,8 +85,37 @@
         await hubConnection!.SendAsync("SendMessageToGroup", groupName, userName, message);
     }
 
-    private async Task ReceiveMessage()
+    private async Task ShowHistoryMessages()
     {
-        await hubConnection!.SendAsync("ReceiveMessageFromGroup", groupName, userName, message);
+        try
+        {
+            recentHistoryMessagesList = await chatService.GetRecentHistoryMessagesList(uuid, businessId, userName);
+            if (recentHistoryMessagesList != null && recentHistoryMessagesList.data != null)
+            {
+                recentHistoryMessagesData = recentHistoryMessagesList.data;
+            }
+            else
+            {
+                recentHistoryMessagesData = new ChatService.RecentHistoryMessages[0];
+            }
+
+            foreach (var recentHistoryMessage in recentHistoryMessagesData)
+            {
+                if (recentHistoryMessage.is_user_talk)
+                {
+                    messages.Add($"[{groupName}] --- {uuid}: {recentHistoryMessage.talk_content} --- [{recentHistoryMessage.created_date.ToString("HH:mm:ss")}]");
+                }
+                else
+                {
+                    messages.Add($"[{groupName}] --- {recentHistoryMessage.backend_user_name}: {recentHistoryMessage.talk_content} --- [{recentHistoryMessage.created_date.ToString("HH:mm:ss")}]");
+                }
+            }
+            InvokeAsync(StateHasChanged);
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Error: {ex.Message}";
+        }
+
     }
 }
