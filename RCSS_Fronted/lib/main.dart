@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:bao_register/pages/login_page.dart';
+import 'package:bao_register/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -21,8 +21,8 @@ class MainApp extends StatelessWidget {
       create: (_) => ChatMessageProvider(),
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        // home: HomePage(uuid: '04518934-a0a3-4b29-a373-c971a850c410'),
-        home: LoginPage(),
+        home: HomePage(uuid: '04518934-a0a3-4b29-a373-c971a850c410'),
+        // home: LoginPage(),
       ),
     );
   }

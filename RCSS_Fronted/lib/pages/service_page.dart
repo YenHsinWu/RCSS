@@ -43,11 +43,8 @@ class _ServicePageState extends State<ServicePage> {
         _chatRoomCards.add(
           ChatRoomCard(
             avatarPath: '',
-            unreadCount: (businessService[
-                        'business_service_talks_is_not_read_count'] ==
-                    null
-                ? '0'
-                : businessService['business_service_talks_is_not_read_count']),
+            unreadCount:
+                businessService['business_service_talks_is_not_read_count'],
             groupName: businessService['business_service_name'],
             uuid: uuid,
             businessId: businessService['business_id'].toString(),
