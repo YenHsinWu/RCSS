@@ -45,7 +45,7 @@ class _ServicePageState extends State<ServicePage> {
             avatarPath: '',
             unreadCount:
                 businessService['business_service_talks_is_not_read_count'],
-            groupName: businessService['business_service_name'],
+            serviceName: "${businessService['business_service_name']}",
             uuid: uuid,
             businessId: businessService['business_id'].toString(),
           ),

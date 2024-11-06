@@ -21,7 +21,7 @@ class MainApp extends StatelessWidget {
       create: (_) => ChatMessageProvider(),
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomePage(uuid: '04518934-a0a3-4b29-a373-c971a850c410'),
+        home: HomePage(uuid: '1a49ba31-15dd-4ee6-bda3-883ce2d65a24'),
         // home: LoginPage(),
       ),
     );

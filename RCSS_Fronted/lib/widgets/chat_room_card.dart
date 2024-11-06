@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 class ChatRoomCard extends Card {
   final String avatarPath;
   final String unreadCount;
-  final String groupName;
+  final String serviceName;
   final String uuid;
   final String businessId;
 
@@ -14,7 +14,7 @@ class ChatRoomCard extends Card {
     super.key,
     required this.avatarPath,
     required this.unreadCount,
-    required this.groupName,
+    required this.serviceName,
     required this.uuid,
     required this.businessId,
   });
@@ -25,7 +25,7 @@ class ChatRoomCard extends Card {
       onTap: () {
         Get.to(
           ChatPage(
-            groupName: this.groupName,
+            groupName: '${this.serviceName}-${this.uuid}',
             uuid: this.uuid,
             businessId: this.businessId,
           ),
@@ -45,7 +45,7 @@ class ChatRoomCard extends Card {
             ),
             SizedBox(width: 20),
             Text(
-              groupName,
+              serviceName,
               style: TextStyle(
                   fontWeight: FontWeight.bold, fontSize: 16, color: Colors.red),
             ),

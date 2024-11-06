@@ -100,10 +100,10 @@ class _ChatPageState extends State<ChatPage> {
           in recentMessagesHistoryData['data'].reversed) {
         if (recentMessagesHistory['is_user_talk']) {
           messages.add(
-              '[${recentMessagesHistory['business_service_name']}] --- ${recentMessagesHistory['user_uuid']}: ${recentMessagesHistory['talk_content']}');
+              '[${widget.groupName}] --- ${recentMessagesHistory['user_uuid']}: ${recentMessagesHistory['talk_content']}');
         } else {
           messages.add(
-              '[${recentMessagesHistory['business_service_name']}] --- ${recentMessagesHistory['backend_user_name']}: ${recentMessagesHistory['talk_content']}');
+              '[${widget.groupName}] --- ${recentMessagesHistory['backend_user_name']}: ${recentMessagesHistory['talk_content']}');
         }
       }
     });
@@ -111,7 +111,7 @@ class _ChatPageState extends State<ChatPage> {
 
   Future<void> _setupSignalR() async {
     hubConnection =
-        HubConnectionBuilder().withUrl('https://10.0.2.2:7144/chathub').build();
+        HubConnectionBuilder().withUrl('http://10.0.2.2:5101/chathub').build();
 
     hubConnection.start()?.then((_) {
       print("SignalR Connected");
