@@ -7,12 +7,14 @@ class ChatPage extends StatefulWidget {
   final String groupName;
   final String uuid;
   final String businessId;
+  final String serviceName;
 
   const ChatPage({
     super.key,
     required this.groupName,
     required this.uuid,
     required this.businessId,
+    required this.serviceName,
   });
 
   @override
@@ -31,7 +33,7 @@ class _ChatPageState extends State<ChatPage> {
   @override
   void initState() {
     super.initState();
-    _setUnreadCountToZero();
+    // _setUnreadCountToZero();
     _showHistoryMessages();
     _setupSignalR();
   }
@@ -93,17 +95,21 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   void _showHistoryMessages() async {
-    Map<String, dynamic> recentMessagesHistoryData = await _chatService
-        .getRecentTalkHistory(widget.uuid, widget.businessId, widget.groupName);
+    Map<String, dynamic> recentMessagesHistoryData =
+        await _chatService.getRecentTalkHistory(
+            widget.uuid, widget.businessId, widget.serviceName);
     setState(() {
       for (Map<String, dynamic> recentMessagesHistory
-          in recentMessagesHistoryData['data'].reversed) {
+          in recentMessagesHistoryData['data']) {
+        String timestamp = recentMessagesHistory['created_date'];
+        timestamp = timestamp.split('T')[1].substring(0, 8);
+
         if (recentMessagesHistory['is_user_talk']) {
           messages.add(
-              '[${widget.groupName}] --- ${recentMessagesHistory['user_uuid']}: ${recentMessagesHistory['talk_content']}');
+              '[${widget.groupName}] --- ${recentMessagesHistory['user_uuid']}: ${recentMessagesHistory['talk_content']} --- [${timestamp}]');
         } else {
           messages.add(
-              '[${widget.groupName}] --- ${recentMessagesHistory['backend_user_name']}: ${recentMessagesHistory['talk_content']}');
+              '[${widget.groupName}] --- ${recentMessagesHistory['backend_user_name']}: ${recentMessagesHistory['talk_content']} --- [${timestamp}]');
         }
       }
     });
@@ -120,8 +126,8 @@ class _ChatPageState extends State<ChatPage> {
 
       hubConnection!.on('SendGroupMsg', (arguments) {
         setState(() {
-          messages
-              .add('[${arguments![0]}] --- ${arguments[1]}: ${arguments[2]}');
+          messages.add(
+              '[${arguments![0]}] --- ${arguments[1]}: ${arguments[2]} --- [${arguments[3]}]');
         });
       });
     });
@@ -129,10 +135,16 @@ class _ChatPageState extends State<ChatPage> {
 
   Future<void> _sendMessage() async {
     if (hubConnection.state == HubConnectionState.Connected) {
+      // String timestamp = formatDate(DateTime.now(), [HH, ':', mm, ':', ss]);
       await hubConnection.invoke(
         'SendMessageToGroup',
-        args: [widget.groupName, widget.uuid, messageController.text],
+        args: [
+          widget.groupName,
+          widget.uuid,
+          messageController.text,
+        ],
       );
+      messageController.clear();
     } else {
       print('Connection is not established yet');
     }

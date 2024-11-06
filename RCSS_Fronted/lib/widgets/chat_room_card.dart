@@ -28,6 +28,7 @@ class ChatRoomCard extends Card {
             groupName: '${this.serviceName}-${this.uuid}',
             uuid: this.uuid,
             businessId: this.businessId,
+            serviceName: this.serviceName,
           ),
         );
       },
