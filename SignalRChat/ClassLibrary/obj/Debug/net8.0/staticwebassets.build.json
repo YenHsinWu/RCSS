@@ -1,0 +1,77 @@
+{
+  "Version": 1,
+  "Hash": "HKv+2nc8CYA8QK0GOF6WUy2v2PhyIHZEFC+HVQKo+Bo=",
+  "Source": "ClassLibrary",
+  "BasePath": "_content/ClassLibrary",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ClassLibrary\\wwwroot",
+      "Source": "ClassLibrary",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\ClassLibrary\\wwwroot\\",
+      "BasePath": "_content/ClassLibrary",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\ClassLibrary\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ClassLibrary.styles.css",
+      "SourceId": "ClassLibrary",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\ClassLibrary\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "BasePath": "_content/ClassLibrary",
+      "RelativePath": "ClassLibrary.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\ClassLibrary\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ClassLibrary.styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\ClassLibrary\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ClassLibrary.bundle.scp.css",
+      "SourceId": "ClassLibrary",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\ClassLibrary\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "BasePath": "_content/ClassLibrary",
+      "RelativePath": "ClassLibrary.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\ClassLibrary\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ClassLibrary.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\ClassLibrary\\wwwroot\\app.css",
+      "SourceId": "ClassLibrary",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\ClassLibrary\\wwwroot\\",
+      "BasePath": "_content/ClassLibrary",
+      "RelativePath": "app.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\app.css"
+    }
+  ]
+}

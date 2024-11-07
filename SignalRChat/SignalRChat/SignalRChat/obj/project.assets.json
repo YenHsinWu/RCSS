@@ -633,6 +633,19 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
+      "ClassLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/ClassLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ClassLibrary.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "SignalRChat.Client/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -1571,6 +1584,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "ClassLibrary/1.0.0": {
+      "type": "project",
+      "path": "../../ClassLibrary/ClassLibrary.csproj",
+      "msbuildProject": "../../ClassLibrary/ClassLibrary.csproj"
+    },
     "SignalRChat.Client/1.0.0": {
       "type": "project",
       "path": "../SignalRChat.Client/SignalRChat.Client.csproj",
@@ -1579,6 +1597,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "ClassLibrary >= 1.0.0",
       "Microsoft.AspNetCore.Components.WebAssembly.Server >= 8.0.10",
       "Microsoft.AspNetCore.SignalR.Client >= 8.0.10",
       "Microsoft.AspNetCore.WebUtilities >= 8.0.10",
@@ -1613,6 +1632,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\ClassLibrary\\ClassLibrary.csproj": {
+              "projectPath": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\ClassLibrary\\ClassLibrary.csproj"
+            },
             "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj": {
               "projectPath": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj"
             }

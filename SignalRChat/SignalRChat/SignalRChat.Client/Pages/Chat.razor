@@ -86,7 +86,7 @@
 
     private async Task SendMessage()
     {
-        await hubConnection!.SendAsync("SendMessageToGroup", groupName, userName, message);
+        await hubConnection!.SendAsync("SendMessageToGroup", groupName, userName, message, businessId, uuid, userName.Equals(uuid), 0, false, true);
     }
 
     private async Task ShowHistoryMessages()

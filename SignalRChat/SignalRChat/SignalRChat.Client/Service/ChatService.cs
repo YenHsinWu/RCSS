@@ -117,7 +117,7 @@ namespace SignalRChat.Client.Service
         {
             try
             {
-                var uri = $"http://10.10.10.207:3000/api/businessServiceTalksRecetCount/{uuid}/{businessId}/{businessServiceName}/1";
+                var uri = $"http://10.10.10.207:3000/api/businessServiceTalksRecetCount/{uuid}/{businessId}/{businessServiceName}";
                 var response = await _httpClient.PostAsync(uri, null);
 
                 Console.WriteLine(response.StatusCode);

@@ -633,6 +633,12 @@ C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\b
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\icudt_CJK.dat
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\icudt_EFIGS.dat
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\icudt_no_CJK.dat
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\wwwroot\_framework\Microsoft.AspNetCore.WebUtilities.wasm
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\wwwroot\_framework\Microsoft.Net.Http.Headers.wasm
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\wwwroot\_framework\Microsoft.Net.Http.Headers.wasm.gz
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\wwwroot\_framework\Microsoft.AspNetCore.WebUtilities.wasm.gz
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\Microsoft.AspNetCore.WebUtilities.dll
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\Microsoft.Net.Http.Headers.dll
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\SignalRChat.Client.csproj.AssemblyReference.cache
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\SignalRChat.Client.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\SignalRChat.Client.AssemblyInfoInputs.cache
@@ -653,6 +659,7 @@ C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\o
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.SignalR.Client.Core.wasm
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.SignalR.Common.wasm
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.SignalR.Protocols.Json.wasm
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.WebUtilities.wasm
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\webcil\Microsoft.Extensions.Configuration.wasm
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\webcil\Microsoft.Extensions.Configuration.Abstractions.wasm
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\webcil\Microsoft.Extensions.Configuration.Binder.wasm
@@ -670,6 +677,7 @@ C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\o
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\webcil\Microsoft.Extensions.Primitives.wasm
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\webcil\Microsoft.JSInterop.wasm
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\webcil\Microsoft.JSInterop.WebAssembly.wasm
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\webcil\Microsoft.Net.Http.Headers.wasm
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\webcil\System.IO.Pipelines.wasm
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\webcil\Microsoft.CSharp.wasm
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\webcil\Microsoft.VisualBasic.Core.wasm
@@ -864,6 +872,7 @@ C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\o
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\3fb1nf0577.gz
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\t2xqqt7swd.gz
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\i56fi01aih.gz
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\84wjytot19.gz
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\hic522vfft.gz
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\v2j8jplry5.gz
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\lssvz2ujwz.gz
@@ -881,6 +890,7 @@ C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\o
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\tc0ch0gudo.gz
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\u11jocmkep.gz
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\fhli37d03y.gz
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\6vkinljjq8.gz
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\ljaj84bpt1.gz
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\kb368kzlwc.gz
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\nejv96ickx.gz
@@ -1067,13 +1077,3 @@ C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\o
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\refint\SignalRChat.Client.dll
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\SignalRChat.Client.pdb
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\ref\SignalRChat.Client.dll
-C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\wwwroot\_framework\Microsoft.AspNetCore.WebUtilities.wasm
-C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\wwwroot\_framework\Microsoft.Net.Http.Headers.wasm
-C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\wwwroot\_framework\Microsoft.Net.Http.Headers.wasm.gz
-C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\wwwroot\_framework\Microsoft.AspNetCore.WebUtilities.wasm.gz
-C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\Microsoft.AspNetCore.WebUtilities.dll
-C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\Microsoft.Net.Http.Headers.dll
-C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.WebUtilities.wasm
-C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\webcil\Microsoft.Net.Http.Headers.wasm
-C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\84wjytot19.gz
-C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\6vkinljjq8.gz
