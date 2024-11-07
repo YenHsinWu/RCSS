@@ -25,7 +25,7 @@ class ChatRoomCard extends Card {
       onTap: () {
         Get.to(
           ChatPage(
-            groupName: '${this.serviceName}-${this.uuid}',
+            groupName: '${this.serviceName}^${this.uuid}',
             uuid: this.uuid,
             businessId: this.businessId,
             serviceName: this.serviceName,
