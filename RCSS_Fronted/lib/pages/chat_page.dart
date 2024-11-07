@@ -33,7 +33,7 @@ class _ChatPageState extends State<ChatPage> {
   @override
   void initState() {
     super.initState();
-    // _setUnreadCountToZero();
+    _setUnreadCountToZero();
     _showHistoryMessages();
     _setupSignalR();
   }
@@ -142,6 +142,11 @@ class _ChatPageState extends State<ChatPage> {
           widget.groupName,
           widget.uuid,
           messageController.text,
+          int.parse(widget.businessId),
+          widget.uuid,
+          0,
+          true,
+          false,
         ],
       );
       messageController.clear();
