@@ -34,6 +34,8 @@
     private bool success;
     private string errorMessage;
 
+    private int backendUserId;
+
     protected override void OnInitialized()
     {
         var uri = Navigator.Uri;
@@ -61,12 +63,17 @@
         hubConnection = new HubConnectionBuilder().WithUrl(Navigator.ToAbsoluteUri("/chathub")).Build();
 
         await ShowHistoryMessages();
+        await chatService.SetUnreadMessagesCountToZero(uuid, int.Parse(businessId), groupName.Split('^')[0], backendUserId);
 
-        hubConnection.On<string, string, string, string>("SendGroupMsg", (groupName, userName, message, timestamp) =>
+        hubConnection.On<string, string, string, string>("SendGroupMsg", async (groupName, userName, message, timestamp) =>
         {
-            var concatMessage = $"[{groupName}] --- {userName}: {message} --- [{timestamp}]";
+            var concatMessage = $"[{groupName}] --- {userName}: {message} --- [{timestamp.Split(' ')[1]}]";
             messages.Add(concatMessage);
+
             InvokeAsync(StateHasChanged);
+
+            await chatService.CreateServiceTalkMessage(int.Parse(businessId), groupName.Split('^')[0],
+                uuid, DateTime.Parse(timestamp).ToUniversalTime(), false, backendUserId, message, false, true);
         });
 
         hubConnection.StartAsync();
@@ -98,6 +105,8 @@
             {
                 recentHistoryMessagesData = new ChatService.RecentHistoryMessages[0];
             }
+
+            backendUserId = recentHistoryMessagesData[0].backend_user_id;
 
             foreach (var recentHistoryMessage in recentHistoryMessagesData)
             {

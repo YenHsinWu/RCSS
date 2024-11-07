@@ -15,7 +15,8 @@ namespace SignalRChat.Hubs
         public async Task SendMessageToGroup(string groupName, string userName, string message)
         {
             // Console.WriteLine($"[{groupName}] --- {userName}: {message}");
-            string timestamp = DateTime.Now.ToString("HH:mm:ss");
+            string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.ffffff");
+
             await Clients.Group(groupName).SendAsync("SendGroupMsg", groupName, userName, message, timestamp);
         }
     }
