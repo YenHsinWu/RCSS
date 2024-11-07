@@ -73,7 +73,7 @@
             InvokeAsync(StateHasChanged);
 
             await chatService.CreateServiceTalkMessage(int.Parse(businessId), groupName.Split('^')[0],
-                uuid, DateTime.Parse(timestamp).ToUniversalTime(), false, backendUserId, message, false, true);
+                uuid, DateTime.Parse(timestamp).ToUniversalTime(), false, backendUserId, message, userName == uuid, userName != uuid);
         });
 
         hubConnection.StartAsync();
