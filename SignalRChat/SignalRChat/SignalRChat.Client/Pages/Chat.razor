@@ -63,7 +63,7 @@
         hubConnection = new HubConnectionBuilder().WithUrl(Navigator.ToAbsoluteUri("/chathub")).Build();
 
         await ShowHistoryMessages();
-        await chatService.SetUnreadMessagesCountToZero(uuid, int.Parse(businessId), groupName.Split('^')[0], backendUserId);
+        await chatService.SetUnreadMessagesCountToZero(uuid, int.Parse(businessId), groupName.Split('^')[0], 1);
 
         hubConnection.On<string, string, string, string>("SendGroupMsg", async (groupName, userName, message, timestamp) =>
         {
@@ -71,9 +71,6 @@
             messages.Add(concatMessage);
 
             InvokeAsync(StateHasChanged);
-
-            await chatService.CreateServiceTalkMessage(int.Parse(businessId), groupName.Split('^')[0],
-                uuid, DateTime.Parse(timestamp).ToUniversalTime(), false, backendUserId, message, userName == uuid, userName != uuid);
         });
 
         hubConnection.StartAsync();
