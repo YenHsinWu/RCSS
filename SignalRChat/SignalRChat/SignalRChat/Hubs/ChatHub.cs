@@ -20,7 +20,7 @@ namespace SignalRChat.Hubs
             try
             {
                 await chatService.CreateServiceTalkMessage(businessId, groupName.Split('^')[0], uuid, DateTime.UtcNow,
-                userName.Equals(uuid), backendUserId, message, isUserRead, isBackendUserRead);
+                userName.Equals(uuid), 0, message, isUserRead, isBackendUserRead);
 
                 string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.ffffff");
 

@@ -11,6 +11,7 @@ namespace ClassLibrary
             // Add services to the container.
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
+            builder.Services.AddSignalR();
 
             var app = builder.Build();
 
