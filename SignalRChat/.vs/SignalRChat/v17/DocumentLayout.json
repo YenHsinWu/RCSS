@@ -56,7 +56,7 @@
               "RelativeDocumentMoniker": "SignalRChat\\SignalRChat.Client\\Pages\\Chat.razor",
               "ToolTip": "C:\\Users\\kelly\\Desktop\\Repos\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Pages\\Chat.razor",
               "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\Pages\\Chat.razor",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAEYAAABXAAAAAAAAAA==",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAowH8AAACyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-06T09:51:18.417Z",
               "EditorCaption": ""
@@ -107,8 +107,7 @@
               "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\Pages\\ServiceList.razor",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAABiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-05T10:03:05.435Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-05T10:03:05.435Z"
             }
           ]
         }

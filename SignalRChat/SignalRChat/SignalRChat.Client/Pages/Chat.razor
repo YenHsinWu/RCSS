@@ -120,12 +120,12 @@
                 if (recentHistoryMessage.is_user_talk)
                 {
                     // messages.Add($"[{groupName}] --- {uuid}: {recentHistoryMessage.talk_content} --- [{recentHistoryMessage.created_date.ToString("HH:mm:ss")}]");
-                    messages.Add($"{recentHistoryMessage.user_name}: {recentHistoryMessage.talk_content} --- [{recentHistoryMessage.created_date.ToString("HH:mm:ss")}]")
+                    messages.Add($"{recentHistoryMessage.user_name}: {recentHistoryMessage.talk_content} --- [{recentHistoryMessage.created_date.ToString("HH:mm:ss")}]");
                 }
                 else
                 {
                     // messages.Add($"[{groupName}] --- {recentHistoryMessage.backend_user_name}: {recentHistoryMessage.talk_content} --- [{recentHistoryMessage.created_date.ToString("HH:mm:ss")}]");
-                    messages.Add($"{recentHistoryMessage.backend_user_name}: {recentHistoryMessage.talk_content} --- [{recentHistoryMessage.created_date.ToString("HH:mm:ss")}]")
+                    messages.Add($"{recentHistoryMessage.backend_user_name}: {recentHistoryMessage.talk_content} --- [{recentHistoryMessage.created_date.ToString("HH:mm:ss")}]");
                 }
             }
             InvokeAsync(StateHasChanged);
