@@ -129,7 +129,7 @@ class _ChatPageState extends State<ChatPage> {
       hubConnection!.on('SendGroupMsg', (arguments) {
         setState(() {
           messages
-              .add('${arguments[1]}: ${arguments[2]} --- [${arguments[3]}]');
+              .add('${arguments![1]}: ${arguments![2]} --- [${arguments![3]}]');
         });
       });
     });
