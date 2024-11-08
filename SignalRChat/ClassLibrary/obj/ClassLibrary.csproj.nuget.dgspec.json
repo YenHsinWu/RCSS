@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\ClassLibrary\\ClassLibrary.csproj": {}
+    "C:\\Users\\kelly\\Desktop\\Repos\\RCSS\\SignalRChat\\ClassLibrary\\ClassLibrary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\ClassLibrary\\ClassLibrary.csproj": {
+    "C:\\Users\\kelly\\Desktop\\Repos\\RCSS\\SignalRChat\\ClassLibrary\\ClassLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\ClassLibrary\\ClassLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\kelly\\Desktop\\Repos\\RCSS\\SignalRChat\\ClassLibrary\\ClassLibrary.csproj",
         "projectName": "ClassLibrary",
-        "projectPath": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\ClassLibrary\\ClassLibrary.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\ClassLibrary\\obj\\",
+        "projectPath": "C:\\Users\\kelly\\Desktop\\Repos\\RCSS\\SignalRChat\\ClassLibrary\\ClassLibrary.csproj",
+        "packagesPath": "C:\\Users\\kelly\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kelly\\Desktop\\Repos\\RCSS\\SignalRChat\\ClassLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kelly\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

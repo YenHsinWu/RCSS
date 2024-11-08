@@ -1605,19 +1605,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\kelly\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\SignalRChat.csproj",
+      "projectUniqueName": "C:\\Users\\kelly\\Desktop\\Repos\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\SignalRChat.csproj",
       "projectName": "SignalRChat",
-      "projectPath": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\SignalRChat.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\obj\\",
+      "projectPath": "C:\\Users\\kelly\\Desktop\\Repos\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\SignalRChat.csproj",
+      "packagesPath": "C:\\Users\\kelly\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kelly\\Desktop\\Repos\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kelly\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1632,11 +1632,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\ClassLibrary\\ClassLibrary.csproj": {
-              "projectPath": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\ClassLibrary\\ClassLibrary.csproj"
+            "C:\\Users\\kelly\\Desktop\\Repos\\RCSS\\SignalRChat\\ClassLibrary\\ClassLibrary.csproj": {
+              "projectPath": "C:\\Users\\kelly\\Desktop\\Repos\\RCSS\\SignalRChat\\ClassLibrary\\ClassLibrary.csproj"
             },
-            "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj": {
-              "projectPath": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj"
+            "C:\\Users\\kelly\\Desktop\\Repos\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj": {
+              "projectPath": "C:\\Users\\kelly\\Desktop\\Repos\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj"
             }
           }
         }

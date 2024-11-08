@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SignalRChat.Client")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5986d29118b46cb19bef33a87f99bdce2bb7158e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0cfae0cd809366b7871d5c55b27709ef0af0b262")]
 [assembly: System.Reflection.AssemblyProductAttribute("SignalRChat.Client")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SignalRChat.Client")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

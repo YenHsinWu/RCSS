@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj": {}
+    "C:\\Users\\kelly\\Desktop\\Repos\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj": {
+    "C:\\Users\\kelly\\Desktop\\Repos\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj",
+        "projectUniqueName": "C:\\Users\\kelly\\Desktop\\Repos\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj",
         "projectName": "SignalRChat.Client",
-        "projectPath": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\",
+        "projectPath": "C:\\Users\\kelly\\Desktop\\Repos\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj",
+        "packagesPath": "C:\\Users\\kelly\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kelly\\Desktop\\Repos\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kelly\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
