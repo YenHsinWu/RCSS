@@ -9,6 +9,7 @@ class ChatRoomCard extends Card {
   final String serviceName;
   final String uuid;
   final String businessId;
+  final String userName;
 
   const ChatRoomCard({
     super.key,
@@ -17,6 +18,7 @@ class ChatRoomCard extends Card {
     required this.serviceName,
     required this.uuid,
     required this.businessId,
+    required this.userName,
   });
 
   @override
@@ -29,6 +31,7 @@ class ChatRoomCard extends Card {
             uuid: this.uuid,
             businessId: this.businessId,
             serviceName: this.serviceName,
+            userName: this.userName,
           ),
         );
       },

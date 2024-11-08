@@ -8,6 +8,7 @@ class ChatPage extends StatefulWidget {
   final String uuid;
   final String businessId;
   final String serviceName;
+  final String userName;
 
   const ChatPage({
     super.key,
@@ -15,6 +16,7 @@ class ChatPage extends StatefulWidget {
     required this.uuid,
     required this.businessId,
     required this.serviceName,
+    required this.userName,
   });
 
   @override
@@ -100,16 +102,16 @@ class _ChatPageState extends State<ChatPage> {
             widget.uuid, widget.businessId, widget.serviceName);
     setState(() {
       for (Map<String, dynamic> recentMessagesHistory
-          in recentMessagesHistoryData['data']) {
+          in recentMessagesHistoryData['data'].reverse()) {
         String timestamp = recentMessagesHistory['created_date'];
         timestamp = timestamp.split('T')[1].substring(0, 8);
 
         if (recentMessagesHistory['is_user_talk']) {
           messages.add(
-              '[${widget.groupName}] --- ${recentMessagesHistory['user_uuid']}: ${recentMessagesHistory['talk_content']} --- [${timestamp}]');
+              '${recentMessagesHistory['user_name']}: ${recentMessagesHistory['talk_content']} --- [${timestamp}]');
         } else {
           messages.add(
-              '[${widget.groupName}] --- ${recentMessagesHistory['backend_user_name']}: ${recentMessagesHistory['talk_content']} --- [${timestamp}]');
+              '${recentMessagesHistory['backend_user_name']}: ${recentMessagesHistory['talk_content']} --- [${timestamp}]');
         }
       }
     });
@@ -126,8 +128,8 @@ class _ChatPageState extends State<ChatPage> {
 
       hubConnection!.on('SendGroupMsg', (arguments) {
         setState(() {
-          messages.add(
-              '[${arguments![0]}] --- ${arguments[1]}: ${arguments[2]} --- [${arguments[3]}]');
+          messages
+              .add('${arguments[1]}: ${arguments[2]} --- [${arguments[3]}]');
         });
       });
     });
