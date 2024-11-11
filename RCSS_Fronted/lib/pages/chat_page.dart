@@ -150,6 +150,7 @@ class _ChatPageState extends State<ChatPage> {
           messageController.text,
           int.parse(widget.businessId),
           widget.uuid,
+          true,
           0,
           true,
           false,

@@ -91,7 +91,7 @@
     {
         try
         {
-            await hubConnection!.SendAsync("SendMessageToGroup", groupName, userName, message, int.Parse(businessId), uuid, 0, false, true);
+            await hubConnection!.SendAsync("SendMessageToGroup", groupName, userName, message, int.Parse(businessId), uuid, false, 0, false, true);
         }
         catch (Exception ex)
         {

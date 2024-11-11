@@ -1,8 +1,10 @@
-import "package:bao_register/pages/chat_room_page.dart";
 import "package:bao_register/pages/service_page.dart";
 import "package:bao_register/pages/store_page.dart";
 import "package:bao_register/pages/web_page.dart";
 import "package:flutter/material.dart";
+
+import "friend_page.dart";
+import "index_page.dart";
 
 class HomePage extends StatefulWidget {
   final String uuid;
@@ -18,10 +20,11 @@ class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
 
   final List<Widget> _pagesName = [
-    Text("聊天"),
+    Text("首頁"),
     Text("客服"),
     Text("網頁"),
     Text("商家"),
+    Text("好友"),
     Text("設定"),
   ];
 
@@ -50,8 +53,8 @@ class _HomePageState extends State<HomePage> {
         unselectedItemColor: Colors.white,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: "聊天",
+            icon: Icon(Icons.home),
+            label: "首頁",
             backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
@@ -65,8 +68,13 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.shop),
             label: "商家",
+            backgroundColor: Colors.red,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "好友",
             backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
@@ -84,11 +92,7 @@ class _HomePageState extends State<HomePage> {
           });
         },
         children: [
-          ChatRoomPage(
-            uuid: widget.uuid,
-            businessId: '0',
-            userName: widget.userName,
-          ),
+          IndexPage(),
           ServicePage(
             uuid: widget.uuid,
             userName: widget.userName,
@@ -98,6 +102,7 @@ class _HomePageState extends State<HomePage> {
             uuid: widget.uuid,
             userName: widget.userName,
           ),
+          FriendPage(),
           Center(
             child: Text("設定"),
           ),
