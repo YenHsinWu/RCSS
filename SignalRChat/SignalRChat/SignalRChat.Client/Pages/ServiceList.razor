@@ -14,7 +14,7 @@
     {
         @foreach (var chatRoom in chatRoomData)
         {
-            <button @onclick="() => NavigateToChatRoom(chatRoom.business_service_name, chatRoom.user_name, chatRoom.business_id.ToString())">@chatRoom.business_name -- @chatRoom.business_service_name [@chatRoom.user_name]: (Unread: @chatRoom.business_service_talks_is_not_read_count)</button> <br />
+            <button @onclick="() => NavigateToChatRoom(chatRoom.business_service_name, chatRoom.user_uuid, chatRoom.business_id.ToString())">@chatRoom.business_name -- @chatRoom.business_service_name [@chatRoom.user_name]: (Unread: @chatRoom.business_service_talks_is_not_read_count)</button> <br />
         }
     }
     else

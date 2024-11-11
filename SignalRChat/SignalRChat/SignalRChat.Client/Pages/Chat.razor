@@ -62,13 +62,15 @@
     {
         hubConnection = new HubConnectionBuilder().WithUrl(Navigator.ToAbsoluteUri("/chathub")).Build();
 
+        Console.WriteLine(uuid);
+
         await ShowHistoryMessages();
         await chatService.SetUnreadMessagesCountToZero(uuid, int.Parse(businessId), groupName.Split('^')[0], 1);
 
         hubConnection.On<string, string, string, string>("SendGroupMsg", async (groupName, userName, message, timestamp) =>
         {
             // var concatMessage = $"[{groupName}] --- {userName}: {message} --- [{timestamp.Split(' ')[1]}]";
-            var concatMessage = $"{userName}: {message} --- [{timestamp.Split(' ')[1]}]";
+            var concatMessage = $"{userName}: {message} --- [{timestamp.Split(' ')[1].Substring(0, 8)}]";
             messages.Add(concatMessage);
 
             InvokeAsync(StateHasChanged);
