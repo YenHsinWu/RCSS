@@ -61,6 +61,7 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
             serviceName: businessService['business_service_name'],
             uuid: uuid,
             businessId: businessId,
+            userName: businessService['user_name'],
           ),
         );
     });

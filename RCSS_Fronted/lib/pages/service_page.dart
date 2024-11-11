@@ -48,6 +48,7 @@ class _ServicePageState extends State<ServicePage> {
             serviceName: "${businessService['business_service_name']}",
             uuid: uuid,
             businessId: businessService['business_id'].toString(),
+            userName: businessService['user_name'],
           ),
         );
     });

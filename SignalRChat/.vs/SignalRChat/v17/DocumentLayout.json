@@ -54,8 +54,7 @@
               "RelativeToolTip": "ClassLibrary\\Service\\ChatService.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAgwEIAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T07:58:35.077Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T07:58:35.077Z"
             },
             {
               "$type": "Document",
@@ -67,8 +66,7 @@
               "RelativeToolTip": "SignalRChat\\SignalRChat\\Hubs\\ChatHub.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAkwBEAAACHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-06T02:43:07.341Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-06T02:43:07.341Z"
             },
             {
               "$type": "Document",
@@ -78,7 +76,7 @@
               "RelativeDocumentMoniker": "SignalRChat\\SignalRChat.Client\\Pages\\Chat.razor",
               "ToolTip": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Pages\\Chat.razor",
               "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\Pages\\Chat.razor",
-              "ViewState": "AgIAAFMAAAAAAAAAAAAUwFoAAAB0AAAAAAAAAA==",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAUwFsAAAB0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-06T09:51:18.417Z",
               "EditorCaption": ""
@@ -93,8 +91,7 @@
               "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\Service\\BusinessService.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAQwAwAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T09:58:25.663Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-05T09:58:25.663Z"
             },
             {
               "$type": "Document",
@@ -130,8 +127,7 @@
               "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\Pages\\ServiceList.razor",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-05T10:03:05.435Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-05T10:03:05.435Z"
             }
           ]
         }
