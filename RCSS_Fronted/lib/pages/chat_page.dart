@@ -35,7 +35,6 @@ class _ChatPageState extends State<ChatPage> {
   @override
   void initState() {
     super.initState();
-    print(widget.uuid);
     _setUnreadCountToZero();
     _showHistoryMessages();
     _setupSignalR();
@@ -90,11 +89,15 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   void _setUnreadCountToZero() async {
-    await _chatService.setUnreadMessagesCountToZero(
-      widget.uuid,
-      widget.businessId,
-      widget.groupName,
-    );
+    try {
+      await _chatService.setUnreadMessagesCountToZero(
+        widget.uuid,
+        widget.businessId,
+        widget.groupName.split('^')[0],
+      );
+    } catch (ex) {
+      print(ex);
+    }
   }
 
   void _showHistoryMessages() async {
@@ -129,8 +132,8 @@ class _ChatPageState extends State<ChatPage> {
 
       hubConnection!.on('SendGroupMsg', (arguments) {
         setState(() {
-          messages
-              .add('${arguments![1]}: ${arguments![2]} --- [${arguments![3]}]');
+          messages.add(
+              '${arguments![1]}: ${arguments![2]} --- [${(arguments[3] as String).split(' ')[1].substring(0, 8)}]');
         });
       });
     });
@@ -143,7 +146,7 @@ class _ChatPageState extends State<ChatPage> {
         'SendMessageToGroup',
         args: [
           widget.groupName,
-          widget.uuid,
+          widget.userName,
           messageController.text,
           int.parse(widget.businessId),
           widget.uuid,

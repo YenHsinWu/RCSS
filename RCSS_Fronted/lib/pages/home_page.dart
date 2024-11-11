@@ -6,7 +6,9 @@ import "package:flutter/material.dart";
 
 class HomePage extends StatefulWidget {
   final String uuid;
-  const HomePage({super.key, required this.uuid});
+  final String userName;
+
+  const HomePage({super.key, required this.uuid, required this.userName});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -85,12 +87,17 @@ class _HomePageState extends State<HomePage> {
           ChatRoomPage(
             uuid: widget.uuid,
             businessId: '0',
+            userName: widget.userName,
           ),
           ServicePage(
             uuid: widget.uuid,
+            userName: widget.userName,
           ),
           WebPage(),
-          StorePage(uuid: widget.uuid),
+          StorePage(
+            uuid: widget.uuid,
+            userName: widget.userName,
+          ),
           Center(
             child: Text("設定"),
           ),

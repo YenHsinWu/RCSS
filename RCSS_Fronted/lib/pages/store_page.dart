@@ -6,7 +6,13 @@ import '../views/store_page_list_view.dart';
 
 class StorePage extends StatefulWidget {
   final String uuid;
-  const StorePage({super.key, required this.uuid});
+  final String userName;
+
+  const StorePage({
+    super.key,
+    required this.uuid,
+    required this.userName,
+  });
 
   @override
   State<StorePage> createState() => _StorePageState();
@@ -48,6 +54,7 @@ class _StorePageState extends State<StorePage> {
               uuid: uuid,
               businessName: business['business_name'],
               businessId: business['business_id'].toString(),
+              userName: widget.userName,
             ),
           );
         }
@@ -62,6 +69,7 @@ class _StorePageState extends State<StorePage> {
               uuid: uuid,
               businessName: business['business_name'],
               businessId: business['business_id'].toString(),
+              userName: widget.userName,
             ),
           );
         }

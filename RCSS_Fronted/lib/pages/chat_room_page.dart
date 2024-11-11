@@ -7,11 +7,13 @@ import '../views/chat_room_page_list_view.dart';
 class ChatRoomPage extends StatefulWidget {
   final String uuid;
   final String businessId;
+  final String userName;
 
   const ChatRoomPage({
     super.key,
     required this.uuid,
     required this.businessId,
+    required this.userName,
   });
 
   @override
@@ -26,7 +28,7 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
   void initState() {
     super.initState();
     getBusinessServiceNamesAndUnreadCountsByUuidAndBusinessId(
-        widget.uuid, widget.businessId);
+        widget.uuid, widget.businessId, widget.userName);
   }
 
   @override
@@ -41,7 +43,7 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
   }
 
   void getBusinessServiceNamesAndUnreadCountsByUuidAndBusinessId(
-      String uuid, String businessId) async {
+      String uuid, String businessId, String userName) async {
     Map<String, dynamic> businessServiceNamesAndUnreadCounts =
         await _storeService.getBusinessServicesListByUuidAndBusinessId(
             uuid, businessId);
@@ -61,9 +63,7 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
             serviceName: businessService['business_service_name'],
             uuid: uuid,
             businessId: businessId,
-            userName: (businessService['user_name'] == null
-                ? 'Unknown User'
-                : businessService['user_name']),
+            userName: userName,
           ),
         );
     });

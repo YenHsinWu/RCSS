@@ -8,13 +8,16 @@ class BusinessCard extends Card {
   final String uuid;
   final String businessName;
   final String businessId;
+  final String userName;
 
-  const BusinessCard(
-      {super.key,
-      required this.unreadCount,
-      required this.uuid,
-      required this.businessName,
-      required this.businessId});
+  const BusinessCard({
+    super.key,
+    required this.unreadCount,
+    required this.uuid,
+    required this.businessName,
+    required this.businessId,
+    required this.userName,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +27,7 @@ class BusinessCard extends Card {
           ChatRoomPage(
             uuid: uuid,
             businessId: businessId,
+            userName: userName,
           ),
         );
       },

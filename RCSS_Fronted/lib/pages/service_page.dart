@@ -6,8 +6,13 @@ import '../views/chat_room_page_list_view.dart';
 
 class ServicePage extends StatefulWidget {
   final String uuid;
+  final String userName;
 
-  const ServicePage({super.key, required this.uuid});
+  const ServicePage({
+    super.key,
+    required this.uuid,
+    required this.userName,
+  });
 
   @override
   State<ServicePage> createState() => _ServicePageState();
@@ -20,7 +25,7 @@ class _ServicePageState extends State<ServicePage> {
   @override
   void initState() {
     super.initState();
-    getBusinessServicesListByUuid(widget.uuid);
+    getBusinessServicesListByUuid(widget.uuid, widget.userName);
   }
 
   @override
@@ -34,7 +39,7 @@ class _ServicePageState extends State<ServicePage> {
     );
   }
 
-  void getBusinessServicesListByUuid(String uuid) async {
+  void getBusinessServicesListByUuid(String uuid, String userName) async {
     Map<String, dynamic> businessServicesList =
         await _storeService.getBusinessServicesListByUuid(uuid);
 
@@ -48,9 +53,7 @@ class _ServicePageState extends State<ServicePage> {
             serviceName: "${businessService['business_service_name']}",
             uuid: uuid,
             businessId: businessService['business_id'].toString(),
-            userName: (businessService['user_name'] == null
-                ? 'Unknown User'
-                : businessService['user_name']),
+            userName: userName,
           ),
         );
     });
