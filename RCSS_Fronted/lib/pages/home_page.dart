@@ -28,6 +28,7 @@ class _HomePageState extends State<HomePage> {
   void _onItemTapped(int index) {
     setState(() {
       _currentIndex = index;
+      print(widget.uuid);
     });
     _pageController.jumpToPage(_currentIndex);
   }

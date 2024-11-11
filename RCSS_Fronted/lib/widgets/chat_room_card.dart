@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ChatRoomCard extends Card {
-  final String avatarPath;
-  final String unreadCount;
-  final String serviceName;
-  final String uuid;
-  final String businessId;
+  final String? avatarPath;
+  final String? unreadCount;
+  final String? serviceName;
+  final String? uuid;
+  final String? businessId;
 
   const ChatRoomCard({
     super.key,
@@ -26,9 +26,9 @@ class ChatRoomCard extends Card {
         Get.to(
           ChatPage(
             groupName: '${this.serviceName}^${this.uuid}',
-            uuid: this.uuid,
-            businessId: this.businessId,
-            serviceName: this.serviceName,
+            uuid: this.uuid!,
+            businessId: this.businessId!,
+            serviceName: this.serviceName!,
           ),
         );
       },
@@ -42,18 +42,18 @@ class ChatRoomCard extends Card {
             SizedBox(
               width: 48,
               height: 48,
-              child: Image.asset(avatarPath),
+              child: Image.asset(avatarPath!),
             ),
             SizedBox(width: 20),
             Text(
-              serviceName,
+              serviceName!,
               style: TextStyle(
                   fontWeight: FontWeight.bold, fontSize: 16, color: Colors.red),
             ),
             SizedBox(width: 28),
             badges.Badge(
               badgeContent: Text(
-                this.unreadCount,
+                this.unreadCount!,
                 style: TextStyle(color: Colors.white),
               ),
               showBadge: this.unreadCount != '0',
