@@ -35,6 +35,7 @@ class _ChatPageState extends State<ChatPage> {
   @override
   void initState() {
     super.initState();
+    print(widget.uuid);
     _setUnreadCountToZero();
     _showHistoryMessages();
     _setupSignalR();
