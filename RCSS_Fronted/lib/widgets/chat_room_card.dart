@@ -9,7 +9,7 @@ class ChatRoomCard extends Card {
   final String? serviceName;
   final String? uuid;
   final String? businessId;
-  final String? userName;
+  final String userName;
 
   const ChatRoomCard({
     super.key,
@@ -31,7 +31,7 @@ class ChatRoomCard extends Card {
             uuid: this.uuid!,
             businessId: this.businessId!,
             serviceName: this.serviceName!,
-            userName: this.userName!,
+            userName: this.userName,
           ),
         );
       },

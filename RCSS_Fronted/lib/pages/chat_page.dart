@@ -103,7 +103,7 @@ class _ChatPageState extends State<ChatPage> {
             widget.uuid, widget.businessId, widget.serviceName);
     setState(() {
       for (Map<String, dynamic> recentMessagesHistory
-          in recentMessagesHistoryData['data'].reverse()) {
+          in recentMessagesHistoryData['data'].reversed) {
         String timestamp = recentMessagesHistory['created_date'];
         timestamp = timestamp.split('T')[1].substring(0, 8);
 
