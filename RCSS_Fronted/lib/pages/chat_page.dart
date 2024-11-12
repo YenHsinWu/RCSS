@@ -50,7 +50,7 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('聊天室'),
+        title: Text('聊天室: ${widget.serviceName} - ${widget.userName}'),
         centerTitle: true,
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
