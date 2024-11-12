@@ -117,7 +117,7 @@
             backendUserId = recentHistoryMessagesData[0].backend_user_id;
             Array.Reverse(recentHistoryMessagesData);
 
-            messages.Add($"Chat Room: {recentHistoryMessagesData[0].backend_user_name} - {recentHistoryMessagesData[0].user_name}\n\n");
+            messages.Add($"Chat Room: {recentHistoryMessagesData[0].business_service_name} - {recentHistoryMessagesData[0].user_name}\n\n");
 
             foreach (var recentHistoryMessage in recentHistoryMessagesData)
             {
