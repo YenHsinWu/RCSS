@@ -59,14 +59,10 @@ class _PhoneSignUpPageState extends State<PhoneSignUpPage> {
                 borderRadius: BorderRadius.circular(16),
               ),
             ),
-            onChanged: (phone) {
-              setState(() {
-                phoneCountry = phone.countryCode;
-              });
-            },
             onCountryChanged: (country) {
               setState(() {
-                countryId = country.name.toUpperCase();
+                phoneCountry = country.dialCode;
+                countryId = country.code;
               });
             },
           ),
