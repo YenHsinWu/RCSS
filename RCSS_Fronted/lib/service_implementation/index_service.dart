@@ -9,8 +9,12 @@ class IndexService {
     };
   }
 
-  Future createIndexPageShortcut(String userUuid, int shortcutTypeId,
-      String shortcutTitle, String shortcutUrl, DateTime createdDate) async {
+  Future createIndexPageShortcut(
+      String userUuid,
+      int shortcutTypeId,
+      String shortcutTitle,
+      Map<String, dynamic> shortcutUrl,
+      String createdDate) async {
     final uri = Uri.parse('http://10.10.10.207:3000/api/user_shortcut/create');
 
     final Map<String, dynamic> requestBody = {
@@ -26,5 +30,13 @@ class IndexService {
       headers: headers,
       body: json.encode(requestBody),
     );
+
+    Map<String, dynamic> responseBody = json.decode(response.body);
+
+    if (response.statusCode == 200) {
+      return responseBody;
+    } else {
+      throw Exception('${response.statusCode}');
+    }
   }
 }

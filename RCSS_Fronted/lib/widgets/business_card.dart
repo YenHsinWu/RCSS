@@ -1,7 +1,11 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:bao_register/pages/chat_room_page.dart';
+import 'package:bao_register/widgets/shortcut_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../pages/index_page.dart';
+import '../service_implementation/index_service.dart';
 
 class BusinessCard extends Card {
   final String unreadCount;
@@ -10,7 +14,7 @@ class BusinessCard extends Card {
   final String businessId;
   final String userName;
 
-  const BusinessCard({
+  BusinessCard({
     super.key,
     required this.unreadCount,
     required this.uuid,
@@ -18,6 +22,8 @@ class BusinessCard extends Card {
     required this.businessId,
     required this.userName,
   });
+
+  final IndexService _indexService = IndexService();
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +37,7 @@ class BusinessCard extends Card {
           ),
         );
       },
+      onLongPress: () => _showCreateNewShortcutDialog(context),
       child: Card(
         elevation: 4,
         clipBehavior: Clip.antiAlias,
@@ -59,5 +66,45 @@ class BusinessCard extends Card {
         ),
       ),
     );
+  }
+
+  void _showCreateNewShortcutDialog(BuildContext context) {
+    final TextEditingController _titleController = TextEditingController();
+
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('請輸入捷徑名稱'),
+            content: TextField(
+              controller: _titleController,
+              decoration: InputDecoration(labelText: '捷徑名稱'),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => {Navigator.pop(context)},
+                child: Text('取消'),
+              ),
+              TextButton(
+                onPressed: () => {
+                  shortcuts.add(
+                    ShortcutIcon(
+                        type: 1,
+                        imagePath: 'shortcut_type/busniess.png',
+                        title: _titleController.text),
+                  ),
+                  _indexService.createIndexPageShortcut(
+                      uuid,
+                      1,
+                      _titleController.text,
+                      {'business_id': int.parse(businessId)},
+                      DateTime.now().toUtc().toString()),
+                  Navigator.pop(context)
+                },
+                child: Text('確認'),
+              ),
+            ],
+          );
+        });
   }
 }

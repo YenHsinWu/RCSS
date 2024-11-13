@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/shortcut_icon.dart';
+
+List<ShortcutIcon> shortcuts = [];
+
 class IndexPage extends StatefulWidget {
   const IndexPage({super.key});
 
@@ -10,7 +14,6 @@ class IndexPage extends StatefulWidget {
 class _IndexPageState extends State<IndexPage> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold();
   }
 }

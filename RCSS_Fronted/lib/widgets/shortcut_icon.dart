@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class ShortcutIcon extends StatelessWidget {
   final int type;
   final String imagePath;
-  final String description;
+  final String title;
 
   const ShortcutIcon({
     super.key,
     required this.type,
     required this.imagePath,
-    required this.description,
+    required this.title,
   });
 
   @override
@@ -21,7 +21,7 @@ class ShortcutIcon extends StatelessWidget {
           child: Image.asset(imagePath),
         ),
         Text(
-          description,
+          title,
           style: TextStyle(
             fontSize: 14,
             color: Colors.red,
