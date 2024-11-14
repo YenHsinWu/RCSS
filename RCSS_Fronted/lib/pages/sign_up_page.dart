@@ -155,7 +155,7 @@ class _SignUpPageState extends State<SignUpPage> {
   void _signUp() async {
     String email = emailController.text;
     String password = passwordController.text;
-    String phone = phoneController.text;
+    String phone = phoneCountry + phoneController.text;
 
     String message = await authService.getVerificationCode(email: email);
 
