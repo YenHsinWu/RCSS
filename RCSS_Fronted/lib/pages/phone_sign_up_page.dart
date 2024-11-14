@@ -152,11 +152,11 @@ class _PhoneSignUpPageState extends State<PhoneSignUpPage> {
   }
 
   void _signUp(BuildContext context) {
-    String phone = phoneCountry + phoneController.text;
+    String phone = phoneController.text;
     String email = emailController.text;
     String password = passwordController.text;
 
-    _authService.getVerificationCodeByPhone(phone: phone);
+    _authService.getVerificationCodeByPhone(phone: phoneCountry + phone);
 
     Navigator.push(
       context,
