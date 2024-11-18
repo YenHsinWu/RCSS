@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart' as badges;
 import 'package:bao_register/pages/chat_room_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,6 +14,7 @@ class ShortcutIcon extends StatefulWidget {
   final String imagePath;
   final String title;
   final Map<String, dynamic> shortcutUrl;
+  final String unreadCount;
 
   const ShortcutIcon({
     super.key,
@@ -22,6 +24,7 @@ class ShortcutIcon extends StatefulWidget {
     required this.imagePath,
     required this.title,
     required this.shortcutUrl,
+    required this.unreadCount,
   });
 
   @override
@@ -36,8 +39,22 @@ class _ShortcutIconState extends State<ShortcutIcon> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        Row(
+          children: [
+            SizedBox(width: 65),
+            badges.Badge(
+              badgeContent: Text(
+                widget.unreadCount,
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              showBadge: widget.unreadCount != '0',
+            ),
+          ],
+        ),
         GestureDetector(
-          onTap: () => {},
+          onTap: () => _clickNavigate(context),
           onLongPress: () => _showDeleteShortcutDialog(context),
           child: Image.network(
             'http://10.10.10.207:8082/${widget.imagePath}',

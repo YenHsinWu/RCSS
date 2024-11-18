@@ -51,6 +51,7 @@ class _IndexPageState extends State<IndexPage> {
             imagePath: shortcut['icon'],
             title: shortcut['shortcut_title'],
             shortcutUrl: shortcut['shortcut_url'],
+            unreadCount: shortcut['not_read_count'].toString(),
           ),
         );
       }
