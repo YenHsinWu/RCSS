@@ -92,7 +92,9 @@ class _HomePageState extends State<HomePage> {
           });
         },
         children: [
-          IndexPage(),
+          IndexPage(
+            uuid: widget.uuid,
+          ),
           ServicePage(
             uuid: widget.uuid,
             userName: widget.userName,

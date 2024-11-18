@@ -1,17 +1,21 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:bao_register/pages/chat_page.dart';
+import 'package:bao_register/widgets/shortcut_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../pages/index_page.dart';
+import '../service_implementation/index_service.dart';
+
 class ChatRoomCard extends Card {
-  final String? avatarPath;
-  final String? unreadCount;
-  final String? serviceName;
-  final String? uuid;
-  final String? businessId;
+  final String avatarPath;
+  final String unreadCount;
+  final String serviceName;
+  final String uuid;
+  final String businessId;
   final String userName;
 
-  const ChatRoomCard({
+  ChatRoomCard({
     super.key,
     required this.avatarPath,
     required this.unreadCount,
@@ -21,6 +25,8 @@ class ChatRoomCard extends Card {
     required this.userName,
   });
 
+  final IndexService _indexService = IndexService();
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -28,13 +34,14 @@ class ChatRoomCard extends Card {
         Get.to(
           ChatPage(
             groupName: '${this.serviceName}^${this.uuid}',
-            uuid: this.uuid!,
-            businessId: this.businessId!,
-            serviceName: this.serviceName!,
+            uuid: this.uuid,
+            businessId: this.businessId,
+            serviceName: this.serviceName,
             userName: this.userName,
           ),
         );
       },
+      onLongPress: () => _showCreateNewShortcutDialog(context),
       child: Card(
         elevation: 4,
         clipBehavior: Clip.antiAlias,
@@ -66,5 +73,48 @@ class ChatRoomCard extends Card {
         ),
       ),
     );
+  }
+
+  void _showCreateNewShortcutDialog(BuildContext context) {
+    final TextEditingController _titleController = TextEditingController();
+
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('請輸入捷徑名稱'),
+            content: TextField(
+              controller: _titleController,
+              decoration: InputDecoration(labelText: '捷徑名稱'),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => {Navigator.pop(context)},
+                child: Text('取消'),
+              ),
+              TextButton(
+                onPressed: () => {
+                  shortcuts.add(
+                    ShortcutIcon(
+                        type: 2,
+                        imagePath: 'shortcut_type/busniess.png',
+                        title: _titleController.text),
+                  ),
+                  _indexService.createIndexPageShortcut(
+                      uuid,
+                      1,
+                      _titleController.text,
+                      {
+                        'business_id': int.parse(businessId),
+                        'business_service_name': serviceName
+                      },
+                      DateTime.now().toUtc().toString()),
+                  Navigator.pop(context)
+                },
+                child: Text('確認'),
+              ),
+            ],
+          );
+        });
   }
 }

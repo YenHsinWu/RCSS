@@ -18,7 +18,11 @@ class ShortcutIcon extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         GestureDetector(
-          child: Image.asset(imagePath),
+          child: Image.network(
+            'http://10.10.10.207:8082/${imagePath}',
+            width: 50,
+            height: 50,
+          ),
         ),
         Text(
           title,

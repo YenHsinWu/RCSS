@@ -39,4 +39,32 @@ class IndexService {
       throw Exception('${response.statusCode}');
     }
   }
+
+  Future getBottomMenuTypeAndCount(String uuid) async {
+    final uri = Uri.parse('http://10.10.10.207:3000/api/user_shortcut/${uuid}');
+
+    final response = await http.get(uri);
+
+    Map<String, dynamic> responseBody = json.decode(response.body);
+
+    if (response.statusCode == 200) {
+      return responseBody['dataMenu'];
+    } else {
+      throw Exception('${response.statusCode}');
+    }
+  }
+
+  Future getShortcutList(String uuid) async {
+    final uri = Uri.parse('http://10.10.10.207:3000/api/user_shortcut/${uuid}');
+
+    final response = await http.get(uri);
+
+    Map<String, dynamic> responseBody = json.decode(response.body);
+
+    if (response.statusCode == 200) {
+      return responseBody['dataShortcut'];
+    } else {
+      throw Exception('${response.statusCode}');
+    }
+  }
 }

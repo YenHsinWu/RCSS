@@ -13,7 +13,8 @@ class IndexPageGridView extends StatelessWidget {
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
-        childAspectRatio: 1.0,
+        crossAxisSpacing: 30,
+        mainAxisSpacing: 10,
       ),
       itemCount: icons.length,
       itemBuilder: (context, index) {
