@@ -156,7 +156,7 @@ class _PhoneSignUpPageState extends State<PhoneSignUpPage> {
     String email = emailController.text;
     String password = passwordController.text;
 
-    _authService.getVerificationCodeByPhone(phone: phone);
+    _authService.getVerificationCodeByPhone(phone: phoneCountry + phone);
 
     Navigator.push(
       context,
