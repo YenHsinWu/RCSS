@@ -8,10 +8,12 @@ List<ShortcutIcon> shortcuts = [];
 
 class IndexPage extends StatefulWidget {
   final String uuid;
+  final String userName;
 
   const IndexPage({
     super.key,
     required this.uuid,
+    required this.userName,
   });
 
   @override
@@ -43,9 +45,12 @@ class _IndexPageState extends State<IndexPage> {
       for (Map<String, dynamic> shortcut in shortcutListJson) {
         shortcuts.add(
           ShortcutIcon(
+            uuid: uuid,
+            userName: widget.userName,
             type: shortcut['shortcut_type_id'],
             imagePath: shortcut['icon'],
             title: shortcut['shortcut_title'],
+            shortcutUrl: shortcut['shortcut_url'],
           ),
         );
       }

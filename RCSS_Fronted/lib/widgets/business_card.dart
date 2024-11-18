@@ -1,10 +1,8 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:bao_register/pages/chat_room_page.dart';
-import 'package:bao_register/widgets/shortcut_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../pages/index_page.dart';
 import '../service_implementation/index_service.dart';
 
 class BusinessCard extends Card {
@@ -87,12 +85,6 @@ class BusinessCard extends Card {
               ),
               TextButton(
                 onPressed: () => {
-                  shortcuts.add(
-                    ShortcutIcon(
-                        type: 1,
-                        imagePath: 'shortcut_type/busniess.png',
-                        title: _titleController.text),
-                  ),
                   _indexService.createIndexPageShortcut(
                       uuid,
                       1,
