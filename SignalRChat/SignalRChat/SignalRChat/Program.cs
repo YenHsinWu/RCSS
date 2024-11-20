@@ -1,5 +1,13 @@
 using SignalRChat.Client.Pages;
+using SignalRChat.Client.Service;
 using SignalRChat.Components;
+using FirebaseAdmin;
+using Google.Apis.Auth.OAuth2;
+
+FirebaseApp.Create(new AppOptions()
+{
+    Credential = GoogleCredential.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "rcss-eb982-1fd5569633d3.json"))
+});
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +19,7 @@ builder.Services.AddSignalR();
 builder.Services.AddHttpClient();
 builder.Services.AddSingleton<SignalRChat.Client.Service.BusinessService>();
 builder.Services.AddSingleton<SignalRChat.Client.Service.ChatService>();
-
+builder.Services.AddBlazorBootstrap();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", builder =>
