@@ -11,6 +11,7 @@ builder.Services.AddSignalR();
 builder.Services.AddHttpClient();
 builder.Services.AddSingleton<SignalRChat.Client.Service.BusinessService>();
 builder.Services.AddSingleton<SignalRChat.Client.Service.ChatService>();
+builder.Services.AddSingleton<SignalRChat.Client.Service.FCMService>();
 
 builder.Services.AddCors(options =>
 {

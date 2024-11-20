@@ -1,16 +1,17 @@
 ﻿@page "/chat"
 @using Microsoft.AspNetCore.SignalR.Client;
 @using Microsoft.AspNetCore.WebUtilities;
-@using SignalRChat.Client.Service
+@using SignalRChat.Client.Service;
 @rendermode InteractiveWebAssembly
 @inject ChatService chatService
+@inject FCMService fcmService
 @inject NavigationManager Navigator
 
 <PageTitle>Chat Room</PageTitle>
 
 <input type="text" @bind="@message" placeholder="Message" />
 <br />
-<button @onclick="SendMessage">Send</button>
+<button @onclick="OnClickHandler">Send</button>
 <br />
 
 <ul>
@@ -139,5 +140,22 @@
             errorMessage = $"Error: {ex.Message}";
         }
 
+    }
+
+    private async Task SendNotification()
+    {
+        // 替換為 Flutter 應用設備的 FCM 註冊令牌
+        string registrationToken = "ezPJKHKXR722S5_zgMZkoU:APA91bHahC-xACjAvnw30Kc22lAZUSMjtYLiYP1GmqW2eylFFA32nAdoqiuRgSe1Mb4JWtOimy5eRA45GbHcwlSgeTiZfuqhrFgqFKo_BgJ0rrv6cLZ0_Wc";
+
+        // 設定 Firebase 服務帳戶密鑰的 JSON 路徑
+        string serviceAccountJsonPath = "../rcss-eb982-1fd5569633d3.json";
+
+        await fcmService.SendPushNotificationAsync(registrationToken, "Test Notification", "This is a test message", serviceAccountJsonPath);
+    }
+
+    private async Task OnClickHandler()
+    {
+        SendMessage();
+        SendNotification();
     }
 }
