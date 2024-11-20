@@ -41,6 +41,8 @@ class _IndexPageState extends State<IndexPage> {
   void getShortcutListJson(String uuid) async {
     List<dynamic> shortcutListJson = await _indexService.getShortcutList(uuid);
 
+    shortcuts.clear();
+
     setState(() {
       for (Map<String, dynamic> shortcut in shortcutListJson) {
         shortcuts.add(
