@@ -1108,3 +1108,13 @@ C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\o
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\refint\SignalRChat.Client.dll
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\SignalRChat.Client.pdb
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\ref\SignalRChat.Client.dll
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\wwwroot\_framework\BlazorBootstrap.wasm
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\wwwroot\_framework\Microsoft.AspNetCore.Components.QuickGrid.wasm
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\wwwroot\_framework\Microsoft.AspNetCore.Components.QuickGrid.wasm.gz
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\wwwroot\_framework\BlazorBootstrap.wasm.gz
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\BlazorBootstrap.dll
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\bin\Debug\net8.0\Microsoft.AspNetCore.Components.QuickGrid.dll
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\webcil\BlazorBootstrap.wasm
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.QuickGrid.wasm
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\rm9i8nfbdk.gz
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\memglxcx5f.gz
