@@ -1,5 +1,6 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:badges/badges.dart';
+import "package:firebase_messaging/firebase_messaging.dart";
 import "package:flutter/material.dart";
 import "package:rcss_frontend/pages/group_page.dart";
 import "package:rcss_frontend/pages/service_page.dart";
@@ -26,6 +27,8 @@ class _HomePageState extends State<HomePage> {
   final IndexService _indexService = IndexService();
   final List<String> _bottomMenuUnreadCount = [];
 
+  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
+
   final List<Widget> _pagesName = [
     Text("商家"),
     Text("客服"),
@@ -42,6 +45,20 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _getBottomMenuUnreadCount();
+
+    _firebaseMessaging.requestPermission();
+
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      print('收到訊息：${message.notification?.title}');
+    });
+
+    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+      print('從通知啟動APP：${message.notification?.title}');
+    });
+
+    _firebaseMessaging.getToken().then((token) {
+      print('FCM token: ${token}');
+    });
   }
 
   void _onItemTapped(int index) {
