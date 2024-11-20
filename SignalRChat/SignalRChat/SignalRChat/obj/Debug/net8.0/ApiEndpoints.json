@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "ContainingType": "SignalRChat.Controllers.MessageController",
+    "Method": "SendMessageAsync",
+    "RelativePath": "Message",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SignalRChat.Controllers.MessageRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
