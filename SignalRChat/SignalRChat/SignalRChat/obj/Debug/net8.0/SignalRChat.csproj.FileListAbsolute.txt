@@ -2,7 +2,6 @@ C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debu
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\ClassLibrary.runtimeconfig.json
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\ClassLibrary.staticwebassets.runtime.json
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\ClassLibrary.exe
-C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\rcss-eb982-1fd5569633d3.json
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\SignalRChat.Client.staticwebassets.runtime.json
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\appsettings.json
@@ -91,3 +90,4 @@ C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debu
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\Google.Api.Gax.dll
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\Google.Api.Gax.Rest.dll
 C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\User\Desktop\Projects\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\rcss-eb982-firebase-adminsdk-t4h23-11a5cce373.json

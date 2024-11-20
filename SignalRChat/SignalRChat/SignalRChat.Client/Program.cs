@@ -1,5 +1,9 @@
+using FirebaseAdmin;
+using Google.Apis.Auth.OAuth2;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using SignalRChat.Client.Service;
+
+
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 

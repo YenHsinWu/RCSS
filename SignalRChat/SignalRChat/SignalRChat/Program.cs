@@ -1,12 +1,12 @@
+using FirebaseAdmin;
+using Google.Apis.Auth.OAuth2;
 using SignalRChat.Client.Pages;
 using SignalRChat.Client.Service;
 using SignalRChat.Components;
-using FirebaseAdmin;
-using Google.Apis.Auth.OAuth2;
 
 FirebaseApp.Create(new AppOptions()
 {
-    Credential = GoogleCredential.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "rcss-eb982-1fd5569633d3.json"))
+    Credential = GoogleCredential.FromFile("rcss-eb982-firebase-adminsdk-t4h23-11a5cce373.json")
 });
 
 var builder = WebApplication.CreateBuilder(args);
