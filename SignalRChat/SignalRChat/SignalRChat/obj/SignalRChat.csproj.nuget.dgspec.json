@@ -124,10 +124,6 @@
               "target": "Package",
               "version": "[3.1.1, )"
             },
-            "Google.Apis.Auth": {
-              "target": "Package",
-              "version": "[1.68.0, )"
-            },
             "Microsoft.AspNetCore.Components.QuickGrid": {
               "target": "Package",
               "version": "[8.0.11, )"
@@ -155,10 +151,6 @@
               "target": "Package",
               "version": "[8.0.10, )",
               "autoReferenced": true
-            },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.3, )"
             }
           },
           "imports": [
@@ -241,6 +233,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "FirebaseAdmin": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
             "Microsoft.AspNetCore.Components.WebAssembly.Server": {
               "target": "Package",
               "version": "[8.0.10, )"
