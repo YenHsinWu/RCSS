@@ -6,6 +6,12 @@ class WebPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('網頁'),
+        centerTitle: true,
+        backgroundColor: Colors.red,
+        foregroundColor: Colors.white,
+      ),
       body: Center(
         child: Text('網頁'),
       ),

@@ -34,6 +34,12 @@ class _ChatRoomPageState extends State<ChatRoomPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('聊天室'),
+        centerTitle: true,
+        backgroundColor: Colors.red,
+        foregroundColor: Colors.white,
+      ),
       body: Container(
         child: ChatRoomPageListView(
           cards: _chatRoomCards,

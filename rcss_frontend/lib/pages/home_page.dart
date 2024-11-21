@@ -23,9 +23,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
+  final List<String> _bottomMenuUnreadCount = [];
 
   final IndexService _indexService = IndexService();
-  final List<String> _bottomMenuUnreadCount = [];
 
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
 
@@ -64,7 +64,6 @@ class _HomePageState extends State<HomePage> {
   void _onItemTapped(int index) {
     setState(() {
       _currentIndex = index;
-      print(widget.uuid);
     });
     _pageController.jumpToPage(_currentIndex);
   }
@@ -72,12 +71,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: _pagesName[_currentIndex],
-        centerTitle: true,
-        backgroundColor: Colors.red,
-        foregroundColor: Colors.white,
-      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: _onItemTapped,

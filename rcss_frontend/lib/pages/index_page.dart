@@ -32,6 +32,12 @@ class _IndexPageState extends State<IndexPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('捷徑'),
+        centerTitle: true,
+        backgroundColor: Colors.red,
+        foregroundColor: Colors.white,
+      ),
       body: Container(
         child: IndexPageGridView(icons: shortcuts),
       ),

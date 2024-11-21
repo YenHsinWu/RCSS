@@ -31,6 +31,12 @@ class _ServicePageState extends State<ServicePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('客服'),
+        centerTitle: true,
+        backgroundColor: Colors.red,
+        foregroundColor: Colors.white,
+      ),
       body: Container(
         child: ChatRoomPageListView(
           cards: _chatRoomCards,

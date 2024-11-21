@@ -109,7 +109,15 @@ class _ShortcutIconState extends State<ShortcutIcon> {
                         setState(() {
                           _deleteShortcut(
                               widget.uuid, widget.type, widget.title);
-                          Navigator.pop(context);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => IndexPage(
+                                uuid: widget.uuid,
+                                userName: widget.userName,
+                              ),
+                            ),
+                          );
                         }),
                       },
                   child: Text('確認')),

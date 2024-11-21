@@ -10,6 +10,13 @@ class FriendPage extends StatefulWidget {
 class _FriendPageState extends State<FriendPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('好友'),
+        centerTitle: true,
+        backgroundColor: Colors.red,
+        foregroundColor: Colors.white,
+      ),
+    );
   }
 }
