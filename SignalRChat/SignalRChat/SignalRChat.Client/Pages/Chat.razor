@@ -132,6 +132,7 @@
                     messages.Add($"{recentHistoryMessage.backend_user_name}: {recentHistoryMessage.talk_content} --- [{recentHistoryMessage.created_date.ToString("HH:mm:ss")}]");
                 }
             }
+            messages.Add("------------------------------");
             InvokeAsync(StateHasChanged);
         }
         catch (Exception ex)
