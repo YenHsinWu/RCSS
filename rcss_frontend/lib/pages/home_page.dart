@@ -23,7 +23,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
-  final List<String> _bottomMenuUnreadCount = [];
+  final List<String> _bottomMenuUnreadCount = ['0', '0', '0', '0', '0'];
 
   final IndexService _indexService = IndexService();
 
@@ -199,8 +199,9 @@ class _HomePageState extends State<HomePage> {
         await _indexService.getBottomMenuTypeAndCount(widget.uuid);
 
     setState(() {
-      for (Map<String, dynamic> data in iconTypeAndUnreadCount) {
-        _bottomMenuUnreadCount.add(data['data_count'].toString());
+      for (int i = 0; i < iconTypeAndUnreadCount.length; i++) {
+        _bottomMenuUnreadCount[i] =
+            iconTypeAndUnreadCount[i]['data_count'].toString();
       }
     });
   }

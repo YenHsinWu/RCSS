@@ -27,6 +27,7 @@ class _ChatPageState extends State<ChatPage> {
   late HubConnection hubConnection;
   final TextEditingController messageController = TextEditingController();
   List<String> messages = [];
+  String seperationLine = '-------------------------';
 
   ChatService _chatService = ChatService();
 
@@ -118,7 +119,21 @@ class _ChatPageState extends State<ChatPage> {
               '${recentMessagesHistory['backend_user_name']}: ${recentMessagesHistory['talk_content']} --- [${timestamp}]');
         }
       }
-      messages.add('-------------------------');
+
+      int unreadIndex = messages.length;
+      for (int i = recentMessagesHistoryData['data'].length - 1; i >= 0; i--) {
+        Iterable<dynamic> recentMessagesIter =
+            recentMessagesHistoryData['data'].reversed;
+        List<dynamic> recentMessages = recentMessagesIter.toList();
+
+        if (!recentMessages[i]['is_user_read']) {
+          unreadIndex = i;
+        } else {
+          break;
+        }
+      }
+
+      messages.insert(unreadIndex, seperationLine);
     });
   }
 
@@ -158,6 +173,11 @@ class _ChatPageState extends State<ChatPage> {
         ],
       );
       messageController.clear();
+
+      setState(() {
+        messages.remove(seperationLine);
+        messages.insert(messages.length, seperationLine);
+      });
     } else {
       print('Connection is not established yet');
     }

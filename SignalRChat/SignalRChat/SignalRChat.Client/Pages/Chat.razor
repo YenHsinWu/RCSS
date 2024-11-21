@@ -36,6 +36,8 @@
 
     private int backendUserId;
 
+    private string seperationLine = "------------------------------";
+
     protected override void OnInitialized()
     {
         var uri = Navigator.Uri;
@@ -72,6 +74,9 @@
             // var concatMessage = $"[{groupName}] --- {userName}: {message} --- [{timestamp.Split(' ')[1]}]";
             var concatMessage = $"{userName}: {message} --- [{timestamp.Split(' ')[1].Substring(0, 8)}]";
             messages.Add(concatMessage);
+
+            messages.Remove(seperationLine);
+            messages.Insert(messages.Count, seperationLine);
 
             InvokeAsync(StateHasChanged);
         });
@@ -132,7 +137,20 @@
                     messages.Add($"{recentHistoryMessage.backend_user_name}: {recentHistoryMessage.talk_content} --- [{recentHistoryMessage.created_date.ToString("HH:mm:ss")}]");
                 }
             }
-            messages.Add("------------------------------");
+
+            int unreadIndex = messages.Count;
+            for (int i = recentHistoryMessagesData.Length; i >= 0; i--)
+            {
+                if (!recentHistoryMessagesData[i].is_backend_user_read)
+                {
+                    unreadIndex = i;    
+                }    
+                else
+                {
+                    break;
+                }
+            }
+            messages.Insert(unreadIndex, seperationLine);
             InvokeAsync(StateHasChanged);
         }
         catch (Exception ex)

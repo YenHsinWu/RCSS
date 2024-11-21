@@ -40,8 +40,6 @@ namespace SignalRChat.Hubs
 
                 var messaging = FirebaseMessaging.DefaultInstance;
                 string result = await messaging.SendAsync(notificationMessage);
-
-                Console.WriteLine(result);
             }
             catch (Exception ex) 
             {
