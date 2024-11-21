@@ -1,48 +1,48 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\RCSS\\SignalRChat\\",
+  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|c:\\users\\user\\desktop\\projects\\rcss\\signalrchat\\signalrchat\\signalrchat\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|solutionrelative:signalrchat\\signalrchat\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat.client\\pages\\businesslist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|c:\\users\\user\\desktop\\projects\\rcss\\signalrchat\\signalrchat\\signalrchat.client\\pages\\businesslist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|solutionrelative:signalrchat\\signalrchat.client\\pages\\businesslist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|c:\\users\\user\\desktop\\projects\\rcss\\signalrchat\\signalrchat\\signalrchat\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|solutionrelative:signalrchat\\signalrchat\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|c:\\users\\user\\desktop\\projects\\rcss\\signalrchat\\signalrchat\\signalrchat.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|solutionrelative:signalrchat\\signalrchat.client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|c:\\users\\user\\desktop\\projects\\rcss\\signalrchat\\signalrchat\\signalrchat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|solutionrelative:signalrchat\\signalrchat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|c:\\users\\user\\desktop\\projects\\rcss\\signalrchat\\signalrchat\\signalrchat\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|solutionrelative:signalrchat\\signalrchat\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|c:\\users\\user\\desktop\\projects\\rcss\\signalrchat\\signalrchat\\signalrchat\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|solutionrelative:signalrchat\\signalrchat\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat.client\\service\\businessservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|c:\\users\\user\\desktop\\projects\\rcss\\signalrchat\\signalrchat\\signalrchat.client\\service\\businessservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|solutionrelative:signalrchat\\signalrchat.client\\service\\businessservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat.client\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|c:\\users\\user\\desktop\\projects\\rcss\\signalrchat\\signalrchat\\signalrchat.client\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|solutionrelative:signalrchat\\signalrchat.client\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\9.0.100\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|c:\\users\\user\\desktop\\projects\\rcss\\signalrchat\\signalrchat\\signalrchat\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|solutionrelative:signalrchat\\signalrchat\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -63,9 +63,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "NavMenu.razor",
-              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Components\\Layout\\NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "SignalRChat\\SignalRChat\\Components\\Layout\\NavMenu.razor",
-              "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Components\\Layout\\NavMenu.razor",
               "RelativeToolTip": "SignalRChat\\SignalRChat\\Components\\Layout\\NavMenu.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -76,131 +76,121 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "MainLayout.razor",
-              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Components\\Layout\\MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Components\\Layout\\MainLayout.razor",
               "RelativeDocumentMoniker": "SignalRChat\\SignalRChat\\Components\\Layout\\MainLayout.razor",
-              "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Components\\Layout\\MainLayout.razor",
               "RelativeToolTip": "SignalRChat\\SignalRChat\\Components\\Layout\\MainLayout.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T10:25:47.978Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T10:25:47.978Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Program.cs",
               "RelativeDocumentMoniker": "SignalRChat\\SignalRChat.Client\\Program.cs",
-              "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Program.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Program.cs",
               "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T10:24:43.243Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T10:24:43.243Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Program.cs",
               "RelativeDocumentMoniker": "SignalRChat\\SignalRChat\\Program.cs",
-              "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Program.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Program.cs",
               "RelativeToolTip": "SignalRChat\\SignalRChat\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T10:24:32.646Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T10:24:32.646Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "BusinessList.razor",
-              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Pages\\BusinessList.razor",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Pages\\BusinessList.razor",
               "RelativeDocumentMoniker": "SignalRChat\\SignalRChat.Client\\Pages\\BusinessList.razor",
-              "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Pages\\BusinessList.razor",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Pages\\BusinessList.razor",
               "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\Pages\\BusinessList.razor",
               "ViewState": "AgIAACoAAAAAAAAAAAAAADMAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T10:06:33.941Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T10:06:33.941Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "Microsoft.PackageDependencyResolution.targets",
               "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.100\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
-              "RelativeDocumentMoniker": "..\\..\\Program Files\\dotnet\\sdk\\9.0.100\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.100\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
               "ToolTip": "C:\\Program Files\\dotnet\\sdk\\9.0.100\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
-              "RelativeToolTip": "..\\..\\Program Files\\dotnet\\sdk\\9.0.100\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.100\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
               "ViewState": "AgIAANgAAAAAAAAAAAAgwOIAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-11-20T10:02:53.284Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T10:02:53.284Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "ChatHub.cs",
-              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Hubs\\ChatHub.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Hubs\\ChatHub.cs",
               "RelativeDocumentMoniker": "SignalRChat\\SignalRChat\\Hubs\\ChatHub.cs",
-              "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Hubs\\ChatHub.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Hubs\\ChatHub.cs",
               "RelativeToolTip": "SignalRChat\\SignalRChat\\Hubs\\ChatHub.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAQwBkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T08:45:49.297Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T08:45:49.297Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "App.razor",
-              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Components\\App.razor",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Components\\App.razor",
               "RelativeDocumentMoniker": "SignalRChat\\SignalRChat\\Components\\App.razor",
-              "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Components\\App.razor",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Components\\App.razor",
               "RelativeToolTip": "SignalRChat\\SignalRChat\\Components\\App.razor",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T08:37:37.772Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T08:37:37.772Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "_Imports.razor",
-              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Components\\_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Components\\_Imports.razor",
               "RelativeDocumentMoniker": "SignalRChat\\SignalRChat\\Components\\_Imports.razor",
-              "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Components\\_Imports.razor",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Components\\_Imports.razor",
               "RelativeToolTip": "SignalRChat\\SignalRChat\\Components\\_Imports.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T08:35:35.424Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T08:35:35.424Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "_Imports.razor",
-              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\_Imports.razor",
               "RelativeDocumentMoniker": "SignalRChat\\SignalRChat.Client\\_Imports.razor",
-              "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\_Imports.razor",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\_Imports.razor",
               "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\_Imports.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T08:34:57.392Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T08:34:57.392Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "BusinessService.cs",
-              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Service\\BusinessService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Service\\BusinessService.cs",
               "RelativeDocumentMoniker": "SignalRChat\\SignalRChat.Client\\Service\\BusinessService.cs",
-              "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Service\\BusinessService.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Projects\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Service\\BusinessService.cs",
               "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\Service\\BusinessService.cs",
               "ViewState": "AgIAADQAAAAAAAAAAAAAADwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T08:29:42.552Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T08:29:42.552Z"
             }
           ]
         }
