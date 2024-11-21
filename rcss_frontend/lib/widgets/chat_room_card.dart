@@ -94,7 +94,7 @@ class ChatRoomCard extends Card {
                 onPressed: () => {
                   _indexService.createIndexPageShortcut(
                       uuid,
-                      1,
+                      2,
                       _titleController.text,
                       {
                         'business_id': int.parse(businessId),
