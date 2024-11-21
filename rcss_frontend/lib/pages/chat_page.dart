@@ -102,6 +102,8 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   void _showHistoryMessages() async {
+    bool isSeperationLineAdded = false;
+
     Map<String, dynamic> recentMessagesHistoryData =
         await _chatService.getRecentTalkHistory(
             widget.uuid, widget.businessId, widget.serviceName);
@@ -111,6 +113,11 @@ class _ChatPageState extends State<ChatPage> {
         String timestamp = recentMessagesHistory['created_date'];
         timestamp = timestamp.split('T')[1].substring(0, 8);
 
+        if (!recentMessagesHistory['is_user_read'] && !isSeperationLineAdded) {
+          messages.add(seperationLine);
+          isSeperationLineAdded = true;
+        }
+
         if (recentMessagesHistory['is_user_talk']) {
           messages.add(
               '${recentMessagesHistory['user_name']}: ${recentMessagesHistory['talk_content']} --- [${timestamp}]');
@@ -119,21 +126,6 @@ class _ChatPageState extends State<ChatPage> {
               '${recentMessagesHistory['backend_user_name']}: ${recentMessagesHistory['talk_content']} --- [${timestamp}]');
         }
       }
-
-      int unreadIndex = messages.length;
-      for (int i = recentMessagesHistoryData['data'].length - 1; i >= 0; i--) {
-        Iterable<dynamic> recentMessagesIter =
-            recentMessagesHistoryData['data'].reversed;
-        List<dynamic> recentMessages = recentMessagesIter.toList();
-
-        if (!recentMessages[i]['is_user_read']) {
-          unreadIndex = i;
-        } else {
-          break;
-        }
-      }
-
-      messages.insert(unreadIndex, seperationLine);
     });
   }
 
@@ -173,11 +165,6 @@ class _ChatPageState extends State<ChatPage> {
         ],
       );
       messageController.clear();
-
-      setState(() {
-        messages.remove(seperationLine);
-        messages.insert(messages.length, seperationLine);
-      });
     } else {
       print('Connection is not established yet');
     }

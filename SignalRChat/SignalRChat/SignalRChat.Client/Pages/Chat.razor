@@ -60,23 +60,26 @@
         }
     }
 
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await ShowHistoryMessages();
+            await chatService.SetUnreadMessagesCountToZero(uuid, int.Parse(businessId), groupName.Split('^')[0], 1);
+        }
+    }
+
     protected async override Task OnInitializedAsync()
     {
         hubConnection = new HubConnectionBuilder().WithUrl(Navigator.ToAbsoluteUri("/chathub")).Build();
 
         Console.WriteLine(uuid);
 
-        await ShowHistoryMessages();
-        await chatService.SetUnreadMessagesCountToZero(uuid, int.Parse(businessId), groupName.Split('^')[0], 1);
-
         hubConnection.On<string, string, string, string>("SendGroupMsg", async (groupName, userName, message, timestamp) =>
         {
             // var concatMessage = $"[{groupName}] --- {userName}: {message} --- [{timestamp.Split(' ')[1]}]";
             var concatMessage = $"{userName}: {message} --- [{timestamp.Split(' ')[1].Substring(0, 8)}]";
             messages.Add(concatMessage);
-
-            messages.Remove(seperationLine);
-            messages.Insert(messages.Count, seperationLine);
 
             InvokeAsync(StateHasChanged);
         });
@@ -124,8 +127,17 @@
 
             messages.Add($"Chat Room: {recentHistoryMessagesData[0].business_service_name} - {recentHistoryMessagesData[0].user_name}\n\n");
 
+            bool isSeperationLineAdded = false;
+
             foreach (var recentHistoryMessage in recentHistoryMessagesData)
             {
+                if (!recentHistoryMessage.is_backend_user_read && !isSeperationLineAdded)
+                {
+                    Console.WriteLine("Adding line...");
+                    messages.Add(seperationLine);
+                    isSeperationLineAdded = true;
+                }
+
                 if (recentHistoryMessage.is_user_talk)
                 {
                     // messages.Add($"[{groupName}] --- {uuid}: {recentHistoryMessage.talk_content} --- [{recentHistoryMessage.created_date.ToString("HH:mm:ss")}]");
@@ -137,20 +149,6 @@
                     messages.Add($"{recentHistoryMessage.backend_user_name}: {recentHistoryMessage.talk_content} --- [{recentHistoryMessage.created_date.ToString("HH:mm:ss")}]");
                 }
             }
-
-            int unreadIndex = messages.Count;
-            for (int i = recentHistoryMessagesData.Length; i >= 0; i--)
-            {
-                if (!recentHistoryMessagesData[i].is_backend_user_read)
-                {
-                    unreadIndex = i;    
-                }    
-                else
-                {
-                    break;
-                }
-            }
-            messages.Insert(unreadIndex, seperationLine);
             InvokeAsync(StateHasChanged);
         }
         catch (Exception ex)
