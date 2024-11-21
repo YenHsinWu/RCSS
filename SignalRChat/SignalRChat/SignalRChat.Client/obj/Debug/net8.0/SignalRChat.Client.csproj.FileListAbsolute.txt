@@ -2267,9 +2267,6 @@ C:\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\d
 C:\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\cr73xqreqd-tptq2av103.gz
 C:\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\0f6nhzsjd1-lfu7j35m59.gz
 C:\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\jagh19nbhm-oyz0vx2fzb.gz
-C:\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\jnj2vnh5aa-n7ny3l3n9i.gz
-C:\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\y4shidw54m-q9gwtuo9et.gz
-C:\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\0idnupgtan-hz9jynz21i.gz
 C:\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\staticwebassets.build.json
 C:\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\staticwebassets.development.json
 C:\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\staticwebassets.build.endpoints.json
@@ -2285,3 +2282,6 @@ C:\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\SignalRChat.
 C:\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\refint\SignalRChat.Client.dll
 C:\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\SignalRChat.Client.pdb
 C:\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\ref\SignalRChat.Client.dll
+C:\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\jnj2vnh5aa-ul9cqmud0f.gz
+C:\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\y4shidw54m-wcdyhm35ld.gz
+C:\RCSS\SignalRChat\SignalRChat\SignalRChat.Client\obj\Debug\net8.0\compressed\0idnupgtan-efdmddubth.gz

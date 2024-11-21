@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "SignalRChat.Client",
   "resources": {
-    "hash": "sha256-uZxDfKw/J27vK3gz120xygBgVe+GSzytOzT+qFoR5u4=",
+    "hash": "sha256-S5ymDpKDtmSVshXdU3OYpZETDYGuWQhzZsvPp+6s+PY=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-VdKq87/z5NIxZKmuM+fv38XF+RcEb/bg3jVBwQSfwP4="
     },
@@ -231,10 +231,10 @@
       "mscorlib.wasm": "sha256-04e4k5XU8HWGB/dq/2+j84xzzGPflTs0IYWI0OxogVc=",
       "netstandard.wasm": "sha256-gnGZURPnoSmjXuYNCOJi5tt8qn2LRImWgue1Ru3/TDQ=",
       "System.Private.CoreLib.wasm": "sha256-6w3jYr0arcp8jnt4aeqh+AmqrLA6q7jl9rQYAwLzE0M=",
-      "SignalRChat.Client.wasm": "sha256-/Q71T/l470zslg83JtIBmJvmRXhJLyC7X1MBs0wnyHg="
+      "SignalRChat.Client.wasm": "sha256-XrKJMANhdHKHFbR2ifuzMsqFpWiJXwsPZ871zC4MbyQ="
     },
     "pdb": {
-      "SignalRChat.Client.pdb": "sha256-Xk+5xauUk505gNAfVUL9Quv6mDVqgMeV9vaO8Mad/4E="
+      "SignalRChat.Client.pdb": "sha256-4E4cZjRajsainlNq9HE8dyAkEOL9lot9GHIltiVqD/Y="
     }
   },
   "cacheBootResources": true,
