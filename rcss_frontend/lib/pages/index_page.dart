@@ -60,9 +60,16 @@ class _IndexPageState extends State<IndexPage> {
             title: shortcut['shortcut_title'],
             shortcutUrl: shortcut['shortcut_url'],
             unreadCount: shortcut['not_read_count'].toString(),
+            onDelete: _updateShortcutsList,
           ),
         );
       }
+    });
+  }
+
+  void _updateShortcutsList() {
+    setState(() {
+      getShortcutListJson(widget.uuid);
     });
   }
 }

@@ -15,6 +15,7 @@ class ShortcutIcon extends StatefulWidget {
   final String title;
   final Map<String, dynamic> shortcutUrl;
   final String unreadCount;
+  final Function onDelete;
 
   const ShortcutIcon({
     super.key,
@@ -25,6 +26,7 @@ class ShortcutIcon extends StatefulWidget {
     required this.title,
     required this.shortcutUrl,
     required this.unreadCount,
+    required this.onDelete,
   });
 
   @override
@@ -109,15 +111,8 @@ class _ShortcutIconState extends State<ShortcutIcon> {
                         setState(() {
                           _deleteShortcut(
                               widget.uuid, widget.type, widget.title);
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => IndexPage(
-                                uuid: widget.uuid,
-                                userName: widget.userName,
-                              ),
-                            ),
-                          );
+                          widget.onDelete();
+                          Navigator.pop(context);
                         }),
                       },
                   child: Text('確認')),
