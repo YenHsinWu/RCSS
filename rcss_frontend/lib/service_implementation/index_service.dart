@@ -36,7 +36,8 @@ class IndexService {
     if (response.statusCode == 200) {
       return responseBody;
     } else {
-      throw Exception('${response.statusCode}');
+      throw Exception(
+          '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
     }
   }
 
@@ -50,7 +51,8 @@ class IndexService {
     if (response.statusCode == 200) {
       return responseBody['dataMenu'];
     } else {
-      throw Exception('${response.statusCode}');
+      throw Exception(
+          '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
     }
   }
 
@@ -64,7 +66,8 @@ class IndexService {
     if (response.statusCode == 200) {
       return responseBody['dataShortcut'];
     } else {
-      throw Exception('${response.statusCode}');
+      throw Exception(
+          '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
     }
   }
 
@@ -89,7 +92,8 @@ class IndexService {
     if (response.statusCode == 200) {
       return responseBody;
     } else {
-      throw Exception('${response.statusCode}');
+      throw Exception(
+          '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
     }
   }
 }

@@ -20,7 +20,8 @@ class ChatService {
     if (response.statusCode == 200) {
       return responseBody;
     } else {
-      throw Exception('${response.statusCode}');
+      throw Exception(
+          '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
     }
   }
 
@@ -33,10 +34,13 @@ class ChatService {
       headers: headers,
     );
 
+    Map<String, dynamic> responseBody = json.decode(response.body);
+
     if (response.statusCode == 200) {
       print('[setUnreadMessagesCountToZero] -- Sucess');
     } else {
-      throw Exception('${response.statusCode}');
+      throw Exception(
+          '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
     }
   }
 }

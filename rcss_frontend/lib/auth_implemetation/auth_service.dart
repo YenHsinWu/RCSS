@@ -26,7 +26,8 @@ class AuthService {
     if (response.statusCode == 200) {
       return responseBody['message'];
     } else {
-      throw Exception('${response.statusCode}');
+      throw Exception(
+          '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
     }
   }
 
@@ -45,7 +46,8 @@ class AuthService {
     if (response.statusCode == 200) {
       return responseBody;
     } else {
-      throw Exception('${response.statusCode}');
+      throw Exception(
+          '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
     }
   }
 
@@ -80,7 +82,8 @@ class AuthService {
     if (response.statusCode == 200) {
       return responseBody;
     } else {
-      throw Exception('${response.statusCode}');
+      throw Exception(
+          '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
     }
   }
 
@@ -113,11 +116,10 @@ class AuthService {
 
     Map<String, dynamic> responseBody = json.decode(response.body);
     if (response.statusCode == 200) {
-      print(responseBody['message']);
       return responseBody;
     } else {
-      print(responseBody['message']);
-      throw Exception('${response.statusCode}');
+      throw Exception(
+          '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
     }
   }
 
@@ -148,7 +150,8 @@ class AuthService {
     if (response.statusCode == 200) {
       return responseBody;
     } else {
-      throw Exception('${response.statusCode}');
+      throw Exception(
+          '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
     }
   }
 
@@ -175,7 +178,8 @@ class AuthService {
     if (response.statusCode == 200) {
       return responseBody;
     } else {
-      throw Exception('${response.statusCode}');
+      throw Exception(
+          '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
     }
   }
 }

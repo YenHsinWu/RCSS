@@ -18,7 +18,7 @@ class StoreService {
     if (response.statusCode == 200) {
       return responseBody;
     } else {
-      throw Exception('${response.statusCode}');
+      Map<String, dynamic> responseBody = json.decode(response.body);
     }
   }
 
@@ -32,7 +32,8 @@ class StoreService {
     if (response.statusCode == 200) {
       return responseBody;
     } else {
-      throw Exception('${response.statusCode}');
+      throw Exception(
+          '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
     }
   }
 
@@ -46,7 +47,8 @@ class StoreService {
     if (response.statusCode == 200) {
       return responseBody;
     } else {
-      throw Exception('${response.statusCode}');
+      throw Exception(
+          '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
     }
   }
 
@@ -61,7 +63,8 @@ class StoreService {
     if (response.statusCode == 200) {
       return responseBody;
     } else {
-      throw Exception('${response.statusCode}');
+      throw Exception(
+          '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
     }
   }
 }
