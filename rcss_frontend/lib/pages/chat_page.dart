@@ -118,7 +118,7 @@ class _ChatPageState extends State<ChatPage> {
               '${recentMessagesHistory['backend_user_name']}: ${recentMessagesHistory['talk_content']} --- [${timestamp}]');
         }
       }
-      messages.add('-------------------------'.);
+      messages.add('-------------------------');
     });
   }
 

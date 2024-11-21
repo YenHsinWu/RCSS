@@ -1,4 +1,7 @@
-﻿using System.Text.Json;
+﻿using Microsoft.Extensions.Configuration;
+using SignalRChat.Client.Model;
+using SignalRChat.Client.Utility;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace SignalRChat.Client.Service
@@ -41,20 +44,65 @@ namespace SignalRChat.Client.Service
                     string data = await response.Content.ReadAsStringAsync();
                     BusinessServiceList jsonData = JsonSerializer.Deserialize<BusinessServiceList>(data);
 
-                    foreach (var businessServiceData in jsonData.data) 
+                    foreach (var businessServiceData in jsonData.data)
                     {
-                        Console.WriteLine(businessServiceData.business_name);   
+                        Console.WriteLine(businessServiceData.business_name);
                     }
 
                     return jsonData;
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 Console.WriteLine($"錯誤: {ex.Message}");
             }
 
             return new BusinessServiceList();
+        }
+        public async Task<BusinessList> GetBusinessList(string address, string phone, string email, string business_name, int business_type_id, int count_per_page, int page)
+        {
+            string err = "";
+            try
+            {
+                var basePath = "http://10.10.10.207:3000/api/businessList";
+                var uri = ParameterHelper.BuildUrlWithQueryStringUsingStringConcat(basePath, new Dictionary<string, string>
+                {
+                    { "page",page.ToString()},
+                    { "count_per_page",count_per_page.ToString()},
+                    { "business_type_id",business_type_id.ToString()},
+                    { "business_name",business_name},
+                    { "email",email},
+                    { "phone",phone},
+                    { "address",address},
+                }
+                );
+                var response = await _httpClient.GetAsync(uri);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string data = await response.Content.ReadAsStringAsync();
+                    BusinessList jsonData = JsonSerializer.Deserialize<BusinessList>(data);
+
+                    foreach (var businessServiceData in jsonData.dataBusinessList)
+                    {
+                        Console.WriteLine(businessServiceData.business_name);
+                    }
+
+                    return jsonData;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"錯誤: {ex.Message}");
+                err = ex.Message;
+            }
+            return new BusinessList
+            {
+                dataBusinessList = null,
+                dataBusinessType = null,
+                code = "10",
+                message = "$\"錯誤: {err}"
+            };
         }
     }
 }

@@ -2,6 +2,7 @@
 @rendermode InteractiveWebAssembly
 @using SignalRChat.Client.Service
 @using Microsoft.AspNetCore.Components.QuickGrid
+@using SignalRChat.Client.Model 
 @inject NavigationManager NavManager
 @inject SignalRChat.Client.Service.BusinessService ObjectBusinessService
 @inject IConfiguration configuration
@@ -46,7 +47,7 @@
         新增商家
     </button>
 </div>
-<Grid TItem="BusinessService.DataBusinessList"
+<Grid TItem="DataBusinessList"
 Class="table table-hover table-bordered table-striped"
 DataProvider="BusinessListDataProvider"
 AllowPaging="true"
@@ -54,47 +55,47 @@ Responsive="true"
 PageSize=2
 @ref="GridDBL">
 
-    <GridColumn TItem="BusinessService.DataBusinessList" HeaderText="商家id" PropertyName="business_id" SortString="business_id" SortKeySelector="item => item.business_id" FilterTextboxWidth="50" Class="d-none" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
+    <GridColumn TItem="DataBusinessList" HeaderText="商家id" PropertyName="business_id" SortString="business_id" SortKeySelector="item => item.business_id" FilterTextboxWidth="50" Class="d-none" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
         @context.business_id
     </GridColumn>
-    <GridColumn TItem="BusinessService.DataBusinessList" HeaderText="商家名稱" PropertyName="business_name" SortString="business_name" SortKeySelector="item => item.business_name" FilterTextboxWidth="80">
+    <GridColumn TItem="DataBusinessList" HeaderText="商家名稱" PropertyName="business_name" SortString="business_name" SortKeySelector="item => item.business_name" FilterTextboxWidth="80">
         @context.business_name
     </GridColumn>
-    <GridColumn TItem="BusinessService.DataBusinessList" HeaderText="類型id" PropertyName="business_type_id" SortString="business_type_id" SortKeySelector="item => item.business_type_id" FilterTextboxWidth="100" Class="d-none">
+    <GridColumn TItem="DataBusinessList" HeaderText="類型id" PropertyName="business_type_id" SortString="business_type_id" SortKeySelector="item => item.business_type_id" FilterTextboxWidth="100" Class="d-none">
         @context.business_type_id
     </GridColumn>
-    <GridColumn TItem="BusinessService.DataBusinessList" HeaderText="商家類型" PropertyName="business_type_name" SortString="business_type_name" SortKeySelector="item => item.business_type_name" FilterTextboxWidth="120">
+    <GridColumn TItem="DataBusinessList" HeaderText="商家類型" PropertyName="business_type_name" SortString="business_type_name" SortKeySelector="item => item.business_type_name" FilterTextboxWidth="120">
         @context.business_type_name
     </GridColumn>
-    <GridColumn TItem="BusinessService.DataBusinessList" HeaderText="網址" PropertyName="business_url" SortString="business_url" SortKeySelector="item => item.business_url" FilterTextboxWidth="150">
+    <GridColumn TItem="DataBusinessList" HeaderText="網址" PropertyName="business_url" SortString="business_url" SortKeySelector="item => item.business_url" FilterTextboxWidth="150">
         @context.business_url
     </GridColumn>
-    <GridColumn TItem="BusinessService.DataBusinessList" HeaderText="email" PropertyName="email" SortString="email" SortKeySelector="item => item.email" FilterTextboxWidth="80">
+    <GridColumn TItem="DataBusinessList" HeaderText="email" PropertyName="email" SortString="email" SortKeySelector="item => item.email" FilterTextboxWidth="80">
         @context.email
     </GridColumn>
-    <GridColumn TItem="BusinessService.DataBusinessList" HeaderText="地址" PropertyName="address" SortString="address" SortKeySelector="item => item.phone" FilterTextboxWidth="80">
+    <GridColumn TItem="DataBusinessList" HeaderText="地址" PropertyName="address" SortString="address" SortKeySelector="item => item.phone" FilterTextboxWidth="80">
         @context.address
     </GridColumn>
-    <GridColumn TItem="BusinessService.DataBusinessList" HeaderText="電話" PropertyName="phone" SortString="phone" SortKeySelector="item => item.phone" FilterTextboxWidth="80">
+    <GridColumn TItem="DataBusinessList" HeaderText="電話" PropertyName="phone" SortString="phone" SortKeySelector="item => item.phone" FilterTextboxWidth="80">
         @context.phone
     </GridColumn>    
 </Grid>
 @code {
-    private BusinessService.DataBusinessList? selected;
+    private DataBusinessList? selected;
     private int business_type_id = 0;
     private string business_name = "";
     private string email = "";
     private string phone = "";
     private string address = "";
     private string errorMessage = "";
-    private IQueryable<BusinessService.DataBusinessList> dataBusinessList;
-    private BusinessService.BusinessList businessList;
+    private IQueryable<DataBusinessList> dataBusinessList;
+    private SignalRChat.Client.Model.BusinessList businessList;
     private PaginationState pagination = new PaginationState();
     // private int CountPerPage = 0;
-    private Grid<BusinessService.DataBusinessList> GridDBL;
-    // private GridItemsProvider<BusinessService.DataBusinessList>? businessListProvider;
+    private Grid<DataBusinessList> GridDBL;
+    // private GridItemsProvider<DataBusinessList>? businessListProvider;
 
-    private void select(BusinessService.DataBusinessList context)
+    private void select(DataBusinessList context)
     {
         selected = context;
         Console.WriteLine(selected.business_name);
@@ -131,25 +132,25 @@ PageSize=2
         phone = "";
         address = "";        
     }
-    private async Task<GridDataProviderResult<BusinessService.DataBusinessList>> BusinessListDataProvider(GridDataProviderRequest<BusinessService.DataBusinessList> request)
+    private async Task<GridDataProviderResult<DataBusinessList>> BusinessListDataProvider(GridDataProviderRequest<DataBusinessList> request)
     {
         Console.WriteLine("查詢...");
         // businessListProvider = async req =>
         // {
-        BusinessService.BusinessList bList = await ObjectBusinessService.GetBusinessList(address, phone, email, business_name, business_type_id, int.Parse(configuration["CountPerPage"]), request.PageNumber);
+        SignalRChat.Client.Model.BusinessList bList = await ObjectBusinessService.GetBusinessList(address, phone, email, business_name, business_type_id, int.Parse(configuration["CountPerPage"]), request.PageNumber);
         if (bList.code == "0")
         {
             businessList = bList;
             if (businessList.dataBusinessList != null)
             {
-                return await Task.FromResult(new GridDataProviderResult<BusinessService.DataBusinessList> { Data = businessList.dataBusinessList, TotalCount = businessList.dataBusinessListCount });        
+                return await Task.FromResult(new GridDataProviderResult<DataBusinessList> { Data = businessList.dataBusinessList, TotalCount = businessList.dataBusinessListCount });        
             }
         }
         else
         {
             Console.WriteLine($"錯誤代碼：{businessList.code},錯誤訊息：{businessList.message}");
         }
-        return await Task.FromResult(new GridDataProviderResult<BusinessService.DataBusinessList> { Data = new List<BusinessService.DataBusinessList>(), TotalCount = 0 });
+        return await Task.FromResult(new GridDataProviderResult<DataBusinessList> { Data = new List<DataBusinessList>(), TotalCount = 0 });
         // };        
     }
     private async void FilterSearchResults()
@@ -169,6 +170,6 @@ PageSize=2
     }
     private void AddBusinessList()
     {
-        //NavManager.NavigateTo($"/search/{SearchTerm}");
+        NavManager.NavigateTo("/BusinessListCreate");
     }
 }
