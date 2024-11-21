@@ -67,7 +67,7 @@
               "RelativeDocumentMoniker": "SignalRChat\\SignalRChat\\Components\\Layout\\NavMenu.razor",
               "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Components\\Layout\\NavMenu.razor",
               "RelativeToolTip": "SignalRChat\\SignalRChat\\Components\\Layout\\NavMenu.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-20T10:26:43.381Z",
               "EditorCaption": ""
@@ -82,8 +82,7 @@
               "RelativeToolTip": "SignalRChat\\SignalRChat\\Components\\Layout\\MainLayout.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T10:25:47.978Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T10:25:47.978Z"
             },
             {
               "$type": "Document",
@@ -95,8 +94,7 @@
               "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T10:24:43.243Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T10:24:43.243Z"
             },
             {
               "$type": "Document",
@@ -108,8 +106,7 @@
               "RelativeToolTip": "SignalRChat\\SignalRChat\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T10:24:32.646Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T10:24:32.646Z"
             },
             {
               "$type": "Document",
@@ -121,8 +118,7 @@
               "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\Pages\\BusinessList.razor",
               "ViewState": "AgIAACoAAAAAAAAAAAAAADMAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T10:06:33.941Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T10:06:33.941Z"
             },
             {
               "$type": "Document",
@@ -134,8 +130,7 @@
               "RelativeToolTip": "..\\..\\Program Files\\dotnet\\sdk\\9.0.100\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
               "ViewState": "AgIAANgAAAAAAAAAAAAgwOIAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-11-20T10:02:53.284Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T10:02:53.284Z"
             },
             {
               "$type": "Document",
@@ -147,8 +142,7 @@
               "RelativeToolTip": "SignalRChat\\SignalRChat\\Hubs\\ChatHub.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAQwBkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T08:45:49.297Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T08:45:49.297Z"
             },
             {
               "$type": "Document",
@@ -160,8 +154,7 @@
               "RelativeToolTip": "SignalRChat\\SignalRChat\\Components\\App.razor",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T08:37:37.772Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T08:37:37.772Z"
             },
             {
               "$type": "Document",
@@ -173,8 +166,7 @@
               "RelativeToolTip": "SignalRChat\\SignalRChat\\Components\\_Imports.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T08:35:35.424Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T08:35:35.424Z"
             },
             {
               "$type": "Document",
@@ -186,8 +178,7 @@
               "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\_Imports.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T08:34:57.392Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T08:34:57.392Z"
             },
             {
               "$type": "Document",
@@ -199,8 +190,7 @@
               "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\Service\\BusinessService.cs",
               "ViewState": "AgIAADQAAAAAAAAAAAAAADwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T08:29:42.552Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T08:29:42.552Z"
             }
           ]
         }
