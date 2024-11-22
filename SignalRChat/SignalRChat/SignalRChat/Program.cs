@@ -6,7 +6,7 @@ using SignalRChat.Components;
 
 FirebaseApp.Create(new AppOptions()
 {
-    Credential = GoogleCredential.FromFile("rcss-eb982-firebase-adminsdk-t4h23-11a5cce373.json")
+    Credential = GoogleCredential.FromFile("rcss-eb982-firebase-adminsdk-t4h23-e7ae0ca97a.json")
 });
 
 var builder = WebApplication.CreateBuilder(args);

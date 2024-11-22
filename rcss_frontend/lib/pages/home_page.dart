@@ -2,6 +2,7 @@ import 'package:badges/badges.dart' as badges;
 import 'package:badges/badges.dart';
 import "package:firebase_messaging/firebase_messaging.dart";
 import "package:flutter/material.dart";
+import 'package:flutter_app_badge_control/flutter_app_badge_control.dart';
 import "package:rcss_frontend/pages/group_page.dart";
 import "package:rcss_frontend/pages/service_page.dart";
 import "package:rcss_frontend/pages/store_page.dart";
@@ -23,6 +24,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
+  int _unreadCount = 0;
   final List<String> _bottomMenuUnreadCount = ['0', '0', '0', '0', '0'];
 
   final IndexService _indexService = IndexService();
@@ -50,10 +52,12 @@ class _HomePageState extends State<HomePage> {
 
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       print('收到訊息：${message.notification?.title}');
+      FlutterAppBadgeControl.updateBadgeCount(1);
     });
 
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
       print('從通知啟動APP：${message.notification?.title}');
+      FlutterAppBadgeControl.removeBadge();
     });
 
     _firebaseMessaging.getToken().then((token) {
@@ -64,6 +68,7 @@ class _HomePageState extends State<HomePage> {
   void _onItemTapped(int index) {
     setState(() {
       _currentIndex = index;
+      _getBottomMenuUnreadCount();
     });
     _pageController.jumpToPage(_currentIndex);
   }

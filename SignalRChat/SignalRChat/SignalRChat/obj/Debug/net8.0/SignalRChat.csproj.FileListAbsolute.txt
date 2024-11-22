@@ -109,7 +109,6 @@ C:\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\ClassLibrary.runtim
 C:\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\ClassLibrary.staticwebassets.runtime.json
 C:\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\ClassLibrary.exe
 C:\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\SignalRChat.Client.staticwebassets.runtime.json
-C:\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\rcss-eb982-firebase-adminsdk-t4h23-11a5cce373.json
 C:\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\SignalRChat.staticwebassets.runtime.json
 C:\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\SignalRChat.exe
 C:\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\SignalRChat.deps.json
@@ -184,3 +183,4 @@ C:\RCSS\SignalRChat\SignalRChat\SignalRChat\obj\Debug\net8.0\refint\SignalRChat.
 C:\RCSS\SignalRChat\SignalRChat\SignalRChat\obj\Debug\net8.0\SignalRChat.pdb
 C:\RCSS\SignalRChat\SignalRChat\SignalRChat\obj\Debug\net8.0\SignalRChat.genruntimeconfig.cache
 C:\RCSS\SignalRChat\SignalRChat\SignalRChat\obj\Debug\net8.0\ref\SignalRChat.dll
+C:\RCSS\SignalRChat\SignalRChat\SignalRChat\bin\Debug\net8.0\rcss-eb982-firebase-adminsdk-t4h23-e7ae0ca97a.json
