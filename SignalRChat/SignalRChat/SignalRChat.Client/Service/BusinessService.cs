@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using SignalRChat.Client.Model;
 using SignalRChat.Client.Utility;
+using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using static System.Net.WebRequestMethods;
@@ -129,6 +130,48 @@ namespace SignalRChat.Client.Service
                 err = ex.Message;
             }
             return new List<DataBusinessType>();
+        }
+        public async Task<ResponseStanderd> PostBusinessList(string address, string phone, string email, string business_name, int business_type_id, int backend_user_id, string business_url)
+        {
+            string err = "";
+            try
+            {
+                var basePath = $"{_configuration["BaseUri"]}businessList";  // "http://10.10.10.207:3000/api/businessList";
+                var uri = basePath;
+                using StringContent jsonContent = new(
+                    JsonSerializer.Serialize(new
+                    {
+                        business_name = business_name,
+                        business_type = business_type_id,
+                        business_url = business_url,
+                        email = email,
+                        phone= phone,
+                        address= address,
+                        backend_user_id= backend_user_id
+                    }),
+                    Encoding.UTF8,
+                    "application/json");                
+                var response = await _httpClient.PostAsync(uri, jsonContent);
+                if (response.IsSuccessStatusCode)
+                {
+                    string data = await response.Content.ReadAsStringAsync();
+                    ResponseStanderd jsonData = JsonSerializer.Deserialize<ResponseStanderd>(data);
+
+
+
+                    return jsonData;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"錯誤: {ex.Message}");
+                err = ex.Message;
+            }
+            return new ResponseStanderd
+            {
+                code = "-1",
+                message = "$\"錯誤: {err}"
+            };
         }
     }
 }

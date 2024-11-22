@@ -32,6 +32,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVzaW5lc3NMaXN0Q3JlYXRlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/RCSS/SignalRChat/SignalRChat/SignalRChat.Client/Pages/BusinessListUpdate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnVzaW5lc3NMaXN0VXBkYXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/RCSS/SignalRChat/SignalRChat/SignalRChat.Client/Pages/Chat.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

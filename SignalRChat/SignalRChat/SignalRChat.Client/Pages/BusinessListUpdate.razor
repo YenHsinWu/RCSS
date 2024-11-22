@@ -1,12 +1,12 @@
-﻿@page "/BusinessListCreate"
+﻿@page "/BusinessListUpdate/{business_id}"
 @rendermode InteractiveWebAssembly
 @using SignalRChat.Client.Service
 @using SignalRChat.Client.Model
 @inject NavigationManager NavManager
 @inject IJSRuntime JSRuntime
 @inject SignalRChat.Client.Service.BusinessService ObjectBusinessService
-<PageTitle>商家新增</PageTitle>
-<h3>商家新增</h3>
+<PageTitle>商家修改</PageTitle>
+<h3>商家修改</h3>
 <div class="filters">
     <label for="business_type_id">商家類型(id)</label>
     <select @bind="business_type_id">
