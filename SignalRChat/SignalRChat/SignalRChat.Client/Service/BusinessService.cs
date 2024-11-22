@@ -1,18 +1,22 @@
 ﻿using Microsoft.Extensions.Configuration;
 using SignalRChat.Client.Model;
 using SignalRChat.Client.Utility;
+using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using static System.Net.WebRequestMethods;
 
 namespace SignalRChat.Client.Service
 {
     public class BusinessService
     {
         private readonly HttpClient _httpClient;
+        private readonly IConfiguration _configuration;
 
-        public BusinessService(HttpClient httpClient)
+        public BusinessService(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
+            _configuration = configuration;
         }
 
         public class BusinessServiceData
@@ -64,7 +68,7 @@ namespace SignalRChat.Client.Service
             string err = "";
             try
             {
-                var basePath = "http://10.10.10.207:3000/api/businessList";
+                var basePath = $"{_configuration["BaseUri"]}businessList";  // "http://10.10.10.207:3000/api/businessList";
                 var uri = ParameterHelper.BuildUrlWithQueryStringUsingStringConcat(basePath, new Dictionary<string, string>
                 {
                     { "page",page.ToString()},
@@ -83,10 +87,10 @@ namespace SignalRChat.Client.Service
                     string data = await response.Content.ReadAsStringAsync();
                     BusinessList jsonData = JsonSerializer.Deserialize<BusinessList>(data);
 
-                    foreach (var businessServiceData in jsonData.dataBusinessList)
-                    {
-                        Console.WriteLine(businessServiceData.business_name);
-                    }
+                    //foreach (var businessServiceData in jsonData.dataBusinessList)
+                    //{
+                    //    Console.WriteLine(businessServiceData.business_name);
+                    //}
 
                     return jsonData;
                 }
@@ -101,6 +105,71 @@ namespace SignalRChat.Client.Service
                 dataBusinessList = null,
                 dataBusinessType = null,
                 code = "10",
+                message = "$\"錯誤: {err}"
+            };
+        }
+        public async Task<List<DataBusinessType>?> GetBusinessType()
+        {
+            string err = "";
+            try
+            {
+                var basePath = "http://10.10.10.207:3000/api/businessType";
+                var uri = basePath;
+                var response = await _httpClient.GetAsync(uri);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string data = await response.Content.ReadAsStringAsync();
+                    BusinessType jsonData = JsonSerializer.Deserialize<BusinessType>(data);
+                    return jsonData.data;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"錯誤: {ex.Message}");
+                err = ex.Message;
+            }
+            return new List<DataBusinessType>();
+        }
+        public async Task<ResponseStanderd> PostBusinessList(string address, string phone, string email, string business_name, int business_type_id, int backend_user_id, string business_url)
+        {
+            string err = "";
+            try
+            {
+                var basePath = $"{_configuration["BaseUri"]}businessList";  // "http://10.10.10.207:3000/api/businessList";
+                var uri = basePath;
+                using StringContent jsonContent = new(
+                    JsonSerializer.Serialize(new
+                    {
+                        business_name = business_name,
+                        business_type = business_type_id,
+                        business_url = business_url,
+                        email = email,
+                        phone= phone,
+                        address= address,
+                        backend_user_id= backend_user_id
+                    }),
+                    Encoding.UTF8,
+                    "application/json");                
+                var response = await _httpClient.PostAsync(uri, jsonContent);
+                if (response.IsSuccessStatusCode)
+                {
+                    string data = await response.Content.ReadAsStringAsync();
+                    ResponseStanderd jsonData = JsonSerializer.Deserialize<ResponseStanderd>(data);
+
+
+
+                    return jsonData;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"錯誤: {ex.Message}");
+                err = ex.Message;
+            }
+            return new ResponseStanderd
+            {
+                code = "-1",
                 message = "$\"錯誤: {err}"
             };
         }
