@@ -134,17 +134,13 @@ PageSize=2
     }
     private async Task<GridDataProviderResult<DataBusinessList>> BusinessListDataProvider(GridDataProviderRequest<DataBusinessList> request)
     {
-        Console.WriteLine("查詢...");
         // businessListProvider = async req =>
         // {
         SignalRChat.Client.Model.BusinessList bList = await ObjectBusinessService.GetBusinessList(address, phone, email, business_name, business_type_id, int.Parse(configuration["CountPerPage"]), request.PageNumber);
         if (bList.code == "0")
         {
-            businessList = bList;
-            if (businessList.dataBusinessList != null)
-            {
-                return await Task.FromResult(new GridDataProviderResult<DataBusinessList> { Data = businessList.dataBusinessList, TotalCount = businessList.dataBusinessListCount });        
-            }
+            businessList = bList;            
+            return await Task.FromResult(new GridDataProviderResult<DataBusinessList> { Data = businessList.dataBusinessList, TotalCount = businessList.dataBusinessListCount });        
         }
         else
         {

@@ -1,6 +1,63 @@
 ﻿@page "/BusinessListCreate"
-<h3>新增商家</h3>
-
+@rendermode InteractiveWebAssembly
+@using SignalRChat.Client.Service
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using SignalRChat.Client.Model
+@inject NavigationManager NavManager
+@inject SignalRChat.Client.Service.BusinessService ObjectBusinessService
+@inject IJSRuntime JSRuntime
+<PageTitle>商家新增</PageTitle>
+<h3>商家新增</h3>
+<div class="filters">
+    <label for="business_type_id">商家類型(id)</label>
+    <input id="business_type_id"
+    type="number"
+    class="form-control"
+    @bind="business_type_id" />
+    <label for="business_name">商家名稱</label>
+    <input id="business_name"
+    type="text"
+    class="form-control"
+    @bind="business_name" />
+    <label for="email">商家email</label>
+    <input id="email"
+    type="text"
+    class="form-control"
+    @bind="email" />
+    <label for="address">商家地址</label>
+    <input id="address"
+    type="text"
+    class="form-control"
+    @bind="address" />
+    <label for="phone">商家電話</label>
+    <input id="phone"
+    type="text"
+    class="form-control"
+    @bind="phone" />
+    <button class="btn btn-outline-primary"
+    @onclick="@AddBusinessListAsync">
+        新增商家
+    </button>
+    <button class="btn btn-outline-secondary"
+    @onclick="@CancelBusinessListAsync">
+        取消新增
+    </button>
+</div>
 @code {
+    private int business_type_id = 0;
+    private string business_name = "";
+    private string email = "";
+    private string phone = "";
+    private string address = "";
+    private string errorMessage = "";
 
+    private async void AddBusinessListAsync()
+    {
+        Console.WriteLine("add");
+    }
+
+    private async void CancelBusinessListAsync()
+    {
+        await JSRuntime.InvokeVoidAsync("history.back");
+    }
 }

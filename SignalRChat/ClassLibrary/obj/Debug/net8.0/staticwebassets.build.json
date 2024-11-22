@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qFWeIoH9IeRkwdAeStzzzA10Rk3iHymYN/DAjNm6qN4=",
+  "Hash": "vgPhKLAmZJMhne7e10bNb6c0Q4EO0TaSvmpSHBsb6xA=",
   "Source": "ClassLibrary",
   "BasePath": "_content/ClassLibrary",
   "Mode": "Default",
@@ -22,7 +22,7 @@
       "SourceType": "Computed",
       "ContentRoot": "C:\\RCSS\\SignalRChat\\ClassLibrary\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/ClassLibrary",
-      "RelativePath": "ClassLibrary.styles.css",
+      "RelativePath": "ClassLibrary#[.{fingerprint}]?.styles.css",
       "AssetKind": "All",
       "AssetMode": "CurrentProject",
       "AssetRole": "Primary",
@@ -31,6 +31,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
+      "Fingerprint": "7z9dagaqur",
+      "Integrity": "wx2XS5ljFCRrVjEIYfR+BwC43iAOPdW0NEqvjec8NW4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\RCSS\\SignalRChat\\ClassLibrary\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ClassLibrary.styles.css"
@@ -41,7 +43,7 @@
       "SourceType": "Computed",
       "ContentRoot": "C:\\RCSS\\SignalRChat\\ClassLibrary\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/ClassLibrary",
-      "RelativePath": "ClassLibrary.bundle.scp.css",
+      "RelativePath": "ClassLibrary#[.{fingerprint}]!.bundle.scp.css",
       "AssetKind": "All",
       "AssetMode": "Reference",
       "AssetRole": "Primary",
@@ -50,6 +52,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
+      "Fingerprint": "7z9dagaqur",
+      "Integrity": "wx2XS5ljFCRrVjEIYfR+BwC43iAOPdW0NEqvjec8NW4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\RCSS\\SignalRChat\\ClassLibrary\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ClassLibrary.bundle.scp.css"
@@ -60,18 +64,268 @@
       "SourceType": "Discovered",
       "ContentRoot": "C:\\RCSS\\SignalRChat\\ClassLibrary\\wwwroot\\",
       "BasePath": "_content/ClassLibrary",
-      "RelativePath": "app.css",
+      "RelativePath": "app#[.{fingerprint}]?.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "9tsjre4pz5",
+      "Integrity": "Y3QRrYDjsQ+Bj4noKNSCcSRxgRtgAn0QL1o5m5BNepk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\app.css"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "app.9tsjre4pz5.css",
+      "AssetFile": "C:\\RCSS\\SignalRChat\\ClassLibrary\\wwwroot\\app.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2154"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Y3QRrYDjsQ+Bj4noKNSCcSRxgRtgAn0QL1o5m5BNepk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 20 Nov 2024 08:28:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9tsjre4pz5"
+        },
+        {
+          "Name": "label",
+          "Value": "app.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Y3QRrYDjsQ+Bj4noKNSCcSRxgRtgAn0QL1o5m5BNepk="
+        }
+      ]
+    },
+    {
+      "Route": "app.css",
+      "AssetFile": "C:\\RCSS\\SignalRChat\\ClassLibrary\\wwwroot\\app.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2154"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Y3QRrYDjsQ+Bj4noKNSCcSRxgRtgAn0QL1o5m5BNepk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 20 Nov 2024 08:28:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Y3QRrYDjsQ+Bj4noKNSCcSRxgRtgAn0QL1o5m5BNepk="
+        }
+      ]
+    },
+    {
+      "Route": "ClassLibrary.7z9dagaqur.bundle.scp.css",
+      "AssetFile": "C:\\RCSS\\SignalRChat\\ClassLibrary\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ClassLibrary.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "503"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wx2XS5ljFCRrVjEIYfR+BwC43iAOPdW0NEqvjec8NW4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 22 Nov 2024 01:45:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7z9dagaqur"
+        },
+        {
+          "Name": "label",
+          "Value": "ClassLibrary.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wx2XS5ljFCRrVjEIYfR+BwC43iAOPdW0NEqvjec8NW4="
+        }
+      ]
+    },
+    {
+      "Route": "ClassLibrary.7z9dagaqur.styles.css",
+      "AssetFile": "C:\\RCSS\\SignalRChat\\ClassLibrary\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ClassLibrary.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "503"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wx2XS5ljFCRrVjEIYfR+BwC43iAOPdW0NEqvjec8NW4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 22 Nov 2024 01:45:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7z9dagaqur"
+        },
+        {
+          "Name": "label",
+          "Value": "ClassLibrary.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wx2XS5ljFCRrVjEIYfR+BwC43iAOPdW0NEqvjec8NW4="
+        }
+      ]
+    },
+    {
+      "Route": "ClassLibrary.bundle.scp.css",
+      "AssetFile": "C:\\RCSS\\SignalRChat\\ClassLibrary\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ClassLibrary.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "503"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wx2XS5ljFCRrVjEIYfR+BwC43iAOPdW0NEqvjec8NW4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 22 Nov 2024 01:45:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wx2XS5ljFCRrVjEIYfR+BwC43iAOPdW0NEqvjec8NW4="
+        }
+      ]
+    },
+    {
+      "Route": "ClassLibrary.styles.css",
+      "AssetFile": "C:\\RCSS\\SignalRChat\\ClassLibrary\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ClassLibrary.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "503"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wx2XS5ljFCRrVjEIYfR+BwC43iAOPdW0NEqvjec8NW4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 22 Nov 2024 01:45:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wx2XS5ljFCRrVjEIYfR+BwC43iAOPdW0NEqvjec8NW4="
+        }
+      ]
     }
   ]
 }

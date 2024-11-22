@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SignalRChat.bundle.scp.css",
-      "PackagePath": "staticwebassets\\SignalRChat.bundle.scp.css"
+      "PackagePath": "staticwebassets\\SignalRChat.ghiztiombw.bundle.scp.css"
     },
     {
       "Id": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\wwwroot\\app.css",
@@ -19,6 +19,10 @@
     {
       "Id": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.SignalRChat.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.SignalRChat.Microsoft.AspNetCore.StaticWebAssets.props",

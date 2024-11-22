@@ -83,10 +83,10 @@ namespace SignalRChat.Client.Service
                     string data = await response.Content.ReadAsStringAsync();
                     BusinessList jsonData = JsonSerializer.Deserialize<BusinessList>(data);
 
-                    foreach (var businessServiceData in jsonData.dataBusinessList)
-                    {
-                        Console.WriteLine(businessServiceData.business_name);
-                    }
+                    //foreach (var businessServiceData in jsonData.dataBusinessList)
+                    //{
+                    //    Console.WriteLine(businessServiceData.business_name);
+                    //}
 
                     return jsonData;
                 }
