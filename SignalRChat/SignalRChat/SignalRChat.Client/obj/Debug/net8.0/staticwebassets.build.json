@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "44H39tp76/6GhYt5v8831WZI3iB73eOXLEbPbUyYYxY=",
+  "Hash": "RKd2JwM6preyBaLN8yE7nUpnPQFhcaCzRxjt1mJD4So=",
   "Source": "SignalRChat.Client",
   "BasePath": "/",
   "Mode": "Default",
@@ -31,8 +31,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "manifest",
-      "Fingerprint": "sxgpg321tt",
-      "Integrity": "AIKGBmf0TKaJ2BshYhWdjUdcW+gjC/FhFilS0IyTNyc=",
+      "Fingerprint": "kwvk2bo1bk",
+      "Integrity": "fBO2iHGpW8Lh9+VQXUYSVR54Zsx9AaQxFfLVp26PTVk=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net8.0\\blazor.boot.json"
@@ -1312,8 +1312,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "symbol",
-      "Fingerprint": "7moaimt0w9",
-      "Integrity": "4SooJdjerYfRa7TkjR5GJup+xJdQXG2mRisKi/BnPG0=",
+      "Fingerprint": "20gyobww0j",
+      "Integrity": "flb1rdPme13pfMOoO7dVQva6CvhZ6aaJANYXvMolCa0=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net8.0\\SignalRChat.Client.pdb"
@@ -1333,8 +1333,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "x0qhi2hyqe",
-      "Integrity": "Acilnt14lpAU+M+QkoRvUasnfyFwL9Sc3wbkApnzKTk=",
+      "Fingerprint": "3vjwk60q9b",
+      "Integrity": "jxjPls7Lz5t/wVf/FJjlWlOXz6FZSfK/l+3sSolE+H8=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\webcil\\SignalRChat.Client.wasm"
@@ -4889,7 +4889,7 @@
       "OriginalItemSpec": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.Extensions.DependencyInjection.Abstractions.wasm"
     },
     {
-      "Identity": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\0idnupgtan-sxgpg321tt.gz",
+      "Identity": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\0idnupgtan-kwvk2bo1bk.gz",
       "SourceId": "SignalRChat.Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\",
@@ -4903,8 +4903,8 @@
       "RelatedAsset": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.boot.json",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "pli34be05p",
-      "Integrity": "Ew9m/RKhAJi3sGhjaaxuPOo3QZCDojIs4e1XBDe5RyA=",
+      "Fingerprint": "hlvb7d8652",
+      "Integrity": "S9AOH6CRjqDtRbtb62dGI3tNaCKdiPA5oABtxOgSmio=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.boot.json"
@@ -7241,7 +7241,7 @@
       "OriginalItemSpec": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.WebAssembly.wasm"
     },
     {
-      "Identity": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\jnj2vnh5aa-x0qhi2hyqe.gz",
+      "Identity": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\jnj2vnh5aa-3vjwk60q9b.gz",
       "SourceId": "SignalRChat.Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\",
@@ -7255,8 +7255,8 @@
       "RelatedAsset": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\SignalRChat.Client.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "bgk7s7ersi",
-      "Integrity": "SxulGs30oEVdHtzlt8h+aoySyMJ+9DmtlV8nZUqPMHU=",
+      "Fingerprint": "q44jeymx2s",
+      "Integrity": "Vi6+duvSy9CkqZPjDElwWV5PkNdRwiyq6Vwir7Pn9p0=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\SignalRChat.Client.wasm"
@@ -9341,7 +9341,7 @@
       "OriginalItemSpec": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Security.Cryptography.X509Certificates.wasm"
     },
     {
-      "Identity": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\y4shidw54m-7moaimt0w9.gz",
+      "Identity": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\y4shidw54m-20gyobww0j.gz",
       "SourceId": "SignalRChat.Client",
       "SourceType": "Computed",
       "ContentRoot": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\",
@@ -9355,8 +9355,8 @@
       "RelatedAsset": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\SignalRChat.Client.pdb",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "d1ig7vd0zf",
-      "Integrity": "UdLbIGrJSr8YxqeCsxfQy4iSzvaCechDViHTNktpF+s=",
+      "Fingerprint": "nw1orpgtuc",
+      "Integrity": "WaEEgQnmM8ueIHTIsIO3IYU0hy/BuN4ld3RKHgKIncQ=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\SignalRChat.Client.pdb"
@@ -9607,8 +9607,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "settings",
-      "Fingerprint": "002yiuprtm",
-      "Integrity": "oBiTiJ0qJyohYUFwaVz4XelJzaRZE6F6DZQk1PVpkIA=",
+      "Fingerprint": "rs7ldpczgu",
+      "Integrity": "RTSagk2GSVjfJoOG9tkgz4ZDXFgE0RAZdhBlhvTEIwI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\appsettings.json"
@@ -10330,11 +10330,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"AIKGBmf0TKaJ2BshYhWdjUdcW+gjC/FhFilS0IyTNyc=\""
+          "Value": "\"fBO2iHGpW8Lh9+VQXUYSVR54Zsx9AaQxFfLVp26PTVk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 22 Nov 2024 02:52:22 GMT"
+          "Value": "Fri, 22 Nov 2024 06:03:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10344,13 +10344,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-AIKGBmf0TKaJ2BshYhWdjUdcW+gjC/FhFilS0IyTNyc="
+          "Value": "sha256-fBO2iHGpW8Lh9+VQXUYSVR54Zsx9AaQxFfLVp26PTVk="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json",
-      "AssetFile": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\0idnupgtan-sxgpg321tt.gz",
+      "AssetFile": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\0idnupgtan-kwvk2bo1bk.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -10369,11 +10369,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Ew9m/RKhAJi3sGhjaaxuPOo3QZCDojIs4e1XBDe5RyA=\""
+          "Value": "\"S9AOH6CRjqDtRbtb62dGI3tNaCKdiPA5oABtxOgSmio=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 22 Nov 2024 02:48:13 GMT"
+          "Value": "Fri, 22 Nov 2024 05:58:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10393,19 +10393,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"AIKGBmf0TKaJ2BshYhWdjUdcW+gjC/FhFilS0IyTNyc=\""
+          "Value": "W/\"fBO2iHGpW8Lh9+VQXUYSVR54Zsx9AaQxFfLVp26PTVk=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-AIKGBmf0TKaJ2BshYhWdjUdcW+gjC/FhFilS0IyTNyc="
+          "Value": "sha256-fBO2iHGpW8Lh9+VQXUYSVR54Zsx9AaQxFfLVp26PTVk="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json.gz",
-      "AssetFile": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\0idnupgtan-sxgpg321tt.gz",
+      "AssetFile": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\0idnupgtan-kwvk2bo1bk.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -10422,11 +10422,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Ew9m/RKhAJi3sGhjaaxuPOo3QZCDojIs4e1XBDe5RyA=\""
+          "Value": "\"S9AOH6CRjqDtRbtb62dGI3tNaCKdiPA5oABtxOgSmio=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 22 Nov 2024 02:48:13 GMT"
+          "Value": "Fri, 22 Nov 2024 05:58:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -10444,7 +10444,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Ew9m/RKhAJi3sGhjaaxuPOo3QZCDojIs4e1XBDe5RyA="
+          "Value": "sha256-S9AOH6CRjqDtRbtb62dGI3tNaCKdiPA5oABtxOgSmio="
         }
       ]
     },
@@ -18679,7 +18679,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "39380"
+          "Value": "40804"
         },
         {
           "Name": "Content-Type",
@@ -18687,11 +18687,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4SooJdjerYfRa7TkjR5GJup+xJdQXG2mRisKi/BnPG0=\""
+          "Value": "\"flb1rdPme13pfMOoO7dVQva6CvhZ6aaJANYXvMolCa0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 22 Nov 2024 02:52:22 GMT"
+          "Value": "Fri, 22 Nov 2024 06:03:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18701,18 +18701,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4SooJdjerYfRa7TkjR5GJup+xJdQXG2mRisKi/BnPG0="
+          "Value": "sha256-flb1rdPme13pfMOoO7dVQva6CvhZ6aaJANYXvMolCa0="
         }
       ]
     },
     {
       "Route": "_framework/SignalRChat.Client.pdb",
-      "AssetFile": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\y4shidw54m-7moaimt0w9.gz",
+      "AssetFile": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\y4shidw54m-20gyobww0j.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000036730946"
+          "Quality": "0.000035612536"
         }
       ],
       "ResponseHeaders": [
@@ -18722,15 +18722,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "27224"
+          "Value": "28079"
         },
         {
           "Name": "ETag",
-          "Value": "\"UdLbIGrJSr8YxqeCsxfQy4iSzvaCechDViHTNktpF+s=\""
+          "Value": "\"WaEEgQnmM8ueIHTIsIO3IYU0hy/BuN4ld3RKHgKIncQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 22 Nov 2024 02:48:13 GMT"
+          "Value": "Fri, 22 Nov 2024 05:58:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18750,19 +18750,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"4SooJdjerYfRa7TkjR5GJup+xJdQXG2mRisKi/BnPG0=\""
+          "Value": "W/\"flb1rdPme13pfMOoO7dVQva6CvhZ6aaJANYXvMolCa0=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4SooJdjerYfRa7TkjR5GJup+xJdQXG2mRisKi/BnPG0="
+          "Value": "sha256-flb1rdPme13pfMOoO7dVQva6CvhZ6aaJANYXvMolCa0="
         }
       ]
     },
     {
       "Route": "_framework/SignalRChat.Client.pdb.gz",
-      "AssetFile": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\y4shidw54m-7moaimt0w9.gz",
+      "AssetFile": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\y4shidw54m-20gyobww0j.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -18771,7 +18771,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "27224"
+          "Value": "28079"
         },
         {
           "Name": "Content-Type",
@@ -18779,11 +18779,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"UdLbIGrJSr8YxqeCsxfQy4iSzvaCechDViHTNktpF+s=\""
+          "Value": "\"WaEEgQnmM8ueIHTIsIO3IYU0hy/BuN4ld3RKHgKIncQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 22 Nov 2024 02:48:13 GMT"
+          "Value": "Fri, 22 Nov 2024 05:58:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18801,7 +18801,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-UdLbIGrJSr8YxqeCsxfQy4iSzvaCechDViHTNktpF+s="
+          "Value": "sha256-WaEEgQnmM8ueIHTIsIO3IYU0hy/BuN4ld3RKHgKIncQ="
         }
       ]
     },
@@ -18816,7 +18816,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "58133"
+          "Value": "61205"
         },
         {
           "Name": "Content-Type",
@@ -18824,11 +18824,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Acilnt14lpAU+M+QkoRvUasnfyFwL9Sc3wbkApnzKTk=\""
+          "Value": "\"jxjPls7Lz5t/wVf/FJjlWlOXz6FZSfK/l+3sSolE+H8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 22 Nov 2024 02:52:22 GMT"
+          "Value": "Fri, 22 Nov 2024 06:03:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18838,18 +18838,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Acilnt14lpAU+M+QkoRvUasnfyFwL9Sc3wbkApnzKTk="
+          "Value": "sha256-jxjPls7Lz5t/wVf/FJjlWlOXz6FZSfK/l+3sSolE+H8="
         }
       ]
     },
     {
       "Route": "_framework/SignalRChat.Client.wasm",
-      "AssetFile": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\jnj2vnh5aa-x0qhi2hyqe.gz",
+      "AssetFile": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\jnj2vnh5aa-3vjwk60q9b.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000043777087"
+          "Quality": "0.000041335979"
         }
       ],
       "ResponseHeaders": [
@@ -18859,15 +18859,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "22842"
+          "Value": "24191"
         },
         {
           "Name": "ETag",
-          "Value": "\"SxulGs30oEVdHtzlt8h+aoySyMJ+9DmtlV8nZUqPMHU=\""
+          "Value": "\"Vi6+duvSy9CkqZPjDElwWV5PkNdRwiyq6Vwir7Pn9p0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 22 Nov 2024 02:48:13 GMT"
+          "Value": "Fri, 22 Nov 2024 05:58:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18887,19 +18887,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Acilnt14lpAU+M+QkoRvUasnfyFwL9Sc3wbkApnzKTk=\""
+          "Value": "W/\"jxjPls7Lz5t/wVf/FJjlWlOXz6FZSfK/l+3sSolE+H8=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Acilnt14lpAU+M+QkoRvUasnfyFwL9Sc3wbkApnzKTk="
+          "Value": "sha256-jxjPls7Lz5t/wVf/FJjlWlOXz6FZSfK/l+3sSolE+H8="
         }
       ]
     },
     {
       "Route": "_framework/SignalRChat.Client.wasm.gz",
-      "AssetFile": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\jnj2vnh5aa-x0qhi2hyqe.gz",
+      "AssetFile": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\obj\\Debug\\net8.0\\compressed\\jnj2vnh5aa-3vjwk60q9b.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -18908,7 +18908,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "22842"
+          "Value": "24191"
         },
         {
           "Name": "Content-Type",
@@ -18916,11 +18916,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"SxulGs30oEVdHtzlt8h+aoySyMJ+9DmtlV8nZUqPMHU=\""
+          "Value": "\"Vi6+duvSy9CkqZPjDElwWV5PkNdRwiyq6Vwir7Pn9p0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 22 Nov 2024 02:48:13 GMT"
+          "Value": "Fri, 22 Nov 2024 05:58:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -18938,7 +18938,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-SxulGs30oEVdHtzlt8h+aoySyMJ+9DmtlV8nZUqPMHU="
+          "Value": "sha256-Vi6+duvSy9CkqZPjDElwWV5PkNdRwiyq6Vwir7Pn9p0="
         }
       ]
     },
@@ -41411,51 +41411,6 @@
       ]
     },
     {
-      "Route": "appsettings.002yiuprtm.json",
-      "AssetFile": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\wwwroot\\appsettings.json",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "149"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "application/json"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"oBiTiJ0qJyohYUFwaVz4XelJzaRZE6F6DZQk1PVpkIA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 21 Nov 2024 06:14:19 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "002yiuprtm"
-        },
-        {
-          "Name": "label",
-          "Value": "appsettings.json"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-oBiTiJ0qJyohYUFwaVz4XelJzaRZE6F6DZQk1PVpkIA="
-        }
-      ]
-    },
-    {
       "Route": "appsettings.Development.json",
       "AssetFile": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\wwwroot\\appsettings.Development.json",
       "Selectors": [],
@@ -41548,7 +41503,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "149"
+          "Value": "196"
         },
         {
           "Name": "Content-Type",
@@ -41556,11 +41511,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"oBiTiJ0qJyohYUFwaVz4XelJzaRZE6F6DZQk1PVpkIA=\""
+          "Value": "\"RTSagk2GSVjfJoOG9tkgz4ZDXFgE0RAZdhBlhvTEIwI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 21 Nov 2024 06:14:19 GMT"
+          "Value": "Fri, 22 Nov 2024 03:56:58 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -41570,7 +41525,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-oBiTiJ0qJyohYUFwaVz4XelJzaRZE6F6DZQk1PVpkIA="
+          "Value": "sha256-RTSagk2GSVjfJoOG9tkgz4ZDXFgE0RAZdhBlhvTEIwI="
+        }
+      ]
+    },
+    {
+      "Route": "appsettings.rs7ldpczgu.json",
+      "AssetFile": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\wwwroot\\appsettings.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "196"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RTSagk2GSVjfJoOG9tkgz4ZDXFgE0RAZdhBlhvTEIwI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 22 Nov 2024 03:56:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rs7ldpczgu"
+        },
+        {
+          "Name": "label",
+          "Value": "appsettings.json"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-RTSagk2GSVjfJoOG9tkgz4ZDXFgE0RAZdhBlhvTEIwI="
         }
       ]
     },

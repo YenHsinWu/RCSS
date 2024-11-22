@@ -3,16 +3,19 @@ using SignalRChat.Client.Model;
 using SignalRChat.Client.Utility;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using static System.Net.WebRequestMethods;
 
 namespace SignalRChat.Client.Service
 {
     public class BusinessService
     {
         private readonly HttpClient _httpClient;
+        private readonly IConfiguration _configuration;
 
-        public BusinessService(HttpClient httpClient)
+        public BusinessService(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
+            _configuration = configuration;
         }
 
         public class BusinessServiceData
@@ -64,7 +67,7 @@ namespace SignalRChat.Client.Service
             string err = "";
             try
             {
-                var basePath = "http://10.10.10.207:3000/api/businessList";
+                var basePath = $"{_configuration["BaseUri"]}businessList";  // "http://10.10.10.207:3000/api/businessList";
                 var uri = ParameterHelper.BuildUrlWithQueryStringUsingStringConcat(basePath, new Dictionary<string, string>
                 {
                     { "page",page.ToString()},
@@ -103,6 +106,29 @@ namespace SignalRChat.Client.Service
                 code = "10",
                 message = "$\"錯誤: {err}"
             };
+        }
+        public async Task<List<DataBusinessType>?> GetBusinessType()
+        {
+            string err = "";
+            try
+            {
+                var basePath = "http://10.10.10.207:3000/api/businessType";
+                var uri = basePath;
+                var response = await _httpClient.GetAsync(uri);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string data = await response.Content.ReadAsStringAsync();
+                    BusinessType jsonData = JsonSerializer.Deserialize<BusinessType>(data);
+                    return jsonData.data;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"錯誤: {ex.Message}");
+                err = ex.Message;
+            }
+            return new List<DataBusinessType>();
         }
     }
 }

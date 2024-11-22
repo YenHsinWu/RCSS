@@ -1,7 +1,6 @@
 ﻿@page "/BusinessList"
 @rendermode InteractiveWebAssembly
 @using SignalRChat.Client.Service
-@using Microsoft.AspNetCore.Components.QuickGrid
 @using SignalRChat.Client.Model 
 @inject NavigationManager NavManager
 @inject SignalRChat.Client.Service.BusinessService ObjectBusinessService
@@ -89,8 +88,7 @@ PageSize=2
     private string address = "";
     private string errorMessage = "";
     private IQueryable<DataBusinessList> dataBusinessList;
-    private SignalRChat.Client.Model.BusinessList businessList;
-    private PaginationState pagination = new PaginationState();
+    private SignalRChat.Client.Model.BusinessList businessList;    
     // private int CountPerPage = 0;
     private Grid<DataBusinessList> GridDBL;
     // private GridItemsProvider<DataBusinessList>? businessListProvider;
