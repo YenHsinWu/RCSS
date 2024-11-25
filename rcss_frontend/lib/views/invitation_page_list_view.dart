@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:googleapis/apigeeregistry/v1.dart';
 import 'package:rcss_frontend/widgets/invitation_card.dart';
 
 class InvitationPageListView extends StatelessWidget {

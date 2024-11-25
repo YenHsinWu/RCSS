@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rcss_frontend/pages/invitation_page.dart';
 import 'package:rcss_frontend/service_implementation/friend_service.dart';
 
 class FriendPage extends StatefulWidget {
@@ -31,6 +32,7 @@ class _FriendPageState extends State<FriendPage> {
             bottom: 20.0,
             right: 20.0,
             child: FloatingActionButton(
+              heroTag: 'Add',
               onPressed: () => _showCreateFriendRequestDialog(context),
               child: Icon(Icons.add),
               foregroundColor: Colors.white,
@@ -41,7 +43,15 @@ class _FriendPageState extends State<FriendPage> {
             bottom: 20.0,
             right: 100.0,
             child: FloatingActionButton(
-              onPressed: () => {},
+              heroTag: 'Invitation',
+              onPressed: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => InvitationPage(uuid: widget.uuid),
+                  ),
+                ),
+              },
               child: Icon(Icons.mail),
               foregroundColor: Colors.white,
               backgroundColor: Colors.red,

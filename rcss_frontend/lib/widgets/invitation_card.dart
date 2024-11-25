@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rcss_frontend/service_implementation/friend_service.dart';
 
 class InvitationCard extends Card {
   final String uuid;
@@ -13,6 +14,8 @@ class InvitationCard extends Card {
     required this.createdDate,
     required this.userName,
   });
+
+  final FriendService _friendService = FriendService();
 
   @override
   Widget build(BuildContext context) {
@@ -35,12 +38,33 @@ class InvitationCard extends Card {
               ),
               SizedBox(width: 28),
               Text(
-                this.createdDate,
+                this.createdDate.split('T')[0],
                 style: TextStyle(
                   color: Colors.black26,
                   fontSize: 14,
                 ),
               ),
+              SizedBox(width: 16),
+              IconButton(
+                  onPressed: () => {
+                        _friendService.confirmFriendInvitation(
+                          uuid,
+                          friendUuid,
+                          DateTime.now().toUtc().toString(),
+                        ),
+                        Navigator.pop(context),
+                      },
+                  icon: Icon(Icons.circle_outlined)),
+              IconButton(
+                  onPressed: () => {
+                        _friendService.confirmFriendInvitation(
+                          uuid,
+                          friendUuid,
+                          null,
+                        ),
+                        Navigator.pop(context),
+                      },
+                  icon: Icon(Icons.close)),
             ],
           )),
     );
