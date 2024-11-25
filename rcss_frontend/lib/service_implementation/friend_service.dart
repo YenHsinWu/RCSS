@@ -35,4 +35,19 @@ class FriendService {
           '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
     }
   }
+
+  Future getFriendInvitationList(String userUuid) async {
+    final uri =
+        Uri.parse('http://10.10.10.207:3000/api/user_add_friends/${userUuid}');
+    final response = await http.get(uri);
+
+    Map<String, dynamic> responseBody = json.decode(response.body);
+
+    if (response.statusCode == 200) {
+      return responseBody;
+    } else {
+      throw Exception(
+          '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
+    }
+  }
 }

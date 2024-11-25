@@ -25,13 +25,29 @@ class _FriendPageState extends State<FriendPage> {
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _showCreateFriendRequestDialog(context),
-        child: Icon(
-          Icons.add,
-        ),
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.red,
+      floatingActionButton: Stack(
+        children: [
+          Positioned(
+            bottom: 20.0,
+            right: 20.0,
+            child: FloatingActionButton(
+              onPressed: () => _showCreateFriendRequestDialog(context),
+              child: Icon(Icons.add),
+              foregroundColor: Colors.white,
+              backgroundColor: Colors.red,
+            ),
+          ),
+          Positioned(
+            bottom: 20.0,
+            right: 100.0,
+            child: FloatingActionButton(
+              onPressed: () => {},
+              child: Icon(Icons.mail),
+              foregroundColor: Colors.white,
+              backgroundColor: Colors.red,
+            ),
+          ),
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
