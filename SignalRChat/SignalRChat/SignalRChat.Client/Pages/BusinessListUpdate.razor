@@ -1,4 +1,4 @@
-﻿@page "/BusinessListUpdate/{business_id}"
+﻿@page "/BusinessListUpdate/{business_id:int}"
 @rendermode InteractiveWebAssembly
 @using SignalRChat.Client.Service
 @using SignalRChat.Client.Model
@@ -12,7 +12,7 @@
     <select @bind="business_type_id">
         @if (dataBusinessType != null)
         {
-            @foreach (var dBT in dataBusinessType)
+            @foreach (var dBT in dataBusinessType.dataBusinessType)
             {
                 <option value="@dBT.business_type_id">@dBT.business_type_name</option>
             }
@@ -45,12 +45,12 @@
     @bind="business_url" />
     <Alert Color="AlertColor.Warning" Class="@isHide" Dismissable="true">@errorMessage </Alert>
     <button class="btn btn-outline-primary"
-    @onclick="@AddBusinessListAsync">
-        新增商家
+    @onclick="@UpdateBusinessListAsync">
+        修改商家
     </button>
     <button class="btn btn-outline-secondary"
-    @onclick="@CancelBusinessListAsync">
-        取消新增
+    @onclick="@CancelUpdateBusinessListAsync">
+        取消修改
     </button>
 </div>
 @code {
@@ -62,7 +62,10 @@
     private string business_url = "";
     private string errorMessage = "";
     private string isHide = "d-none";
-    private List<DataBusinessType>? dataBusinessType;    
+    private UpdateBusinessList? dataBusinessType;
+    [Parameter]
+    public int business_id { get; set; }
+    public delegate void Callback();
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -80,24 +83,45 @@
     }
     private async Task InitializeAsync()
     {        
-        dataBusinessType= await ObjectBusinessService.GetBusinessType();
-        business_type_id = 0;
-        business_name = "";
-        email = "";
-        phone = "";
-        address = "";
-        isHide = "d-none";
-        StateHasChanged();
+        dataBusinessType = await ObjectBusinessService.GetUpdateBusinessList(business_id);
+        if (dataBusinessType.code == "0")
+        {
+            business_type_id = dataBusinessType.dataBusinessList.business_type;
+            business_name = dataBusinessType.dataBusinessList.business_name;
+            email = dataBusinessType.dataBusinessList.email;
+            phone = dataBusinessType.dataBusinessList.phone;
+            address = dataBusinessType.dataBusinessList.address;
+            business_url = dataBusinessType.dataBusinessList.business_url;
+            isHide = "d-none";
+            StateHasChanged();
+        }
+        else
+        {
+            isHide = "";
+            errorMessage = dataBusinessType.message;
+        }
     }
 
-    private async void AddBusinessListAsync()
+    private async void UpdateBusinessListAsync()
     {
-        ResponseStanderd req = await ObjectBusinessService.PostBusinessList(address, phone, email, business_name, business_type_id, 0, business_url);
+        ResponseStanderd req = await ObjectBusinessService.PutBusinessList(business_id,address, phone, email, business_name, business_type_id, 0, business_url);
         isHide = "";
         errorMessage = req.message;
+        StateHasChanged();
+        // SetTimeOut(5000, HideAlert);
     }
 
-    private async void CancelBusinessListAsync()
+    // private async void SetTimeOut(int milliseconds, Callback HideAlert)
+    // {
+    //     await Task.Delay(milliseconds);
+    //     HideAlert();
+    // }
+    // private async void HideAlert()
+    // {
+    //     isHide = "d-none";
+    //     StateHasChanged();
+    // }
+    private async void CancelUpdateBusinessListAsync()
     {
         await JSRuntime.InvokeVoidAsync("history.back");
     }
