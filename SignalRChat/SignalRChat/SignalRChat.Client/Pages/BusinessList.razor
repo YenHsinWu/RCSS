@@ -38,11 +38,11 @@
         查詢商家
     </button>
     <button class="btn btn-outline-secondary"
-            @onclick="ClearSearchFilter">
+    @onclick="ClearSearchFilter">
         清除條件
     </button>
     <button class="btn btn-outline-secondary"
-            @onclick="AddBusinessList">
+    @onclick="AddBusinessList">
         新增商家
     </button>
 </div>
@@ -78,7 +78,25 @@ PageSize=2
     <GridColumn TItem="DataBusinessList" HeaderText="電話" PropertyName="phone" SortString="phone" SortKeySelector="item => item.phone" FilterTextboxWidth="80">
         @context.phone
     </GridColumn>    
+    <GridColumn TItem="DataBusinessList">
+        <Icon Name="IconName.PencilFill" Size=" IconSize.x5" @onclick="@(() => Update(@context.business_id))" />
+        <Icon Name="IconName.ClipboardXFill" Size=" IconSize.x5" @onclick="@(() => Delete(@context.business_id))" />
+    </GridColumn>
 </Grid>
+<Modal @ref="modal1"
+title="刪除資料">
+
+    <BodyTemplate>
+        確定刪除這筆資料？
+    </BodyTemplate>
+
+    <FooterTemplate>
+        <Button Color="ButtonColor.Secondary" @onclick="OnHideModalClick">取消</Button>
+        <Button Color="ButtonColor.Primary" @onclick="OnDeleteModalClick">確定</Button>
+    </FooterTemplate>
+
+</Modal>
+<Modal @ref="modal2" />
 @code {
     private DataBusinessList? selected;
     private int business_type_id = 0;
@@ -87,16 +105,42 @@ PageSize=2
     private string phone = "";
     private string address = "";
     private string errorMessage = "";
+    private int business_id = 0;
     private IQueryable<DataBusinessList> dataBusinessList;
     private SignalRChat.Client.Model.BusinessList businessList;    
-    // private int CountPerPage = 0;
     private Grid<DataBusinessList> GridDBL;
-    // private GridItemsProvider<DataBusinessList>? businessListProvider;
+    private Modal modal1 = default!;
+    private Modal modal2 = default!;
 
-    private void select(DataBusinessList context)
+    private void Update(int business_id)
     {
-        selected = context;
-        Console.WriteLine(selected.business_name);
+        NavManager.NavigateTo($"/BusinessListUpdate/{business_id}");
+    }
+    private async Task OnHideModalClick()
+    {
+        await modal1.HideAsync();
+    }
+    private async Task OnDeleteModalClick()
+    {
+        await modal1.HideAsync();
+        ResponseStanderd req = await ObjectBusinessService.DeleteBusinessList(business_id);
+        if (req.code == "0")
+        {
+            await modal2.ShowAsync<ResponseStanderd>(title: $"code{req.code}：刪除成功");
+            //StateHasChanged();
+            await GridDBL.ResetPageNumber();
+            await GridDBL.RefreshDataAsync(new CancellationToken());
+            await GridDBL.ResetPageNumber();
+        }
+        else
+        {
+            await modal2.ShowAsync<ResponseStanderd>(title: $"code{req.code}：刪除失敗，{req.message}");
+        }
+    }
+    private async void Delete(int busi_id)
+    {
+        business_id = busi_id;
+        await modal1.ShowAsync<ResponseStanderd>(title: $"刪除資料");
     }
 
     // protected override void OnInitialized() =>

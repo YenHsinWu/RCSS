@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using SignalRChat.Client.Model;
 using SignalRChat.Client.Utility;
+using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -159,6 +160,108 @@ namespace SignalRChat.Client.Service
 
 
 
+                    return jsonData;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"錯誤: {ex.Message}");
+                err = ex.Message;
+            }
+            return new ResponseStanderd
+            {
+                code = "-1",
+                message = "$\"錯誤: {err}"
+            };
+        }
+        public async Task<UpdateBusinessList> GetUpdateBusinessList(int business_id)
+        {
+            string err = "";
+            try
+            {
+                var basePath = $"{_configuration["BaseUri"]}businesslist/{business_id}";  // "http://10.10.10.207:3000/api/businessList";
+                var uri = basePath;
+                var response = await _httpClient.GetAsync(uri);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string data = await response.Content.ReadAsStringAsync();
+                    UpdateBusinessList jsonData = JsonSerializer.Deserialize<UpdateBusinessList>(data);
+                    return jsonData;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"錯誤: {ex.Message}");
+                err = ex.Message;
+            }
+            return new UpdateBusinessList
+            {
+                dataBusinessList = null,
+                dataBusinessType = null,
+                code = "10",
+                message = "$\"錯誤: {err}"
+            };
+        }
+        public async Task<ResponseStanderd> PutBusinessList(int business_id, string address, string phone, string email, string business_name, int business_type_id, int backend_user_id, string business_url)
+        {
+            string err = "";
+            try
+            {
+                var basePath = $"{_configuration["BaseUri"]}businessList";  // "http://10.10.10.207:3000/api/businessList";
+                var uri = basePath;
+                using StringContent jsonContent = new(
+                    JsonSerializer.Serialize(new
+                    {
+                        business_name = business_name,
+                        business_type = business_type_id,
+                        business_url = business_url,
+                        email = email,
+                        phone = phone,
+                        address = address,
+                        backend_user_id = backend_user_id,
+                        business_id = business_id
+                    }),
+                    Encoding.UTF8,
+                    "application/json");
+                var response = await _httpClient.PutAsync(uri, jsonContent);
+                if (response.IsSuccessStatusCode)
+                {
+                    string data = await response.Content.ReadAsStringAsync();
+                    ResponseStanderd jsonData = JsonSerializer.Deserialize<ResponseStanderd>(data);
+                    return jsonData;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"錯誤: {ex.Message}");
+                err = ex.Message;
+            }
+            return new ResponseStanderd
+            {
+                code = "-1",
+                message = "$\"錯誤: {err}"
+            };
+        }
+
+        public async Task<ResponseStanderd> DeleteBusinessList(int business_id)
+        {
+            string err = "";
+            try
+            {
+                var basePath = $"{_configuration["BaseUri"]}businessList/{business_id}";  // "http://10.10.10.207:3000/api/businessList";
+                var uri = basePath;
+                //using StringContent jsonContent = new(
+                //    JsonSerializer.Serialize(new {                        
+                //        business_id = business_id
+                //    }),
+                //    Encoding.UTF8,
+                //    "application/json");
+                var response = await _httpClient.DeleteAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string data = await response.Content.ReadAsStringAsync();
+                    ResponseStanderd jsonData = JsonSerializer.Deserialize<ResponseStanderd>(data);
                     return jsonData;
                 }
             }
