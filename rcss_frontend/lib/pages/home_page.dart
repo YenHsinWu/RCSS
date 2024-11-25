@@ -184,7 +184,7 @@ class _HomePageState extends State<HomePage> {
             uuid: widget.uuid,
             userName: widget.userName,
           ),
-          FriendPage(),
+          FriendPage(uuid: widget.uuid),
           GroupPage(),
           WebPage(),
           IndexPage(
