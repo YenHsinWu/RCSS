@@ -35,15 +35,15 @@
     @bind="phone" />
     <button class="btn btn-outline-primary"
     @onclick="FilterSearchResults">
-        查詢商家
+        查詢
     </button>
     <button class="btn btn-outline-secondary"
     @onclick="ClearSearchFilter">
-        清除條件
+        清除
     </button>
     <button class="btn btn-outline-secondary"
     @onclick="AddBusinessList">
-        新增商家
+        新增
     </button>
 </div>
 <Grid TItem="DataBusinessList"
@@ -96,7 +96,12 @@ title="刪除資料">
     </FooterTemplate>
 
 </Modal>
-<Modal @ref="modal2" />
+<Modal @ref="modal2" Title="System Message">
+    <BodyTemplate>
+        code:@req.code<br />
+        message:@req.message
+    </BodyTemplate>
+</Modal>
 @code {
     private DataBusinessList? selected;
     private int business_type_id = 0;
@@ -111,6 +116,7 @@ title="刪除資料">
     private Grid<DataBusinessList> GridDBL;
     private Modal modal1 = default!;
     private Modal modal2 = default!;
+    private ResponseStanderd req = default!;
 
     private void Update(int business_id)
     {
@@ -123,24 +129,29 @@ title="刪除資料">
     private async Task OnDeleteModalClick()
     {
         await modal1.HideAsync();
-        ResponseStanderd req = await ObjectBusinessService.DeleteBusinessList(business_id);
+        req = await ObjectBusinessService.DeleteBusinessList(business_id);
         if (req.code == "0")
         {
-            await modal2.ShowAsync<ResponseStanderd>(title: $"code{req.code}：刪除成功");
-            //StateHasChanged();
-            await GridDBL.ResetPageNumber();
+            // var parameters = new Dictionary<string, object>();
+            // parameters.Add("Error Code", req.code);
+            // parameters.Add("Error Message", req.message);
+            // await modal2.ShowAsync<ResponseStanderd>(title: "System Message", parameters: parameters);
+            // StateHasChanged();
+            await modal2.ShowAsync();
+            // await GridDBL.ResetPageNumber();
             await GridDBL.RefreshDataAsync(new CancellationToken());
             await GridDBL.ResetPageNumber();
         }
         else
         {
-            await modal2.ShowAsync<ResponseStanderd>(title: $"code{req.code}：刪除失敗，{req.message}");
+            // await modal2.ShowAsync<ResponseStanderd>($"code：{req.code}", $"刪除失敗，{req.message}");
+            await modal2.ShowAsync();
         }
     }
     private async void Delete(int busi_id)
     {
         business_id = busi_id;
-        await modal1.ShowAsync<ResponseStanderd>(title: $"刪除資料");
+        await modal1.ShowAsync();
     }
 
     // protected override void OnInitialized() =>
@@ -181,7 +192,7 @@ title="刪除資料">
         SignalRChat.Client.Model.BusinessList bList = await ObjectBusinessService.GetBusinessList(address, phone, email, business_name, business_type_id, int.Parse(configuration["CountPerPage"]), request.PageNumber);
         if (bList.code == "0")
         {
-            businessList = bList;            
+            businessList = bList;
             return await Task.FromResult(new GridDataProviderResult<DataBusinessList> { Data = businessList.dataBusinessList, TotalCount = businessList.dataBusinessListCount });        
         }
         else
@@ -193,7 +204,7 @@ title="刪除資料">
     }
     private async void FilterSearchResults()
     {
-        await GridDBL.ResetPageNumber();
+        // await GridDBL.ResetPageNumber();
         await GridDBL.RefreshDataAsync(new CancellationToken());
         await GridDBL.ResetPageNumber();
     }

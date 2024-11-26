@@ -46,11 +46,11 @@
     <Alert Color="AlertColor.Warning" Class="@isHide" Dismissable="true">@errorMessage </Alert>
     <button class="btn btn-outline-primary"
     @onclick="@AddBusinessListAsync">
-        新增商家
+        新增
     </button>
     <button class="btn btn-outline-secondary"
     @onclick="@CancelBusinessListAsync">
-        取消新增
+        取消
     </button>
 </div>
 @code {
@@ -81,7 +81,7 @@
     private async Task InitializeAsync()
     {        
         dataBusinessType= await ObjectBusinessService.GetBusinessType();
-        business_type_id = 0;
+        business_type_id = 1;
         business_name = "";
         email = "";
         phone = "";
@@ -95,6 +95,7 @@
         ResponseStanderd req = await ObjectBusinessService.PostBusinessList(address, phone, email, business_name, business_type_id, 0, business_url);
         isHide = "";
         errorMessage = req.message;
+        StateHasChanged();
     }
 
     private async void CancelBusinessListAsync()
