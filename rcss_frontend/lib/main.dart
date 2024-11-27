@@ -25,8 +25,8 @@ void main() async {
   runApp(const GetMaterialApp(
     debugShowCheckedModeBanner: false,
     home: HomePage(
-      uuid: '1a49ba31-15dd-4ee6-bda3-883ce2d65a24',
-      userName: 'test1002',
+      uuid: '2120b366-633d-4c2a-b06a-843f475bf77b',
+      userName: 'yenhsinwu1996',
     ),
     // home: LoginPage(),
   ));

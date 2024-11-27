@@ -1,5 +1,7 @@
 import 'package:badges/badges.dart' as badges;
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:rcss_frontend/pages/friend_chat_page.dart';
 import 'package:rcss_frontend/service_implementation/index_service.dart';
 
 class FriendCard extends Card {
@@ -25,7 +27,19 @@ class FriendCard extends Card {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        String uname = this.countUuid == this.uuid ? userName : friendUserName;
+        String fname = this.countUuid == this.uuid ? friendUserName : userName;
+        Get.to(
+          FriendChatPage(
+            groupName: '${this.uuid}^${this.friendUuid}',
+            uuid: this.uuid,
+            friendUuid: this.friendUuid,
+            userName: uname,
+            friendUserName: fname,
+          ),
+        );
+      },
       onLongPress: () {},
       child: Card(
         elevation: 4,
@@ -36,7 +50,7 @@ class FriendCard extends Card {
           children: [
             SizedBox(width: 16),
             Text(
-              getDisplayName(),
+              this.friendUserName,
               style: TextStyle(
                 color: Colors.red,
                 fontSize: 16,
@@ -57,13 +71,5 @@ class FriendCard extends Card {
         ),
       ),
     );
-  }
-
-  String getDisplayName() {
-    if (this.countUuid == this.uuid) {
-      return this.friendUserName;
-    } else {
-      return this.userName;
-    }
   }
 }
