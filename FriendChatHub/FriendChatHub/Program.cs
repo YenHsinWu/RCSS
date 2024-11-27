@@ -5,6 +5,7 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddSignalR();
 builder.Services.AddControllers();
+builder.Services.AddSingleton<FriendChatHub.Service.ChatService>();
 
 var app = builder.Build();
 
