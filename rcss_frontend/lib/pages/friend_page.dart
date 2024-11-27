@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rcss_frontend/pages/invitation_page.dart';
 import 'package:rcss_frontend/service_implementation/friend_service.dart';
+import 'package:rcss_frontend/views/friend_page_list_view.dart';
+import 'package:rcss_frontend/widgets/friend_card.dart';
 
 class FriendPage extends StatefulWidget {
   final String uuid;
@@ -15,7 +17,14 @@ class FriendPage extends StatefulWidget {
 }
 
 class _FriendPageState extends State<FriendPage> {
+  final List<FriendCard> _friendCards = [];
   final FriendService _friendService = FriendService();
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchFriendsList(widget.uuid);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +34,11 @@ class _FriendPageState extends State<FriendPage> {
         centerTitle: true,
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
+      ),
+      body: Container(
+        child: FriendPageListView(
+          cards: _friendCards,
+        ),
       ),
       floatingActionButton: Stack(
         children: [
@@ -93,5 +107,25 @@ class _FriendPageState extends State<FriendPage> {
             ],
           );
         });
+  }
+
+  void _fetchFriendsList(String uuid) async {
+    Map<String, dynamic> friendsData =
+        await _friendService.fetchFriendsList(uuid);
+
+    setState(() {
+      for (Map<String, dynamic> friend in friendsData['data']) {
+        _friendCards.add(
+          FriendCard(
+            uuid: friend['uuid'],
+            friendUuid: friend['friend_uuid'],
+            userName: friend['user_name'],
+            friendUserName: friend['friend_user_name'],
+            countUuid: friend['count_uuid'],
+            count: friend['count'].toString(),
+          ),
+        );
+      }
+    });
   }
 }
