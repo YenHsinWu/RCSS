@@ -1,0 +1,120 @@
+﻿@page "/BackendUserListCreate"
+@rendermode InteractiveWebAssembly
+@using SignalRChat.Client.Service
+@using SignalRChat.Client.Model
+@inject NavigationManager NavManager
+@inject IJSRuntime JSRuntime
+@inject SignalRChat.Client.Service.BusinessService ObjectBusinessService
+<PageTitle>後台用戶新增</PageTitle>
+<h3>後台用戶新增</h3>
+<div class="filters">
+    <label for="business_id">商家id</label>
+    <input id="business_id"
+    type="text"
+    class="form-control"
+           @bind="business_id" />
+    <label for="backend_user_name">用戶名稱</label>
+    <input id="backend_user_name"
+    type="text"
+    class="form-control"
+    @bind="backend_user_name" />
+    <label for="email">email</label>
+    <input id="email"
+    type="text"
+    class="form-control"
+    @bind="email" />
+    <label for="phone_country">電話國碼</label><br/>
+    <select @bind="phone_country">
+        @if (dataCountryCode != null)
+        {
+            @foreach (var dBT in dataCountryCode)
+            {
+                <option value="@GetContryCode(dBT)">@GetContryCode(dBT)</option>
+            }
+        }
+    </select><br />
+    <label for="phone">電話(第1個0不用輸入)</label>
+    <input id="phone"
+    type="text"
+    class="form-control"
+    @bind="phone" />
+    <label for="password">密碼</label>
+    <input id="password"
+    type="password"
+    class="form-control"
+    @bind="password" />
+    <label for="passwordAgain">密碼</label>
+    <input id="passwordAgain"
+    type="password"
+    class="form-control"
+    @bind="passwordAgain" />
+    <Alert Color="AlertColor.Warning" Class="@isHide" Dismissable="true">@errorMessage </Alert>
+    <button class="btn btn-outline-primary"
+    @onclick="@AddBackendUserListAsync">
+        新增
+    </button>
+    <button class="btn btn-outline-secondary"
+    @onclick="@CancelBackendUserListAsync">
+        取消
+    </button>
+</div>
+@code {
+    private int business_id = 0;
+    private string backend_user_name = "";
+    private string business_name = "";
+    private string email = "";
+    private string phone = "";
+    private string address = "";
+    private string phone_country = "";
+    private string country_id = "";
+    private string password = "";
+    private string passwordAgain = "";
+    private string errorMessage = "";
+    private string isHide = "d-none";
+    private List<DataCountryCode>? dataCountryCode;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            try
+            {
+                await InitializeAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"錯誤: {ex.Message}");
+            }
+        }
+    }
+    private async Task InitializeAsync()
+    {
+        dataCountryCode = await ObjectBusinessService.GetCountryCode();
+        backend_user_name = "";
+        business_name = "";
+        email = "";
+        phone = "";
+        address = "";
+        phone_country = "";
+        country_id = "";
+        isHide = "d-none";
+        StateHasChanged();
+    }
+    private string GetContryCode(DataCountryCode CC)
+    {
+        return string.Format("{0}({1})", CC.country_id, CC.phone_country);
+    }
+
+    private async void AddBackendUserListAsync()
+    {
+        ResponseStanderd req = await ObjectBusinessService.PostBackendUserList(backend_user_name, email, password, business_id, phone, string.Format("{0}", phone_country.Substring(phone_country.IndexOf("(") + 1, phone_country.IndexOf(")") - phone_country.IndexOf("(") - 1)), phone_country.Substring(0, phone_country.IndexOf("(")), 0);
+        isHide = "";
+        errorMessage = req.message;
+        StateHasChanged();
+    }
+
+    private async void CancelBackendUserListAsync()
+    {
+        await JSRuntime.InvokeVoidAsync("history.back");
+    }
+}
