@@ -106,4 +106,11 @@ class FriendService {
           '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
     }
   }
+
+  Future setUnreadFriendTalkToZero(
+    String readerUuid,
+  ) async {
+    final uri = Uri.parse(
+        'http://10.10.10.207:3000/api/userTalksRecetCount/${readerUuid}');
+  }
 }

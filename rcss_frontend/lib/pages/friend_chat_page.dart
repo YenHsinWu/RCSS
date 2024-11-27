@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rcss_frontend/service_implementation/friend_service.dart';
 import 'package:signalr_netcore/hub_connection.dart';
+import 'package:signalr_netcore/hub_connection_builder.dart';
 
 class FriendChatPage extends StatefulWidget {
   final String groupName;
@@ -126,5 +127,38 @@ class _FriendChatPageState extends State<FriendChatPage> {
         }
       }
     });
+  }
+
+  Future<void> _setupSignalR() async {
+    _hubConnection = HubConnectionBuilder()
+        .withUrl('http://10.0.2.2:5211/friendHub')
+        .build();
+
+    _hubConnection.start()?.then((_) {
+      print('SignalR Connected');
+
+      _hubConnection.invoke('JoinGroup', args: [widget.groupName, widget.uuid]);
+
+      _hubConnection!.on('SendGroupMsg', (arguments) {
+        setState(() {
+          _messages.add(
+              '${arguments![1]}: ${arguments![2]} --- [${(arguments[3] as String).split(' ')[1].substring(0, 8)}]');
+        });
+      });
+    });
+  }
+
+  Future<void> _sendMessage() async {
+    if (_hubConnection.state == HubConnectionState.Connected) {
+      await _hubConnection.invoke('SendMessageToGroup', args: [
+        widget.groupName,
+        widget.userName,
+        _messageController.text,
+      ]);
+
+      _messageController.clear();
+    } else {
+      print('Connection is not established yet');
+    }
   }
 }
