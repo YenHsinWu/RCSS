@@ -9,6 +9,9 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://10.10.10.207:3000") });
 builder.Services.AddScoped<BusinessService>();
+builder.Services.AddScoped<BackendUserService>();
+builder.Services.AddScoped<BusinessServiceService>();
+builder.Services.AddScoped<BusinessListService>();
 builder.Services.AddScoped<ChatService>();
 builder.Services.AddBlazorBootstrap();
 

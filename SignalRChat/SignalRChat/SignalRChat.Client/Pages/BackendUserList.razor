@@ -3,7 +3,8 @@
 @using SignalRChat.Client.Service
 @using SignalRChat.Client.Model
 @inject NavigationManager NavManager
-@inject SignalRChat.Client.Service.BusinessService ObjectBusinessService
+@* @inject SignalRChat.Client.Service.BusinessService ObjectBusinessService *@
+@inject SignalRChat.Client.Service.BackendUserService ObjectBackendUserService
 @inject IConfiguration configuration
 <PageTitle>後台用戶管理</PageTitle>
 <h3>後台用戶管理</h3>
@@ -119,7 +120,7 @@
     private async Task OnDeleteModalClick()
     {
         await modal1.HideAsync();
-        req = await ObjectBusinessService.DeleteBackendUserList(del_backend_user_id);
+        req = await ObjectBackendUserService.DeleteBackendUserList(del_backend_user_id);
         if (req.code == "0")
         {
             // var parameters = new Dictionary<string, object>();
@@ -169,7 +170,7 @@
     }
     private async Task<GridDataProviderResult<DataBackendUserList>> BackendUserListDataProvider(GridDataProviderRequest<DataBackendUserList> request)
     {
-        SignalRChat.Client.Model.BackendUserList bList = await ObjectBusinessService.GetBackendUserList(backend_user_name, email, int.Parse(configuration["CountPerPage"]), request.PageNumber);
+        SignalRChat.Client.Model.BackendUserList bList = await ObjectBackendUserService.GetBackendUserList(backend_user_name, email, int.Parse(configuration["CountPerPage"]), request.PageNumber);
         if (bList.code == "0")
         {
             backendUserList = bList;

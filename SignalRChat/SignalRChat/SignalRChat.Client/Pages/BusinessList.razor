@@ -4,6 +4,7 @@
 @using SignalRChat.Client.Model 
 @inject NavigationManager NavManager
 @inject SignalRChat.Client.Service.BusinessService ObjectBusinessService
+@inject BusinessListService ObjectBusinessListService
 @inject IConfiguration configuration
 <PageTitle>商家管理</PageTitle>
 <h3>商家管理</h3>
@@ -129,7 +130,7 @@ title="刪除資料">
     private async Task OnDeleteModalClick()
     {
         await modal1.HideAsync();
-        req = await ObjectBusinessService.DeleteBusinessList(business_id);
+        req = await ObjectBusinessListService.DeleteBusinessList(business_id);
         if (req.code == "0")
         {
             // var parameters = new Dictionary<string, object>();
@@ -189,7 +190,7 @@ title="刪除資料">
     {
         // businessListProvider = async req =>
         // {
-        SignalRChat.Client.Model.BusinessList bList = await ObjectBusinessService.GetBusinessList(address, phone, email, business_name, business_type_id, int.Parse(configuration["CountPerPage"]), request.PageNumber);
+        SignalRChat.Client.Model.BusinessList bList = await ObjectBusinessListService.GetBusinessList(address, phone, email, business_name, business_type_id, int.Parse(configuration["CountPerPage"]), request.PageNumber);
         if (bList.code == "0")
         {
             businessList = bList;

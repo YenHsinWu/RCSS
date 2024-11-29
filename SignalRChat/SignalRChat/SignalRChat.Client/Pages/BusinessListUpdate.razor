@@ -5,6 +5,7 @@
 @inject NavigationManager NavManager
 @inject IJSRuntime JSRuntime
 @inject SignalRChat.Client.Service.BusinessService ObjectBusinessService
+@inject BusinessListService ObjectBusinessListService
 <PageTitle>商家修改</PageTitle>
 <h3>商家修改</h3>
 <div class="filters">
@@ -83,7 +84,7 @@
     }
     private async Task InitializeAsync()
     {        
-        dataBusinessType = await ObjectBusinessService.GetUpdateBusinessList(business_id);
+        dataBusinessType = await ObjectBusinessListService.GetUpdateBusinessList(business_id);
         if (dataBusinessType.code == "0")
         {
             business_type_id = dataBusinessType.dataBusinessList.business_type;
@@ -104,23 +105,15 @@
 
     private async void UpdateBusinessListAsync()
     {
-        ResponseStanderd req = await ObjectBusinessService.PutBusinessList(business_id,address, phone, email, business_name, business_type_id, 0, business_url);
-        isHide = "";
+        ResponseStanderd req = await ObjectBusinessListService.PutBusinessList(business_id,address, phone, email, business_name, business_type_id, 0, business_url);
         errorMessage = req.message;
+        isHide = "";
         StateHasChanged();
-        // SetTimeOut(5000, HideAlert);
+        await Task.Delay(6000);
+        isHide = "d-none";
+        StateHasChanged();
     }
 
-    // private async void SetTimeOut(int milliseconds, Callback HideAlert)
-    // {
-    //     await Task.Delay(milliseconds);
-    //     HideAlert();
-    // }
-    // private async void HideAlert()
-    // {
-    //     isHide = "d-none";
-    //     StateHasChanged();
-    // }
     private async void CancelUpdateBusinessListAsync()
     {
         await JSRuntime.InvokeVoidAsync("history.back");

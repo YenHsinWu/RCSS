@@ -4,7 +4,8 @@
 @using SignalRChat.Client.Model
 @inject NavigationManager NavManager
 @inject IJSRuntime JSRuntime
-@inject SignalRChat.Client.Service.BusinessService ObjectBusinessService
+@* @inject SignalRChat.Client.Service.BusinessService ObjectBusinessService *@
+@inject SignalRChat.Client.Service.BusinessServiceService ObjectBusinessServiceService
 <PageTitle>商家客服聊天室新增</PageTitle>
 <h3>商家客服聊天室新增</h3>
 <div class="filters">
@@ -58,9 +59,12 @@
 
     private async void AddBusinessServiceListAsync()
     {
-        ResponseStanderd req = await ObjectBusinessService.PostBusinessServiceList(business_id, business_service_name, 0);
-        isHide = "";
+        ResponseStanderd req = await ObjectBusinessServiceService.PostBusinessServiceList(business_id, business_service_name, 0);
         errorMessage = req.message;
+        isHide = "";
+        StateHasChanged();
+        await Task.Delay(6000);
+        isHide = "d-none";
         StateHasChanged();
     }
 
