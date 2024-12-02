@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rcss_frontend/service_implementation/friend_service.dart';
+import 'package:signalr_netcore/http_connection_options.dart';
 import 'package:signalr_netcore/hub_connection.dart';
 import 'package:signalr_netcore/hub_connection_builder.dart';
 
@@ -9,6 +10,7 @@ class FriendChatPage extends StatefulWidget {
   final String friendUuid;
   final String userName;
   final String friendUserName;
+  final String senderUuid;
 
   FriendChatPage({
     super.key,
@@ -17,6 +19,7 @@ class FriendChatPage extends StatefulWidget {
     required this.friendUuid,
     required this.userName,
     required this.friendUserName,
+    required this.senderUuid,
   });
 
   @override
@@ -35,6 +38,13 @@ class _FriendChatPageState extends State<FriendChatPage> {
   void initState() {
     super.initState();
     _showFriendTalkHistory(widget.uuid, widget.friendUuid);
+    _setupSignalR();
+  }
+
+  @override
+  void dispose() {
+    _hubConnection.stop();
+    super.dispose();
   }
 
   @override
@@ -68,7 +78,7 @@ class _FriendChatPageState extends State<FriendChatPage> {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: _sendMessage,
                   child: Text('Send'),
                 ),
               ],
@@ -131,12 +141,10 @@ class _FriendChatPageState extends State<FriendChatPage> {
 
   Future<void> _setupSignalR() async {
     _hubConnection = HubConnectionBuilder()
-        .withUrl('http://10.0.2.2:5211/friendHub')
+        .withUrl('http://127.0.0.1:5211/friendHub')
         .build();
 
-    _hubConnection.start()?.then((_) {
-      print('SignalR Connected');
-
+    _hubConnection.start()!.then((_) {
       _hubConnection.invoke('JoinGroup', args: [widget.groupName, widget.uuid]);
 
       _hubConnection!.on('SendGroupMsg', (arguments) {
@@ -154,8 +162,11 @@ class _FriendChatPageState extends State<FriendChatPage> {
         widget.groupName,
         widget.userName,
         _messageController.text,
+        widget.uuid,
+        widget.friendUuid,
+        widget.senderUuid,
+        _messageController.text,
       ]);
-
       _messageController.clear();
     } else {
       print('Connection is not established yet');

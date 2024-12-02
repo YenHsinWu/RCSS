@@ -37,6 +37,7 @@ class FriendCard extends Card {
             friendUuid: this.friendUuid,
             userName: uname,
             friendUserName: fname,
+            senderUuid: this.countUuid,
           ),
         );
       },

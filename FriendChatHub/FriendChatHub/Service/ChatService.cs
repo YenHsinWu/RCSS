@@ -11,9 +11,9 @@ namespace FriendChatHub.Service
             _httpClient = new HttpClient();
         }
 
-        public class NewFriendTalkMessage 
+        public class NewFriendTalkMessage
         {
-            public NewFriendTalkMessage(string uuid, string friend_uuid, DateTime created_date, string sender_uuid, string talk_content) 
+            public NewFriendTalkMessage(string uuid, string friend_uuid, DateTime created_date, string sender_uuid, string talk_content)
             {
                 this.uuid = uuid;
                 this.friend_uuid = friend_uuid;
@@ -29,7 +29,7 @@ namespace FriendChatHub.Service
             public string talk_content { get; set; }
         }
 
-        public async Task CreateFriendTalkMessage(string uuid, string friend_uuid, DateTime created_date, string sender_uuid, string talk_content) 
+        public async Task CreateFriendTalkMessage(string uuid, string friend_uuid, DateTime created_date, string sender_uuid, string talk_content)
         {
             try
             {
@@ -54,5 +54,6 @@ namespace FriendChatHub.Service
             {
                 Console.WriteLine($"錯誤: {ex.Message}");
             }
+        }
     }
 }

@@ -9,6 +9,7 @@ namespace FriendChatHub
 
         public async Task JoinGroup(string groupName, string userName)
         {
+            Console.WriteLine("Someone joined.");
             await Groups.AddToGroupAsync(groupName, userName);
         }
 
