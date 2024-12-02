@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\RCSS\\SignalRChat\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat.client\\pages\\businesslistupdate.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|solutionrelative:signalrchat\\signalrchat.client\\pages\\businesslistupdate.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat.client\\pages\\businesslistcreate.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|solutionrelative:signalrchat\\signalrchat.client\\pages\\businesslistcreate.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat.client\\pages\\businesslist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|solutionrelative:signalrchat\\signalrchat.client\\pages\\businesslist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat.client\\service\\businesslistservice.cs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|solutionrelative:signalrchat\\signalrchat.client\\service\\businesslistservice.cs||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat.client\\model\\businesslistcreatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|solutionrelative:signalrchat\\signalrchat.client\\model\\businesslistcreatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat.client\\model\\businesslistupdatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|solutionrelative:signalrchat\\signalrchat.client\\model\\businesslistupdatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat.client\\pages\\businesslist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|solutionrelative:signalrchat\\signalrchat.client\\pages\\businesslist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,46 +46,72 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BusinessListUpdateModel.cs",
+              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Model\\BusinessListUpdateModel.cs",
+              "RelativeDocumentMoniker": "SignalRChat\\SignalRChat.Client\\Model\\BusinessListUpdateModel.cs",
+              "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Model\\BusinessListUpdateModel.cs",
+              "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\Model\\BusinessListUpdateModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T06:09:32.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "BusinessListUpdate.razor",
+              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Pages\\BusinessListUpdate.razor",
+              "RelativeDocumentMoniker": "SignalRChat\\SignalRChat.Client\\Pages\\BusinessListUpdate.razor",
+              "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Pages\\BusinessListUpdate.razor",
+              "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\Pages\\BusinessListUpdate.razor",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAADsAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-02T04:07:54.192Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "BusinessListCreate.razor",
               "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Pages\\BusinessListCreate.razor",
               "RelativeDocumentMoniker": "SignalRChat\\SignalRChat.Client\\Pages\\BusinessListCreate.razor",
               "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Pages\\BusinessListCreate.razor",
               "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\Pages\\BusinessListCreate.razor",
-              "ViewState": "AgIAAJMAAAAAAAAAAAAAAJsAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAA4AAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-29T10:55:41.529Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "BusinessListService.cs",
+              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Service\\BusinessListService.cs",
+              "RelativeDocumentMoniker": "SignalRChat\\SignalRChat.Client\\Service\\BusinessListService.cs",
+              "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Service\\BusinessListService.cs",
+              "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\Service\\BusinessListService.cs",
+              "ViewState": "AgIAAJsAAAAAAAAAAAAAAKQAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T03:58:15.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "BusinessList.razor",
               "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Pages\\BusinessList.razor",
               "RelativeDocumentMoniker": "SignalRChat\\SignalRChat.Client\\Pages\\BusinessList.razor",
               "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Pages\\BusinessList.razor",
               "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\Pages\\BusinessList.razor",
-              "ViewState": "AgIAAK4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-29T10:53:16.397Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BusinessListCreateModel.cs",
-              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Model\\BusinessListCreateModel.cs",
-              "RelativeDocumentMoniker": "SignalRChat\\SignalRChat.Client\\Model\\BusinessListCreateModel.cs",
-              "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Model\\BusinessListCreateModel.cs",
-              "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\Model\\BusinessListCreateModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T10:16:12.96Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Program.cs",
               "RelativeDocumentMoniker": "SignalRChat\\SignalRChat\\Program.cs",
@@ -85,12 +119,11 @@
               "RelativeToolTip": "SignalRChat\\SignalRChat\\Program.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T10:01:49.765Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-29T10:01:49.765Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Program.cs",
               "RelativeDocumentMoniker": "SignalRChat\\SignalRChat.Client\\Program.cs",
@@ -98,8 +131,7 @@
               "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T10:00:32.197Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-29T10:00:32.197Z"
             }
           ]
         }

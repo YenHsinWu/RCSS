@@ -75,7 +75,7 @@ namespace SignalRChat.Client.Service
             }
             return new List<DataBusinessType>();
         }
-        public async Task<ResponseStanderd> PostBusinessList(string address, string phone, string email, string business_name, int business_type_id, int backend_user_id, string business_url)
+        public async Task<ResponseStanderd> PostBusinessList(string address, string phone, string email, string business_name, int business_type_id, int backend_user_id, string business_url, string phone_country, string country_id)
         {
             string err = "";
             try
@@ -90,6 +90,8 @@ namespace SignalRChat.Client.Service
                         business_url = business_url,
                         email = email,
                         phone = phone,
+                        phone_country = phone_country,
+                        country_id = country_id,
                         address = address,
                         backend_user_id = backend_user_id
                     }),
@@ -146,7 +148,7 @@ namespace SignalRChat.Client.Service
                 message = $"錯誤: {err}"
             };
         }
-        public async Task<ResponseStanderd> PutBusinessList(int business_id, string address, string phone, string email, string business_name, int business_type_id, int backend_user_id, string business_url)
+        public async Task<ResponseStanderd> PutBusinessList(int business_id, string address, string phone, string email, string business_name, int business_type_id, int backend_user_id, string business_url, string phone_country, string country_id)
         {
             string err = "";
             try
@@ -161,6 +163,8 @@ namespace SignalRChat.Client.Service
                         business_url = business_url,
                         email = email,
                         phone = phone,
+                        phone_country = phone_country,
+                        country_id = country_id,
                         address = address,
                         backend_user_id = backend_user_id,
                         business_id = business_id
