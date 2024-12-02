@@ -1,7 +1,11 @@
 {
   "mainAssemblyName": "SignalRChat.Client",
   "resources": {
+<<<<<<< HEAD
     "hash": "sha256-6phWOdKCSdwA3IPItY6SSe3WT6BVXLaXwz3t3WelYmw=",
+=======
+    "hash": "sha256-luFEgx+5cNFppk3L9aAob0mjrdn0M6gGuACvzxQYj1M=",
+>>>>>>> 187a533ed3c3c597807e9bfd485fa4f2d3263600
     "jsModuleNative": {
       "dotnet.native.js": "sha256-VdKq87/z5NIxZKmuM+fv38XF+RcEb/bg3jVBwQSfwP4="
     },
@@ -18,8 +22,10 @@
     },
     "coreAssembly": {},
     "assembly": {
+      "Accelist.FluentValidation.Blazor.wasm": "sha256-1Q/uAFzzveo9HxAKQ2NVMaeezrd0OfSyO9eUqQ+TXoA=",
       "BlazorBootstrap.wasm": "sha256-KvMCw6Z4ECWlPEz4jeQ0QWRGeVqaYlz5Xty6Qz3MwDc=",
       "FirebaseAdmin.wasm": "sha256-RUjxJWkilxx5USNcp7nxb2/pzyJIzJiXn5Bm1NF7aPc=",
+      "FluentValidation.wasm": "sha256-y2wmu0q0yfh4/O0BN8s/ZnPUFizpBUQu6X5SeIQJjnI=",
       "Google.Api.Gax.wasm": "sha256-dT6lTdXpeSN8UJ0KsLh5QP4H7rBa0NRwSza3K01NZcE=",
       "Google.Api.Gax.Rest.wasm": "sha256-hSOsXyFfX7a/EoIOXdyFxY3kcfjjIrJ34QVvO7yFXKc=",
       "Google.Apis.wasm": "sha256-XcsNSetbd049F/SxdqrKodylx/hxhc7VhTmTARzfCH4=",
@@ -231,10 +237,17 @@
       "mscorlib.wasm": "sha256-04e4k5XU8HWGB/dq/2+j84xzzGPflTs0IYWI0OxogVc=",
       "netstandard.wasm": "sha256-gnGZURPnoSmjXuYNCOJi5tt8qn2LRImWgue1Ru3/TDQ=",
       "System.Private.CoreLib.wasm": "sha256-6w3jYr0arcp8jnt4aeqh+AmqrLA6q7jl9rQYAwLzE0M=",
+<<<<<<< HEAD
       "SignalRChat.Client.wasm": "sha256-Ybe2U/kc5AO343eL9jwLmlOPwGFSGE/7fffa+1brR+Q="
     },
     "pdb": {
       "SignalRChat.Client.pdb": "sha256-2rgDtWup3Jop+YYwQxdGnWCLqKJ7sx7TWWLIDzoUpw8="
+=======
+      "SignalRChat.Client.wasm": "sha256-q0ZC92tZVIg/ze35bf7kFTzZgm97W6Sz8nUmpp605Lk="
+    },
+    "pdb": {
+      "SignalRChat.Client.pdb": "sha256-rWfIl2sYedun4IqiYE/7vjwoiKcNELjqXmnL267Yllg="
+>>>>>>> 187a533ed3c3c597807e9bfd485fa4f2d3263600
     }
   },
   "cacheBootResources": true,

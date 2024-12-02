@@ -1,7 +1,10 @@
 using FirebaseAdmin;
+using FluentValidation;
 using Google.Apis.Auth.OAuth2;
+using SignalRChat.Client.Model;
 using SignalRChat.Client.Pages;
 using SignalRChat.Client.Service;
+using SignalRChat.Client.Validator;
 using SignalRChat.Components;
 
 FirebaseApp.Create(new AppOptions()
@@ -18,6 +21,10 @@ builder.Services.AddRazorComponents()
 builder.Services.AddSignalR();
 builder.Services.AddHttpClient();
 builder.Services.AddSingleton<SignalRChat.Client.Service.BusinessService>();
+builder.Services.AddScoped<BackendUserService>();
+builder.Services.AddScoped<BusinessServiceService>();
+builder.Services.AddScoped<BusinessListService>();
+builder.Services.AddTransient<IValidator<BusinessListCreateModel>, BusinessListCreateValidator>();
 builder.Services.AddSingleton<SignalRChat.Client.Service.ChatService>();
 builder.Services.AddBlazorBootstrap();
 builder.Services.AddCors(options =>

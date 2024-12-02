@@ -4,33 +4,35 @@
 @using SignalRChat.Client.Model
 @inject NavigationManager NavManager
 @inject IJSRuntime JSRuntime
-@inject SignalRChat.Client.Service.BusinessService ObjectBusinessService
+@inject SignalRChat.Client.Service.BusinessServiceService ObjectBusinessServiceService
+
 <PageTitle>商家客服聊天室新增</PageTitle>
 <h3>商家客服聊天室新增</h3>
-<div class="filters">
+<EditForm Model="@businessServiceListCreateModel" OnValidSubmit="@AddBusinessServiceListAsync">
+    <DataAnnotationsValidator @ref="dataAnnotationsValidator" />
+    <ValidationSummary />
     <label for="business_id">商家id</label>
     <input id="business_id"
-           type="text"
+           type="number"
            class="form-control"
-           @bind="business_id" />
+           @bind="businessServiceListCreateModel.business_id" />
     <label for="business_service_name">客服聊天室名稱</label>
     <input id="business_service_name"
            type="text"
            class="form-control"
-           @bind="business_service_name" />    
+           @bind="businessServiceListCreateModel.business_service_name" />
     <Alert Color="AlertColor.Warning" Class="@isHide" Dismissable="true">@errorMessage </Alert>
-    <button class="btn btn-outline-primary"
-            @onclick="@AddBusinessServiceListAsync">
+    <button class="btn btn-outline-primary" type="submit">
         新增
     </button>
     <button class="btn btn-outline-secondary"
             @onclick="@CancelBusinessServiceListAsync">
         取消
     </button>
-</div>
+</EditForm>
 @code {
-    private int business_id = 0;
-    private string business_service_name = "";
+    private BusinessServiceListCreateModel businessServiceListCreateModel = new BusinessServiceListCreateModel();
+    private DataAnnotationsValidator dataAnnotationsValidator = new DataAnnotationsValidator();
     private string errorMessage = "";
     private string isHide = "d-none";
 
@@ -50,17 +52,20 @@
     }
     private async Task InitializeAsync()
     {
-        business_id = 0;
-        business_service_name = "";
+        businessServiceListCreateModel.business_id = 0;
+        businessServiceListCreateModel.business_service_name = "";
         isHide = "d-none";
         StateHasChanged();
     }
 
     private async void AddBusinessServiceListAsync()
     {
-        ResponseStanderd req = await ObjectBusinessService.PostBusinessServiceList(business_id, business_service_name, 0);
-        isHide = "";
+        ResponseStanderd req = await ObjectBusinessServiceService.PostBusinessServiceList(businessServiceListCreateModel.business_id, businessServiceListCreateModel.business_service_name, 0);
         errorMessage = req.message;
+        isHide = "";
+        StateHasChanged();
+        await Task.Delay(6000);
+        isHide = "d-none";
         StateHasChanged();
     }
 

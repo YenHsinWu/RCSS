@@ -3,7 +3,8 @@
 @using SignalRChat.Client.Service
 @using SignalRChat.Client.Model
 @inject NavigationManager NavManager
-@inject SignalRChat.Client.Service.BusinessService ObjectBusinessService
+@* @inject SignalRChat.Client.Service.BusinessService ObjectBusinessService *@
+@inject SignalRChat.Client.Service.BusinessServiceService ObjectBusinessServiceService
 @inject IConfiguration configuration
 <PageTitle>商家客服聊天室管理</PageTitle>
 <h3>商家客服聊天室管理</h3>
@@ -105,7 +106,7 @@ title="刪除資料">
     private async Task OnDeleteModalClick()
     {
         await modal1.HideAsync();
-        req = await ObjectBusinessService.DeleteBusinessServiceList(del_business_id, del_business_service_name);
+        req = await ObjectBusinessServiceService.DeleteBusinessServiceList(del_business_id, del_business_service_name);
         if (req.code == "0")
         {
             // var parameters = new Dictionary<string, object>();
@@ -155,7 +156,7 @@ title="刪除資料">
     }
     private async Task<GridDataProviderResult<DataBusinessServiceList>> BusinessServiceListDataProvider(GridDataProviderRequest<DataBusinessServiceList> request)
     {
-        SignalRChat.Client.Model.BusinessServiceList bList = await ObjectBusinessService.GetBusinessServiceList(business_service_name, business_id, int.Parse(configuration["CountPerPage"]), request.PageNumber);
+        SignalRChat.Client.Model.BusinessServiceList bList = await ObjectBusinessServiceService.GetBusinessServiceList(business_service_name, business_id, int.Parse(configuration["CountPerPage"]), request.PageNumber);
         if (bList.code == "0")
         {
             businessServiceList = bList;
