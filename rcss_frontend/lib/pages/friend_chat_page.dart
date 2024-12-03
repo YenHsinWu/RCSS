@@ -141,10 +141,12 @@ class _FriendChatPageState extends State<FriendChatPage> {
 
   Future<void> _setupSignalR() async {
     _hubConnection = HubConnectionBuilder()
-        .withUrl('http://127.0.0.1:5211/friendHub')
+        .withUrl('http://10.0.2.2:5211/friendhub')
         .build();
 
     _hubConnection.start()!.then((_) {
+      print("SignalR Connected");
+
       _hubConnection.invoke('JoinGroup', args: [widget.groupName, widget.uuid]);
 
       _hubConnection!.on('SendGroupMsg', (arguments) {
