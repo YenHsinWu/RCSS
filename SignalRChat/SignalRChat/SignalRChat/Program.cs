@@ -66,6 +66,7 @@ app.MapRazorComponents<App>()
     .AddAdditionalAssemblies(typeof(SignalRChat.Client._Imports).Assembly);
 
 app.MapHub<SignalRChat.Hubs.ChatHub>("/chathub");
+app.MapHub<SignalRChat.Hubs.FriendHub>("/friendhub");
 app.MapControllers();
 
 app.Run();
