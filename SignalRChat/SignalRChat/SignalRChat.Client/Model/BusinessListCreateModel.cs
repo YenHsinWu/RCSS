@@ -9,7 +9,7 @@ namespace SignalRChat.Client.Model
         public int business_type_id {  get; set; }
 
         [Required(ErrorMessage = "商家名稱必填")]
-        [StringLength(20,MinimumLength =2,ErrorMessage ="商家名稱長度為2~20個文字")]
+        [StringLength(30,MinimumLength =2,ErrorMessage ="商家名稱長度為2~30個文字")]
         public string business_name {  get; set; }
 
         [Required(ErrorMessage = "eMail必填")]

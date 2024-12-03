@@ -34,8 +34,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -50,8 +54,7 @@
               "RelativeToolTip": "SignalRChat\\SignalRChat\\Hubs\\ChatHub.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-03T01:50:17.047Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-03T01:50:17.047Z"
             },
             {
               "$type": "Document",
@@ -76,8 +79,7 @@
               "RelativeToolTip": "ClassLibrary\\Service\\FriendService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-03T01:48:35.96Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-03T01:48:35.96Z"
             },
             {
               "$type": "Document",
@@ -89,8 +91,7 @@
               "RelativeToolTip": "ClassLibrary\\Service\\ChatService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-03T01:48:12.115Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-03T01:48:12.115Z"
             },
             {
               "$type": "Document",
@@ -102,21 +103,19 @@
               "RelativeToolTip": "SignalRChat\\SignalRChat\\Hubs\\FriendHub.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-03T01:47:13.202Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-03T01:47:13.202Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ClassLibrary",
+              "Title": "ClassLibrary.csproj",
               "DocumentMoniker": "C:\\RCSS\\SignalRChat\\ClassLibrary\\ClassLibrary.csproj",
               "RelativeDocumentMoniker": "ClassLibrary\\ClassLibrary.csproj",
               "ToolTip": "C:\\RCSS\\SignalRChat\\ClassLibrary\\ClassLibrary.csproj",
               "RelativeToolTip": "ClassLibrary\\ClassLibrary.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-12-03T01:43:43.336Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-03T01:43:43.336Z"
             }
           ]
         }
