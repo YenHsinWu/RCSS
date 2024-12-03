@@ -3,28 +3,12 @@
   "WorkspaceRootPath": "C:\\RCSS\\SignalRChat\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|solutionrelative:signalrchat\\signalrchat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat.client\\pages\\backenduserlistupdate.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|solutionrelative:signalrchat\\signalrchat.client\\pages\\backenduserlistupdate.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat\\hubs\\friendhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|solutionrelative:signalrchat\\signalrchat\\hubs\\friendhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E4D0A26-F9F3-4111-B413-16EA13F193BA}|SignalRChat\\SignalRChat\\SignalRChat.csproj|solutionrelative:signalrchat\\signalrchat\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BDACDBA-C71B-414A-BDFC-EE2ABD7327E4}|ClassLibrary\\ClassLibrary.csproj|c:\\rcss\\signalrchat\\classlibrary\\service\\friendservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BDACDBA-C71B-414A-BDFC-EE2ABD7327E4}|ClassLibrary\\ClassLibrary.csproj|solutionrelative:classlibrary\\service\\friendservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BDACDBA-C71B-414A-BDFC-EE2ABD7327E4}|ClassLibrary\\ClassLibrary.csproj|c:\\rcss\\signalrchat\\classlibrary\\service\\chatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BDACDBA-C71B-414A-BDFC-EE2ABD7327E4}|ClassLibrary\\ClassLibrary.csproj|solutionrelative:classlibrary\\service\\chatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6BDACDBA-C71B-414A-BDFC-EE2ABD7327E4}|ClassLibrary\\ClassLibrary.csproj|c:\\rcss\\signalrchat\\classlibrary\\classlibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{6BDACDBA-C71B-414A-BDFC-EE2ABD7327E4}|ClassLibrary\\ClassLibrary.csproj|solutionrelative:classlibrary\\classlibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|c:\\rcss\\signalrchat\\signalrchat\\signalrchat.client\\model\\backenduserlistupdatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D12B31E0-51B8-4784-8A5D-C81707FF4073}|SignalRChat\\SignalRChat.Client\\SignalRChat.Client.csproj|solutionrelative:signalrchat\\signalrchat.client\\model\\backenduserlistupdatemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,76 +30,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ChatHub.cs",
-              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Hubs\\ChatHub.cs",
-              "RelativeDocumentMoniker": "SignalRChat\\SignalRChat\\Hubs\\ChatHub.cs",
-              "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Hubs\\ChatHub.cs",
-              "RelativeToolTip": "SignalRChat\\SignalRChat\\Hubs\\ChatHub.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "BackendUserListUpdateModel.cs",
+              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Model\\BackendUserListUpdateModel.cs",
+              "RelativeDocumentMoniker": "SignalRChat\\SignalRChat.Client\\Model\\BackendUserListUpdateModel.cs",
+              "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Model\\BackendUserListUpdateModel.cs",
+              "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\Model\\BackendUserListUpdateModel.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwA4AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-03T01:50:17.047Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Program.cs",
-              "RelativeDocumentMoniker": "SignalRChat\\SignalRChat\\Program.cs",
-              "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Program.cs",
-              "RelativeToolTip": "SignalRChat\\SignalRChat\\Program.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-03T01:56:34.998Z",
+              "WhenOpened": "2024-12-03T09:30:47.175Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FriendService.cs",
-              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\ClassLibrary\\Service\\FriendService.cs",
-              "RelativeDocumentMoniker": "ClassLibrary\\Service\\FriendService.cs",
-              "ToolTip": "C:\\RCSS\\SignalRChat\\ClassLibrary\\Service\\FriendService.cs",
-              "RelativeToolTip": "ClassLibrary\\Service\\FriendService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-03T01:48:35.96Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ChatService.cs",
-              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\ClassLibrary\\Service\\ChatService.cs",
-              "RelativeDocumentMoniker": "ClassLibrary\\Service\\ChatService.cs",
-              "ToolTip": "C:\\RCSS\\SignalRChat\\ClassLibrary\\Service\\ChatService.cs",
-              "RelativeToolTip": "ClassLibrary\\Service\\ChatService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-03T01:48:12.115Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FriendHub.cs",
-              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Hubs\\FriendHub.cs",
-              "RelativeDocumentMoniker": "SignalRChat\\SignalRChat\\Hubs\\FriendHub.cs",
-              "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat\\Hubs\\FriendHub.cs",
-              "RelativeToolTip": "SignalRChat\\SignalRChat\\Hubs\\FriendHub.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-03T01:47:13.202Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ClassLibrary.csproj",
-              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\ClassLibrary\\ClassLibrary.csproj",
-              "RelativeDocumentMoniker": "ClassLibrary\\ClassLibrary.csproj",
-              "ToolTip": "C:\\RCSS\\SignalRChat\\ClassLibrary\\ClassLibrary.csproj",
-              "RelativeToolTip": "ClassLibrary\\ClassLibrary.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-12-03T01:43:43.336Z"
+              "DocumentIndex": 0,
+              "Title": "BackendUserListUpdate.razor",
+              "DocumentMoniker": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Pages\\BackendUserListUpdate.razor",
+              "RelativeDocumentMoniker": "SignalRChat\\SignalRChat.Client\\Pages\\BackendUserListUpdate.razor",
+              "ToolTip": "C:\\RCSS\\SignalRChat\\SignalRChat\\SignalRChat.Client\\Pages\\BackendUserListUpdate.razor",
+              "RelativeToolTip": "SignalRChat\\SignalRChat.Client\\Pages\\BackendUserListUpdate.razor",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAmwHgAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-03T09:14:42.476Z",
+              "EditorCaption": ""
             }
           ]
         }
