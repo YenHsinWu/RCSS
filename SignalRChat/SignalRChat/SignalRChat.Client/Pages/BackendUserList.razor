@@ -71,8 +71,15 @@
         @context.update_backend_user_id
     </GridColumn>
     <GridColumn TItem="DataBackendUserList">
-        <Icon Name="IconName.PencilFill" Size=" IconSize.x5" @onclick="@(() => Update(@context.backend_user_id))" />
-        <Icon Name="IconName.ClipboardXFill" Size=" IconSize.x5" @onclick="@(() => Delete(@context.backend_user_id))" />
+        <Tooltip Title="Edit" role="button">
+            <Icon Name="IconName.PencilFill" Size=" IconSize.x5" @onclick="@(() => Update(@context.backend_user_id))" title="" />
+        </Tooltip>
+        <Tooltip Title="Delete" role="button">
+            <Icon Name="IconName.ClipboardXFill" Size=" IconSize.x5" @onclick="@(() => Delete(@context.backend_user_id))" />
+        </Tooltip>
+        <Tooltip Title="Rights" role="button">
+            <Icon Name="IconName.SafeFill" Size=" IconSize.x5" @onclick="@(() => Rights(@context.backend_user_id,@context.backend_user_name))" />
+        </Tooltip>
     </GridColumn>
 </Grid>
 <Modal @ref="modal1"
@@ -112,6 +119,10 @@
     private void Update(int backend_user_id)
     {
         NavManager.NavigateTo($"/BackendUserListUpdate/{backend_user_id}");
+    }
+    private void Rights(int backend_user_id, string backend_user_name)
+    {
+        NavManager.NavigateTo($"/BackendUserRights/{backend_user_id}/{backend_user_name}");
     }
     private async Task OnHideModalClick()
     {

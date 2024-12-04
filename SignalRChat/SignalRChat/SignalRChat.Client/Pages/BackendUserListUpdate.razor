@@ -115,7 +115,7 @@
     }
     private async void UpdateBackendUserListAsync()
     {
-        Console.WriteLine(backendUserListUpdateModel.password.Length.ToString());
+        // Console.WriteLine(backendUserListUpdateModel.password.Length.ToString());
         if ((backendUserListUpdateModel.password.Length>1 && backendUserListUpdateModel.password.Length < 8) || backendUserListUpdateModel.password.Length > 20)
         {
             errorMessage = "密碼長度必須為8~20個文字";
