@@ -101,7 +101,7 @@ class FriendCard extends Card {
                       _titleController.text,
                       {'friend_uuid': friendUuid,
                        'friend_user_name': fname,
-                       'sender_uuid': countUuid},
+                       'sender_uuid': countUuid,},
                       DateTime.now().toUtc().toString()),
                   Navigator.pop(context)
                 },
