@@ -41,7 +41,7 @@ class FriendCard extends Card {
           ),
         );
       },
-      onLongPress: () {},
+      onLongPress: () => _showCreateNewShortcutDialog(context),
       child: Card(
         elevation: 4,
         clipBehavior: Clip.antiAlias,
@@ -77,6 +77,8 @@ class FriendCard extends Card {
   void _showCreateNewShortcutDialog(BuildContext context) {
     final TextEditingController _titleController = TextEditingController();
 
+    String fname = this.countUuid == this.uuid ? friendUserName : userName;
+
     showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -98,7 +100,7 @@ class FriendCard extends Card {
                       3,
                       _titleController.text,
                       {'friend_uuid': friendUuid,
-                       'friend_user_name': friendUserName,
+                       'friend_user_name': fname,
                        'sender_uuid': countUuid},
                       DateTime.now().toUtc().toString()),
                   Navigator.pop(context)
