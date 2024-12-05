@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:rcss_frontend/service_implementation/friend_service.dart';
-import 'package:signalr_netcore/http_connection_options.dart';
 import 'package:signalr_netcore/hub_connection.dart';
 import 'package:signalr_netcore/hub_connection_builder.dart';
 
@@ -37,6 +36,7 @@ class _FriendChatPageState extends State<FriendChatPage> {
   @override
   void initState() {
     super.initState();
+    _setUnreadCountToZero(widget.uuid, widget.friendUuid);
     _showFriendTalkHistory(widget.uuid, widget.friendUuid);
     _setupSignalR();
   }
@@ -153,11 +153,11 @@ class _FriendChatPageState extends State<FriendChatPage> {
         if (friendTalkHistory[i]['sender_uuid'] == widget.uuid &&
             friendTalkHistory[i]['reader_uuid'] == widget.uuid) {
           _messages.add(
-              '${widget.userName}: ${friendTalkHistory[i]['talk_content']} --- ${timestamp}');
+              '${widget.userName}: ${friendTalkHistory[i]['talk_content']} --- [${timestamp}]');
         } else if (friendTalkHistory[i]['sender_uuid'] == widget.friendUuid &&
             friendTalkHistory[i]['reader_uuid'] == widget.friendUuid) {
           _messages.add(
-              '${widget.friendUserName}: ${friendTalkHistory[i]['talk_content']} --- ${timestamp}');
+              '${widget.friendUserName}: ${friendTalkHistory[i]['talk_content']} --- [${timestamp}]');
         }
       }
     });
@@ -193,6 +193,16 @@ class _FriendChatPageState extends State<FriendChatPage> {
         widget.senderUuid,
         _messageController.text,
       ]);
+
+      DateTime utcNow = DateTime.now().toUtc();
+      String formattedUtcNow = '${utcNow.hour}:${utcNow.minute}:${utcNow.second}';
+
+      String uname = widget.uuid == widget.senderUuid ? widget.userName : widget.friendUserName;
+
+      setState(() {
+        _messages.add('${uname}: ${_messageController.text} --- [${formattedUtcNow}]');
+      });
+
       _messageController.clear();
     } else {
       print('Connection is not established yet');
