@@ -110,7 +110,7 @@ class _FriendChatPageState extends State<FriendChatPage> {
 
         if (duplicatedContents.length == 1) {
           // Reach the last element.
-          if (i == friendTalkHistory.length - 1) {
+          if (i == friendTalkHistory.length - 1 && friendTalkHistory[i]['sender_uuid'] == widget.uuid) {
             _messages.add(_seperationLine);
             isSeperationLineAdded = true;
           } else if (duplicatedContents[0] ==
@@ -141,19 +141,20 @@ class _FriendChatPageState extends State<FriendChatPage> {
 
   Future<void> _setupSignalR() async {
     _hubConnection = HubConnectionBuilder()
-        .withUrl('http://10.0.2.2:5211/friendhub')
+        .withUrl('http://10.0.2.2:5101/friendhub')
         .build();
 
     _hubConnection.start()!.then((_) {
       print("SignalR Connected");
 
-      _hubConnection.invoke('JoinGroup', args: [widget.groupName, widget.uuid]);
+      _hubConnection.invoke('JoinGroup', args: [widget.groupName, widget.uuid]).then((_) {
+        print('Joined group successfully');
 
-      _hubConnection!.on('SendGroupMsg', (arguments) {
-
-        setState(() {
-          _messages.add(
-              '${arguments![1]}: ${arguments![2]} --- [${(arguments[3] as String).split(' ')[1].substring(0, 8)}]');
+        _hubConnection.on('SendGroupMsg', (arguments) {
+          setState(() {
+            _messages.add(
+                '${arguments![1]}: ${arguments![2]} --- [${(arguments[3] as String).split(' ')[1].substring(0, 8)}]');
+          });
         });
       });
     });

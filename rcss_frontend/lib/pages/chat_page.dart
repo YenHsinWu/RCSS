@@ -138,7 +138,7 @@ class _ChatPageState extends State<ChatPage> {
 
       hubConnection.invoke('JoinGroup', args: [widget.groupName, widget.uuid]);
 
-      hubConnection!.on('SendGroupMsg', (arguments) {
+      hubConnection.on('SendGroupMsg', (arguments) {
         setState(() {
           messages.add(
               '${arguments![1]}: ${arguments![2]} --- [${(arguments[3] as String).split(' ')[1].substring(0, 8)}]');
