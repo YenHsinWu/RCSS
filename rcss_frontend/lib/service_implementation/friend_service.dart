@@ -109,8 +109,24 @@ class FriendService {
 
   Future setUnreadFriendTalkToZero(
     String readerUuid,
+    Map<String, dynamic> requestBody
   ) async {
     final uri = Uri.parse(
         'http://10.10.10.207:3000/api/userTalksRecetCount/${readerUuid}');
+
+    final response = await http.post(
+      uri,
+      headers: headers,
+      body: json.encode(requestBody),
+    );
+
+    Map<String, dynamic> responseBody = json.decode(response.body);
+
+    if (response.statusCode == 200) {
+      return responseBody;
+    } else {
+      throw Exception(
+          '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
+    }
   }
 }

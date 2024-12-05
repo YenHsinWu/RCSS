@@ -89,6 +89,30 @@ class _FriendChatPageState extends State<FriendChatPage> {
     );
   }
 
+  void _setUnreadCountToZero(String uuid, String friendUuid) async {
+    Map<String, dynamic> requestBody = {
+      'data': [],
+      'reader_uuid': widget.uuid,
+    };
+    Map<String, dynamic> friendTalkHistoryData =
+      await _friendService.fetchFriendTalkHistory(uuid, friendUuid);
+
+    for (Map<String, dynamic> friendTalkHistory in friendTalkHistoryData['data'].reversed.toList()) {
+      if (friendTalkHistory['sender_uuid'] == widget.friendUuid &&
+          friendTalkHistory['reader_uuid'] == widget.friendUuid) {
+        String createdDate = friendTalkHistory['created_date'];
+
+        requestBody['data'].add({
+          'uuid': uuid,
+          'friend_uuid': friendUuid,
+          'created_date': createdDate,
+        });
+      }
+    }
+
+    await _friendService.setUnreadFriendTalkToZero(widget.uuid, requestBody);
+  }
+
   void _showFriendTalkHistory(String uuid, String friendUuid) async {
     bool isSeperationLineAdded = false;
 
@@ -147,14 +171,12 @@ class _FriendChatPageState extends State<FriendChatPage> {
     _hubConnection.start()!.then((_) {
       print("SignalR Connected");
 
-      _hubConnection.invoke('JoinGroup', args: [widget.groupName, widget.uuid]).then((_) {
-        print('Joined group successfully');
+      _hubConnection.invoke('JoinGroup', args: [widget.groupName, widget.uuid]);
 
-        _hubConnection.on('SendGroupMsg', (arguments) {
-          setState(() {
-            _messages.add(
-                '${arguments![1]}: ${arguments![2]} --- [${(arguments[3] as String).split(' ')[1].substring(0, 8)}]');
-          });
+      _hubConnection.on('SendGroupMsg', (arguments) {
+        setState(() {
+          _messages.add(
+              '${arguments![1]}: ${arguments![2]} --- [${(arguments[3] as String).split(' ')[1].substring(0, 8)}]');
         });
       });
     });
