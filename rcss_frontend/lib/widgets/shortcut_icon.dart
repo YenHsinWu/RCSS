@@ -2,6 +2,8 @@ import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rcss_frontend/pages/chat_room_page.dart';
+import 'package:rcss_frontend/pages/friend_chat_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../pages/chat_page.dart';
 import '../pages/index_page.dart';
@@ -145,6 +147,21 @@ class _ShortcutIconState extends State<ShortcutIcon> {
             userName: widget.userName,
           ),
         );
+      case 3:
+        String friendUuid = widget.shortcutUrl['friend_uuid'];
+        String friendUserName = widget.shortcutUrl['friend_user_name'];
+        String senderUuid = widget.shortcutUrl['sender_uuid'];
+        Get.to(FriendChatPage(
+            groupName: '${widget.uuid}^friendUuid',
+            uuid: widget.uuid,
+            friendUuid: friendUuid,
+            userName: widget.userName,
+            friendUserName: friendUserName,
+            senderUuid: senderUuid));
+        break;
+      case 5:
+        String url = widget.shortcutUrl['url'];
+        launchUrl(Uri.parse(url));
     }
   }
 }

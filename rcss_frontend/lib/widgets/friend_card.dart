@@ -73,4 +73,40 @@ class FriendCard extends Card {
       ),
     );
   }
+
+  void _showCreateNewShortcutDialog(BuildContext context) {
+    final TextEditingController _titleController = TextEditingController();
+
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('請輸入捷徑名稱'),
+            content: TextField(
+              controller: _titleController,
+              decoration: InputDecoration(labelText: '捷徑名稱'),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => {Navigator.pop(context)},
+                child: Text('取消'),
+              ),
+              TextButton(
+                onPressed: () => {
+                  _indexService.createIndexPageShortcut(
+                      uuid,
+                      3,
+                      _titleController.text,
+                      {'friend_uuid': friendUuid,
+                       'friend_user_name': friendUserName,
+                       'sender_uuid': countUuid},
+                      DateTime.now().toUtc().toString()),
+                  Navigator.pop(context)
+                },
+                child: Text('確認'),
+              ),
+            ],
+          );
+        });
+  }
 }
