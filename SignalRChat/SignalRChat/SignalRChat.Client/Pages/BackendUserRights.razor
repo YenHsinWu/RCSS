@@ -41,7 +41,7 @@
     <button class="btn btn-outline-primary" type="submit">
         修改
     </button>
-    <button class="btn btn-outline-secondary"
+    <button class="btn btn-outline-secondary" type="button"
     @onclick="@CancelUpdateBackendRightsListAsync">
         取消
     </button>
@@ -84,7 +84,7 @@
                 backend_right_group_name = "商家管理",
                 backend_right_id = 5,
                 backend_right_name = "商家新增",
-                SwitchValue = true
+                SwitchValue = false
             }
         );
         switchRightsValue.Add("1-6", new SwitchDataRights

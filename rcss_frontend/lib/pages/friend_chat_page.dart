@@ -150,6 +150,7 @@ class _FriendChatPageState extends State<FriendChatPage> {
       _hubConnection.invoke('JoinGroup', args: [widget.groupName, widget.uuid]);
 
       _hubConnection!.on('SendGroupMsg', (arguments) {
+
         setState(() {
           _messages.add(
               '${arguments![1]}: ${arguments![2]} --- [${(arguments[3] as String).split(' ')[1].substring(0, 8)}]');
