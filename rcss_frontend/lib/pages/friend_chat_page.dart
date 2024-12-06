@@ -98,8 +98,7 @@ class _FriendChatPageState extends State<FriendChatPage> {
       await _friendService.fetchFriendTalkHistory(uuid, friendUuid);
 
     for (Map<String, dynamic> friendTalkHistory in friendTalkHistoryData['data'].reversed.toList()) {
-      if (friendTalkHistory['sender_uuid'] == widget.friendUuid &&
-          friendTalkHistory['reader_uuid'] == widget.friendUuid) {
+      if (friendTalkHistory['sender_uuid'] == widget.friendUuid) {
         String createdDate = friendTalkHistory['created_date'];
 
         requestBody['data'].add({

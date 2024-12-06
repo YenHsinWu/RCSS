@@ -5,7 +5,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_badge_control/flutter_app_badge_control.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:rcss_frontend/pages/home_page.dart';
+import 'package:rcss_frontend/pages/login_page.dart';
 
 @pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
@@ -24,11 +24,7 @@ void main() async {
 
   runApp(const GetMaterialApp(
     debugShowCheckedModeBanner: false,
-    home: HomePage(
-      uuid: '04518934-a0a3-4b29-a373-c971a850c410',
-      userName: 'test1002',
-    ),
-    // home: LoginPage(),
+    home: LoginPage(),
   ));
 
   await FlutterAppBadgeControl.removeBadge();

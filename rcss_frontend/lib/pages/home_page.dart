@@ -59,10 +59,6 @@ class _HomePageState extends State<HomePage> {
       print('從通知啟動APP：${message.notification?.title}');
       FlutterAppBadgeControl.removeBadge();
     });
-
-    _firebaseMessaging.getToken().then((token) {
-      print('FCM token: ${token}');
-    });
   }
 
   void _onItemTapped(int index) {
