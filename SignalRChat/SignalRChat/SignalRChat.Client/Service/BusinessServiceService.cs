@@ -50,6 +50,45 @@ namespace SignalRChat.Client.Service
                 message = $"錯誤: {err}"
             };
         }
+        public async Task<SignalRChat.Client.Model.BusinessServiceTalks> GetBusinessServiceTalksHistory(int backend_user_id, string business_service_name, string user_name, string created_date_start, string created_date_end, int count_per_page, int page)
+        {
+            string err = "";
+            try
+            {
+                var basePath = $"http://10.10.10.207:3000/api/businessservicetalks";  // "http://10.10.10.207:3000/api/businessList";
+                var uri = ParameterHelper.BuildUrlWithQueryStringUsingStringConcat(basePath, new Dictionary<string, string>
+                {
+                    { "page",page.ToString()},
+                    { "count_per_page",count_per_page.ToString()},
+                    { "backend_user_id",backend_user_id.ToString()},
+                    { "business_service_name",business_service_name},
+                    { "user_name",user_name},
+                    { "created_date_start",created_date_start},
+                    { "created_date_end",created_date_end},
+                }
+                );
+                var response = await _httpClient.GetAsync(uri);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string data = await response.Content.ReadAsStringAsync();
+                    SignalRChat.Client.Model.BusinessServiceTalks jsonData = JsonSerializer.Deserialize<SignalRChat.Client.Model.BusinessServiceTalks>(data);
+                    return jsonData;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"錯誤: {ex.Message}");
+                err = ex.Message;
+            }
+            return new SignalRChat.Client.Model.BusinessServiceTalks
+            {
+                data = null,
+                dataBusinessServiceTalksCount=0,
+                code = "-1",
+                message = $"錯誤: {err}"
+            };
+        }
         public async Task<SignalRChat.Client.Model.BackendUserServiceRights> GetBackendServiceRights(int backend_user_id)
         {
             string err = "";
