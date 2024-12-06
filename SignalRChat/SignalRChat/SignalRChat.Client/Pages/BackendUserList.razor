@@ -80,6 +80,9 @@
         <Tooltip Title="Rights" role="button">
             <Icon Name="IconName.SafeFill" Size=" IconSize.x5" @onclick="@(() => Rights(@context.backend_user_id,@context.backend_user_name))" />
         </Tooltip>
+        <Tooltip Title="Customer Service" role="button">
+            <Icon Name="IconName.Bank" Size=" IconSize.x5" @onclick="@(() => CustomerService(@context.backend_user_id,@context.backend_user_name))" />
+        </Tooltip>
     </GridColumn>
 </Grid>
 <Modal @ref="modal1"
@@ -124,6 +127,10 @@
     {
         NavManager.NavigateTo($"/BackendUserRights/{backend_user_id}/{backend_user_name}");
     }
+    private void CustomerService(int backend_user_id, string backend_user_name)
+    {
+        NavManager.NavigateTo($"/BackendBusinessServiceRights/{backend_user_id}/{backend_user_name}");
+    }    
     private async Task OnHideModalClick()
     {
         await modal1.HideAsync();

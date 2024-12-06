@@ -2,6 +2,7 @@
 using SignalRChat.Client.Utility;
 using System.Text;
 using System.Text.Json;
+using static System.Net.WebRequestMethods;
 
 namespace SignalRChat.Client.Service
 {
@@ -19,7 +20,7 @@ namespace SignalRChat.Client.Service
             string err = "";
             try
             {
-                var basePath = $"{_configuration["BaseUri"]}businessServiceList";  // "http://10.10.10.207:3000/api/businessList";
+                var basePath = $"http://10.10.10.207:3000/api/businessServiceList";  // "http://10.10.10.207:3000/api/businessList";
                 var uri = ParameterHelper.BuildUrlWithQueryStringUsingStringConcat(basePath, new Dictionary<string, string>
                 {
                     { "page",page.ToString()},
@@ -45,6 +46,34 @@ namespace SignalRChat.Client.Service
             return new SignalRChat.Client.Model.BusinessServiceList
             {
                 data = null,
+                code = "-1",
+                message = $"錯誤: {err}"
+            };
+        }
+        public async Task<SignalRChat.Client.Model.BackendUserServiceRights> GetBackendServiceRights(int backend_user_id)
+        {
+            string err = "";
+            try
+            {
+                var basePath = $"http://10.10.10.207:3000/api/backendservicerights/{backend_user_id}";  // "http://10.10.10.207:3000/api/businessList";
+                var uri = basePath;
+                var response = await _httpClient.GetAsync(uri);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string data = await response.Content.ReadAsStringAsync();
+                    SignalRChat.Client.Model.BackendUserServiceRights jsonData = JsonSerializer.Deserialize<SignalRChat.Client.Model.BackendUserServiceRights>(data);
+                    return jsonData;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"錯誤: {ex.Message}");
+                err = ex.Message;
+            }
+            return new SignalRChat.Client.Model.BackendUserServiceRights
+            {
+                dataBackendUserServiceRights = null,
                 code = "-1",
                 message = $"錯誤: {err}"
             };
@@ -98,6 +127,39 @@ namespace SignalRChat.Client.Service
                 //    Encoding.UTF8,
                 //    "application/json");
                 var response = await _httpClient.DeleteAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string data = await response.Content.ReadAsStringAsync();
+                    ResponseStanderd jsonData = JsonSerializer.Deserialize<ResponseStanderd>(data);
+                    return jsonData;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"錯誤: {ex.Message}");
+                err = ex.Message;
+            }
+            return new ResponseStanderd
+            {
+                code = "-1",
+                message = $"錯誤: {err}"
+            };
+        }
+        public async Task<ResponseStanderd> PostBackendServiceRights(int backend_user_id, List<DataBackendUserServiceRights> userServiceRights)
+        {
+            string err = "";
+            try
+            {
+                var basePath = $"{_configuration["BaseUri"]}backendservicerights/{backend_user_id}";  // "http://10.10.10.207:3000/api/businessList";
+                var uri = basePath;
+                using StringContent jsonContent = new(
+                    JsonSerializer.Serialize(new
+                    {
+                        data = userServiceRights.ToArray(),
+                    }),
+                    Encoding.UTF8,
+                    "application/json");
+                var response = await _httpClient.PostAsync(uri, jsonContent);
                 if (response.IsSuccessStatusCode)
                 {
                     string data = await response.Content.ReadAsStringAsync();
