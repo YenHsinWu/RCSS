@@ -108,8 +108,7 @@ PageSize=2
         user_name = "..";
         created_date_start = DateTime.UtcNow.AddDays(1).ToString("yyyy-MM-dd hh:mm:ss");
         created_date_end = DateTime.UtcNow.AddDays(1).ToString("yyyy-MM-dd hh:mm:ss");
-        Console.WriteLine(created_date_start);
-        Console.WriteLine(created_date_end);
+        StateHasChanged();
     }
     private async Task<GridDataProviderResult<DataBusinessServiceTalks>> BusinessServiceTalksDataProvider(GridDataProviderRequest<DataBusinessServiceTalks> request)
     {
