@@ -24,6 +24,7 @@ builder.Services.AddSingleton<SignalRChat.Client.Service.BusinessService>();
 builder.Services.AddScoped<BackendUserService>();
 builder.Services.AddScoped<BusinessServiceService>();
 builder.Services.AddScoped<BusinessListService>();
+builder.Services.AddScoped<BusinessMessagePushService>();
 builder.Services.AddTransient<IValidator<BusinessListCreateModel>, BusinessListCreateValidator>();
 builder.Services.AddSingleton<SignalRChat.Client.Service.ChatService>();
 builder.Services.AddBlazorBootstrap();

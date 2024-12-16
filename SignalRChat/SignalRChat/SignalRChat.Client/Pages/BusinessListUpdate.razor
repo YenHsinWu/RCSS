@@ -120,13 +120,13 @@
             businessListUpdateModel.business_id = dataUpdateBusinessList.dataBusinessList.business_id;
             businessListUpdateModel.phone_country = GetContryCode(dataUpdateBusinessList.dataBusinessList.country_id, dataUpdateBusinessList.dataBusinessList.phone_country);
             isHide = "d-none";
-            StateHasChanged();
         }
         else
         {
             isHide = "";
             errorMessage = dataUpdateBusinessList.message;
         }
+        StateHasChanged();
     }
 
     private async void UpdateBusinessListAsync()

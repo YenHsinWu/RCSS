@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "SignalRChat.Client",
   "resources": {
-    "hash": "sha256-yD/UKvgEiWT2k0toE+c/T4lHCoJqm5EdjJI0Ac8DUjI=",
+    "hash": "sha256-gYLAwf3nsixTIdq64lXmmW14fzVB4apytNI2Hdy9S1s=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-VdKq87/z5NIxZKmuM+fv38XF+RcEb/bg3jVBwQSfwP4="
     },
@@ -36,6 +36,7 @@
       "Microsoft.AspNetCore.Connections.Abstractions.wasm": "sha256-ZsLGSgQP0rMG6+VpTVwgIAe2XQdqUVk64V7CMt4EU3Q=",
       "Microsoft.AspNetCore.Http.Connections.Client.wasm": "sha256-dg1oZa5GbOKAcCSDQzb3GPY/eIAzsXCgeYa8fAO8IMg=",
       "Microsoft.AspNetCore.Http.Connections.Common.wasm": "sha256-zgB2BSzuKVnlqRtTMeV2NhtoxdojdM9tkEmT7o/R7Ig=",
+      "Microsoft.AspNetCore.Http.Features.wasm": "sha256-Wv/L2DCI0TXDORvAS5pea7Slkttfwv+ZHiwJv2cRvq8=",
       "Microsoft.AspNetCore.Metadata.wasm": "sha256-Mvq2Fy4bw77m1ECnG7otq2ctOhvymfaC9ksNUcgOa7M=",
       "Microsoft.AspNetCore.SignalR.Client.wasm": "sha256-1U4/3nWBO+Hi81VL9m561enB1oHlAgGPQdLKCm0Yj+o=",
       "Microsoft.AspNetCore.SignalR.Client.Core.wasm": "sha256-F4reWncwVOVqwKMoh7vzWTJYNqmK/RHhIKO51Oay4nQ=",
@@ -233,10 +234,10 @@
       "mscorlib.wasm": "sha256-04e4k5XU8HWGB/dq/2+j84xzzGPflTs0IYWI0OxogVc=",
       "netstandard.wasm": "sha256-gnGZURPnoSmjXuYNCOJi5tt8qn2LRImWgue1Ru3/TDQ=",
       "System.Private.CoreLib.wasm": "sha256-6w3jYr0arcp8jnt4aeqh+AmqrLA6q7jl9rQYAwLzE0M=",
-      "SignalRChat.Client.wasm": "sha256-CtR2hTSYbjxODUjrM9zlb4k10z4AAI06bprgR1C9AO8="
+      "SignalRChat.Client.wasm": "sha256-p6PMpHwrkvJMo2iwOxwfC4Vq9I1aUPyI5veh9vNycJU="
     },
     "pdb": {
-      "SignalRChat.Client.pdb": "sha256-/WF6r+cLuNkiAwXTkJ2hfh/gxAqiBOJRnfNTyzhPSoI="
+      "SignalRChat.Client.pdb": "sha256-QCiFqKNRsHaY6WYaOxc9Z9ZUfiNQ+rHoNTH+KPDQyt4="
     }
   },
   "cacheBootResources": true,

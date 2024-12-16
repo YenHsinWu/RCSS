@@ -221,12 +221,6 @@ namespace SignalRChat.Client.Service
             {
                 var basePath = $"{_configuration["BaseUri"]}backendusers/{backend_user_id}";  // "http://10.10.10.207:3000/api/businessList";
                 var uri = basePath;
-                //using StringContent jsonContent = new(
-                //    JsonSerializer.Serialize(new {                        
-                //        business_id = business_id
-                //    }),
-                //    Encoding.UTF8,
-                //    "application/json");
                 var response = await _httpClient.DeleteAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {

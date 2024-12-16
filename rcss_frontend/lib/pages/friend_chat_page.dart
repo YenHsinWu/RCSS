@@ -90,7 +90,7 @@ class _FriendChatPageState extends State<FriendChatPage> {
   }
 
   void _setUnreadCountToZero(String uuid, String friendUuid) async {
-    Map<String, dynamic> requestBody = {
+    /*Map<String, dynamic> requestBody = {
       'data': [],
       'reader_uuid': widget.uuid,
     };
@@ -107,9 +107,10 @@ class _FriendChatPageState extends State<FriendChatPage> {
           'created_date': createdDate,
         });
       }
-    }
+    }*/
 
-    await _friendService.setUnreadFriendTalkToZero(widget.uuid, requestBody);
+    //await _friendService.setUnreadFriendTalkToZero(widget.uuid, requestBody);
+    await _friendService.setUnreadFriendTalkToZero(widget.uuid);
   }
 
   void _showFriendTalkHistory(String uuid, String friendUuid) async {

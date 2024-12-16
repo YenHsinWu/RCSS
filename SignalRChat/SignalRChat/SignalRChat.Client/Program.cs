@@ -15,6 +15,7 @@ builder.Services.AddScoped<BusinessService>();
 builder.Services.AddScoped<BackendUserService>();
 builder.Services.AddScoped<BusinessServiceService>();
 builder.Services.AddScoped<BusinessListService>();
+builder.Services.AddScoped<BusinessMessagePushService>();
 builder.Services.AddTransient<IValidator<BusinessListCreateModel>, BusinessListCreateValidator>();
 // Alternatively, use FluentValidation.DependencyInjectionExtensions package (read further down below...)
 builder.Services.AddScoped<ChatService>();
