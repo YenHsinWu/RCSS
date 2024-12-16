@@ -117,6 +117,7 @@ class _FriendPageState extends State<FriendPage> {
       for (Map<String, dynamic> friend in friendsData['data']) {
         _friendCards.add(
           FriendCard(
+            login_uuid:widget.uuid,
             uuid: friend['uuid'],
             friendUuid: friend['friend_uuid'],
             userName: friend['user_name'],

@@ -10,6 +10,7 @@ import '../pages/index_page.dart';
 import '../service_implementation/index_service.dart';
 
 class ShortcutIcon extends StatefulWidget {
+  final String login_uuid;
   final String uuid;
   final String userName;
   final int type;
@@ -21,6 +22,7 @@ class ShortcutIcon extends StatefulWidget {
 
   const ShortcutIcon({
     super.key,
+    required this.login_uuid,
     required this.uuid,
     required this.userName,
     required this.type,
@@ -152,6 +154,7 @@ class _ShortcutIconState extends State<ShortcutIcon> {
         String friendUserName = widget.shortcutUrl['friend_user_name'];
         String senderUuid = widget.shortcutUrl['sender_uuid'];
         Get.to(FriendChatPage(
+            login_uuid: widget.login_uuid,
             groupName: '${widget.uuid}^friendUuid',
             uuid: widget.uuid,
             friendUuid: friendUuid,

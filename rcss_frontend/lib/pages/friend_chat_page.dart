@@ -4,6 +4,7 @@ import 'package:signalr_netcore/hub_connection.dart';
 import 'package:signalr_netcore/hub_connection_builder.dart';
 
 class FriendChatPage extends StatefulWidget {
+  final String login_uuid;
   final String groupName;
   final String uuid;
   final String friendUuid;
@@ -13,6 +14,7 @@ class FriendChatPage extends StatefulWidget {
 
   FriendChatPage({
     super.key,
+    required this.login_uuid,
     required this.groupName,
     required this.uuid,
     required this.friendUuid,
@@ -36,7 +38,7 @@ class _FriendChatPageState extends State<FriendChatPage> {
   @override
   void initState() {
     super.initState();
-    _setUnreadCountToZero(widget.uuid, widget.friendUuid);
+    _setUnreadCountToZero(widget.login_uuid,widget.uuid, widget.friendUuid);
     _showFriendTalkHistory(widget.uuid, widget.friendUuid);
     _setupSignalR();
   }
@@ -89,12 +91,16 @@ class _FriendChatPageState extends State<FriendChatPage> {
     );
   }
 
-  void _setUnreadCountToZero(String uuid, String friendUuid) async {
+  void _setUnreadCountToZero(String login_uuid,String uuid, String friendUuid) async {
     /*Map<String, dynamic> requestBody = {
       'data': [],
       'reader_uuid': widget.uuid,
+    };*/
+    Map<String, dynamic> requestBody = {
+      'uuid': uuid,
+      'friend_uuid':friendUuid,
     };
-    Map<String, dynamic> friendTalkHistoryData =
+    /*Map<String, dynamic> friendTalkHistoryData =
       await _friendService.fetchFriendTalkHistory(uuid, friendUuid);
 
     for (Map<String, dynamic> friendTalkHistory in friendTalkHistoryData['data'].reversed.toList()) {
@@ -109,12 +115,12 @@ class _FriendChatPageState extends State<FriendChatPage> {
       }
     }*/
 
-    //await _friendService.setUnreadFriendTalkToZero(widget.uuid, requestBody);
-    await _friendService.setUnreadFriendTalkToZero(widget.uuid);
+    await _friendService.setUnreadFriendTalkToZero(login_uuid, requestBody);
   }
 
   void _showFriendTalkHistory(String uuid, String friendUuid) async {
     bool isSeperationLineAdded = false;
+    bool isEqual = false;
 
     Map<String, dynamic> friendTalkHistoryData =
         await _friendService.fetchFriendTalkHistory(uuid, friendUuid);
@@ -122,12 +128,40 @@ class _FriendChatPageState extends State<FriendChatPage> {
     List<String> duplicatedContents = [];
     List<dynamic> friendTalkHistory =
         friendTalkHistoryData['data'].reversed.toList();
+    // 2024/12/16：Michael
+    String uuid1="";
+    String friend_uuid1="";
+    String timestamp="";
+    String timestamp1="";
+    // 2024/12/16：Michael
 
     setState(() {
       for (int i = 0; i < friendTalkHistory.length; i++) {
-        String timestamp = friendTalkHistory[i]['created_date'];
-        timestamp = timestamp.split(' ')[1].substring(0, 8);
+        if(widget.uuid==friendTalkHistory[i]['reader_uuid']) {
+          isEqual=true;
+        }
+        if(i>0) {
+          if (!(timestamp1 == friendTalkHistory[i]['created_date'] &&
+              uuid1 == friendTalkHistory[i]['uuid'] &&
+              friend_uuid1 == friendTalkHistory[i]['friend_uuid'])) {
+              if(!isSeperationLineAdded && isEqual) {
+                _messages.add(_seperationLine);
+                isSeperationLineAdded=true;
+              }
+          }
+        }
+        if(i==friendTalkHistory.length-1 && !isSeperationLineAdded && !isEqual)
+          {
+            _messages.add(_seperationLine);
+          }
+        timestamp1 = friendTalkHistory[i]['created_date'];
+        timestamp = timestamp1.split(' ')[1].substring(0, 8);
+        uuid1=friendTalkHistory[i]['uuid'];
+        friend_uuid1=friendTalkHistory[i]['friend_uuid'];
 
+
+        /*String timestamp = friendTalkHistory[i]['created_date'];
+        timestamp = timestamp.split(' ')[1].substring(0, 8);
         if (duplicatedContents.isEmpty) {
           duplicatedContents.add(friendTalkHistory[i]['talk_content']);
         }
@@ -148,7 +182,7 @@ class _FriendChatPageState extends State<FriendChatPage> {
 
         if (duplicatedContents.length == 2) {
           duplicatedContents.clear();
-        }
+        }*/
 
         if (friendTalkHistory[i]['sender_uuid'] == widget.uuid &&
             friendTalkHistory[i]['reader_uuid'] == widget.uuid) {
@@ -165,7 +199,8 @@ class _FriendChatPageState extends State<FriendChatPage> {
 
   Future<void> _setupSignalR() async {
     _hubConnection = HubConnectionBuilder()
-        .withUrl('http://10.0.2.2:5101/friendhub')
+        //.withUrl('http://10.0.2.2:5101/friendhub')
+        .withUrl('http://10.10.10.207:5211/friendhub')
         .build();
 
     _hubConnection.start()!.then((_) {

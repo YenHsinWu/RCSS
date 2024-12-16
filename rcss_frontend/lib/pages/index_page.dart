@@ -53,6 +53,7 @@ class _IndexPageState extends State<IndexPage> {
       for (Map<String, dynamic> shortcut in shortcutListJson) {
         shortcuts.add(
           ShortcutIcon(
+            login_uuid: widget.uuid,
             uuid: uuid,
             userName: widget.userName,
             type: shortcut['shortcut_type_id'],

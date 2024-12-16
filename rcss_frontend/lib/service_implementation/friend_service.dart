@@ -107,24 +107,17 @@ class FriendService {
     }
   }
 
-  /*Future setUnreadFriendTalkToZero(
+  Future setUnreadFriendTalkToZero(
     String readerUuid,
     Map<String, dynamic> requestBody
-  ) async {*/
-  Future setUnreadFriendTalkToZero(
-        String readerUuid
-        ) async {
+  ) async {
     final uri = Uri.parse(
         'http://10.10.10.207:3000/api/userTalksRecetCount/${readerUuid}');
 
-    /*final response = await http.post(
+    final response = await http.post(
       uri,
       headers: headers,
       body: json.encode(requestBody),
-    );*/
-    final response = await http.post(
-      uri,
-      headers: headers
     );
 
     Map<String, dynamic> responseBody = json.decode(response.body);

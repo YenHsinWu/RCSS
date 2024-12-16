@@ -5,6 +5,7 @@ import 'package:rcss_frontend/pages/friend_chat_page.dart';
 import 'package:rcss_frontend/service_implementation/index_service.dart';
 
 class FriendCard extends Card {
+  final String login_uuid;
   final String uuid;
   final String friendUuid;
   final String userName;
@@ -14,6 +15,7 @@ class FriendCard extends Card {
 
   FriendCard({
     super.key,
+    required this.login_uuid,
     required this.uuid,
     required this.friendUuid,
     required this.userName,
@@ -32,6 +34,7 @@ class FriendCard extends Card {
         String fname = this.countUuid == this.uuid ? friendUserName : userName;
         Get.to(
           FriendChatPage(
+            login_uuid:this.login_uuid,
             groupName: '${this.uuid}^${this.friendUuid}',
             uuid: this.uuid,
             friendUuid: this.friendUuid,
