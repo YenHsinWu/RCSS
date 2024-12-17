@@ -72,7 +72,9 @@
 
     protected async override Task OnInitializedAsync()
     {
-        hubConnection = new HubConnectionBuilder().WithUrl($"{configuration["CharIP"]}chathub").Build();
+        // Console.WriteLine(configuration["ChatIP"]);
+        // Console.WriteLine(configuration["ChatIP"]);
+        hubConnection = new HubConnectionBuilder().WithUrl("http://10.10.10.207:5211/chathub").Build();
 
         Console.WriteLine(uuid);
 
@@ -81,7 +83,6 @@
             // var concatMessage = $"[{groupName}] --- {userName}: {message} --- [{timestamp.Split(' ')[1]}]";
             var concatMessage = $"{userName}: {message} --- [{timestamp.Split(' ')[1].Substring(0, 8)}]";
             messages.Add(concatMessage);
-
             InvokeAsync(StateHasChanged);
         });
 
@@ -105,6 +106,10 @@
         catch (Exception ex)
         {
             Console.WriteLine($"錯誤: {ex.Message}");
+        }
+        finally
+        {
+            message = "";
         }
 
     }
