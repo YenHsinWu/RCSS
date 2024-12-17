@@ -38,8 +38,9 @@ class _FriendChatPageState extends State<FriendChatPage> {
   @override
   void initState() {
     super.initState();
-    _setUnreadCountToZero(widget.login_uuid,widget.uuid, widget.friendUuid);
+    //_setUnreadCountToZero(widget.login_uuid,widget.uuid, widget.friendUuid);
     _showFriendTalkHistory(widget.uuid, widget.friendUuid);
+    _setUnreadCountToZero(widget.login_uuid,widget.uuid, widget.friendUuid);
     _setupSignalR();
   }
 
@@ -114,7 +115,6 @@ class _FriendChatPageState extends State<FriendChatPage> {
         });
       }
     }*/
-
     await _friendService.setUnreadFriendTalkToZero(login_uuid, requestBody);
   }
 
@@ -134,32 +134,88 @@ class _FriendChatPageState extends State<FriendChatPage> {
     String timestamp="";
     String timestamp1="";
     // 2024/12/16：Michael
-
     setState(() {
       for (int i = 0; i < friendTalkHistory.length; i++) {
-        if(widget.uuid==friendTalkHistory[i]['reader_uuid']) {
-          isEqual=true;
-        }
+        // 2024/12/16：Michael start
         if(i>0) {
           if (!(timestamp1 == friendTalkHistory[i]['created_date'] &&
               uuid1 == friendTalkHistory[i]['uuid'] &&
               friend_uuid1 == friendTalkHistory[i]['friend_uuid'])) {
-              if(!isSeperationLineAdded && isEqual) {
-                _messages.add(_seperationLine);
-                isSeperationLineAdded=true;
+              if (friendTalkHistory[i-1]['sender_uuid'] == widget.uuid &&
+                  friendTalkHistory[i-1]['reader_uuid'] == widget.uuid) {
+                _messages.add(
+                    '${widget.userName}: ${friendTalkHistory[i-1]['talk_content']} --- [${timestamp}]');
+              } else if (friendTalkHistory[i-1]['sender_uuid'] == widget.friendUuid &&
+                  friendTalkHistory[i-1]['reader_uuid'] == widget.friendUuid) {
+                _messages.add(
+                    '${widget.friendUserName}: ${friendTalkHistory[i-1]['talk_content']} --- [${timestamp}]');
               }
           }
         }
-        if(i==friendTalkHistory.length-1 && !isSeperationLineAdded && !isEqual)
-          {
-            _messages.add(_seperationLine);
-          }
         timestamp1 = friendTalkHistory[i]['created_date'];
         timestamp = timestamp1.split(' ')[1].substring(0, 8);
         uuid1=friendTalkHistory[i]['uuid'];
         friend_uuid1=friendTalkHistory[i]['friend_uuid'];
+        /*if(i>0) {
+          if (!(timestamp1 == friendTalkHistory[i]['created_date'] &&
+              uuid1 == friendTalkHistory[i]['uuid'] &&
+              friend_uuid1 == friendTalkHistory[i]['friend_uuid'])) {
+              /*if(!isEqual) {
+                _messages.add(_seperationLine);
+                isSeperationLineAdded=true;
+              }*/
+              if (friendTalkHistory[i-1]['sender_uuid'] == widget.uuid &&
+                  friendTalkHistory[i-1]['reader_uuid'] == widget.uuid) {
+                _messages.add(
+                    '${widget.userName}: ${friendTalkHistory[i-1]['talk_content']} --- [${timestamp}]');
+              } else if (friendTalkHistory[i-1]['sender_uuid'] == widget.friendUuid &&
+                  friendTalkHistory[i-1]['reader_uuid'] == widget.friendUuid) {
+                _messages.add(
+                    '${widget.friendUserName}: ${friendTalkHistory[i-1]['talk_content']} --- [${timestamp}]');
+              }
+          }
+        }
+        if(!isSeperationLineAdded) {
+          if (widget.login_uuid == friendTalkHistory[i]['reader_uuid']) {
+            isEqual = true;
+          }
+          else {
+            isEqual = false;
+          }
+        }*/
+        /*if(i>0) {
+          if (!(timestamp1 == friendTalkHistory[i]['created_date'] &&
+              uuid1 == friendTalkHistory[i]['uuid'] &&
+              friend_uuid1 == friendTalkHistory[i]['friend_uuid'])) {
+              if(!isSeperationLineAdded && !isEqual) {
+                _messages.add(_seperationLine);
+                isSeperationLineAdded=true;
+              }
+          }
+        }*/
+        /*if(i==friendTalkHistory.length-1 && !isSeperationLineAdded && !isEqual)
+          {
+            _messages.add(_seperationLine);
+          }
+        else
+          {
+            if (!(timestamp1 == friendTalkHistory[i]['created_date'] &&
+                uuid1 == friendTalkHistory[i]['uuid'] &&
+                friend_uuid1 == friendTalkHistory[i]['friend_uuid'])) {
+              if(!isSeperationLineAdded && !isEqual) {
+                _messages.add(_seperationLine);
+                isSeperationLineAdded=true;
+              }
+            }
+          }*/
+        /*timestamp1 = friendTalkHistory[i]['created_date'];
+        timestamp = timestamp1.split(' ')[1].substring(0, 8);
+        uuid1=friendTalkHistory[i]['uuid'];
+        friend_uuid1=friendTalkHistory[i]['friend_uuid'];*/
+        // 2024/12/16：Michael end
 
 
+        /////////  Kevin's Code ///////////
         /*String timestamp = friendTalkHistory[i]['created_date'];
         timestamp = timestamp.split(' ')[1].substring(0, 8);
         if (duplicatedContents.isEmpty) {
@@ -168,7 +224,7 @@ class _FriendChatPageState extends State<FriendChatPage> {
 
         if (duplicatedContents.length == 1) {
           // Reach the last element.
-          if (i == friendTalkHistory.length - 1 && friendTalkHistory[i]['sender_uuid'] == widget.uuid) {
+          if (i == friendTalkHistory.length - 1 && friendTalkHistory[i]['sender_uuid'] == widget.login_uuid) {
             _messages.add(_seperationLine);
             isSeperationLineAdded = true;
           } else if (duplicatedContents[0] ==
@@ -182,7 +238,7 @@ class _FriendChatPageState extends State<FriendChatPage> {
 
         if (duplicatedContents.length == 2) {
           duplicatedContents.clear();
-        }*/
+        }
 
         if (friendTalkHistory[i]['sender_uuid'] == widget.uuid &&
             friendTalkHistory[i]['reader_uuid'] == widget.uuid) {
@@ -192,7 +248,7 @@ class _FriendChatPageState extends State<FriendChatPage> {
             friendTalkHistory[i]['reader_uuid'] == widget.friendUuid) {
           _messages.add(
               '${widget.friendUserName}: ${friendTalkHistory[i]['talk_content']} --- [${timestamp}]');
-        }
+        }*/
       }
     });
   }
@@ -225,7 +281,8 @@ class _FriendChatPageState extends State<FriendChatPage> {
         _messageController.text,
         widget.uuid,
         widget.friendUuid,
-        widget.senderUuid,
+        //widget.senderUuid,
+        widget.login_uuid,
         _messageController.text,
       ]);
 

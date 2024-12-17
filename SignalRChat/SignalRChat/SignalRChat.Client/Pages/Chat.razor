@@ -5,6 +5,7 @@
 @rendermode InteractiveWebAssembly
 @inject ChatService chatService
 @inject NavigationManager Navigator
+@inject IConfiguration configuration
 
 <PageTitle>Chat Room</PageTitle>
 
@@ -71,7 +72,7 @@
 
     protected async override Task OnInitializedAsync()
     {
-        hubConnection = new HubConnectionBuilder().WithUrl(Navigator.ToAbsoluteUri("/chathub")).Build();
+        hubConnection = new HubConnectionBuilder().WithUrl($"{configuration["CountPerPage"]}chathub").Build();
 
         Console.WriteLine(uuid);
 
