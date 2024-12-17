@@ -256,6 +256,7 @@ class _FriendChatPageState extends State<FriendChatPage> {
 
   Future<void> _setupSignalR() async {
     _hubConnection = HubConnectionBuilder()
+        // HubIP
         //.withUrl('http://10.0.2.2:5101/friendhub')
         .withUrl('http://10.10.10.207:5211/friendhub')
         .build();
