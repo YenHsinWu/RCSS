@@ -137,7 +137,7 @@ class _FriendChatPageState extends State<FriendChatPage> {
     setState(() {
       for (int i = 0; i < friendTalkHistory.length; i++) {
         // 2024/12/16：Michael start
-        if(i>0) {
+        /*if(i>0) {
           if (!(timestamp1 == friendTalkHistory[i]['created_date'] &&
               uuid1 == friendTalkHistory[i]['uuid'] &&
               friend_uuid1 == friendTalkHistory[i]['friend_uuid'])) {
@@ -155,7 +155,7 @@ class _FriendChatPageState extends State<FriendChatPage> {
         timestamp1 = friendTalkHistory[i]['created_date'];
         timestamp = timestamp1.split(' ')[1].substring(0, 8);
         uuid1=friendTalkHistory[i]['uuid'];
-        friend_uuid1=friendTalkHistory[i]['friend_uuid'];
+        friend_uuid1=friendTalkHistory[i]['friend_uuid'];*/
         /*if(i>0) {
           if (!(timestamp1 == friendTalkHistory[i]['created_date'] &&
               uuid1 == friendTalkHistory[i]['uuid'] &&
@@ -216,7 +216,7 @@ class _FriendChatPageState extends State<FriendChatPage> {
 
 
         /////////  Kevin's Code ///////////
-        /*String timestamp = friendTalkHistory[i]['created_date'];
+        String timestamp = friendTalkHistory[i]['created_date'];
         timestamp = timestamp.split(' ')[1].substring(0, 8);
         if (duplicatedContents.isEmpty) {
           duplicatedContents.add(friendTalkHistory[i]['talk_content']);
@@ -248,7 +248,7 @@ class _FriendChatPageState extends State<FriendChatPage> {
             friendTalkHistory[i]['reader_uuid'] == widget.friendUuid) {
           _messages.add(
               '${widget.friendUserName}: ${friendTalkHistory[i]['talk_content']} --- [${timestamp}]');
-        }*/
+        }
       }
     });
   }
