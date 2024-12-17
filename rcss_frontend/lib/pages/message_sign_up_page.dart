@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:rcss_frontend/auth_implemetation/auth_service.dart';
-import 'package:rcss_frontend/pages/phone_verification_page.dart';
+import 'package:rcss_frontend/pages/message_verification_page.dart';
 import 'package:rcss_frontend/pages/sign_up_page.dart';
 import 'package:rcss_frontend/widgets/text_field_widget.dart';
 
@@ -179,17 +179,18 @@ class _MessageSignUpPageState extends State<MessageSignUpPage> {
     );
   }
 
-  void _signUp(BuildContext context) {
+  void _signUp(BuildContext context) async {
     String phone = phoneController.text;
     String email = emailController.text;
     String password = passwordController.text;
 
-    _authService.getVerificationCodeByPhone(phone: phoneCountry + phone);
+    Map<String, dynamic> responseBody = await _authService.userSendbackMessage(phone: phoneCountry + phone);
+
 
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => PhoneVerificationPage(
+        builder: (context) => MessageVerificationPage(
           email: email,
           password: password,
           phone: phone,

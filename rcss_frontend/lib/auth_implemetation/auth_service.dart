@@ -51,6 +51,47 @@ class AuthService {
     }
   }
 
+  // Future<Map<String, dynamic>>  userSendbackMessage({required String phone}) async {
+  //   final uri = Uri.parse('http://10.10.10.207:3000/api/usersendbackmessage');
+  //
+  //   final Map<String, String> requestBody = {'phone': phone};
+  //
+  //   final response = await http.post(
+  //     uri,
+  //     headers: headers,
+  //     body: json.encode(requestBody),
+  //   );
+  //
+  //   Map<String, dynamic> responseBody = json.decode(response.body);
+  //   if (response.statusCode == 200) {
+  //     return responseBody;
+  //   } else {
+  //     throw Exception(
+  //         '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
+  //   }
+  // }
+
+  Future<Map<String, dynamic>> userSendbackMessage(
+      {required String phone}) async {
+      final uri = Uri.parse('http://10.10.10.207:3000/api/usersendbackmessage');
+
+      final Map<String, String> requestBody = {'phone': phone};
+
+      final response = await http.post(
+        uri,
+        headers: headers,
+        body: json.encode(requestBody),
+      );
+
+      Map<String, dynamic> responseBody = json.decode(response.body);
+      if (response.statusCode == 200) {
+        return responseBody;
+      } else {
+        throw Exception(
+            '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
+      }
+  }
+
   Future verifyRegistration(
       {required String email,
       required String code,

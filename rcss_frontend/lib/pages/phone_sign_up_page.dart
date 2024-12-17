@@ -188,7 +188,7 @@ class _PhoneSignUpPageState extends State<PhoneSignUpPage> {
           password: password,
           phone: phone,
           phoneCountry: phoneCountry,
-          countryId: countryId,
+          countryId: countryId
         ),
       ),
     );
