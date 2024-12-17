@@ -131,7 +131,8 @@ class _ChatPageState extends State<ChatPage> {
 
   Future<void> _setupSignalR() async {
     hubConnection = HubConnectionBuilder()
-        .withUrl('http://10.10.10.207:5211/chathub')
+        .withUrl('http://10.0.2.2:5101/chathub')
+        //.withUrl('http://10.10.10.207:5211/chathub')
         .build();
     hubConnection.start()?.then((_) {
       print("SignalR Connected");
@@ -139,6 +140,7 @@ class _ChatPageState extends State<ChatPage> {
       hubConnection.invoke('JoinGroup', args: [widget.groupName, widget.uuid]);
 
       hubConnection.on('SendGroupMsg', (arguments) {
+        print(arguments![2]);
         setState(() {
           messages.add(
               '${arguments![1]}: ${arguments![2]} --- [${(arguments[3] as String).split(' ')[1].substring(0, 8)}]');

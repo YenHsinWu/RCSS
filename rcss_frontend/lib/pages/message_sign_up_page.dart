@@ -6,16 +6,16 @@ import 'package:rcss_frontend/pages/sign_up_page.dart';
 import 'package:rcss_frontend/widgets/text_field_widget.dart';
 
 import 'login_page.dart';
-import 'message_sign_up_page.dart';
+import 'phone_sign_up_page.dart';
 
-class PhoneSignUpPage extends StatefulWidget {
-  PhoneSignUpPage({super.key});
+class MessageSignUpPage extends StatefulWidget {
+  MessageSignUpPage({super.key});
 
   @override
-  State<PhoneSignUpPage> createState() => _PhoneSignUpPageState();
+  State<MessageSignUpPage> createState() => _MessageSignUpPageState();
 }
 
-class _PhoneSignUpPageState extends State<PhoneSignUpPage> {
+class _MessageSignUpPageState extends State<MessageSignUpPage> {
   final AuthService _authService = AuthService();
 
   String countryId = '';
@@ -24,6 +24,12 @@ class _PhoneSignUpPageState extends State<PhoneSignUpPage> {
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    //getShortcutListJson(widget.uuid);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +44,7 @@ class _PhoneSignUpPageState extends State<PhoneSignUpPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "手機註冊",
+            "簡訊回覆驗證碼註冊",
             style: TextStyle(
                 color: Colors.red, fontSize: 28, fontWeight: FontWeight.bold),
           ),
@@ -79,7 +85,7 @@ class _PhoneSignUpPageState extends State<PhoneSignUpPage> {
             hintText: "Password",
             obscureText: true,
           ),
-          SizedBox(height: 32),
+          SizedBox(height: 12),
           GestureDetector(
             onTap: () => _signUp(context),
             child: Container(
@@ -100,7 +106,7 @@ class _PhoneSignUpPageState extends State<PhoneSignUpPage> {
               ),
             ),
           ),
-          SizedBox(height: 12),
+          SizedBox(height: 32),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -156,11 +162,11 @@ class _PhoneSignUpPageState extends State<PhoneSignUpPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MessageSignUpPage(),
+                      builder: (context) => PhoneSignUpPage(),
                     ),
                   );
                 },
-                child: Text("手機未收到驗證碼",
+                child: Text("改用手機註冊",
                     style: TextStyle(
                         color: Colors.red,
                         fontSize: 16,

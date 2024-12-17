@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:googleapis/cloudcontrolspartner/v1.dart';
 import 'package:rcss_frontend/service_implementation/friend_service.dart';
 import 'package:signalr_netcore/hub_connection.dart';
 import 'package:signalr_netcore/hub_connection_builder.dart';
@@ -255,8 +256,8 @@ class _FriendChatPageState extends State<FriendChatPage> {
 
   Future<void> _setupSignalR() async {
     _hubConnection = HubConnectionBuilder()
-        //.withUrl('http://10.0.2.2:5101/friendhub')
-        .withUrl('http://10.10.10.207:5211/friendhub')
+        .withUrl('http://10.0.2.2:5101/friendhub')
+        //.withUrl('http://10.10.10.207:5211/friendhub')
         .build();
 
     _hubConnection.start()!.then((_) {
@@ -264,7 +265,8 @@ class _FriendChatPageState extends State<FriendChatPage> {
 
       _hubConnection.invoke('JoinGroup', args: [widget.groupName, widget.uuid]);
 
-      _hubConnection.on('SendGroupMsg', (arguments) {
+      _hubConnection.on('SendGroupMsgFriend', (arguments) {
+        print(arguments![2]);
         setState(() {
           _messages.add(
               '${arguments![1]}: ${arguments![2]} --- [${(arguments[3] as String).split(' ')[1].substring(0, 8)}]');
@@ -286,14 +288,14 @@ class _FriendChatPageState extends State<FriendChatPage> {
         _messageController.text,
       ]);
 
-      DateTime utcNow = DateTime.now().toUtc();
+      /*DateTime utcNow = DateTime.now().toUtc();
       String formattedUtcNow = '${utcNow.hour}:${utcNow.minute}:${utcNow.second}';
 
       String uname = widget.uuid == widget.senderUuid ? widget.userName : widget.friendUserName;
 
       setState(() {
         _messages.add('${uname}: ${_messageController.text} --- [${formattedUtcNow}]');
-      });
+      });*/
 
       _messageController.clear();
     } else {
