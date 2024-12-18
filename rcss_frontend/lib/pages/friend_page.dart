@@ -6,10 +6,12 @@ import 'package:rcss_frontend/widgets/friend_card.dart';
 
 class FriendPage extends StatefulWidget {
   final String uuid;
+  final String username;
 
   const FriendPage({
     super.key,
     required this.uuid,
+    required this.username
   });
 
   @override
@@ -120,7 +122,7 @@ class _FriendPageState extends State<FriendPage> {
             login_uuid:widget.uuid,
             uuid: friend['uuid'],
             friendUuid: friend['friend_uuid'],
-            userName: friend['user_name'],
+            userName: widget.username,
             friendUserName: friend['friend_user_name'],
             countUuid: friend['count_uuid'],
             count: friend['count'].toString(),
