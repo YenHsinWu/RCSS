@@ -132,8 +132,8 @@ class _ChatPageState extends State<ChatPage> {
   Future<void> _setupSignalR() async {
     hubConnection = HubConnectionBuilder()
         // HubIP
-        //.withUrl('http://10.0.2.2:5101/chathub')
-        .withUrl('http://10.10.10.207:5211/chathub')
+        .withUrl('http://10.0.2.2:5101/chathub')
+        //.withUrl('http://10.10.10.207:5211/chathub')
         .build();
     hubConnection.start()?.then((_) {
       print("SignalR Connected");

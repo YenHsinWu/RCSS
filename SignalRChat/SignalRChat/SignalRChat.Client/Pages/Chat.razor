@@ -1,4 +1,4 @@
-﻿@page "/chat"
+﻿@page "/chat/{groupName}/{serviceName}/{uuid}/{businessId}"
 @using Microsoft.AspNetCore.SignalR.Client;
 @using Microsoft.AspNetCore.WebUtilities;
 @using SignalRChat.Client.Service;
@@ -24,10 +24,14 @@
 @code {
     private HubConnection? hubConnection;
     private List<string> messages = [];
-    private string? groupName;
-    private string? userName;
-    private string uuid;
-    private string businessId;
+    [Parameter]
+    public string groupName { get; set; }
+    [Parameter]
+    public string serviceName { get; set; }
+    [Parameter]
+    public string uuid { get; set; }
+    [Parameter]
+    public string businessId { get; set; }
     public string? message;
 
     private ChatService.RecentHistoryMessages[] recentHistoryMessagesData;
@@ -39,27 +43,27 @@
 
     private string seperationLine = "------------------------------";
 
-    protected override void OnInitialized()
-    {
-        var uri = Navigator.Uri;
-        var queryParams = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(new Uri(uri).Query);
-        if (queryParams.ContainsKey("groupName"))
-        {
-            groupName = queryParams["groupName"];
-        }
-        if (queryParams.ContainsKey("userName"))
-        {
-            userName = queryParams["userName"];    
-        }
-        if (queryParams.ContainsKey("uuid"))
-        {
-            uuid = queryParams["uuid"];
-        }
-        if (queryParams.ContainsKey("businessId"))
-        {
-            businessId = queryParams["businessId"];
-        }
-    }
+    // protected override void OnInitialized()
+    // {
+    //     var uri = Navigator.Uri;
+    //     var queryParams = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(new Uri(uri).Query);
+    //     if (queryParams.ContainsKey("groupName"))
+    //     {
+    //         groupName = queryParams["groupName"];
+    //     }
+    //     if (queryParams.ContainsKey("userName"))
+    //     {
+    //         userName = queryParams["userName"];    
+    //     }
+    //     if (queryParams.ContainsKey("uuid"))
+    //     {
+    //         uuid = queryParams["uuid"];
+    //     }
+    //     if (queryParams.ContainsKey("businessId"))
+    //     {
+    //         businessId = queryParams["businessId"];
+    //     }
+    // }
 
     protected async override Task OnAfterRenderAsync(bool firstRender)
     {
@@ -72,7 +76,8 @@
 
     protected async override Task OnInitializedAsync()
     {
-        hubConnection = new HubConnectionBuilder().WithUrl("http://10.10.10.207:5211/chathub").Build();
+        //hubConnection = new HubConnectionBuilder().WithUrl("http://10.10.10.207:5211/chathub").Build();
+        hubConnection = new HubConnectionBuilder().WithUrl("http://localhost:5101/chathub").Build();
 
         Console.WriteLine(uuid);
 
@@ -87,7 +92,7 @@
         hubConnection.StartAsync();
         Console.WriteLine(hubConnection.State);
 
-        await hubConnection.SendAsync("JoinGroup", groupName, userName);
+        await hubConnection.SendAsync("JoinGroup", groupName, serviceName);
     }
 
     private async Task JoinGroup(string groupName, string userName)
@@ -99,7 +104,7 @@
     {
         try
         {
-            await hubConnection!.SendAsync("SendMessageToGroup", groupName, userName, message, int.Parse(businessId), uuid, false, 0, false, true);
+            await hubConnection!.SendAsync("SendMessageToGroup", groupName, serviceName, message, int.Parse(businessId), uuid, false, 0, false, true);
         }
         catch (Exception ex)
         {
@@ -116,7 +121,7 @@
     {
         try
         {
-            recentHistoryMessagesList = await chatService.GetRecentHistoryMessagesList(uuid, businessId, userName);
+            recentHistoryMessagesList = await chatService.GetRecentHistoryMessagesList(uuid, businessId, serviceName);
             if (recentHistoryMessagesList != null && recentHistoryMessagesList.data != null)
             {
                 recentHistoryMessagesData = recentHistoryMessagesList.data;

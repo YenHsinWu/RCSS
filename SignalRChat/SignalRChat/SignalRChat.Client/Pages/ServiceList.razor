@@ -76,6 +76,7 @@
     private void NavigateToChatRoom(string serviceName, string uuid, string businessId)
     {
         string groupName = $"{serviceName}^{uuid}";
-        Navigator.NavigateTo($"/chat?groupName={groupName}&userName={serviceName}&uuid={uuid}&businessId={businessId}");
+        //Navigator.NavigateTo($"/chat?groupName={groupName}&userName={serviceName}&uuid={uuid}&businessId={businessId}");
+        Navigator.NavigateTo($"/chat/{groupName}/{serviceName}/{uuid}/{businessId}");
     }
 }
