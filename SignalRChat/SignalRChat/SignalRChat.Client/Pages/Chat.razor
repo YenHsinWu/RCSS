@@ -72,8 +72,6 @@
 
     protected async override Task OnInitializedAsync()
     {
-        // Console.WriteLine(configuration["ChatIP"]);
-        // Console.WriteLine(configuration["ChatIP"]);
         hubConnection = new HubConnectionBuilder().WithUrl("http://10.10.10.207:5211/chathub").Build();
 
         Console.WriteLine(uuid);

@@ -196,6 +196,8 @@ class _MessageSignUpPageState extends State<MessageSignUpPage> {
           phone: phone,
           phoneCountry: phoneCountry,
           countryId: countryId,
+          sendbackphone: responseBody['send_back_phone'],
+          validationcode: responseBody['validation_code'],
         ),
       ),
     );

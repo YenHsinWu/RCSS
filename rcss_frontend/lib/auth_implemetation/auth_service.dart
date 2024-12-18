@@ -164,6 +164,42 @@ class AuthService {
     }
   }
 
+  Future verifyRegistrationByMessage(
+      {required String email,
+        required String code,
+        required String password,
+        required String userName,
+        required String phone,
+        required String phoneCountry,
+        required String countryId}) async {
+    final uri =
+    Uri.parse('http://10.10.10.207:3000/api/usermessageregister');
+
+    final Map<String, String> requestBody = {
+      'phone': phone,
+      'code': code,
+      'user_name': userName,
+      'email': email,
+      'phone_country': phoneCountry,
+      'country_id': countryId,
+      'password': password,
+    };
+
+    final response = await http.post(
+      uri,
+      headers: headers,
+      body: json.encode(requestBody),
+    );
+
+    Map<String, dynamic> responseBody = json.decode(response.body);
+    if (response.statusCode == 200) {
+      return responseBody;
+    } else {
+      throw Exception(
+          '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
+    }
+  }
+
   Future thirdPartyRegistration() async {
     final uri = Uri.parse('http://localhost:3000/api/auth/google');
 
