@@ -6,8 +6,8 @@
 @inject IJSRuntime JSRuntime
 @inject SignalRChat.Client.Service.BusinessMessagePushService ObjectBusinessMessagePushService
 
-<PageTitle>廣告/行銷活動新增</PageTitle>
-<h3>廣告/行銷活動新增</h3>
+<PageTitle>廣告/行銷活動修改</PageTitle>
+<h3>廣告/行銷活動修改</h3>
 <EditForm Model="@businessMessagePushListUpdateModel" enctype="multipart/form-data" Enhance FormName="file-form" OnValidSubmit="@UpdateBusinessMessagePushListAsync">
     <DataAnnotationsValidator @ref="dataAnnotationsValidator" />
     <ValidationSummary />

@@ -1,26 +1,28 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rcss_frontend/pages/chat_page.dart';
+import 'package:rcss_frontend/pages/chat_room_page.dart';
 
 import '../service_implementation/index_service.dart';
 
-class ChatRoomCard extends Card {
-  final String avatarPath;
-  final String unreadCount;
-  final String serviceName;
+class MessagePushCard extends Card {
+  final int business_id;
   final String uuid;
-  final String businessId;
-  final String userName;
+  final int business_message_push_id;
+  final String message_title;
+  final String message_content;
+  final String message_image;
+  final String message_url;
 
-  ChatRoomCard({
+  MessagePushCard({
     super.key,
-    required this.avatarPath,
-    required this.unreadCount,
-    required this.serviceName,
+    required this.business_id,
     required this.uuid,
-    required this.businessId,
-    required this.userName,
+    required this.business_message_push_id,
+    required this.message_title,
+    required this.message_content,
+    required this.message_image,
+    required this.message_url
   });
 
   final IndexService _indexService = IndexService();
@@ -28,18 +30,7 @@ class ChatRoomCard extends Card {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Get.to(
-          ChatPage(
-            groupName: '${this.serviceName}^${this.uuid}',
-            uuid: this.uuid,
-            businessId: this.businessId,
-            serviceName: this.serviceName,
-            userName: this.userName,
-          ),
-        );
-      },
-      onLongPress: () => _showCreateNewShortcutDialog(context),
+      onTap: () => _showCreateNewShortcutDialog(context),
       child: Card(
         elevation: 4,
         clipBehavior: Clip.antiAlias,
@@ -47,25 +38,13 @@ class ChatRoomCard extends Card {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(
-              width: 48,
-              height: 48,
-              child: Image.asset(avatarPath!),
-            ),
-            SizedBox(width: 20),
+            SizedBox(width: 16),
             Text(
-              serviceName!,
+              this.message_title,
               style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 16, color: Colors.red),
-            ),
-            SizedBox(width: 28),
-            badges.Badge(
-              badgeContent: Text(
-                this.unreadCount!,
-                style: TextStyle(color: Colors.white),
+                fontSize: 16,
+                color: Colors.red,
               ),
-              showBadge: this.unreadCount != '0',
-              child: Icon(Icons.notifications),
             ),
           ],
         ),
@@ -75,6 +54,7 @@ class ChatRoomCard extends Card {
 
   void _showCreateNewShortcutDialog(BuildContext context) {
     final TextEditingController _titleController = TextEditingController();
+
     showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -93,12 +73,9 @@ class ChatRoomCard extends Card {
                 onPressed: () => {
                   _indexService.createIndexPageShortcut(
                       uuid,
-                      2,
+                      1,
                       _titleController.text,
-                      {
-                        'business_id': int.parse(businessId),
-                        'business_service_name': serviceName
-                      },
+                      {'business_id': this.business_id},
                       DateTime.now().toUtc().toString()),
                   Navigator.pop(context)
                 },

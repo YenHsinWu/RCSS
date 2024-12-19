@@ -162,6 +162,10 @@ public class BusinessMessagePushService
             multipartContent.Add(new StringContent(business_message_push_id.ToString(), Encoding.UTF8, MediaTypeNames.Text.Plain), "business_message_push_id");
             multipartContent.Add(new StringContent(model.message_title, Encoding.UTF8, MediaTypeNames.Text.Plain), "message_title");
             multipartContent.Add(new StringContent(model.message_content, Encoding.UTF8, MediaTypeNames.Text.Plain), "message_content");
+            if(model.message_image == null)
+            {
+                model.message_image = "";
+            }
             multipartContent.Add(new StringContent(model.message_image, Encoding.UTF8, MediaTypeNames.Text.Plain), "message_image");
             multipartContent.Add(new StringContent(model.message_url, Encoding.UTF8, MediaTypeNames.Text.Plain), "message_url");
             multipartContent.Add(new StringContent(model.push_start_date.ToString("yyyy-MM-dd hh:mm:ss.fffffff"), Encoding.UTF8, MediaTypeNames.Text.Plain), "push_start_date");

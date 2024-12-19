@@ -6,7 +6,7 @@ import 'package:flutter_app_badge_control/flutter_app_badge_control.dart';
 import "package:rcss_frontend/pages/group_page.dart";
 import "package:rcss_frontend/pages/service_page.dart";
 import "package:rcss_frontend/pages/store_page.dart";
-import "package:rcss_frontend/pages/web_page.dart";
+import "package:rcss_frontend/pages/message_push_page.dart";
 import "package:rcss_frontend/service_implementation/index_service.dart";
 
 import "friend_page.dart";
@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
     Text("客服"),
     Text("好友"),
     Text("群組"),
-    Text("網頁"),
+    Text("廣告"),
     Text("捷徑"),
     Text("設定"),
   ];
@@ -149,7 +149,7 @@ class _HomePageState extends State<HomePage> {
               showBadge: _bottomMenuUnreadCount[4] != '0',
               child: Icon(Icons.web),
             ),
-            label: "網頁",
+            label: "廣告",
             backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
@@ -182,7 +182,10 @@ class _HomePageState extends State<HomePage> {
           ),
           FriendPage(uuid: widget.uuid,username: widget.userName),
           GroupPage(),
-          WebPage(),
+          MessagePushPage(
+            uuid: widget.uuid,
+            userName: widget.userName,
+          ),
           IndexPage(
             uuid: widget.uuid,
             userName: widget.userName,
