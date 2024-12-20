@@ -38,8 +38,23 @@ class _IndexPageState extends State<IndexPage> {
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
       ),
-      body: Container(
-        child: IndexPageGridView(icons: shortcuts),
+    /*body: Container(
+        child:IndexPageGridView(icons: shortcuts)
+    )*/
+      body: Stack(
+        children: [
+          IndexPageGridView(icons: shortcuts),
+          Row(
+            children: [
+              SizedBox(
+                  height: 30,
+                  child:GestureDetector(
+                onLongPress: () => _showCreateNewShortcutDialog(context),
+                )
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -72,5 +87,97 @@ class _IndexPageState extends State<IndexPage> {
     setState(() {
       getShortcutListJson(widget.uuid);
     });
+  }
+  void _showCreateNewShortcutDialog(BuildContext context) {
+    final TextEditingController _titleController = TextEditingController();
+    final TextEditingController _urlController = TextEditingController();
+    print('_showCreateNewShortcutDialog');
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => Dialog.fullscreen(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              '請輸入捷行名稱與網址.',
+              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 32,color: Colors.red),
+            ),
+            TextField(
+              controller: _titleController,
+              decoration: InputDecoration(labelText: '捷徑名稱'),
+              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.red)
+            ),
+            TextField(
+                controller: _urlController,
+                decoration: InputDecoration(labelText: '網址'),
+                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.red)
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('取消',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 24,color: Colors.red)),
+            ),
+            TextButton(
+              onPressed: () {
+                /*print(_titleController.text);
+                print(_urlController.text);*/
+                _indexService.createIndexPageShortcut(
+                    widget.uuid,
+                    5,
+                    _titleController.text,
+                    {'url': _urlController.text},
+                    DateTime.now().toUtc().toString());
+                Navigator.pop(context);
+              },
+              child: const Text('確定',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 24,color: Colors.red)),
+            ),
+          ],
+        ),
+      ),
+    );
+    /*showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('請輸入捷徑名稱與網址'),
+            *//*content: Row(
+                children: <Widget>[
+                  TextField(
+                  controller: _titleController,
+                  decoration: InputDecoration(labelText: '捷徑名稱'),
+            ),
+              TextField(
+              controller: _urlController,
+              decoration: InputDecoration(labelText: '網址'))
+            ]
+            ),*//*
+            content:
+                  TextField(
+                      controller: _urlController,
+                      decoration: InputDecoration(labelText: '網址')
+                  )
+            ,
+            actions: [
+              TextButton(
+                onPressed: () => {Navigator.pop(context)},
+                child: Text('取消'),
+              ),
+              TextButton(
+                onPressed: () => {
+                  *//*_indexService.createIndexPageShortcut(
+                      uuid,
+                      1,
+                      _titleController.text,
+                      {'business_id': this.business_id},
+                      DateTime.now().toUtc().toString()),*//*
+                  Navigator.pop(context)
+                },
+                child: Text('確認'),
+              ),
+            ],
+          );
+        });*/
   }
 }

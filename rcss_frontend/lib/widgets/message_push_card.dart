@@ -1,7 +1,7 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rcss_frontend/pages/chat_room_page.dart';
+import 'package:rcss_frontend/pages/message_push_content_page.dart';
 
 import '../service_implementation/index_service.dart';
 
@@ -30,7 +30,19 @@ class MessagePushCard extends Card {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _showCreateNewShortcutDialog(context),
+      onTap: () {
+        Get.to(
+          MessagePushContentPage(
+            uuid:this.uuid,
+            business_id:this.business_id,
+            business_message_push_id:this.business_message_push_id,
+            message_title: this.message_title,
+            message_content: this.message_content,
+            message_image: this.message_image,
+            message_url: this.message_url
+          ),
+        );
+      },
       child: Card(
         elevation: 4,
         clipBehavior: Clip.antiAlias,
@@ -50,39 +62,5 @@ class MessagePushCard extends Card {
         ),
       ),
     );
-  }
-
-  void _showCreateNewShortcutDialog(BuildContext context) {
-    final TextEditingController _titleController = TextEditingController();
-
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('請輸入捷徑名稱'),
-            content: TextField(
-              controller: _titleController,
-              decoration: InputDecoration(labelText: '捷徑名稱'),
-            ),
-            actions: [
-              TextButton(
-                onPressed: () => {Navigator.pop(context)},
-                child: Text('取消'),
-              ),
-              TextButton(
-                onPressed: () => {
-                  _indexService.createIndexPageShortcut(
-                      uuid,
-                      1,
-                      _titleController.text,
-                      {'business_id': this.business_id},
-                      DateTime.now().toUtc().toString()),
-                  Navigator.pop(context)
-                },
-                child: Text('確認'),
-              ),
-            ],
-          );
-        });
   }
 }

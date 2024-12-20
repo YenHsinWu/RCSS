@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:rcss_frontend/auth_implemetation/auth_service.dart';
 import 'package:rcss_frontend/pages/login_page.dart';
 
-import '../widgets/text_field_widget.dart';
 
 class MessageVerificationPage extends StatelessWidget {
   final String email;
