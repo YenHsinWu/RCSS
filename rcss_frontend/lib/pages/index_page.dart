@@ -38,10 +38,25 @@ class _IndexPageState extends State<IndexPage> {
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
       ),
-    /*body: Container(
+    body: Container(
         child:IndexPageGridView(icons: shortcuts)
-    )*/
-      body: Stack(
+    ),
+      floatingActionButton: Stack(
+        children: [
+          Positioned(
+            bottom: 20.0,
+            right: 20.0,
+            child: FloatingActionButton(
+              heroTag: 'Add',
+              onPressed: () => _showCreateNewShortcutDialog(context),
+              child: Icon(Icons.add),
+              foregroundColor: Colors.white,
+              backgroundColor: Colors.red,
+            ),
+          )
+        ],
+      ),
+      /*body: Stack(
         children: [
           IndexPageGridView(icons: shortcuts),
           Row(
@@ -55,7 +70,7 @@ class _IndexPageState extends State<IndexPage> {
             ],
           ),
         ],
-      ),
+      ),*/
     );
   }
 
