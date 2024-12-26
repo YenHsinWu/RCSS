@@ -6,81 +6,82 @@
 @inject IJSRuntime JSRuntime
 @inject SignalRChat.Client.Service.BusinessService ObjectBusinessService
 @inject BusinessListService ObjectBusinessListService
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+
 <PageTitle>商家修改</PageTitle>
-<h3>商家修改</h3>
-<EditForm Model="@businessListUpdateModel" OnValidSubmit="@UpdateBusinessListAsync">
-    <DataAnnotationsValidator @ref="dataAnnotationsValidator" />
-    <ValidationSummary />
-    <label for="business_type_id">商家類型(id)</label>
-    <select @bind="businessListUpdateModel.business_type_id">
-        @if (dataUpdateBusinessList != null)
-        {
-            @foreach (var dBT in dataUpdateBusinessList.dataBusinessType)
+@if(update) {
+    <h3>商家修改</h3>
+    <EditForm Model="@businessListUpdateModel" OnValidSubmit="@UpdateBusinessListAsync">
+        <DataAnnotationsValidator @ref="dataAnnotationsValidator" />
+        <ValidationSummary />
+        <label for="business_type_id">商家類型(id)</label>
+        <select @bind="businessListUpdateModel.business_type_id">
+            @if (dataUpdateBusinessList != null)
             {
-                <option value="@dBT.business_type_id">@dBT.business_type_name</option>
+                @foreach (var dBT in dataUpdateBusinessList.dataBusinessType)
+                {
+                    <option value="@dBT.business_type_id">@dBT.business_type_name</option>
+                }
             }
-        }
-    </select><br/>
-    <label for="business_name">商家名稱</label>
-    <input id="business_name"
-    type="text"
-    class="form-control"
-    @bind="businessListUpdateModel.business_name" />
-    <label for="email">商家email</label>
-    <input id="email"
-    type="text"
-    class="form-control"
-    @bind="businessListUpdateModel.email" />
-    <label for="address">商家地址</label>
-    <input id="address"
-    type="text"
-    class="form-control"
-    @bind="businessListUpdateModel.address" />
-    <label for="phone_country">商家國碼</label><br />
-    <select @bind="businessListUpdateModel.phone_country">
-        @if (dataCountryCode != null)
-        {
-            @foreach (var dBT in dataCountryCode)
+        </select><br/>
+        <label for="business_name">商家名稱</label>
+        <input id="business_name"
+        type="text"
+        class="form-control"
+        @bind="businessListUpdateModel.business_name" />
+        <label for="email">商家email</label>
+        <input id="email"
+        type="text"
+        class="form-control"
+        @bind="businessListUpdateModel.email" />
+        <label for="address">商家地址</label>
+        <input id="address"
+        type="text"
+        class="form-control"
+        @bind="businessListUpdateModel.address" />
+        <label for="phone_country">商家國碼</label><br />
+        <select @bind="businessListUpdateModel.phone_country">
+            @if (dataCountryCode != null)
             {
-                <option value="@GetContryCode(dBT)">@GetContryCode(dBT)</option>
+                @foreach (var dBT in dataCountryCode)
+                {
+                    <option value="@GetContryCode(dBT)">@GetContryCode(dBT)</option>
+                }
             }
-        }
-    </select><br />
-    <label for="phone">商家電話</label>
-    <input id="phone"
-    type="text"
-    class="form-control"
-    @bind="businessListUpdateModel.phone" />
-    <label for="business_url">商家網址</label>
-    <input id="business_url"
-    type="text"
-    class="form-control"
-    @bind="businessListUpdateModel.business_url" />
-    <Alert Color="AlertColor.Warning" Class="@isHide" Dismissable="true">@errorMessage </Alert>
-    <button class="btn btn-outline-primary" type="submit">
-        修改
-    </button>
-    <button class="btn btn-outline-secondary" type="button"
-    @onclick="@CancelUpdateBusinessListAsync">
-        取消
-    </button>
-</EditForm>
+        </select><br />
+        <label for="phone">商家電話</label>
+        <input id="phone"
+        type="text"
+        class="form-control"
+        @bind="businessListUpdateModel.phone" />
+        <label for="business_url">商家網址</label>
+        <input id="business_url"
+        type="text"
+        class="form-control"
+        @bind="businessListUpdateModel.business_url" />
+        <Alert Color="AlertColor.Warning" Class="@isHide" Dismissable="true">@errorMessage </Alert>
+        <button class="btn btn-outline-primary" type="submit">
+            修改
+        </button>
+        <button class="btn btn-outline-secondary" type="button"
+        @onclick="@CancelUpdateBusinessListAsync">
+            取消
+        </button>
+    </EditForm>
+}
 @code {
     private BusinessListUpdateModel businessListUpdateModel = new BusinessListUpdateModel();
     private DataAnnotationsValidator dataAnnotationsValidator = new DataAnnotationsValidator();
-    // private int business_type_id = 0;
-    // private string business_name = "";
-    // private string email = "";
-    // private string phone = "";
-    // private string address = "";
-    // private string business_url = "";
     private string errorMessage = "";
     private string isHide = "d-none";
     private UpdateBusinessList? dataUpdateBusinessList;
-    private List<DataCountryCode>? dataCountryCode;
+    private List<DataCountryCode>? dataCountryCode;    
     [Parameter]
     public int business_id { get; set; }
     public delegate void Callback();
+    private BackendUserRightList BURL;
+    // 權限控管
+    private bool update = false;
 
     private string GetContryCode(DataCountryCode CC)
     {
@@ -107,6 +108,15 @@
     }
     private async Task InitializeAsync()
     {        
+        BURL = await sessionStorage.GetItemAsync<BackendUserRightList>("backendUserRightList");
+        if (BURL.dataRight.Where(e => e.backend_right_id == 6).Count() > 0)
+        {
+            update = true;
+        }
+        else
+        {
+            update = false;
+        }
         dataUpdateBusinessList = await ObjectBusinessListService.GetUpdateBusinessList(business_id);
         dataCountryCode = await ObjectBusinessService.GetCountryCode();
         if (dataUpdateBusinessList.code == "0")
@@ -131,7 +141,7 @@
 
     private async void UpdateBusinessListAsync()
     {
-        ResponseStanderd req = await ObjectBusinessListService.PutBusinessList(businessListUpdateModel.business_id, businessListUpdateModel.address, businessListUpdateModel.phone, businessListUpdateModel.email, businessListUpdateModel.business_name, businessListUpdateModel.business_type_id, 0, businessListUpdateModel.business_url, string.Format("{0}", businessListUpdateModel.phone_country.Substring(businessListUpdateModel.phone_country.IndexOf("(") + 1, businessListUpdateModel.phone_country.IndexOf(")") - businessListUpdateModel.phone_country.IndexOf("(") - 1)), businessListUpdateModel.phone_country.Substring(0, businessListUpdateModel.phone_country.IndexOf("(")));
+        ResponseStanderd req = await ObjectBusinessListService.PutBusinessList(businessListUpdateModel.business_id, businessListUpdateModel.address, businessListUpdateModel.phone, businessListUpdateModel.email, businessListUpdateModel.business_name, businessListUpdateModel.business_type_id, BURL.backend_user_id, businessListUpdateModel.business_url, string.Format("{0}", businessListUpdateModel.phone_country.Substring(businessListUpdateModel.phone_country.IndexOf("(") + 1, businessListUpdateModel.phone_country.IndexOf(")") - businessListUpdateModel.phone_country.IndexOf("(") - 1)), businessListUpdateModel.phone_country.Substring(0, businessListUpdateModel.phone_country.IndexOf("(")));
         errorMessage = req.message;
         isHide = "";
         StateHasChanged();

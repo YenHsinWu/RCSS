@@ -42,7 +42,7 @@ namespace SignalRChat.Client.Service
         {
             try
             {
-                var uri = "http://10.10.10.207:3000/api/businessServiceListAndIsNotReadCountBack/1";
+                var uri = $"http://10.10.10.207:3000/api/businessServiceListAndIsNotReadCountBack/{backendUserId}";
                 var response = await _httpClient.GetAsync(uri);
 
                 if (response.IsSuccessStatusCode)

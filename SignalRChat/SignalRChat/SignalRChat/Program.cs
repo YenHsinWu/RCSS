@@ -1,3 +1,4 @@
+using Blazored.SessionStorage;
 using FirebaseAdmin;
 using FluentValidation;
 using Google.Apis.Auth.OAuth2;
@@ -6,6 +7,8 @@ using SignalRChat.Client.Pages;
 using SignalRChat.Client.Service;
 using SignalRChat.Client.Validator;
 using SignalRChat.Components;
+using System.Text.Json;
+using Blazored.SessionStorage;
 
 FirebaseApp.Create(new AppOptions()
 {
@@ -16,11 +19,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
-    .AddInteractiveWebAssemblyComponents();
+    .AddInteractiveWebAssemblyComponents()
+    .AddInteractiveServerComponents();
 
 builder.Services.AddSignalR();
 builder.Services.AddHttpClient();
 builder.Services.AddSingleton<SignalRChat.Client.Service.BusinessService>();
+builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<BackendUserService>();
 builder.Services.AddScoped<BusinessServiceService>();
 builder.Services.AddScoped<BusinessListService>();
@@ -28,6 +33,10 @@ builder.Services.AddScoped<BusinessMessagePushService>();
 builder.Services.AddTransient<IValidator<BusinessListCreateModel>, BusinessListCreateValidator>();
 builder.Services.AddSingleton<SignalRChat.Client.Service.ChatService>();
 builder.Services.AddBlazorBootstrap();
+//builder.Services.AddBlazoredSessionStorageAsSingleton(config =>
+//        config.JsonSerializerOptions.WriteIndented = true);
+builder.Services.AddBlazoredSessionStorage(config =>
+        config.JsonSerializerOptions.WriteIndented = true);
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", builder =>
@@ -40,7 +49,9 @@ builder.Services.AddCors(options =>
 builder.Services.AddControllers();
 
 var app = builder.Build();
-
+//app.MapRazorComponents<App>()
+//    .AddInteractiveServerRenderMode()
+//    .AddInteractiveWebAssemblyRenderMode();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

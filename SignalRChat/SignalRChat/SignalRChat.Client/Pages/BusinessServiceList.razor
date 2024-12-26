@@ -6,79 +6,99 @@
 @* @inject SignalRChat.Client.Service.BusinessService ObjectBusinessService *@
 @inject SignalRChat.Client.Service.BusinessServiceService ObjectBusinessServiceService
 @inject IConfiguration configuration
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+
 <PageTitle>商家客服聊天室管理</PageTitle>
 <h3>商家客服聊天室管理</h3>
-<div class="filters">
-    <label for="business_type_id">商家id</label>
-    <input id="business_id"
-    type="number"
-    class="form-control"
-    @bind="business_id" />
-    <label for="business_service_name">商家客服聊天室名稱</label>
-    <input id="business_service_name"
-    type="text"
-    class="form-control"
-    @bind="business_service_name" />
-    <button class="btn btn-outline-primary"
-    @onclick="FilterSearchResults">
-        查詢
-    </button>
-    <button class="btn btn-outline-secondary"
-    @onclick="ClearSearchFilter">
-        清除
-    </button>
-    <button class="btn btn-outline-secondary"
-    @onclick="AddBusinessServiceList">
-        新增
-    </button>
-</div>
-<Grid TItem="DataBusinessServiceList"
-Class="table table-hover table-bordered table-striped"
-DataProvider="BusinessServiceListDataProvider"
-AllowPaging="true"
-Responsive="true"
-PageSize=2
-@ref="GridDBL">
+@if (read)
+{
+    <div class="filters">
+        <label for="business_type_id">商家id</label>
+        <input id="business_id"
+        type="number"
+        class="form-control"
+        @bind="business_id" />
+        <label for="business_service_name">商家客服聊天室名稱</label>
+        <input id="business_service_name"
+        type="text"
+        class="form-control"
+        @bind="business_service_name" />
+        <button class="btn btn-outline-primary"
+        @onclick="FilterSearchResults">
+            查詢
+        </button>
+        <button class="btn btn-outline-secondary"
+        @onclick="ClearSearchFilter">
+            清除
+        </button>
 
-    <GridColumn TItem="DataBusinessServiceList" HeaderText="商家id" PropertyName="business_id" SortString="business_id" SortKeySelector="item => item.business_id" FilterTextboxWidth="50" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
-        @context.business_id
-    </GridColumn>
-    <GridColumn TItem="DataBusinessServiceList" HeaderText="客服聊天室名稱" PropertyName="business_service_name" SortString="business_service_name" SortKeySelector="item => item.business_service_name" FilterTextboxWidth="80">
-        @context.business_service_name
-    </GridColumn>
-    <GridColumn TItem="DataBusinessServiceList" HeaderText="創建日期" PropertyName="created_date" SortString="created_date" SortKeySelector="item => item.created_date" FilterTextboxWidth="100">
-        @context.created_date
-    </GridColumn>
-    <GridColumn TItem="DataBusinessServiceList" HeaderText="更新日期" PropertyName="updated_date" SortString="updated_date" SortKeySelector="item => item.updated_date" FilterTextboxWidth="120">
-        @context.updated_date
-    </GridColumn>
-    <GridColumn TItem="DataBusinessServiceList" HeaderText="更新者" PropertyName="backend_user_name" SortString="backend_user_name" SortKeySelector="item => item.backend_user_name" FilterTextboxWidth="150">
-        @context.backend_user_name
-    </GridColumn>    
-    <GridColumn TItem="DataBusinessServiceList">
-        @* <Icon Name="IconName.PencilFill" Size=" IconSize.x5" @onclick="@(() => Update(@context.business_id, @context.business_service_name))" /> *@
-        <Icon Name="IconName.ClipboardXFill" Size=" IconSize.x5" @onclick="@(() => Delete(@context.business_id, @context.business_service_name))" />
-    </GridColumn>
-</Grid>
-<Modal @ref="modal1"
-title="刪除資料">
+    </div>
+}
+else
+{
+    if (create)
+    {
+        <button class="btn btn-outline-secondary"
+                @onclick="AddBusinessServiceList">
+            新增
+        </button>
+    }
 
-    <BodyTemplate>
-        確定刪除這筆資料？
-    </BodyTemplate>
+}
+@if(read) {
+    <Grid TItem="DataBusinessServiceList"
+    Class="table table-hover table-bordered table-striped"
+    DataProvider="BusinessServiceListDataProvider"
+    AllowPaging="true"
+    Responsive="true"
+    PageSize=2
+    @ref="GridDBL">
 
-    <FooterTemplate>
-        <Button Color="ButtonColor.Secondary" @onclick="OnHideModalClick">取消</Button>
-        <Button Color="ButtonColor.Primary" @onclick="OnDeleteModalClick">確定</Button>
-    </FooterTemplate>
+        <GridColumn TItem="DataBusinessServiceList" HeaderText="商家id" PropertyName="business_id" SortString="business_id" SortKeySelector="item => item.business_id" FilterTextboxWidth="50" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
+            @context.business_id
+        </GridColumn>
+        <GridColumn TItem="DataBusinessServiceList" HeaderText="客服聊天室名稱" PropertyName="business_service_name" SortString="business_service_name" SortKeySelector="item => item.business_service_name" FilterTextboxWidth="80">
+            @context.business_service_name
+        </GridColumn>
+        <GridColumn TItem="DataBusinessServiceList" HeaderText="創建日期" PropertyName="created_date" SortString="created_date" SortKeySelector="item => item.created_date" FilterTextboxWidth="100">
+            @context.created_date
+        </GridColumn>
+        <GridColumn TItem="DataBusinessServiceList" HeaderText="更新日期" PropertyName="updated_date" SortString="updated_date" SortKeySelector="item => item.updated_date" FilterTextboxWidth="120">
+            @context.updated_date
+        </GridColumn>
+        <GridColumn TItem="DataBusinessServiceList" HeaderText="更新者" PropertyName="backend_user_name" SortString="backend_user_name" SortKeySelector="item => item.backend_user_name" FilterTextboxWidth="150">
+            @context.backend_user_name
+        </GridColumn>    
+        <GridColumn TItem="DataBusinessServiceList">
+            @* <Icon Name="IconName.PencilFill" Size=" IconSize.x5" @onclick="@(() => Update(@context.business_id, @context.business_service_name))" /> *@
+             @if(delete) {
+                <Icon Name="IconName.ClipboardXFill" Size=" IconSize.x5" @onclick="@(() => Delete(@context.business_id, @context.business_service_name))" />
+             }
+        </GridColumn>
+    </Grid>
+}
+@if(delete)
+{
+    <Modal @ref="modal1"
+    title="刪除資料">
 
-</Modal>
-<Modal @ref="modal2" Title="System Message">
-    <BodyTemplate>
-        code:@req.code<br />
-        message:@req.message
-    </BodyTemplate>
-</Modal>
+        <BodyTemplate>
+            確定刪除這筆資料？
+        </BodyTemplate>
+
+        <FooterTemplate>
+            <Button Color="ButtonColor.Secondary" @onclick="OnHideModalClick">取消</Button>
+            <Button Color="ButtonColor.Primary" @onclick="OnDeleteModalClick">確定</Button>
+        </FooterTemplate>
+
+    </Modal>
+    <Modal @ref="modal2" Title="System Message">
+        <BodyTemplate>
+            code:@req.code<br />
+            message:@req.message
+        </BodyTemplate>
+    </Modal>
+}
 @code {
     private DataBusinessServiceList? selected;
     private int business_id = 0;
@@ -94,11 +114,13 @@ title="刪除資料">
     private Modal modal1 = default!;
     private Modal modal2 = default!;
     private ResponseStanderd req = default!;
-
-    // private void Update(int business_id, string business_service_name)
-    // {
-    //     NavManager.NavigateTo($"/BusinessListUpdate/{business_id}");
-    // }
+    private BackendUserRightList BURL;
+    // 權限控管
+    private bool create = false;
+    private bool read = false;
+    private bool update = false;
+    private bool delete = false;
+    
     private async Task OnHideModalClick()
     {
         await modal1.HideAsync();
@@ -132,16 +154,13 @@ title="刪除資料">
         await modal1.ShowAsync();
     }
 
-    // protected override void OnInitialized() =>
-    //   CountPerPage = int.Parse(configuration.GetSection("CountPerPage").Value);
-    protected override void OnAfterRender(bool firstRender)
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-
         if (firstRender)
         {
             try
             {
-                Initialize();
+                await Initialize();
             }
             catch (Exception ex)
             {
@@ -149,10 +168,44 @@ title="刪除資料">
             }
         }
     }
-    private void Initialize()    {
-        
+    private async Task Initialize()    
+    {
+        BURL = await sessionStorage.GetItemAsync<BackendUserRightList>("backendUserRightList");
+        if (BURL.dataRight.Where(e => e.backend_right_id == 13).Count() > 0)
+        {
+            create = true;
+        }
+        else
+        {
+            create = false;
+        }
+        if (BURL.dataRight.Where(e => e.backend_right_id == 14).Count() > 0)
+        {
+            update = true;
+        }
+        else
+        {
+            update = false;
+        }
+        if (BURL.dataRight.Where(e => e.backend_right_id == 15).Count() > 0)
+        {
+            read = true;
+        }
+        else
+        {
+            read = false;
+        }
+        if (BURL.dataRight.Where(e => e.backend_right_id == 16).Count() > 0)
+        {
+            delete = true;
+        }
+        else
+        {
+            delete = false;
+        }
         business_id = 0;
         business_service_name = "";
+        StateHasChanged();
     }
     private async Task<GridDataProviderResult<DataBusinessServiceList>> BusinessServiceListDataProvider(GridDataProviderRequest<DataBusinessServiceList> request)
     {

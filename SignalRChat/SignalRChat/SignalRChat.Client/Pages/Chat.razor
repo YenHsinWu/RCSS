@@ -1,8 +1,10 @@
 ﻿@page "/chat/{groupName}/{serviceName}/{uuid}/{businessId}"
+@rendermode InteractiveWebAssembly
 @using Microsoft.AspNetCore.SignalR.Client;
 @using Microsoft.AspNetCore.WebUtilities;
 @using SignalRChat.Client.Service;
-@rendermode InteractiveWebAssembly
+@using SignalRChat.Client.Model
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
 @inject ChatService chatService
 @inject NavigationManager Navigator
 @inject IConfiguration configuration
@@ -36,41 +38,23 @@
 
     private ChatService.RecentHistoryMessages[] recentHistoryMessagesData;
     private ChatService.RecentHistoryMessagesList recentHistoryMessagesList;
+
+    private BackendUserRightList BURL;
     private bool success;
     private string errorMessage;
 
     private int backendUserId;
 
-    private string seperationLine = "------------------------------";
-
-    // protected override void OnInitialized()
-    // {
-    //     var uri = Navigator.Uri;
-    //     var queryParams = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(new Uri(uri).Query);
-    //     if (queryParams.ContainsKey("groupName"))
-    //     {
-    //         groupName = queryParams["groupName"];
-    //     }
-    //     if (queryParams.ContainsKey("userName"))
-    //     {
-    //         userName = queryParams["userName"];    
-    //     }
-    //     if (queryParams.ContainsKey("uuid"))
-    //     {
-    //         uuid = queryParams["uuid"];
-    //     }
-    //     if (queryParams.ContainsKey("businessId"))
-    //     {
-    //         businessId = queryParams["businessId"];
-    //     }
-    // }
+    private string seperationLine = "------------------------------";    
 
     protected async override Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
+            BURL = await sessionStorage.GetItemAsync<BackendUserRightList>("backendUserRightList");
             await ShowHistoryMessages();
-            await chatService.SetUnreadMessagesCountToZero(uuid, int.Parse(businessId), groupName.Split('^')[0], 1);
+            await chatService.SetUnreadMessagesCountToZero(uuid, int.Parse(businessId), groupName.Split('^')[0], BURL.backend_user_id);
+            //Console.WriteLine(BURL.backend_user_id);
         }
     }
 
@@ -104,7 +88,7 @@
     {
         try
         {
-            await hubConnection!.SendAsync("SendMessageToGroup", groupName, serviceName, message, int.Parse(businessId), uuid, false, 0, false, true);
+            await hubConnection!.SendAsync("SendMessageToGroup", groupName, serviceName, message, int.Parse(businessId), uuid, false, BURL.backend_user_id, false, true,BURL.backend_user_name);
         }
         catch (Exception ex)
         {

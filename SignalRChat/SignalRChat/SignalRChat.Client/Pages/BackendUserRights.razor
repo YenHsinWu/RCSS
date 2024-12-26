@@ -6,35 +6,36 @@
 @inject NavigationManager NavManager
 @inject IJSRuntime JSRuntime
 @inject SignalRChat.Client.Service.BackendUserService ObjectBackendUserService
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
 
 <PageTitle>後台用戶權限設定</PageTitle>
 <h3>後台用戶權限設定(@backend_user_name)</h3>
-
-<EditForm Model="@switchRightsValue" OnValidSubmit="@UpdateBackendUserRightsAsync">
-    @if (switchRightsValue != null)
-    {
-        @foreach (var bsr in switchRightsValue)
+@if(right) {
+    <EditForm Model="@switchRightsValue" OnValidSubmit="@UpdateBackendUserRightsAsync">
+        @if (switchRightsValue != null)
         {
-            if(!bsr.Key.Contains("-"))
+            @foreach (var bsr in switchRightsValue)
             {
-                <Switch @bind-Value="@bsr.Value.SwitchValue" Label="@bsr.Value.backend_right_group_name" Style="color:red" />
-            }
-            else
-            {
-                <Switch @bind-Value='@bsr.Value.SwitchValue' Label="@bsr.Value.backend_right_name" />
+                if(!bsr.Key.Contains("-"))
+                {
+                    <Switch @bind-Value="@bsr.Value.SwitchValue" Label="@bsr.Value.backend_right_group_name" Style="color:red" />
+                }
+                else
+                {
+                    <Switch @bind-Value='@bsr.Value.SwitchValue' Label="@bsr.Value.backend_right_name" />
+                }
             }
         }
-    }
-    <Alert Color="AlertColor.Warning" Class="@isHide" Dismissable="true">@errorMessage </Alert>
-    <button class="btn btn-outline-primary" type="submit">
-        修改
-    </button>
-    <button class="btn btn-outline-secondary" type="button"
-    @onclick="@CancelUpdateBackendRightsListAsync">
-        取消
-    </button>
-</EditForm>
-
+        <Alert Color="AlertColor.Warning" Class="@isHide" Dismissable="true">@errorMessage </Alert>
+        <button class="btn btn-outline-primary" type="submit">
+            修改
+        </button>
+        <button class="btn btn-outline-secondary" type="button"
+        @onclick="@CancelUpdateBackendRightsListAsync">
+            取消
+        </button>
+    </EditForm>
+}
 @code {
     // private bool agree1;
     // @ref='switchRights["1-1"]' ValueChanged="SwitchChanged"
@@ -48,6 +49,10 @@
     public int backend_user_id { get; set; }
     [Parameter]
     public string backend_user_name { get; set; }
+    private BackendUserRightList BURL;
+    // 權限控管
+    private bool right = false;
+
     protected override async Task OnInitializedAsync()
     {
         backendRights = await ObjectBackendUserService.GetBackendRights();
@@ -64,6 +69,33 @@
             isHide = "d-none";
             // StateHasChanged();
         }
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            try
+            {
+                await InitializeAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"錯誤: {ex.Message}");
+            }
+        }
+    }
+    private async Task InitializeAsync()
+    {
+        BURL = await sessionStorage.GetItemAsync<BackendUserRightList>("backendUserRightList");
+        if (BURL.dataRight.Where(e => e.backend_right_id == 24).Count() > 0)
+        {
+            right = true;
+        }
+        else
+        {
+            right = false;
+        }        
+        StateHasChanged();
     }
     private async Task SetRights(DataBackendRights[]? dataBackendRights)
     {

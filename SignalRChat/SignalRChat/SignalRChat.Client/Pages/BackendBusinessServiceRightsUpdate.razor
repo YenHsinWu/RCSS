@@ -6,29 +6,30 @@
 @inject NavigationManager NavManager
 @inject SignalRChat.Client.Service.BusinessServiceService ObjectBusinessServiceService
 @inject IJSRuntime JSRuntime
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
 
 <PageTitle>客服聊室權限管理-設定用戶客服權限</PageTitle>
-<h3>客服聊室權限管理-設定用戶(@backend_user_name)之商家(@business_id)權限</h3>
-
-@* <EditForm Model="@businessServiceRightsValue" OnValidSubmit="@UpdateBackendUserRightsAsync"> *@
-<EditForm Model="@businessServiceRightsValue" OnValidSubmit="@UpdateServiceRightsAsync">
-    @if (businessServiceRightsValue != null)
-    {
-        @foreach (var bsr in businessServiceRightsValue)
+@if (service)
+{
+    <h3>客服聊室權限管理-設定用戶(@backend_user_name)之商家(@business_id)權限</h3>
+    <EditForm Model="@businessServiceRightsValue" OnValidSubmit="@UpdateServiceRightsAsync">
+        @if (businessServiceRightsValue != null)
         {
-            <Switch @bind-Value='bsr.SwitchValue' Label="@bsr.business_service_name" />
+            @foreach (var bsr in businessServiceRightsValue)
+            {
+                <Switch @bind-Value='bsr.SwitchValue' Label="@bsr.business_service_name" />
+            }
         }
-    }
-    <Alert Color="AlertColor.Warning" Class="@isHide" Dismissable="true">@errorMessage </Alert>
-    <button class="btn btn-outline-primary" type="submit">
-        修改
-    </button>
-    <button class="btn btn-outline-secondary" type="button"
-    @onclick="@CancelUpdateServiceRightsAsync">
-        取消
-    </button>
-</EditForm>
-
+        <Alert Color="AlertColor.Warning" Class="@isHide" Dismissable="true">@errorMessage </Alert>
+        <button class="btn btn-outline-primary" type="submit">
+            修改
+        </button>
+        <button class="btn btn-outline-secondary" type="button"
+        @onclick="@CancelUpdateServiceRightsAsync">
+            取消
+        </button>
+    </EditForm>
+}
 @code {
     [Parameter]
     public int business_id { get; set; }
@@ -45,6 +46,10 @@
 
     private string errorMessage = "";
     private string isHide = "d-none";
+
+    private BackendUserRightList BURL;
+    // 權限控管
+    private bool service = false;
 
     private async void CancelUpdateServiceRightsAsync()
     {
@@ -142,6 +147,34 @@
             }            
         }
         isHide = "d-none";
+        StateHasChanged();
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+        if (firstRender)
+        {
+            try
+            {
+                await InitializeAsync();
+            }
+            catch (Exception ex)
+            {
+                errorMessage = $"錯誤: {ex.Message}";
+            }
+        }
+    }
+    private async Task InitializeAsync()
+    {
+        BURL = await sessionStorage.GetItemAsync<BackendUserRightList>("backendUserRightList");
+        if (BURL.dataRight.Where(e => e.backend_right_id == 33).Count() > 0)
+        {
+            service = true;
+        }
+        else
+        {
+            service = false;
+        }
         StateHasChanged();
     }
 }

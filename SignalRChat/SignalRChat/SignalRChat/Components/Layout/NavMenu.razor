@@ -1,4 +1,7 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@using SignalRChat.Client.Model
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">註冊寶後台</a>
     </div>
@@ -40,4 +43,26 @@
         </div>
     </nav>
 </div>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            try
+            {
+                await InitializeAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"錯誤: {ex.Message}");
+            }
+        }
+    }
+    private async Task InitializeAsync()
+    {
+        var BURL = await sessionStorage.GetItemAsync<BackendUserRightList>("backendUserRightList");
+        Console.WriteLine(BURL.backend_user_id);
+    }
+}
 

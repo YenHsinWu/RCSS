@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "SignalRChat.Client",
   "resources": {
-    "hash": "sha256-epzw/RY2I8e4MATt6J7HCJkxRw0jma3f1Gy6vdFBNlE=",
+    "hash": "sha256-hUso1ahiI1gnEof49NpgmOfGcu3ErdOTHMxsvGnJB68=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-VdKq87/z5NIxZKmuM+fv38XF+RcEb/bg3jVBwQSfwP4="
     },
@@ -20,6 +20,7 @@
     "assembly": {
       "Accelist.FluentValidation.Blazor.wasm": "sha256-1Q/uAFzzveo9HxAKQ2NVMaeezrd0OfSyO9eUqQ+TXoA=",
       "BlazorBootstrap.wasm": "sha256-KvMCw6Z4ECWlPEz4jeQ0QWRGeVqaYlz5Xty6Qz3MwDc=",
+      "Blazored.SessionStorage.wasm": "sha256-nQXuCGHos7iwp2WxRUgarKmWgJYChaVQp2NajgNU3V8=",
       "FirebaseAdmin.wasm": "sha256-RUjxJWkilxx5USNcp7nxb2/pzyJIzJiXn5Bm1NF7aPc=",
       "FluentValidation.wasm": "sha256-y2wmu0q0yfh4/O0BN8s/ZnPUFizpBUQu6X5SeIQJjnI=",
       "Google.Api.Gax.wasm": "sha256-dT6lTdXpeSN8UJ0KsLh5QP4H7rBa0NRwSza3K01NZcE=",
@@ -234,10 +235,10 @@
       "mscorlib.wasm": "sha256-04e4k5XU8HWGB/dq/2+j84xzzGPflTs0IYWI0OxogVc=",
       "netstandard.wasm": "sha256-gnGZURPnoSmjXuYNCOJi5tt8qn2LRImWgue1Ru3/TDQ=",
       "System.Private.CoreLib.wasm": "sha256-6w3jYr0arcp8jnt4aeqh+AmqrLA6q7jl9rQYAwLzE0M=",
-      "SignalRChat.Client.wasm": "sha256-YxIbUDOpUVMLtdc9er7q/k4zO4q7lTAwOVkIWxMcIBI="
+      "SignalRChat.Client.wasm": "sha256-MSWYCdrUSxMOV+bUUgnuOBHgCNGULUN+jrL9n29I1Rk="
     },
     "pdb": {
-      "SignalRChat.Client.pdb": "sha256-LGiqg5pYNEGQdB8bdj6Cq0U3fkBtTWYXc3REdLNujaU="
+      "SignalRChat.Client.pdb": "sha256-oVDPXsWMuchvkbwwW0uvr05IAZlyoustLJ0/TuPwxD8="
     }
   },
   "cacheBootResources": true,

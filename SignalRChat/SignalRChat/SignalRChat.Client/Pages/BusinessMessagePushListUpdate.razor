@@ -5,49 +5,53 @@
 @inject NavigationManager NavManager
 @inject IJSRuntime JSRuntime
 @inject SignalRChat.Client.Service.BusinessMessagePushService ObjectBusinessMessagePushService
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
 
 <PageTitle>廣告/行銷活動修改</PageTitle>
-<h3>廣告/行銷活動修改</h3>
-<EditForm Model="@businessMessagePushListUpdateModel" enctype="multipart/form-data" Enhance FormName="file-form" OnValidSubmit="@UpdateBusinessMessagePushListAsync">
-    <DataAnnotationsValidator @ref="dataAnnotationsValidator" />
-    <ValidationSummary />
-    <label for="message_title">訊息標題</label>
-    <input id="message_title"
-    type="text"
-    class="form-control"
-    @bind="businessMessagePushListUpdateModel.message_title" />
-    <label for="message_content">訊息內容</label>
-    <textarea id="message_content" rows="4" cols="20"
-    class="form-control"
-    @bind="businessMessagePushListUpdateModel.message_content" />
-    <label for="phone">活動網址</label>
-    <input id="message_url"
-    type="text"
-    class="form-control"
-    @bind="businessMessagePushListUpdateModel.message_url" />
-    <label for="push_start_date">活動啟始日</label>
-    <input id="push_start_date"
-    type="datetime-local"
-    class="form-control"
-    @bind="businessMessagePushListUpdateModel.push_start_date" />
-    <label for="push_end_date">活動啟始日</label>
-    <input id="push_end_date"
-    type="datetime-local"
-    class="form-control"
-    @bind="businessMessagePushListUpdateModel.push_end_date" />
-    <label for="message_image_file">重設活動圖檔</label>
-    <InputFile name="businessMessagePushListUpdateModel.message_image_file" class="form-control" OnChange="OnInputFileChange" />
-    <label for="message_image">目前活動圖檔</label>
-    <img src=@string.Format("http://10.10.10.207:8082/{0}",businessMessagePushListUpdateModel.message_image) width="150" height="150" /><br/>
-    <Alert Color="AlertColor.Warning" Class="@isHide" Dismissable="true">@errorMessage </Alert>
-    <button class="btn btn-outline-primary" type="submit">
-        修改
-    </button>
-    <button class="btn btn-outline-secondary" type="button"
-    @onclick="@CancelBusinessMessagePushListAsync">
-        取消
-    </button>
-</EditForm>
+@if (update)
+{
+    <h3>廣告/行銷活動修改</h3>
+    <EditForm Model="@businessMessagePushListUpdateModel" enctype="multipart/form-data" Enhance FormName="file-form" OnValidSubmit="@UpdateBusinessMessagePushListAsync">
+        <DataAnnotationsValidator @ref="dataAnnotationsValidator" />
+        <ValidationSummary />
+        <label for="message_title">訊息標題</label>
+        <input id="message_title"
+        type="text"
+        class="form-control"
+        @bind="businessMessagePushListUpdateModel.message_title" />
+        <label for="message_content">訊息內容</label>
+        <textarea id="message_content" rows="4" cols="20"
+        class="form-control"
+        @bind="businessMessagePushListUpdateModel.message_content" />
+        <label for="phone">活動網址</label>
+        <input id="message_url"
+        type="text"
+        class="form-control"
+        @bind="businessMessagePushListUpdateModel.message_url" />
+        <label for="push_start_date">活動啟始日</label>
+        <input id="push_start_date"
+        type="datetime-local"
+        class="form-control"
+        @bind="businessMessagePushListUpdateModel.push_start_date" />
+        <label for="push_end_date">活動啟始日</label>
+        <input id="push_end_date"
+        type="datetime-local"
+        class="form-control"
+        @bind="businessMessagePushListUpdateModel.push_end_date" />
+        <label for="message_image_file">重設活動圖檔</label>
+        <InputFile name="businessMessagePushListUpdateModel.message_image_file" class="form-control" OnChange="OnInputFileChange" />
+        <label for="message_image">目前活動圖檔</label>
+        <img src=@string.Format("http://10.10.10.207:8082/{0}",businessMessagePushListUpdateModel.message_image) width="150" height="150" /><br/>
+        <Alert Color="AlertColor.Warning" Class="@isHide" Dismissable="true">@errorMessage </Alert>
+        <button class="btn btn-outline-primary" type="submit">
+            修改
+        </button>
+        <button class="btn btn-outline-secondary" type="button"
+        @onclick="@CancelBusinessMessagePushListAsync">
+            取消
+        </button>
+    </EditForm>
+}
 @code {
     [SupplyParameterFromForm(FormName = "file-form")]
     private BusinessMessagePushListUpdateModel businessMessagePushListUpdateModel { get; set; } = new BusinessMessagePushListUpdateModel();
@@ -59,6 +63,9 @@
     private string errorMessage = "";
     private string isHide = "d-none";
     private UpdateMessagePush? dataUpdateMessagePush;
+    private BackendUserRightList BURL;
+    // 權限控管
+    private bool update = false;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -76,6 +83,15 @@
     }
     private async Task InitializeAsync()
     {
+        BURL = await sessionStorage.GetItemAsync<BackendUserRightList>("backendUserRightList");
+        if (BURL.dataRight.Where(e => e.backend_right_id == 27).Count() > 0)
+        {
+            update = true;
+        }
+        else
+        {
+            update = false;
+        }
         dataUpdateMessagePush = await ObjectBusinessMessagePushService.GetUpdateMessagePush(business_id, business_message_push_id);
         if (dataUpdateMessagePush.code == "0")
         {
@@ -107,6 +123,7 @@
 
     private async void UpdateBusinessMessagePushListAsync()
     {
+        businessMessagePushListUpdateModel.backend_user_id = BURL.backend_user_id;
         ResponseStanderd req = await ObjectBusinessMessagePushService.PutBusinessMessagePushList(businessMessagePushListUpdateModel, business_id, business_message_push_id);
         errorMessage = req.message;
         isHide = "";

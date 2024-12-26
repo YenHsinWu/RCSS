@@ -10,6 +10,7 @@
         "dependencies": {
           "Accelist.FluentValidation.Blazor": "4.0.0",
           "Blazor.Bootstrap": "3.1.1",
+          "Blazored.SessionStorage": "2.4.0",
           "ClassLibrary": "1.0.0",
           "FirebaseAdmin": "3.1.0",
           "FluentValidation": "11.11.0",
@@ -44,6 +45,17 @@
           "lib/net8.0/BlazorBootstrap.dll": {
             "assemblyVersion": "3.1.1.0",
             "fileVersion": "3.1.1.0"
+          }
+        }
+      },
+      "Blazored.SessionStorage/2.4.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "8.0.11"
+        },
+        "runtime": {
+          "lib/net7.0/Blazored.SessionStorage.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -547,6 +559,7 @@
         "dependencies": {
           "Accelist.FluentValidation.Blazor": "4.0.0",
           "Blazor.Bootstrap": "3.1.1",
+          "Blazored.SessionStorage": "2.4.0",
           "FirebaseAdmin": "3.1.0",
           "FluentValidation": "11.11.0",
           "Google.Apis.Auth": "1.68.0",
@@ -584,6 +597,13 @@
       "sha512": "sha512-LfF92vgSJocLrRGPjqKiz7CsJvn37BMrpbxYMXuhKtCiJkqqHqxjujczPgsV18o9VSGYNlfbVl92MePgjGJahA==",
       "path": "blazor.bootstrap/3.1.1",
       "hashPath": "blazor.bootstrap.3.1.1.nupkg.sha512"
+    },
+    "Blazored.SessionStorage/2.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-e3XXH+zGGxDq1zC7YzLDD8mfvtoC6ESwTWOGD25H+FbPJlB7yQeL72hDY76tqkcrh98fh+y12r4BNhyQVV9YKw==",
+      "path": "blazored.sessionstorage/2.4.0",
+      "hashPath": "blazored.sessionstorage.2.4.0.nupkg.sha512"
     },
     "FirebaseAdmin/3.1.0": {
       "type": "package",

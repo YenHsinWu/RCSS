@@ -40,7 +40,7 @@
         {
             try
             {
-                NewServiceTalkMessage data = new NewServiceTalkMessage(business_id, business_service_name, user_uuid, created_date, is_user_talk, 0,
+                NewServiceTalkMessage data = new NewServiceTalkMessage(business_id, business_service_name, user_uuid, created_date, is_user_talk, backend_user_id,
                                                                    talk_content, is_user_read, is_backend_user_read);
                 // var jsonData = JsonSerializer.Serialize<NewServiceTalkMessage>(data);
 

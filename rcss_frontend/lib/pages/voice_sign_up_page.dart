@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:rcss_frontend/auth_implemetation/auth_service.dart';
-import 'package:rcss_frontend/pages/phone_verification_page.dart';
+import 'package:rcss_frontend/pages/voice_verification_page.dart';
 import 'package:rcss_frontend/pages/sign_up_page.dart';
 import 'package:rcss_frontend/widgets/text_field_widget.dart';
 
 import 'login_page.dart';
-import 'message_sign_up_page.dart';
-import 'voice_sign_up_page.dart';
+import 'phone_sign_up_page.dart';
 
-class PhoneSignUpPage extends StatefulWidget {
-  PhoneSignUpPage({super.key});
+class VoiceSignUpPage extends StatefulWidget {
+  VoiceSignUpPage({super.key});
 
   @override
-  State<PhoneSignUpPage> createState() => _PhoneSignUpPageState();
+  State<VoiceSignUpPage> createState() => _VoiceSignUpPageState();
 }
 
-class _PhoneSignUpPageState extends State<PhoneSignUpPage> {
+class _VoiceSignUpPageState extends State<VoiceSignUpPage> {
   final AuthService _authService = AuthService();
 
   String countryId = '';
@@ -25,6 +24,12 @@ class _PhoneSignUpPageState extends State<PhoneSignUpPage> {
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    //getShortcutListJson(widget.uuid);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +44,7 @@ class _PhoneSignUpPageState extends State<PhoneSignUpPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "手機註冊",
+            "語音接收驗證碼註冊",
             style: TextStyle(
                 color: Colors.red, fontSize: 28, fontWeight: FontWeight.bold),
           ),
@@ -80,7 +85,7 @@ class _PhoneSignUpPageState extends State<PhoneSignUpPage> {
             hintText: "Password",
             obscureText: true,
           ),
-          SizedBox(height: 32),
+          SizedBox(height: 12),
           GestureDetector(
             onTap: () => _signUp(context),
             child: Container(
@@ -101,7 +106,7 @@ class _PhoneSignUpPageState extends State<PhoneSignUpPage> {
               ),
             ),
           ),
-          SizedBox(height: 12),
+          SizedBox(height: 32),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -157,32 +162,11 @@ class _PhoneSignUpPageState extends State<PhoneSignUpPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MessageSignUpPage(),
+                      builder: (context) => PhoneSignUpPage(),
                     ),
                   );
                 },
-                child: Text("手機未收到驗證碼-手機傳回驗證碼",
-                    style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold)),
-              ),
-            ],
-          ),
-          SizedBox(height: 12),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => VoiceSignUpPage(),
-                    ),
-                  );
-                },
-                child: Text("手機未收到驗證碼-語音電話接收驗證碼",
+                child: Text("改用手機註冊",
                     style: TextStyle(
                         color: Colors.red,
                         fontSize: 16,
@@ -195,22 +179,25 @@ class _PhoneSignUpPageState extends State<PhoneSignUpPage> {
     );
   }
 
-  void _signUp(BuildContext context) {
+  void _signUp(BuildContext context) async {
     String phone = phoneController.text;
     String email = emailController.text;
     String password = passwordController.text;
 
-    _authService.getVerificationCodeByPhone(phone: phoneCountry + phone);
+    Map<String, dynamic> responseBody = await _authService.userSendbackMessage(phone: phoneCountry + phone);
+
 
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => PhoneVerificationPage(
+        builder: (context) => VoiceVerificationPage(
           email: email,
           password: password,
           phone: phone,
           phoneCountry: phoneCountry,
-          countryId: countryId
+          countryId: countryId,
+          sendbackphone: responseBody['send_back_phone'],
+          validationcode: responseBody['validation_code'],
         ),
       ),
     );

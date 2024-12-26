@@ -1,8 +1,10 @@
 ﻿@page "/servicelist"
 @using SignalRChat.Client.Service
+@using SignalRChat.Client.Model
 @rendermode InteractiveWebAssembly
 @inject BusinessService businessService
 @inject NavigationManager Navigator
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
 
 <PageTitle>Service List</PageTitle>
 <div>
@@ -19,7 +21,7 @@
     }
     else
     {
-        <p>No data available.</p>
+        <p>沒有新訊息.</p>
     }
 </div>
 
@@ -51,7 +53,8 @@
     {
         try
         {
-            chatRoomList = await businessService.GetBusinessServiceChatRoomList(1);
+            var BURL = await sessionStorage.GetItemAsync<BackendUserRightList>("backendUserRightList");
+            chatRoomList = await businessService.GetBusinessServiceChatRoomList(BURL.backend_user_id);
             if (chatRoomList != null && chatRoomList.data != null)
             {
                 chatRoomData = chatRoomList.data;

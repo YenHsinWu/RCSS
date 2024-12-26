@@ -165,6 +165,7 @@ class _ChatPageState extends State<ChatPage> {
           0,
           true,
           false,
+          widget.userName,
         ],
       );
       messageController.clear();

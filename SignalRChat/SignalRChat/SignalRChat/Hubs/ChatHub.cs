@@ -17,16 +17,16 @@ namespace SignalRChat.Hubs
         }
 
         public async Task SendMessageToGroup(string groupName, string userName, string message, 
-            int businessId, string uuid, bool isUserTalk, int backendUserId, bool isUserRead, bool isBackendUserRead)
+            int businessId, string uuid, bool isUserTalk, int backendUserId, bool isUserRead, bool isBackendUserRead,string backend_user_name)
         {
             try
             {
                 await chatService.CreateServiceTalkMessage(businessId, groupName.Split('^')[0], uuid, DateTime.UtcNow,
-                isUserTalk, 0, message, isUserRead, isBackendUserRead);
+                isUserTalk, backendUserId, message, isUserRead, isBackendUserRead);
 
                 string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.ffffff");
 
-                await Clients.Group(groupName).SendAsync("SendGroupMsg", groupName, userName, message, timestamp);
+                await Clients.Group(groupName).SendAsync("SendGroupMsg", groupName, backend_user_name, message, timestamp);
 
                 var notificationMessage = new Message()
                 {
