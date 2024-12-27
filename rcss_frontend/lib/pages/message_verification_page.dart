@@ -61,6 +61,27 @@ class MessageVerificationPage extends StatelessWidget {
             ),
             SizedBox(height: 32),
             GestureDetector(
+              onTap: () => _sendMessage(this.sendbackphone,this.validationcode),
+              child: Container(
+                width: double.infinity,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Center(
+                  child: Text(
+                    "回覆驗證碼",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 32),
+            GestureDetector(
               onTap: () => _verify(context),
               child: Container(
                 width: double.infinity,
@@ -104,6 +125,10 @@ class MessageVerificationPage extends StatelessWidget {
     );
   }
 
+  void _sendMessage(String sendbackphone,String validationcode) async {
+    // 啟動Google Messages，參數給sendbackphone以及validationcode
+  }
+
   void _verify(BuildContext context) async {
     String code1="驗證失敗，請重新註冊";
     Map<String, dynamic> response=new Map<String, dynamic>();
@@ -138,20 +163,5 @@ class MessageVerificationPage extends StatelessWidget {
         ),
       );
     }
-    /*Map<String, dynamic> response = await authService.verifyRegistrationByPhone(
-        email: email,
-        code: code,
-        password: password,
-        userName: email.split('@')[0],
-        phone: phone,
-        phoneCountry: phoneCountry,
-        countryId: countryId);
-
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => LoginPage(),
-      ),
-    );*/
   }
 }

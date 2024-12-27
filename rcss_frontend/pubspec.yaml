@@ -49,6 +49,8 @@ dependencies:
   googleapis_auth: ^1.6.0
   firebase_core: ^3.8.0
   flutter_app_badge_control: ^0.0.2
+  external_app_launcher: ^4.0.1
+  webview_flutter: ^4.10.0
 
 dev_dependencies:
   flutter_test:

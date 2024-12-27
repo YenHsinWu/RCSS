@@ -184,7 +184,7 @@ class _VoiceSignUpPageState extends State<VoiceSignUpPage> {
     String email = emailController.text;
     String password = passwordController.text;
 
-    Map<String, dynamic> responseBody = await _authService.userSendbackMessage(phone: phoneCountry + phone);
+    Map<String, dynamic> responseBody = await _authService.voiceSendMessage(phone: phoneCountry + phone);
 
 
     Navigator.push(
@@ -195,9 +195,7 @@ class _VoiceSignUpPageState extends State<VoiceSignUpPage> {
           password: password,
           phone: phone,
           phoneCountry: phoneCountry,
-          countryId: countryId,
-          sendbackphone: responseBody['send_back_phone'],
-          validationcode: responseBody['validation_code'],
+          countryId: countryId
         ),
       ),
     );

@@ -9,8 +9,6 @@ class VoiceVerificationPage extends StatelessWidget {
   final String phone;
   final String phoneCountry;
   final String countryId;
-  final String sendbackphone;
-  final String validationcode;
 
   VoiceVerificationPage({
     super.key,
@@ -19,14 +17,12 @@ class VoiceVerificationPage extends StatelessWidget {
     required String this.phone,
     required String this.phoneCountry,
     required String this.countryId,
-    required String this.sendbackphone,
-    required String this.validationcode,
   });
 
   final AuthService authService = AuthService();
 
   final TextEditingController verificationController = TextEditingController();
-  final TextEditingController waitingController = TextEditingController();
+  final TextEditingController messageController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +68,15 @@ class VoiceVerificationPage extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+            SizedBox(height: 12),
+            TextField(
+                controller: messageController,
+                style: TextStyle(color: Colors.red,fontSize: 28),
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: '',
+                )
             )
           ],
         ),
@@ -80,32 +85,19 @@ class VoiceVerificationPage extends StatelessWidget {
   }
 
   void _verify(BuildContext context) async {
-    String code1="驗證失敗，請重新註冊";
-    Map<String, dynamic> response=new Map<String, dynamic>();
-    waitingController.text="等候簡訊驗證中...";
-    for(var i=90;i>=0;i--)
-    {
-      verificationController.text=i.toString();
-      await Future.delayed(Duration(seconds: 1));
-      if(i<90 && i%10==0) {
-        response = await authService
-            .verifyRegistrationByMessage(
-            email: email,
-            code: validationcode,
-            password: password,
-            userName: email.split('@')[0],
-            phone: phone,
-            phoneCountry: phoneCountry,
-            countryId: countryId);
-        if (response['code'] == 0) {
-          code1 = "驗證成功，將轉向到登入頁面...";
-          break;
-        }
-      }
-    }
-    waitingController.text=code1;
+    Map<String, dynamic> response =
+      await authService
+        .verifyRegistrationByVoice(
+        email: email,
+        code: verificationController.text,
+        password: password,
+        userName: email.split('@')[0],
+        phone: phone,
+        phoneCountry: phoneCountry,
+        countryId: countryId);
     if(response['code'] == 0) {
-      await Future.delayed(Duration(seconds: 3));
+      messageController.text="驗證(註冊)成功，將導向登入頁";
+      await Future.delayed(Duration(seconds: 2));
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -113,20 +105,8 @@ class VoiceVerificationPage extends StatelessWidget {
         ),
       );
     }
-    /*Map<String, dynamic> response = await authService.verifyRegistrationByPhone(
-        email: email,
-        code: code,
-        password: password,
-        userName: email.split('@')[0],
-        phone: phone,
-        phoneCountry: phoneCountry,
-        countryId: countryId);
-
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => LoginPage(),
-      ),
-    );*/
+    messageController.text="驗證(註冊)失敗，請重新註冊...";
+    await Future.delayed(Duration(seconds: 10));
+    messageController.text="";
   }
 }

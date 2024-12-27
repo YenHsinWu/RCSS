@@ -2,6 +2,7 @@ import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rcss_frontend/pages/chat_room_page.dart';
+import 'package:rcss_frontend/pages/business_list_web_site.dart';
 
 import '../service_implementation/index_service.dart';
 
@@ -11,6 +12,7 @@ class BusinessCard extends Card {
   final String businessName;
   final String businessId;
   final String userName;
+  final String businessUrl;
 
   BusinessCard({
     super.key,
@@ -19,6 +21,7 @@ class BusinessCard extends Card {
     required this.businessName,
     required this.businessId,
     required this.userName,
+    required this.businessUrl,
   });
 
   final IndexService _indexService = IndexService();
@@ -28,10 +31,18 @@ class BusinessCard extends Card {
     return GestureDetector(
       onTap: () {
         Get.to(
-          ChatRoomPage(
+          /*ChatRoomPage(
             uuid: uuid,
             businessId: businessId,
             userName: userName,
+          ),*/
+          BusinessListWebSitePage(
+            uuid: uuid,
+            businessId: businessId,
+            userName: userName,
+            businessUrl: businessUrl,
+            unreadCount:unreadCount,
+            businessName:businessName,
           ),
         );
       },
