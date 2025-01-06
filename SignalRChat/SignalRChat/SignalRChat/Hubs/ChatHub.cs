@@ -9,7 +9,7 @@ namespace SignalRChat.Hubs
         private ChatService chatService = new ChatService();
 
         public async Task JoinGroup(string groupName, string userName)
-        {
+        {       
             Console.WriteLine($"{userName} 已加入群組 {groupName}");
             await Groups.AddToGroupAsync(Context.ConnectionId, groupName);
             await Clients.Group(groupName).SendAsync("JoinGroupMsg", 

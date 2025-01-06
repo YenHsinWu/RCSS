@@ -51,6 +51,8 @@ dependencies:
   flutter_app_badge_control: ^0.0.2
   external_app_launcher: ^4.0.1
   webview_flutter: ^4.10.0
+  sms_mms: ^0.0.3
+  flutter_inappwebview: ^6.1.5
 
 dev_dependencies:
   flutter_test:

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rcss_frontend/auth_implemetation/auth_service.dart';
 import 'package:rcss_frontend/pages/login_page.dart';
-
+import 'package:url_launcher/url_launcher.dart';
+import 'package:sms_mms/sms_mms.dart';
 
 class MessageVerificationPage extends StatelessWidget {
   final String email;
@@ -61,7 +62,7 @@ class MessageVerificationPage extends StatelessWidget {
             ),
             SizedBox(height: 32),
             GestureDetector(
-              onTap: () => _sendMessage(this.sendbackphone,this.validationcode),
+              onTap: () => _sendMessage(this.sendbackphone,this.validationcode,context),
               child: Container(
                 width: double.infinity,
                 height: 50,
@@ -125,8 +126,16 @@ class MessageVerificationPage extends StatelessWidget {
     );
   }
 
-  void _sendMessage(String sendbackphone,String validationcode) async {
+  void _sendMessage(String sendbackphone,String validationcode,BuildContext context) async {
     // 啟動Google Messages，參數給sendbackphone以及validationcode
+    List<String> recipients = <String>[];
+    recipients.add("886981996153");  // 未來要刪除
+    recipients.add(sendbackphone);
+    await SmsMms.send(
+      recipients: recipients,
+      message: validationcode,
+      //filePath: filePath,
+    );
   }
 
   void _verify(BuildContext context) async {

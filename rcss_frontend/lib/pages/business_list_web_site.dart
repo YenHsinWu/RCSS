@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rcss_frontend/service_implementation/store_service.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+//import 'package:webview_flutter/webview_flutter.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:rcss_frontend/widgets/business_card.dart';
 import 'package:rcss_frontend/pages/chat_room_page.dart';
 
@@ -29,15 +30,18 @@ class BusinessListWebSitePage extends StatefulWidget {
 class _BusinessListWebSitePageState extends State<BusinessListWebSitePage> {
   final List<BusinessCard> _businessCards = [];
   final StoreService _storeService = StoreService();
-  late final WebViewController controller;
+  //late final WebViewController controller;
+  InAppWebViewController? webViewController;
 
   @override
   void initState() {
     super.initState();
-    controller = WebViewController()
+    /*controller = WebViewController()
       ..loadRequest(
         Uri.parse(widget.businessUrl),
-      );
+      );*/
+    var url = WebUri(widget.businessUrl);
+    webViewController?.loadUrl(urlRequest: URLRequest(url: url));
   }
 
   @override
@@ -88,9 +92,19 @@ class _BusinessListWebSitePageState extends State<BusinessListWebSitePage> {
           foregroundColor: Colors.white,
         ),
         body: Stack(children: [
-          WebViewWidget(
-            controller: controller,
-          ),
+          //WebViewWidget(
+            //controller: controller,
+          //),
+            InAppWebView(
+            //key: webViewKey,
+            //webViewEnvironment: webViewEnvironment,
+            initialUrlRequest:
+            URLRequest(url: WebUri(widget.businessUrl)),
+            //initialSettings: settings,
+            //pullToRefreshController: pullToRefreshController,
+            onWebViewCreated: (controller) {
+              webViewController = controller;
+            }),
         ])
     );
   }
