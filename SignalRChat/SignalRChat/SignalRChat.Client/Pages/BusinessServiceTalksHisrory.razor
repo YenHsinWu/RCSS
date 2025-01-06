@@ -128,7 +128,7 @@
     }
     private async Task<GridDataProviderResult<DataBusinessServiceTalks>> BusinessServiceTalksDataProvider(GridDataProviderRequest<DataBusinessServiceTalks> request)
     {
-        SignalRChat.Client.Model.BusinessServiceTalks bList = await ObjectBusinessServiceTalksService.GetBusinessServiceTalksHistory(backend_user_id, business_service_name, user_name, created_date_start, created_date_end, int.Parse(configuration["CountPerPage"]), request.PageNumber);
+        SignalRChat.Client.Model.BusinessServiceTalks bList = await ObjectBusinessServiceTalksService.GetBusinessServiceTalksHistory(BURL.backend_user_id, business_service_name, user_name, created_date_start, created_date_end, int.Parse(configuration["CountPerPage"]), request.PageNumber);
         if (bList.code == "0")
         {
             businessList = bList;

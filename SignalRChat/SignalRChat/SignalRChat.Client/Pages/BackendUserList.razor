@@ -31,16 +31,25 @@
         @onclick="ClearSearchFilter">
             清除
         </button>
+        @if (create)
+        {
+            <button class="btn btn-outline-secondary"
+                    @onclick="AddBackendUserList">
+                新增
+            </button>
+        }
     </div>
 }
 else
 {
     if (create)
     {
-        <button class="btn btn-outline-secondary"
-        @onclick="AddBackendUserList">
-            新增
-        </button>
+        <div class="filters">
+            <button class="btn btn-outline-secondary"
+            @onclick="AddBackendUserList">
+                新增
+            </button>
+        </div>
     }
 }
 @if (read)

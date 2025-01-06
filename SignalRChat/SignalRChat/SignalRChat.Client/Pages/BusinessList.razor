@@ -12,12 +12,18 @@
 <h3>商家管理</h3>
 @if (read)
 {
-    <div class="filters">
+    <div class="filters">      
         <label for="business_type_id">商家類型(id)</label>
-        <input id="business_type_id"
-        type="number"
-        class="form-control"
-        @bind="business_type_id" />
+        <select @bind="business_type_id">
+            <option value="0">全部</option>
+            @if (dataBusinessType != null)
+            {
+                @foreach (var dBT in dataBusinessType)
+                {
+                    <option value="@dBT.business_type_id">@dBT.business_type_name</option>
+                }
+            }
+        </select><br />
         <label for="business_name">商家名稱</label>
         <input id="business_name"
         type="text"
@@ -46,16 +52,25 @@
         @onclick="ClearSearchFilter">
             清除
         </button>
+        @if (create)
+        {
+            <button class="btn btn-outline-secondary"
+            @onclick="AddBusinessList">
+                新增
+            </button>
+        }
     </div>
 }
 else
 {
-    if(create)
+    @if (create)
     {
-        <button class="btn btn-outline-secondary"
-        @onclick="AddBusinessList">
-            新增
-        </button>
+        <div class="filters">
+            <button class="btn btn-outline-secondary"
+            @onclick="AddBusinessList">
+                新增
+            </button>
+        </div>
     }
 }
 @if(read) {
@@ -67,7 +82,7 @@ else
     PageSize=2
     @ref="GridDBL">
 
-        <GridColumn TItem="DataBusinessList" HeaderText="商家id" PropertyName="business_id" SortString="business_id" SortKeySelector="item => item.business_id" FilterTextboxWidth="50" Class="d-none" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
+        <GridColumn TItem="DataBusinessList" HeaderText="商家id" PropertyName="business_id" SortString="business_id" SortKeySelector="item => item.business_id" FilterTextboxWidth="50" HeaderTextAlignment="Alignment.Center" TextAlignment="Alignment.Center">
             @context.business_id
         </GridColumn>
         <GridColumn TItem="DataBusinessList" HeaderText="商家名稱" PropertyName="business_name" SortString="business_name" SortKeySelector="item => item.business_name" FilterTextboxWidth="80">
@@ -133,6 +148,7 @@ else
     private string errorMessage = "";
     private int business_id = 0;
     private IQueryable<DataBusinessList> dataBusinessList;
+    private List<DataBusinessType>? dataBusinessType;
     private SignalRChat.Client.Model.BusinessList businessList;    
     private Grid<DataBusinessList> GridDBL;
     private Modal modal1 = default!;
@@ -224,6 +240,7 @@ else
         {
             delete = false;
         }
+        dataBusinessType = await ObjectBusinessListService.GetBusinessType();
         business_type_id = 0;
         business_name = "";
         email = "";
