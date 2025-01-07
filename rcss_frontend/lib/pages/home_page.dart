@@ -17,7 +17,6 @@ class HomePage extends StatefulWidget {
   final String userName;
 
   const HomePage({super.key, required this.uuid, required this.userName});
-
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -32,12 +31,12 @@ class _HomePageState extends State<HomePage> {
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
 
   final List<Widget> _pagesName = [
+    Text("首頁"),
     Text("商家"),
     Text("客服"),
     Text("好友"),
     Text("群組"),
     Text("廣告"),
-    Text("捷徑"),
     Text("設定"),
   ];
 
@@ -77,6 +76,11 @@ class _HomePageState extends State<HomePage> {
         onTap: _onItemTapped,
         unselectedItemColor: Colors.white,
         items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "首頁",
+            backgroundColor: Colors.red,
+          ),
           BottomNavigationBarItem(
             icon: badges.Badge(
               badgeContent: Text(
@@ -153,11 +157,6 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "捷徑",
-            backgroundColor: Colors.red,
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: "設定",
             backgroundColor: Colors.red,
@@ -172,6 +171,10 @@ class _HomePageState extends State<HomePage> {
           });
         },
         children: [
+          IndexPage(
+            uuid: widget.uuid,
+            userName: widget.userName,
+          ),
           StorePage(
             uuid: widget.uuid,
             userName: widget.userName,
@@ -183,10 +186,6 @@ class _HomePageState extends State<HomePage> {
           FriendPage(uuid: widget.uuid,username: widget.userName),
           GroupPage(),
           MessagePushPage(
-            uuid: widget.uuid,
-            userName: widget.userName,
-          ),
-          IndexPage(
             uuid: widget.uuid,
             userName: widget.userName,
           ),

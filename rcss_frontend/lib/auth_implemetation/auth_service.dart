@@ -13,8 +13,33 @@ class AuthService {
   Future getVerificationCode({required String email}) async {
     final uri = Uri.parse(
         'http://10.10.10.207:3000/api/verification/send-verification-code');
+    //final uri = Uri.parse(
+    //    'http://10.10.10.207:3000/api/sendCode);
 
     final Map<String, String> requestBody = {'email': email};
+
+    final response = await http.post(
+      uri,
+      headers: headers,
+      body: json.encode(requestBody),
+    );
+
+    Map<String, dynamic> responseBody = json.decode(response.body);
+    if (response.statusCode == 200) {
+      return responseBody['message'];
+    } else {
+      throw Exception(
+          '錯誤：Error code: ${responseBody['code']}, Message: ${responseBody['message']}');
+    }
+  }
+
+  Future getVerificationCodeByPhoneOrEmail({required String email}) async {
+    //final uri = Uri.parse(
+    //    'http://10.10.10.207:3000/api/verification/send-verification-code');
+    final uri = Uri.parse(
+        'http://10.10.10.207:3000/api/sendCode');
+
+    final Map<String, String> requestBody = {'identifier': email};
 
     final response = await http.post(
       uri,
@@ -296,7 +321,7 @@ class AuthService {
         Uri.parse('http://10.10.10.207:3000/api/password-reset/password-reset');
 
     final Map<String, String> requestBody = {
-      'email': email,
+      'identifier': email,
       'code': code,
       'password': password,
     };

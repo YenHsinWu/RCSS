@@ -14,7 +14,7 @@ class CheckEmailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("確認信箱"),
+        title: Text("確認信箱/電話"),
         centerTitle: true,
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
@@ -55,7 +55,7 @@ class CheckEmailPage extends StatelessWidget {
   void _emailChecked(BuildContext context) async {
     String email = emailController.text;
 
-    await _authServiced.getVerificationCode(email: email);
+    await _authServiced.getVerificationCodeByPhoneOrEmail(email: email);
 
     Navigator.push(
       context,

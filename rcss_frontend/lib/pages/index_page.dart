@@ -33,7 +33,7 @@ class _IndexPageState extends State<IndexPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('捷徑'),
+        title: Text('首頁'),
         centerTitle: true,
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,

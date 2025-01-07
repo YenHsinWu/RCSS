@@ -129,7 +129,7 @@ class MessageVerificationPage extends StatelessWidget {
   void _sendMessage(String sendbackphone,String validationcode,BuildContext context) async {
     // 啟動Google Messages，參數給sendbackphone以及validationcode
     List<String> recipients = <String>[];
-    recipients.add("886981996153");  // 未來要刪除
+    //recipients.add("886981996153");  // 未來要刪除
     recipients.add(sendbackphone);
     await SmsMms.send(
       recipients: recipients,
